@@ -895,6 +895,46 @@
             showMessage("Importação Concluída", `${prescricoes.length} prescrições foram importadas com sucesso!`, 'success');
         };
 
+        const setupAuthListener = () => {
+            onAuthStateChanged(auth, async (user) => {
+                showLoading(true);
+                try {
+                    if (user) {
+                        // Usuário está logado (Admin ou Anônimo)
+                        authUser = user;
+                        if (user.isAnonymous) {
+                            // Usuário anônimo (público)
+                            adminLoginBtn.classList.remove('hidden');
+                            adminPanelBtn.classList.add('hidden');
+                            logoutBtn.classList.add('hidden');
+                        } else {
+                            // Admin logado
+                            adminLoginBtn.classList.add('hidden');
+                            adminPanelBtn.classList.remove('hidden');
+                            logoutBtn.classList.remove('hidden');
+                        }
+                        // Iniciar listener do Firestore
+                        setupFirebaseListeners();
+                    } else {
+                        // Usuário deslogado, tentar login anônimo
+                        authUser = null;
+                        adminLoginBtn.classList.remove('hidden');
+                        adminPanelBtn.classList.add('hidden');
+                        logoutBtn.classList.add('hidden');
+                        
+                        console.log("Usuário deslogado. Tentando login anônimo...");
+                        await signInAnonymously(auth);
+                        // A chamada acima irá disparar o onAuthStateChanged novamente.
+                    }
+                } catch (authError) {
+                    console.error("Erro no listener de autenticação:", authError);
+                    showMessage("Erro de Autenticação", "Ocorreu um problema na sessão. Por favor, recarregue a página.", 'error');
+                } finally {
+                    showLoading(false);
+                }
+            });
+        };
+
         const setupFirebaseListeners = () => {
             // Se já houver um listener, cancela-o antes de criar um novo
             if (unsubscribePrescricoes) {
@@ -932,76 +972,21 @@
 
         // --- Inicialização ---
 
-        const initializeAppAndAuth = () => {
+        const initializeApp = () => {
             if (!firebaseConfig.apiKey) {
                 showMessage("Erro de Configuração", "A configuração do Firebase não foi carregada. O aplicativo não pode funcionar.");
-                return Promise.reject("Firebase config not found");
+                return;
             }
+            // Inicializar Firebase
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
 
-            try {
-                // Inicializar Firebase
-                app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-
-                // Habilitar logs de debug
-                setLogLevel('debug');
-                
-                // Caminho da coleção pública
-                prescricoesCollection = collection(db, `/artifacts/${appId}/public/data/prescricoes`);
-                
-                return new Promise((resolve, reject) => {
-                    // Monitorar estado de autenticação
-                    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-                        if (user) {
-                            // Usuário está logado (Admin ou Anônimo)
-                            authUser = user;
-                            if (user.isAnonymous) {
-                                // Usuário anônimo (público)
-                                adminLoginBtn.classList.remove('hidden');
-                                adminPanelBtn.classList.add('hidden');
-                                logoutBtn.classList.add('hidden');
-                            } else {
-                                // Admin logado
-                                adminLoginBtn.classList.add('hidden');
-                                adminPanelBtn.classList.remove('hidden');
-                                logoutBtn.classList.remove('hidden');
-                            }
-                            // Iniciar listener do Firestore
-                            setupFirebaseListeners();
-                            unsubscribe(); // Para de ouvir após a primeira autenticação bem-sucedida
-                            resolve(user);
-                        } else {
-                            // Usuário deslogado, tentar login anônimo
-                            authUser = null;
-                            adminLoginBtn.classList.remove('hidden');
-                            adminPanelBtn.classList.add('hidden');
-                            logoutBtn.classList.add('hidden');
-                            
-                            try {
-                                if (initialAuthToken) {
-                                    console.log("Tentando login com Custom Token...");
-                                    await signInWithCustomToken(auth, initialAuthToken);
-                                } else {
-                                    console.log("Tentando login anônimo...");
-                                    await signInAnonymously(auth);
-                                }
-                                // onAuthStateChanged será chamado novamente, resolvendo a Promise
-                            } catch (authError) {
-                                console.error("Erro na autenticação inicial:", authError);
-                                showMessage("Erro de Autenticação", "Não foi possível conectar ao serviço. Por favor, recarregue a página.", 'error');
-                                unsubscribe();
-                                reject(authError);
-                            }
-                        }
-                    });
-                });
-
-            } catch (e) {
-                console.error("Erro fatal ao inicializar Firebase:", e);
-                showMessage("Erro Crítico", "Falha ao inicializar o aplicativo. Por favor, recarregue a página.", 'error');
-                return Promise.reject(e);
-            }
+            // Habilitar logs de debug
+            setLogLevel('debug');
+            
+            // Caminho da coleção pública
+            prescricoesCollection = collection(db, `/artifacts/${appId}/public/data/prescricoes`);
         };
 
         // --- Event Listeners ---
@@ -1055,7 +1040,7 @@
         // Download do arquivo de exemplo
         downloadExampleLink.addEventListener('click', (e) => {
             e.preventDefault();
-            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: J03.9\n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg\nTomar 2 comprimidos a cada 8 horas por 10 dias.`;
+            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n3) Metoclopramida 10 mg ------------------------------- 2 cx\nTomar 1 cp a cada 8 horas se náusea ou vômito\n\n4) Aumentar a ingesta de líquidos durante os próximos dias (pelo menos 3L por dia).\n\nConduta:\n1) Prescrevo sintomáticos\n2) Encaminho paciente à UPA/UBS para realização de teste de dengue\n3) Solicito à equipe de enfermagem a notificação do caso suspeito de arbovirose\n4) Oriento sinais de alarme e retorno imediato ao PS caso necessário.\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: \n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI -------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg ------------------------------------------------------------------ 21 cps\nTomar 2 comprimidos a cada 8 horas por 10 dias. \n\n2) Ibuprofeno 300 mg -----------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas durante 5 dias  \n3) Dipirona 500mg -------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre \n\nPRIVADO\n1) Amoxicilina + Clavulanato 875 mg + 125 mg —----------------------------------------------- 14 cps\nTomar 1 comprimido a cada 12 horas por 10 dias\n\n2) Cetoprofeno 100 mg —----------------------------------------------------------------------------------------\nTomar 1 comprimido a cada 12 horas por 5 dias  \n\n3) Dipirona 500 mg--------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\nPEDIATRIA\nUSO INJETÁVEL (< 30Kg)\n1) Penicilina G Benzatina 600.000UI -------------------------------------------------------------\nAplicar 600.000UI intramuscular dose única\n\nUSO INJETÁVEL (> 30Kg)\n1) Penicilina G Benzatina 1.200.000UI -------------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL\n1) Dipirona gotas 500mg/ml -------------------------------------------------------------------- \nTomar X gotas de 6 em 6 horas se dor ou febre.\n\n2) Ibuprofeno gotas 100mg/ml --------------------------------------------------------------- \nTomar X gotas de 8 em 8 horas por 5 dias.\n\n\nORIENTAÇÕES\n1) Aumentar a ingesta de líquidos.\n2) Manter alimentação.\n3) Retornar ao serviço em caso de manutenção ou aparecimento de febre (temperatura maior que 37,7ºC), falta de ar, cansaço, esforço para respirar, sonolência, incapacidade ou muita dor ao abrir a boca, dor ao virar o pescoço, incapacidade de se alimentar ou beber líquidos.\n---\nArea: Otorrinolaringologia\nDoenca: Rinossinusite\nCID: \n\nSUS\n1) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas se dor ou febre por 5 dias  \n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\n3) Loratadina 10 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\nPediatria\n1) Ibuprofeno gotas 100mg/ml ------------------------------------------------------------------------------------------\nTomar x gotas de 8 em 8 horas se dor ou febre por 5 dias.  \n\n2) Dipirona 500mg/ml -------------------------------------------------------------------------------------------\nTomar x gotas a cada 6 horas se dor ou febre (temperatura acima de 37,8 ºC).\n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas`;
             const blob = new Blob([exampleText], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1064,7 +1049,7 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            URL.revokeObjectURL(url);            
+            URL.revokeObjectURL(url);
         });
 
         // Login/Logout Admin
@@ -1111,15 +1096,9 @@
         messageCancelBtn.addEventListener('click', () => closeMessage(false));
 
         // Iniciar a aplicação
-        const startApp = async () => {
-            showLoading(true);
-            try {
-                await initializeAppAndAuth();
-            } finally {
-                showLoading(false);
-            }
-        };
-        startApp();
+        initializeApp();
+        setupAuthListener();
+
 
     </script>
 </body>
