@@ -185,7 +185,7 @@
     </div>
 
     <!-- Modal de Login Admin -->
-    <div id="login-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 modal-backdrop-fade">
+    <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 z-50 modal-backdrop-fade">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
             <!-- Header -->
             <div class="flex justify-between items-center p-6 border-b border-gray-200">
@@ -215,7 +215,7 @@
     </div>
 
     <!-- Modal do Painel Admin -->
-    <div id="admin-panel-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 md:p-8 z-50 modal-backdrop-fade">
+    <div id="admin-panel-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 md:p-8 z-50 modal-backdrop-fade">
         <div class="bg-gray-100 rounded-2xl shadow-xl w-full h-full max-w-7xl flex flex-col modal-fade">
             <!-- Header -->
             <div class="flex justify-between items-center p-5 border-b border-gray-300 bg-white rounded-t-2xl">
@@ -283,7 +283,7 @@
     </div>
 
     <!-- Modal de Mensagem/Confirmação (Substitui alert/confirm) -->
-    <div id="message-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-[60] modal-backdrop-fade">
+    <div id="message-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 z-[60] modal-backdrop-fade">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
             <div class="p-6 md:p-8 text-center">
                 <div id="message-icon" class="mx-auto mb-4">
@@ -417,13 +417,17 @@
         };
 
         const openModal = (modalEl) => {
-            modalEl.classList.remove('hidden-transition');
-            modalEl.classList.add('visible-transition');
+            modalEl.classList.remove('hidden');
+            modalEl.classList.add('flex'); // 'flex' é usado para centralizar o conteúdo do modal
+            modalEl.classList.add('opacity-100');
+            modalEl.classList.remove('opacity-0');
         };
 
         const closeModal = (modalEl) => {
-            modalEl.classList.remove('visible-transition');
-            modalEl.classList.add('hidden-transition');
+            modalEl.classList.add('opacity-0');
+            modalEl.classList.remove('opacity-100');
+            // Aguarda a transição de opacidade terminar antes de adicionar 'hidden'
+            setTimeout(() => { modalEl.classList.add('hidden'); modalEl.classList.remove('flex'); }, 300); // 300ms é a duração da animação
         };
         
         /**
