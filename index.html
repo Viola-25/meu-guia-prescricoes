@@ -261,6 +261,14 @@
                             <button type="submit" id="form-submit-btn" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                                 Salvar Prescrição
                             </button>
+                            <button type="button" id="form-import-btn" class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                                Importar de TXT
+                            </button>
+                            <input type="file" id="import-file-input" class="hidden" accept=".txt">
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <a href="#" id="download-example-link" class="text-sm text-blue-600 hover:underline">Baixar Exemplo de Importação</a>
+                            </button>
                             <button type="button" id="form-cancel-btn" class="hidden bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
                                 Cancelar Edição
                             </button>
@@ -397,6 +405,9 @@
         const formSubmitBtn = document.getElementById('form-submit-btn');
         const formCancelBtn = document.getElementById('form-cancel-btn');
         const adminListContainer = document.getElementById('admin-list-container');
+        const importBtn = document.getElementById('form-import-btn');
+        const importFileInput = document.getElementById('import-file-input');
+        const downloadExampleLink = document.getElementById('download-example-link');
 
         const messageModal = document.getElementById('message-modal');
         const messageIcon = document.getElementById('message-icon');
@@ -779,6 +790,7 @@
             try {
                 await signInWithEmailAndPassword(auth, email, password);
                 closeModal(loginModal);
+                showMessage("Sucesso", "Login bem-sucedido! Bem-vindo(a).", 'success');
                 loginForm.reset();
                 // onAuthStateChanged cuidará do resto
             } catch (error) {
@@ -804,6 +816,82 @@
             } finally {
                 showLoading(false);
             }
+        };
+
+        // --- Funções de Importação ---
+
+        const handleFileImport = (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const text = e.target.result;
+                try {
+                    const prescricoes = parseImportText(text);
+                    if (prescricoes.length === 0) {
+                        showMessage("Aviso", "Nenhuma prescrição válida encontrada no arquivo.", 'info');
+                        return;
+                    }
+                    
+                    await saveImportedPrescricoes(prescricoes);
+
+                } catch (error) {
+                    console.error("Erro ao processar arquivo:", error);
+                    showMessage("Erro de Importação", `Falha ao processar o arquivo: ${error.message}`, 'error');
+                }
+            };
+            reader.onerror = () => {
+                showMessage("Erro de Leitura", "Não foi possível ler o arquivo selecionado.", 'error');
+            };
+            reader.readAsText(file);
+
+            // Limpa o input para permitir selecionar o mesmo arquivo novamente
+            event.target.value = '';
+        };
+
+        const parseImportText = (text) => {
+            const prescricoes = [];
+            const blocos = text.split('---').map(b => b.trim()).filter(b => b);
+
+            blocos.forEach(bloco => {
+                const linhas = bloco.split('\n');
+                const data = { area: '', doenca: '', cid: '', texto: [] };
+                let textoStarted = false;
+
+                for (const linha of linhas) {
+                    if (linha.toLowerCase().startsWith('area:')) {
+                        data.area = linha.substring(5).trim();
+                    } else if (linha.toLowerCase().startsWith('doenca:')) {
+                        data.doenca = linha.substring(7).trim();
+                    } else if (linha.toLowerCase().startsWith('cid:')) {
+                        data.cid = linha.substring(4).trim();
+                    } else if (linha.trim() !== '') {
+                        textoStarted = true;
+                        data.texto.push(linha);
+                    } else if (textoStarted) {
+                        data.texto.push(linha); // Preserva linhas em branco no meio do texto
+                    }
+                }
+                data.texto = data.texto.join('\n').trim();
+
+                if (data.area && data.doenca && data.texto) {
+                    prescricoes.push(data);
+                }
+            });
+            return prescricoes;
+        };
+
+        const saveImportedPrescricoes = async (prescricoes) => {
+            showLoading(true);
+            const batch = writeBatch(db);
+            prescricoes.forEach(p => {
+                const newDocRef = doc(prescricoesCollection);
+                batch.set(newDocRef, p);
+            });
+            await batch.commit();
+            showLoading(false);
+            showMessage("Importação Concluída", `${prescricoes.length} prescrições foram importadas com sucesso!`, 'success');
         };
 
         const setupFirebaseListeners = () => {
@@ -946,20 +1034,13 @@
 
         // Copiar Prescrição
         copyBtn.addEventListener('click', async () => {
+            const textToCopy = contentText.textContent;
             try {
-                // Tenta usar a API moderna (pode falhar no iframe)
-                // await navigator.clipboard.writeText(contentText.textContent);
-                
-                // Fallback com execCommand
-                const textArea = document.createElement('textarea');
-                textArea.value = contentText.textContent;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
+                await navigator.clipboard.writeText(textToCopy);
 
                 copyBtn.querySelector('span').textContent = 'Copiado!';
                 copyBtn.querySelector('ion-icon').setAttribute('name', 'checkmark-outline');
+                
                 setTimeout(() => {
                     copyBtn.querySelector('span').textContent = 'Copiar';
                     copyBtn.querySelector('ion-icon').setAttribute('name', 'copy-outline');
@@ -967,6 +1048,22 @@
             } catch (err) {
                 console.error('Falha ao copiar: ', err);
                 showMessage("Erro", "Não foi possível copiar o texto. Tente manualmente.", 'error');
+            }
+        });
+
+        // Download do arquivo de exemplo
+        downloadExampleLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: J03.9\n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI\nAplicar 1.200.000UI intramuscular dose única`;
+            const blob = new Blob([exampleText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'exemplo_import.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
             }
         });
 
@@ -982,6 +1079,10 @@
         });
         adminForm.addEventListener('submit', handleFormSubmit);
         formCancelBtn.addEventListener('click', resetAdminForm);
+
+        // Importação de Arquivo
+        importBtn.addEventListener('click', () => importFileInput.click());
+        importFileInput.addEventListener('change', handleFileImport);
 
         // Delegação de Eventos no Painel Admin
         adminListContainer.addEventListener('click', (e) => {
