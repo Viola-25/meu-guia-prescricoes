@@ -828,13 +828,19 @@
             reader.onload = async (e) => {
                 const text = e.target.result;
                 try {
-                    const prescricoes = parseImportText(text);
-                    if (prescricoes.length === 0) {
-                        showMessage("Aviso", "Nenhuma prescrição válida encontrada no arquivo.", 'info');
-                        return;
-                    }
+                    const { success, failures, skipped } = parseImportText(text);
                     
-                    await saveImportedPrescricoes(prescricoes);
+                    if (success.length > 0) {
+                        await saveImportedPrescricoes(success);
+                    }
+
+                    // Gerar relatório detalhado
+                    let reportMessage = `Importação finalizada.\n\nSucesso: ${success.length}\nDuplicatas ignoradas: ${skipped}\nFalhas: ${failures.length}`;
+                    if (failures.length > 0) {
+                        const failureDetails = failures.map(f => `- Bloco ${f.blockIndex}: ${f.reason}`).join('\n');
+                        reportMessage += `\n\nDetalhes das falhas:\n${failureDetails}`;
+                    }
+                    showMessage("Relatório de Importação", reportMessage, 'info');
 
                 } catch (error) {
                     console.error("Erro ao processar arquivo:", error);
@@ -851,35 +857,61 @@
         };
 
         const parseImportText = (text) => {
-            const prescricoes = [];
-            const blocos = text.split('---').map(b => b.trim()).filter(b => b);
+            const success = [];
+            const failures = [];
+            let skipped = 0;
 
-            blocos.forEach(bloco => {
-                const linhas = bloco.split('\n');
-                const data = { area: '', doenca: '', cid: '', texto: [] };
-                let textoStarted = false;
-
-                for (const linha of linhas) {
-                    if (linha.toLowerCase().startsWith('area:')) {
-                        data.area = linha.substring(5).trim();
-                    } else if (linha.toLowerCase().startsWith('doenca:')) {
-                        data.doenca = linha.substring(7).trim();
-                    } else if (linha.toLowerCase().startsWith('cid:')) {
-                        data.cid = linha.substring(4).trim();
-                    } else if (linha.trim() !== '') {
-                        textoStarted = true;
-                        data.texto.push(linha);
-                    } else if (textoStarted) {
-                        data.texto.push(linha); // Preserva linhas em branco no meio do texto
-                    }
+            // Normaliza quebras de linha para consistência
+            const normalizedText = text.replace(/\r\n/g, '\n');
+            const blocos = normalizedText.split('---').map(b => b.trim()).filter(b => b);
+            // Função auxiliar para extrair um campo usando regex e remover a linha do bloco de texto.
+            const extractField = (bloco, fieldName) => {
+                const regex = new RegExp(`^${fieldName}\\s*:\\s*(.*)`, "im");
+                const match = bloco.match(regex);
+                if (match) {
+                    // Remove a linha correspondente do bloco para que reste apenas o texto da prescrição.
+                    bloco = bloco.replace(regex, '').trim();
+                    // Retorna o valor encontrado e o texto restante do bloco.
+                    return { value: match[1].trim(), remainingText: bloco };
                 }
-                data.texto = data.texto.join('\n').trim();
+                return { value: '', remainingText: bloco };
+            };
 
-                if (data.area && data.doenca && data.texto) {
-                    prescricoes.push(data);
+            blocos.forEach((bloco, index) => {
+                const blockIndex = index + 1;
+                let data = {};
+                let remainingText = bloco;
+
+                ({ value: data.area,   remainingText } = extractField(remainingText, 'Area'));
+                ({ value: data.doenca, remainingText } = extractField(remainingText, 'Doenca'));
+                ({ value: data.cid,    remainingText } = extractField(remainingText, 'CID'));
+
+                data.texto = remainingText.trim();
+
+                // Validações
+                if (!data.area) {
+                    failures.push({ blockIndex, reason: "Campo 'Area' não encontrado." });
+                    return; // Pula para o próximo bloco
                 }
+                if (!data.doenca) {
+                    failures.push({ blockIndex, reason: "Campo 'Doenca' não encontrado." });
+                    return;
+                }
+                if (!data.texto) {
+                    failures.push({ blockIndex, reason: "Nenhum texto de prescrição encontrado." });
+                    return;
+                }
+
+                // Checagem de duplicata
+                const isDuplicate = allPrescricoes.some(p => p.area.toLowerCase() === data.area.toLowerCase() && p.doenca.toLowerCase() === data.doenca.toLowerCase());
+                if (isDuplicate) {
+                    skipped++;
+                    return;
+                }
+
+                success.push(data);
             });
-            return prescricoes;
+            return { success, failures, skipped };
         };
 
         const saveImportedPrescricoes = async (prescricoes) => {
@@ -891,7 +923,6 @@
             });
             await batch.commit();
             showLoading(false);
-            showMessage("Importação Concluída", `${prescricoes.length} prescrições foram importadas com sucesso!`, 'success');
         };
 
         const setupAuthListener = () => {
