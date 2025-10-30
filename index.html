@@ -257,20 +257,22 @@
                             <textarea id="form-texto" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1 text-sm font-mono" rows="15" placeholder="Cole a prescrição formatada aqui..."></textarea>
                         </div>
                         
-                        <div class="flex items-center space-x-3 pt-2">
-                            <button type="submit" id="form-submit-btn" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                        <!-- Botões de Ação -->
+                        <div class="flex flex-wrap items-center gap-3 pt-2">
+                            <button type="submit" id="form-submit-btn" class="flex-grow bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                                 Salvar Prescrição
                             </button>
-                            <button type="button" id="form-import-btn" class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                            <button type="button" id="form-import-btn" class="flex-grow bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
                                 Importar de TXT
                             </button>
                             <input type="file" id="import-file-input" class="hidden" accept=".txt">
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <a href="#" id="download-example-link" class="text-sm text-blue-600 hover:underline">Baixar Exemplo de Importação</a>
-                            <button type="button" id="form-cancel-btn" class="hidden bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                            <button type="button" id="form-cancel-btn" class="hidden flex-grow bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
                                 Cancelar Edição
                             </button>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" id="download-example-link" class="text-sm text-blue-600 hover:underline">
+                                Precisa de ajuda? Baixe um arquivo de exemplo (.txt) para importação.</a>
                         </div>
                     </form>
                 </div>
@@ -1053,7 +1055,7 @@
         // Download do arquivo de exemplo
         downloadExampleLink.addEventListener('click', (e) => {
             e.preventDefault();
-            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: J03.9\n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI\nAplicar 1.200.000UI intramuscular dose única`;
+            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: J03.9\n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg\nTomar 2 comprimidos a cada 8 horas por 10 dias.`;
             const blob = new Blob([exampleText], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
