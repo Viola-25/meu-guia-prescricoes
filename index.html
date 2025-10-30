@@ -70,7 +70,7 @@
             transition: opacity 0.3s ease-in-out;
         }
         .visible-transition {
-            display: flex;
+            display: flex !important; /* Garante que o display seja flex */
             opacity: 1;
         }
 
@@ -300,10 +300,10 @@
     </div>
 
     <!-- Overlay de Loading Global -->
-    <div id="loading-overlay" class="hidden-transition fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-[70]">
+    <div id="loading-overlay" class="hidden fixed inset-0 bg-white bg-opacity-80 items-center justify-center z-[70]">
         <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-600"></div>
     </div>
-
+    
     <!-- Firebase SDKs -->
     <script type="module">
         // Importar os módulos necessários do Firebase
@@ -410,13 +410,10 @@
         // --- Funções Utilitárias ---
 
         const showLoading = (show) => {
-            if (show) {
-                loadingOverlay.classList.remove('hidden-transition');
-                loadingOverlay.classList.add('visible-transition');
-            } else {
-                loadingOverlay.classList.remove('visible-transition');
-                loadingOverlay.classList.add('hidden-transition');
-            }
+            // Usando classes simples de 'hidden' e 'flex' para evitar conflitos.
+            // 'flex' é necessário para centralizar o spinner.
+            loadingOverlay.classList.toggle('hidden', !show);
+            loadingOverlay.classList.toggle('flex', show);
         };
 
         const openModal = (modalEl) => {
