@@ -842,10 +842,10 @@
 
         // --- Inicialização ---
 
-        const initialize = async () => {
+        const initializeAppAndAuth = () => {
             if (!firebaseConfig.apiKey) {
                 showMessage("Erro de Configuração", "A configuração do Firebase não foi carregada. O aplicativo não pode funcionar.");
-                return;
+                return Promise.reject("Firebase config not found");
             }
 
             try {
@@ -860,52 +860,57 @@
                 // Caminho da coleção pública
                 prescricoesCollection = collection(db, `/artifacts/${appId}/public/data/prescricoes`);
                 
-                // Monitorar estado de autenticação
-                onAuthStateChanged(auth, async (user) => {
-                    showLoading(true);
-                    if (user) {
-                        // Usuário está logado (Admin ou Anônimo)
-                        authUser = user;
-                        if (user.isAnonymous) {
-                            // Usuário anônimo (público)
+                return new Promise((resolve, reject) => {
+                    // Monitorar estado de autenticação
+                    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+                        if (user) {
+                            // Usuário está logado (Admin ou Anônimo)
+                            authUser = user;
+                            if (user.isAnonymous) {
+                                // Usuário anônimo (público)
+                                adminLoginBtn.classList.remove('hidden');
+                                adminPanelBtn.classList.add('hidden');
+                                logoutBtn.classList.add('hidden');
+                            } else {
+                                // Admin logado
+                                adminLoginBtn.classList.add('hidden');
+                                adminPanelBtn.classList.remove('hidden');
+                                logoutBtn.classList.remove('hidden');
+                            }
+                            // Iniciar listener do Firestore
+                            setupFirebaseListeners();
+                            unsubscribe(); // Para de ouvir após a primeira autenticação bem-sucedida
+                            resolve(user);
+                        } else {
+                            // Usuário deslogado, tentar login anônimo
+                            authUser = null;
                             adminLoginBtn.classList.remove('hidden');
                             adminPanelBtn.classList.add('hidden');
                             logoutBtn.classList.add('hidden');
-                        } else {
-                            // Admin logado
-                            adminLoginBtn.classList.add('hidden');
-                            adminPanelBtn.classList.remove('hidden');
-                            logoutBtn.classList.remove('hidden');
-                        }
-                        // Iniciar listener do Firestore
-                        setupFirebaseListeners();
-                    } else {
-                        // Usuário deslogado, tentar login anônimo
-                        authUser = null;
-                        adminLoginBtn.classList.remove('hidden');
-                        adminPanelBtn.classList.add('hidden');
-                        logoutBtn.classList.add('hidden');
-                        
-                        try {
-                            if (initialAuthToken) {
-                                console.log("Tentando login com Custom Token...");
-                                await signInWithCustomToken(auth, initialAuthToken);
-                            } else {
-                                console.log("Tentando login anônimo...");
-                                await signInAnonymously(auth);
+                            
+                            try {
+                                if (initialAuthToken) {
+                                    console.log("Tentando login com Custom Token...");
+                                    await signInWithCustomToken(auth, initialAuthToken);
+                                } else {
+                                    console.log("Tentando login anônimo...");
+                                    await signInAnonymously(auth);
+                                }
+                                // onAuthStateChanged será chamado novamente, resolvendo a Promise
+                            } catch (authError) {
+                                console.error("Erro na autenticação inicial:", authError);
+                                showMessage("Erro de Autenticação", "Não foi possível conectar ao serviço. Por favor, recarregue a página.", 'error');
+                                unsubscribe();
+                                reject(authError);
                             }
-                            // onAuthStateChanged será chamado novamente
-                        } catch (authError) {
-                            console.error("Erro na autenticação inicial:", authError);
-                            showMessage("Erro de Autenticação", "Não foi possível conectar ao serviço. Por favor, recarregue a página.", 'error');
                         }
-                    }
-                    showLoading(false);
+                    });
                 });
 
             } catch (e) {
                 console.error("Erro fatal ao inicializar Firebase:", e);
                 showMessage("Erro Crítico", "Falha ao inicializar o aplicativo. Por favor, recarregue a página.", 'error');
+                return Promise.reject(e);
             }
         };
 
@@ -1004,7 +1009,15 @@
         messageCancelBtn.addEventListener('click', () => closeMessage(false));
 
         // Iniciar a aplicação
-        initialize();
+        const startApp = async () => {
+            showLoading(true);
+            try {
+                await initializeAppAndAuth();
+            } finally {
+                showLoading(false);
+            }
+        };
+        startApp();
 
     </script>
 </body>
