@@ -1,4 +1,3 @@
-const DADOS_EXEMPLO_TEXTO = `
 Area: Infectologia
 Doenca: Dengue
 CID: A90
