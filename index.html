@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Prescrições</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Heroicons) -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Estilo para preservar a formatação da prescrição */
+        .prescription-content {
+            font-family: 'Roboto Mono', monospace; /* Fonte monoespaçada para alinhar hífens */
+            white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+            word-wrap: break-word;
+        }
+
+        /* Scrollbar customizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a1a1a1;
+        }
+
+        /* Animação de fade-in para modais */
+        .modal-fade {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-backdrop-fade {
+            animation: fadeInBackdrop 0.3s ease-out;
+        }
+        @keyframes fadeInBackdrop {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hidden-transition {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .visible-transition {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Esconde a sidebar em telas pequenas */
+        @media (max-width: 767px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 40; /* Abaixo do overlay */
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #sidebar-overlay {
+                display: none;
+                z-index: 30;
+            }
+            #sidebar-overlay.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 antialiased">
+
+    <!-- Container Principal -->
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Overlay da Sidebar (Mobile) -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 md:hidden"></div>
+
+        <!-- Sidebar / Navegação -->
+        <aside id="sidebar" class="absolute inset-y-0 left-0 md:static w-72 md:w-80 bg-white shadow-lg h-full flex flex-col overflow-y-auto">
+            <div class="p-4 border-b">
+                <h1 class="text-2xl font-bold text-teal-700">Guia de Prescrições</h1>
+                <!-- Botão de fechar (Mobile) -->
+                <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                    <ion-icon name="close-outline" class="text-3xl"></ion-icon>
+                </button>
+            </div>
+            
+            <!-- Busca -->
+            <div class="p-4 border-b">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="Buscar doença..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <ion-icon name="search-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></ion-icon>
+                </div>
+            </div>
+
+            <!-- Lista de Navegação (Preenchida pelo JS) -->
+            <nav id="sidebar-nav" class="flex-1 p-4 space-y-4 overflow-y-auto">
+                <!-- Conteúdo dinâmico aqui -->
+                <div id="nav-loading" class="text-center text-gray-500 mt-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-500"></div>
+                    <p class="mt-2">Carregando...</p>
+                </div>
+                <div id="nav-empty" class="text-center text-gray-500 mt-8 hidden">Nenhuma prescrição encontrada.</div>
+            </nav>
+        </aside>
+
+        <!-- Área de Conteúdo Principal -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header do Conteúdo -->
+            <header class="bg-white shadow-md p-4 flex justify-between items-center z-10">
+                <!-- Botão Menu (Mobile) -->
+                <button id="menu-btn" class="md:hidden text-gray-700 hover:text-teal-600">
+                    <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+                </button>
+                <div class="hidden md:block">
+                    <p id="breadcrumb" class="text-sm text-gray-500">Selecione uma área e uma doença no menu ao lado.</p>
+                </div>
+                
+                <!-- Botões de Admin -->
+                <div class="flex items-center space-x-3">
+                    <button id="admin-login-btn" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition-colors shadow-sm flex items-center space-x-2">
+                        <ion-icon name="log-in-outline" class="text-xl"></ion-icon>
+                        <span>Login Admin</span>
+                    </button>
+                    <button id="admin-panel-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm flex items-center space-x-2">
+                        <ion-icon name="shield-checkmark-outline" class="text-xl"></ion-icon>
+                        <span>Painel Admin</span>
+                    </button>
+                    <button id="logout-btn" class="hidden bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors shadow-sm flex items-center space-x-2">
+                        <ion-icon name="log-out-outline" class="text-xl"></ion-icon>
+                        <span>Sair</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Conteúdo da Prescrição -->
+            <div id="content-area" class="flex-1 overflow-y-auto p-6 md:p-8">
+                <div id="content-placeholder" class="text-center text-gray-500 mt-16">
+                    <ion-icon name="document-text-outline" class="text-8xl text-gray-300"></ion-icon>
+                    <h2 class="text-2xl font-medium mt-4">Bem-vindo!</h2>
+                    <p class="mt-2">Selecione uma doença no menu lateral para ver a prescrição.</p>
+                </div>
+
+                <div id="content-display" class="hidden max-w-4xl mx-auto">
+                    <h2 id="content-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-2"></h2>
+                    <p id="content-cid" class="text-lg text-gray-500 font-medium mb-6"></p>
+                    
+                    <div class="relative">
+                        <button id="copy-btn" class="absolute top-4 right-4 bg-gray-200 text-gray-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors flex items-center space-x-1.5">
+                            <ion-icon name="copy-outline"></ion-icon>
+                            <span>Copiar</span>
+                        </button>
+                        <pre id="content-text" class="prescription-content bg-white shadow-md rounded-lg p-6 md:p-8 text-sm md:text-base text-gray-900 border border-gray-200"></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Login Admin -->
+    <div id="login-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 modal-backdrop-fade">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-800">Login de Administrador</h3>
+                <button class="modal-close-btn text-gray-400 hover:text-gray-700">
+                    <ion-icon name="close-outline" class="text-3xl"></ion-icon>
+                </button>
+            </div>
+            <!-- Body -->
+            <form id="login-form" class="p-6 md:p-8 space-y-6">
+                <div>
+                    <label for="login-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="login-email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg" placeholder="admin@email.com">
+                </div>
+                <div>
+                    <label for="login-password" class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                    <input type="password" id="login-password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg" placeholder="••••••••">
+                </div>
+                <!-- Footer -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-teal-700 transition-colors shadow-md">
+                        Entrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal do Painel Admin -->
+    <div id="admin-panel-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 md:p-8 z-50 modal-backdrop-fade">
+        <div class="bg-gray-100 rounded-2xl shadow-xl w-full h-full max-w-7xl flex flex-col modal-fade">
+            <!-- Header -->
+            <div class="flex justify-between items-center p-5 border-b border-gray-300 bg-white rounded-t-2xl">
+                <h3 class="text-2xl font-bold text-gray-800 flex items-center space-x-3">
+                    <ion-icon name="shield-checkmark-outline" class="text-blue-600"></ion-icon>
+                    <span>Painel de Administração</span>
+                </h3>
+                <button class="modal-close-btn text-gray-400 hover:text-gray-700">
+                    <ion-icon name="close-outline" class="text-3xl"></ion-icon>
+                </button>
+            </div>
+            
+            <!-- Conteúdo do Painel -->
+            <div class="flex-1 flex flex-col md:flex-row overflow-hidden p-6 gap-6">
+                <!-- Coluna 1: Adicionar/Editar Formulário -->
+                <div class="w-full md:w-1/2 lg:w-2/5 flex flex-col">
+                    <form id="admin-form" class="bg-white rounded-lg shadow p-6 space-y-4 flex-1 flex flex-col">
+                        <h4 id="form-title" class="text-xl font-semibold text-gray-700 border-b pb-2">Adicionar Nova Prescrição</h4>
+                        <input type="hidden" id="form-edit-id">
+                        
+                        <div>
+                            <label for="form-area" class="block text-sm font-medium text-gray-700 mb-1">Área</label>
+                            <input type="text" id="form-area" list="area-datalist" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Infectologia">
+                            <datalist id="area-datalist"></datalist>
+                        </div>
+                        
+                        <div>
+                            <label for="form-doenca" class="block text-sm font-medium text-gray-700 mb-1">Doença / Condição</label>
+                            <input type="text" id="form-doenca" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Dengue">
+                        </div>
+                        
+                        <div>
+                            <label for="form-cid" class="block text-sm font-medium text-gray-700 mb-1">CID (Opcional)</label>
+                            <input type="text" id="form-cid" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: A90">
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col">
+                            <label for="form-texto" class="block text-sm font-medium text-gray-700 mb-1">Texto da Prescrição</label>
+                            <textarea id="form-texto" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1 text-sm font-mono" rows="15" placeholder="Cole a prescrição formatada aqui..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3 pt-2">
+                            <button type="submit" id="form-submit-btn" class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                                Salvar Prescrição
+                            </button>
+                            <button type="button" id="form-cancel-btn" class="hidden bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                                Cancelar Edição
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Coluna 2: Lista de Prescrições -->
+                <div class="w-full md:w-1/2 lg:w-3/5 flex flex-col bg-white rounded-lg shadow overflow-hidden">
+                    <div class="p-6 border-b flex justify-between items-center">
+                        <h4 class="text-xl font-semibold text-gray-700">Prescrições Atuais</h4>
+                        <button id="add-example-data-btn" class="hidden bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors flex items-center space-x-1.5">
+                            <ion-icon name="add-circle-outline"></ion-icon>
+                            <span>Adicionar Exemplos</span>
+                        </button>
+                    </div>
+                    <div id="admin-list-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                        <!-- Conteúdo da lista preenchido por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Mensagem/Confirmação (Substitui alert/confirm) -->
+    <div id="message-modal" class="hidden-transition fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-[60] modal-backdrop-fade">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
+            <div class="p-6 md:p-8 text-center">
+                <div id="message-icon" class="mx-auto mb-4">
+                    <!-- Ícone de sucesso ou erro aqui -->
+                </div>
+                <h3 id="message-title" class="text-2xl font-bold text-gray-800 mb-3"></h3>
+                <p id="message-text" class="text-base text-gray-600 mb-8"></p>
+                <div id="message-buttons" class="flex justify-center space-x-4">
+                    <button id="message-ok-btn" class="flex-1 bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-teal-700 transition-colors">OK</button>
+                    <button id="message-cancel-btn" class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de Loading Global -->
+    <div id="loading-overlay" class="hidden-transition fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-[70]">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-600"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        // Importar os módulos necessários do Firebase
+        import { initializeApp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { 
+            getAuth, 
+            signInAnonymously, 
+            signInWithCustomToken, 
+            onAuthStateChanged,
+            signInWithEmailAndPassword,
+            signOut
+            // setLogLevel foi movido para firebase-app.js
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { 
+            getFirestore, 
+            collection, 
+            doc, 
+            addDoc, 
+            setDoc, 
+            deleteDoc, 
+            onSnapshot,
+            query,
+            getDocs,
+            writeBatch
+            // setLogLevel as setFirestoreLogLevel foi removido, use o setLogLevel principal
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- DADOS DE EXEMPLO (Do seu prompt) ---
+        const DADOS_EXEMPLO = [
+            { area: "Infectologia", doenca: "Dengue", cid: "A90", texto: "USO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n3) Metoclopramida 10 mg ------------------------------- 2 cx\nTomar 1 cp a cada 8 horas se náusea ou vômito\n\n4) Aumentar a ingesta de líquidos durante os próximos dias (pelo menos 3L por dia).\n\nConduta:\n1) Prescrevo sintomáticos\n2) Encaminho paciente à UPA/UBS para realização de teste de dengue\n3) Solicito à equipe de enfermagem a notificação do caso suspeito de arbovirose\n4) Oriento sinais de alarme e retorno imediato ao PS caso necessário." },
+            { area: "Otorrinolaringologia", doenca: "Faringoamigdalite", cid: "", texto: "SUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI -------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg ------------------------------------------------------------------ 21 cps\nTomar 2 comprimidos a cada 8 horas por 10 dias. \n\n2) Ibuprofeno 300 mg -----------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas durante 5 dias  \n3) Dipirona 500mg -------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre \n\nPRIVADO\n1) Amoxicilina + Clavulanato 875 mg + 125 mg —----------------------------------------------- 14 cps\nTomar 1 comprimido a cada 12 horas por 10 dias\n\n2) Cetoprofeno 100 mg —----------------------------------------------------------------------------------------\nTomar 1 comprimido a cada 12 horas por 5 dias  \n\n3) Dipirona 500 mg--------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\nPEDIATRIA\nUSO INJETÁVEL (< 30Kg)\n1) Penicilina G Benzatina 600.000UI -------------------------------------------------------------\nAplicar 600.000UI intramuscular dose única\n\nUSO INJETÁVEL (> 30Kg)\n1) Penicilina G Benzatina 1.200.000UI -------------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL\n1) Dipirona gotas 500mg/ml -------------------------------------------------------------------- \nTomar X gotas de 6 em 6 horas se dor ou febre.\n\n2) Ibuprofeno gotas 100mg/ml --------------------------------------------------------------- \nTomar X gotas de 8 em 8 horas por 5 dias.\n\n\nORIENTAÇÕES\n1) Aumentar a ingesta de líquidos.\n2) Manter alimentação.\n3) Retornar ao serviço em caso de manutenção ou aparecimento de febre (temperatura maior que 37,7ºC), falta de ar, cansaço, esforço para respirar, sonolência, incapacidade ou muita dor ao abrir a boca, dor ao virar o pescoço, incapacidade de se alimentar ou beber líquidos." },
+            { area: "Otorrinolaringologia", doenca: "Rinossinusite", cid: "", texto: "SUS\n1) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas se dor ou febre por 5 dias  \n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\n3) Loratadina 10 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\nPediatria\n1) Ibuprofeno gotas 100mg/ml ------------------------------------------------------------------------------------------\nTomar x gotas de 8 em 8 horas se dor ou febre por 5 dias.  \n\n2) Dipirona 500mg/ml -------------------------------------------------------------------------------------------\nTomar x gotas a cada 6 horas se dor ou febre (temperatura acima de 37,8 ºC).\n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas" },
+            { area: "Otorrinolaringologia", doenca: "Otite Média", cid: "", texto: "Adultos\n                                        USO ORAL \n1) Amoxicilina 500mg ---------------------------------------------------------------------------- \nTomar 1 comprimido de 8 em 8 horas por 5 (leve) a 7 (grave) dias\n\nOU\n\n1) Azitromicina 500mg -----------------------------------------------------------------------\nTomar 1 comprimido por dia durante 5 dias.\n\n2) Dipirona 500mg -------------------------------------------------------------------------------- \nTomar 2 comprimidos de 6 em 6 horas se dor ou febre. \n\n3) Ibuprofeno 300mg ----------------------------------------------------------------------\nTomar 1 comprimido a cada 8 horas se dor ou febre\n\n\n\nSe falhar amoxicilina (pode ser haemophilus ou moraxella ou pneumococo \"resistente\") : \n\n1)  Amoxicilina + clavulanato 500/125mg ------------------------------------------------------- \nTomar 1 comprimido de 8 em 8 horas por 7 dias\n\nOU\n\n1) Amoxicilina + clavulanato 875/125mg ------------------------------------------------------- \nTomar 1 comprimido de 12 em 12 horas por 7 dias\n\nCrianças\n\nUSO ORAL \n1)  Amoxicilina 250/5mL--------------------------------------------------------------------------- \n50mg/kg/dia dividido em 12/12h por 10 dias \n\n2) Dipirona gotas 500mg/mL--------------------------------------------------------------------- \nTomar 1gota/kg (máximo 40 gotas) de 6 em 6 horas se dor ou febre.\n\nOU\n\n3) Paracetamol gotas----------------------------------------------------------------------------- \nTomar 1 gota/kg (máximo 35 gotas) de 6 em 6 horas se dor ou febre. \n\nSe falhar amoxicilina: Amoxicilina 90mg/kg/dia + clavulanato dividido em 12/12h por 10 dias" },
+            { area: "Otorrinolaringologia", doenca: "Otite Externa", cid: "", texto: "USO TÓPICO \n\n1) Ciprofloxacino 2 mg/ml + Hidrocortisona 10mg/ml --------------------------- \nAplicar 3 gotas no ouvido acometido de 12 em 12 horas por 10 dias." },
+            { area: "Gastrointestinal", doenca: "GECA viral", cid: "", texto: "SUS\n                                                VIA ORAL\n\n1) Escopolamina 10 mg ----------------------------------------------------------------------------------\n Tomar 1 cp de 8/8 horas se dor abdominal. \n\n2) Dipirona 500 mg —-------------------------------------------------------------------------------------\nTomar 2 cp de 6/6 horas se dor ou febre.\n \n3) Metoclopramida 10 mg —----------------------------------------------------------------------------\nTomar 1 cp de 8/8 horas se náuseas ou vômitos. \n\n4) Sais de reidratação oral —---------------------------------------------------------------------------\nDiluir 1 sachê em 1L de água filtrada e tomar em até 24h\n\n*Conservar em temperatura ambiente (entre 15°C e 30°C), protegido da luz e umidade. A solução preparada deve ser mantida em temperatura ambiente (entre 15°C e 30°C) para ser utilizada por um período de 24 horas\n\nOrientações: \nSinais de alarme: febre acima de 37,8°C; sangue ou muco nas fezes ou nos vômitos; mais de 7 episódios evacuatórios por dia; surgimento de novos sintomas ou mau controle dos sintomas; se dor abdominal intensa; se duração dos sintomas maior que 7 dias. \nAumento de ingesta hídrica.\nSuspender leites e derivados por 21 dias.\n\nPRIVADO\n                                                VIA ORAL \n\n1) Escopolamina 10 mg ------------------------------------------------------------------------------\n Tomar 1 cp de 8/8 horas se tiver dor abdominal. \n\n2) Ondansetrona 8 mg ------------------------------------------------------------------------------------ Tomar 1 comprimido a cada 8 horas se náusea ou vômitos. \n\n3) Simeticona 40 mg -------------------------------------------------------------------------------------- \nTomar 1 comprimido de 8 em 8 horas se necessário.\n\n4) Dipirona 500mg ----------------------------------------------------------------------------------------\nTomar 2 cps de até 6/6h se dor ou febre.\n\n5) Sais de Reidratação Oral --------------------------------------------------------------------------\nDiluir 1 sachê em 1 L de água filtrada ou aquecida e tomar em até 24h.\n\nPEDIATRIA\n\nUSO ORAL\nDipirona gotas 500mg/ml -------------------------------------------------------------------- \nTomar x gotas de 6 em 6 horas se dor ou febre.\nDipirona 500 mg ------------------------------------------------------------------------------------- Tomar 1 comprimido de 6 em 6 horas se dor ou febre.\nParacetamol gotas 200mg/ml ----------------------------------------------------------------\nTomar x gotas de 6 em 6 horas se dor ou febre.\nZINCO KIDS —-------------------------------------------------------------------------------------  Tomar 5 mL 1 vez por dia por 10 dias.\nSais de reidratação oral ---------------------------------------------------------------------- \nTomar a vontade por 3 dias\nBromoprida gotas 4mg/ml ------------------------------------------------------------------- \nTomar x gotas de 6 em 6 horas se náusea ou vômitos. \nMetoclopramida gotas 4 mg/ml ----------------------------------------------------------------- Tomar x gotas de 8 em 8 horas se náusea ou vômitos.  \n\nBromoprida gotas 4mg/ml = 1 gota/kg/dose (máx 40 gotas/dose) >2 anos\nMetoclopramida gotas 4 mg/ml = ⅔ peso em gotas (max 40gotas/dose)\nDipirona gotas 500mg/ml = ½ peso em gotas (aproximadamente)\nParacetamol gotas 200mg/ml = 1 gota/kg (max 40gotas)\n\nORIENTAÇÕES\nAumentar a ingesta de líquidos.\nEvitar alimentos gordurosos.\nRetornar ao serviço de saúde em caso de manutenção ou aparecimento de febre, aparecimento de sangue nas fezes, incapacidade de ingerir líquidos, vômitos persistentes, sonolência, diminuição da quantidade de urina, dor abdominal (barriga) forte." },
+            { area: "Gastrointestinal", doenca: "GECA bacteriana", cid: "", texto: "VIA INTRAMUSCULAR\n1) Ceftriaxona 50-100mg/kg -------------------------------------------------------------------\nAplicar 50-100mg/kg intramuscular 1x ao dia durante 03-05 dias\n\n\n                                                VIA ORAL\n1) Ciprofloxacino 500mg --------------------------------------------------------------------------- \nTomar 1 cp de 12/12h por 03 dias\n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------\nTomar 1 cp de 6/6 horas se dor ou febre\n \n3) Metoclopramida 10 mg —----------------------------------------------------------------------------\nTomar 1 cp de 8/8 horas se náusea ou vômito \n\n4) Sais de Reidratação Oral —---------------------------------------------------------------------------\nDiluir 1 sachê em 1 L de água filtrada ou aquecida e tomar em até 24h\n*Conservar em temperatura ambiente (entre 15°C e 30°C), protegido da luz e umidade. A solução preparada deve ser mantida em temperatura ambiente (entre 15°C e 30°C) para ser utilizada por um período de 24 horas" },
+            { area: "Gastrointestinal", doenca: "Refluxo Gastroesofágico - H. pylori", cid: "", texto: "USO ORAL \n1) Omeprazol 20 mg -------------------------------------------------------------------------------- \nTomar 1 comprimido 30 minutos antes do almoço e do jantar por 14 dias. \n\n2) Amoxicilina 1g ------------------------------------------------------------------------------------ \nTomar 1 comprimido de 12 em 12 horas por 14 dias. \n\n3) Claritromicina 500mg --------------------------------------------------------------------------- \nTomar 1 comprimido de 12 em 12 horas por 14 dias." },
+            { area: "Gastrointestinal", doenca: "Epigastralgia", cid: "", texto: "SUS \nVIA ORAL\n\n1) Escopolamina 10 mg --------------------------------------------------------------------------------- \nTomar 1 cp de 8/8 horas se dor abdominal. \n\n2) Hidróxido de alumínio 60mg/mL -------------------------------------------------------------------- \nTomar 1 dosador 15 minutos antes das refeições e/ou antes de deitar. \n\n3) Simeticona 40mg ------------------------------------------------------------------------------------- \nTomar 1 comprimido de 8 em 8 horas se necessário. \n\nPRIVADO\nVIA ORAL\n\n1) Escopolamina 10 mg --------------------------------------------------------------------------------- \nTomar 1 cp de 8/8 horas se tiver dor abdominal. \n\n2) Hidróxido de alumínio 230 mg -------------------------------------------------------------------- \nMastigar 2 comprimidos 1 hora após cada refeição por 7 dias. \n\n3) Simeticona 40mg ------------------------------------------------------------------------------------- \nTomar 1 comprimido de 8 em 8 horas se necessário." },
+            { area: "Gastrointestinal", doenca: "Constipação", cid: "", texto: "USO ORAL \n1) Lactulose 667 mg/ml —------------------------------------------------------------------------------------\nTomar 15 ml 2x ao dia. \n\n2) Aumentar a ingestão de água, verduras e legumes. \n\nOrientações alimentares" },
+            { area: "Urologia/Nefrologia", doenca: "ITU", cid: "", texto: "SUS          \n                                        USO ORAL \n1) Nitrofurantoína 100mg —---------------------------------------------------------------------------- 28cps\nTomar 1 comprimido a cada 6 horas por 7 dias. \n\n1) Sulfametoxazol Trimetoprima 400mg/80mg —------------------------------------------------ 12cps\nTomar 2 cps a cada 12 horas durante 03 dias\n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------------\nTomar 1 cp de 6/6 horas se dor ao urinar \n\n3) Ibuprofeno 300 mg -----------------------------------------------------------------------------------------\nTomar 2 cp a cada 8 horas por 3 dias \n\nRetorno se : \n- Não melhorar após 3 dias de antibiótico\n- Febre: temperatura acima de 37,8°C \n- Dor lombar e sangue na urina mesmo após uso de antibiótico. \n\nPRIVADO\n1) Nitrofurantoína 100mg ---------------------------------------------------------------------------- 28cps\nTomar 1 comprimido a cada 6 horas por 7 dias. \n\n1) Sulfametoxazol Trimetoprim 800mg/160mg ------------------------------------------------ 6 cps\nTomar 01 cp a cada 12 horas durante 03 dias\n\n1) Fosfomicina Trometol 5,631g  ------------------------------------------------------------ 1 envelope\nDiluir 1 envelope em ½ (meio) copo de água (50-75 mL) e tomar logo após preparo (preferencialmente antes de dormir, após esvaziar a bexiga).\n\n\n2) Fenazopiridina 200 mg -----------------------------------------------------------------------\nTomar 1 comprimido a cada 8 horas por no máximo 2 dias (urina fica alaranjada).\n\n3) Dipirona 1g —----------------------------------------------------------------------------------------\nTomar 1 comprimido a cada 6 horas se dor ao urinar \n\n4) Cetoprofeno 100mg ----------------------------------------------------------------------------\nTomar 1 cp a cada 12 horas se dor ao urinar por 3 dias \n\nRetorno se : \n- Não melhorar após 3 dias de antibiótico\n- Febre: temperatura acima de 37,8°C \n- Dor lombar e sangue na urina mesmo após uso de antibiótico." },
+            { area: "Urologia/Nefrologia", doenca: "Pielonefrite", cid: "", texto: "SUS\n\nVIA ORAL\n\n1) Ciprofloxacino 500mg ---------------------------------------------------------------------- 14cps\nTomar 1 cp a cada 12 horas durante 07 dias\n\nOU\n\n1) Sulfametoxazol + Trimetoprim 800mg/160mg --------------------------------------- 14cps\nTomar 1 cp a cada 12 horas durante 07 dias\n\n2) Dipirona 500mg ------------------------------------------------------------------------------\nTomar 2 cps a cada 06 horas se dor ou febre\n\n3) Ibuprofeno 300mg -----------------------------------------------------------------------------\nTomar 1 cp a cada 08 horas se dor ou febre\n\n4) Metoclopramida 10mg -----------------------------------------------------------------------\nTomar 01 cp a cada 08 horas se náuseas ou vômitos\n\nPRIVADO\nVIA ORAL \n\n1) Amoxicilina - Clavulanato 875/125 mg ------------------------------------------------ 14 cps\nTomar 1 cp de 12/12h por 7 dias \n\nOU \n\n1) Sulfametoxazol + Trimetoprim 800mg/160mg --------------------------------------- 14cps\nTomar 01 cp a cada 12 horas durante 07 dias\n\nOU \n\n1) Ciprofloxacino 500mg ---------------------------------------------------------------------- 14cps\nTomar 01 cp a cada 12 horas durante 07 dias\n\n2) Dipirona 500mg -----------------------------------------------------------------------------\nTomar 02 cps a cada 06 horas se dor ou febre\n\n3) Ibuprofeno 300mg ----------------------------------------------------------------------------\nTomar 01 cp a cada 08 horas se dor ou febre\n\n4) Metoclopramida 10mg ------------------------------------------------------------------------\nTomar 01 cp a cada 08 horas se náuseas ou vômitos\nOU \n4) Ondansetrona 8mg -------------------------------------------------------------------------\nTomar 01 cp a cada 08 horas se náuseas ou vômitos" },
+            { area: "Urologia/Nefrologia", doenca: "Nefrolitíase", cid: "", texto: "SUS\nVIA ORAL\n1) Dipirona 500 mg ---------------------------------------------------------------------------------------------\nTomar 2 cp  de 6/6 horas se dor \n\n2) Ibuprofeno 300 mg -------------------------------------------------------------------------------------------\nTomar 2 cp a cada 08 horas se dor por, no máximo, 5 dias \n\n3) Metoclopramida 10mg -------------------------------------------------------------------------------------\nTomar 1 cp a cada 08 horas se náuseas ou vômitos\n\nOrientações gerais: \nAumentar a ingesta de água.\nEvitar refrigerante e cerveja.\nRetorno imediato ao PS se dor refratária, febre\n\nPRIVADO\nUSO ORAL\n1) Dipirona 500 mg ---------------------------------------------------------------------------------------------\nTomar 2 cp  de 6/6 horas se dor \n\n2) Ibuprofeno 300 mg ----------------------------------------------------------------------------------------\nTomar 2 cp de 8/8 horas se dor por 5 dias \n\n3) Ondansetrona 8mg ----------------------------------------------------------------------------------------\nTomar 1 cp a cada 08h se náuseas ou vômitos\nOU \n3) Metoclopramida 10mg -------------------------------------------------------------------------------------\nTomar 1 cp a cada 08 horas se náuseas ou vômitos\n\n4) Tansulosina 0,4mg -----------------------------------------------------------------------------------------\nTomar 1 cp antes de se deitar, à noite, durante 28 dias\n\nOrientações gerais: \nAumentar a ingesta de água.\nEvitar refrigerante e cerveja.\nRetorno imediato ao PS se dor refratária, febre" },
+            { area: "Respiratório", doenca: "Bronquiolite", cid: "", texto: "Indicações de Internação\nToxemia, letargia, baixa aceitação alimentar\nDesidratação\nDesconforto respiratório: retração intercostal, supraclavicular ou batimento de asa de nariz; cianose; frequência respiratória (FR) > 70.\nHipoxemia: valores persistentemente abaixo de 90%; episódios de queda de saturação são frequentes nessa patologia, mesmo nos quadros leves.\nImpossibilidade de a criança ser observada pelos pais em casa.\nApneia.\nIdade cronológica menor de 3 meses é o fator preditor de gravidade mais importante.\n\nPrescrição\n\nDieta geral para idade (leite materno a livre demanda…)\nSoro de manutenção, EV em BIC a xml/h (ou EV em 24h)  \nSoro glicosado 5% 1000ml\nNaCl 20% 40ml\nKCl 19,1% 10ml \nDipirona 500mg/ml, xml de 6 em 6 horas EV ou VO\nMetoclopramida 5mg/ml, de 8 em 8 horas EV\nMetoclopramida gotas 4mg/ml, de 8 em 8 horas se náusea ou vômito\nCateter nasal de O2 1 a 2L/min com alvo de saturação > 93%." },
+            { area: "Respiratório", doenca: "IVAS", cid: "", texto: "SUS\n\nUSO ORAL \n1) Dipirona 500g -------------------------------------------------------------------------------------------------- Tomar 2 cp a cada 6 horas se dor ou febre.\n \n2) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------- Tomar 1 cp de 8/8 horas por 5 dias  se dor ou febre.\n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse \n\n                                        USO TÓPICO NASAL\n4) Soro Fisiológico 0,9% ------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\nPRIVADO\n                                                      USO ORAL\n\n1) Dipirona 1 g ----------------------------------------------------------------------------------------------------- Tomar 1 comprimido a cada 6 horas se dor ou febre.\n\n2) Cetoprofeno 100 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido a cada 12 horas por 5 dias. \n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse. \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse.\n\n\n                                                USO TÓPICO NASAL\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\n\n\n\nPEDIATRIA\nUSO ORAL\nDipirona GOTAS 500mg/ml -------------------------------------------------------------------- Tomar x gotas de 6 em 6 horas se dor ou febre.\n\nDipirona 500 mg ------------------------------------------------------------------------------------- Tomar 1 comprimido de 6 em 6 horas se dor ou febre.\n\nParacetamol gotas 200mg/ml ------------------------------------------------------------------ Tomar x gotas de 6 em 6 horas se dor ou febre.\n\nUSO TÓPICO NASAL\nSoro Fisiológico 0,9% --------------------------------------------------------------------------- Fazer lavagem nasal de 3 a 6 vezes ao dia, 10 ml em cada narina repetindo duas vezes de cada lado.\n\nDipirona gotas 500mg/ml = ½ peso em gotas (aproximadamente)\nParacetamol gotas 200mg/ml = 1 gota/kg (max 40 gotas)" },
+            { area: "Respiratório", doenca: "Pneumonia", cid: "", texto: "SUS\n                                        USO ORAL\n1) Amoxicilina 500mg ---------------------------------------------------------------------------- 30 cps\nTomar 2 cps a cada 08 horas durante 05 dias\n\nE/OU\n\n1) Azitromicina 500mg --------------------------------------------------------------------------- 3 cps\nTomar 01 cp por dia durante 03 dias\n\n2) Dipirona 500mg -----------------------------------------------------------------------------------\nTomar 01 cp a cada 06 horas se dor ou febre\n\n3) Ibuprofeno 300mg ----------------------------------------------------------------------------------\nTomar 01 cp a cada 08 horas se dor ou febre por, no máximo, 05 dias\n\n\nOrientações:\nRetornar ao PS se: \nManutenção de febre após 2 dias de tratamento\nPiora da falta de ar \nPiora de desconforto no peito \nQueda de saturação constante\nManutenção dos sintomas após tratamento \nConfusão \n\nPRIVADO\n1) Amoxicilina 500mg ---------------------------------------------------------------------------- 30cps\nTomar 2 cps a cada 08 horas durante 05 dias.\nE/OU\n1) Azitromicina 500mg -------------------------------------------------------------------------- 3 cps\nTomar 1 cp por dia durante 03 dias.\n\n2) Dipirona 500mg —-----------------------------------------------------------------------------------\nTomar 1 cp a cada 06 horas se dor ou febre.\n\n3) Cetoprofeno 100mg ----------------------------------------------------------------------------------\nTomar 1 cp a cada 12 horas se dor ou febre por, no máximo, 05 dias." },
+            { area: "Respiratório", doenca: "Asma", cid: "", texto: "Crise de Asma \nLEVE OU MODERADA\nSalbutamol 200 mcg ----------------------------------------------------------------------------------\n4 - 10 puffs de 20/20 min por 1 hora\nPrednisona 40 mg ------------------------------------------------------------------------------------\n1 comprimido 1x/dia durante 5 dias\nOxigênio ------------------------------------------------------------------------------------------------\nAlvo de saturação 93-95% \n\nGRAVE\nSalbutamol 200 mcg —----------------------------------------------------------------------------------\n4 - 10 puffs de 20/20 min por 1 hora\nIpratrópio ------------------------------------------------------------------------------------------------\n40 gotas em 5 mL SF 0,9% Via inalatória \nPrednisona 40 mg ------------------------------------------------------------------------------------\n1 comprimido 1x/dia \n\nSE AUSÊNCIA DE MELHORA APÓS 1 HORA\nSulfato de Magnésio ----------------------------------------------------------------------------------\n2g EV Agora \n\nPrescrição de Alta\nVIA INALATÓRIA         \nMODERADO\n1) Formoterol  12 mcg + Budesonida 400 mcg —-------------------------------------- \nAspirar 1 cp a cada 12 horas até retorno ambulatorial\n\n\nLEVE\n1) Formoterol 6mcg + Budesonida 200mcg -------------------------------------------------------\nAspirar 1cp a cada 12 horas até retorno ambulatorial\n\n2) Salbutamol 100 mcg ----------------------------------------------------------------------------------------\nAplicar 6 puffs se falta de ar a cada 20 minutos até três vezes \n\nUSO ORAL\n3- Prednisona 20mg -------------------------------------------------------------------------------10cps\n Tomar 2 cps por dia pela manhã durante 5 dias. \n\n\nAGENDAR CONSULTA COM PNEUMOLOGISTA \n\nPediatria\nMenores de 5 anos\nLEVE / MODERADO (agitado, desconfortável, FC<180  de 0-3 anos ou FC<150 de 3-5 anos, saturação > 92%)\n\nUSO INALATÓRIO\nSalbutamol 100mcg ----------------------------------------------------------------------- 2 puffs    Com espaçador, repetir a cada 20min por 1hora\nSalbutamol 2,5mg/2,5ml ------------------------------------------------------------------- 2,5mg        Nebulização, repetir a cada 20min por 1 hora \nSalbutamol SPRAY 100mcg ------------------------------------------------------------------ 2 puffs de 4 em 4 horas por 10 dias.\nIpratrópio 250mcg/ml ----------------------------------------------------------------------- 250mcg  Nebulização, repetir 3 vezes com intervalo de 20min.\nOxigênio com cateter nasal —------------------------------------------------------------------------   Saturação alvo de 94-98%\n\n**** Salbutamol Solução para nebulização 5 mg/mL - frasco 10mL —----- 0,5ml por nebulização\n***** Salbutamol Suspensão aerossol 100mcg/dose spray —------- 100 a 200 mcg; repetir, se necessário, a cada 4 a 6 horas.\nUtilizar o inalador:1\n1. Remova a tampa do bocal apertando as laterais e verifique se o interior e o exterior do bocal estão limpos. Agite bem o inalador.\n2. Segure o inalador na posição vertical entre o dedo indicador e o polegar (que deve ficar na base, abaixo do bocal). Expire lentamente até expelir todo o ar dos pulmões.\n3. Coloque o bocal do inalador entre os lábios (ou no espaçador), apertando-os bem, mas sem morder. Em seguida comece a inspirar pela boca e pressione firmemente o inalador entre o indicador e o polegar para liberar o aerossol, inspirando regular e profundamente.\n4. Enquanto prende a respiração, tire o inalador da boca. Continue a prender a respiração por tanto tempo quanto for confortável (aproximadamente 10 segundos são suficientes).\n\nUSO ORAL\nIdade de 6-11 anos\nLEVE / MODERADO (fala em frases, prefere sentar a deitar, sem agitaçao, FR<30, sem uso de musculatura acessória, FC 100-120, saturação >90% )\n\nUSO INALATÓRIO\nSalbutamol 100mcg —-------------------------------------------------------------------- 4-10 puffs    Com espaçador, repetir a cada 20min por 1hora\nSalbutamol 2,5mg/2,5ml —------------------------------------------------------------------- 5mg        Nebulização, repetir a cada 20min por 1 hora \nIpratrópio 0,25mg/ml —----------------------------------------------------------------------- 0,5mg Nebulização, repetir 3 vezes com intervalo de 20min ((<20 kg – 0,25 mg ou ≥20 kg – 0,5 mg))\nOxigênio com cateter nasal —------------------------------------------------------------------------   Saturação alvo de 94-98%\n\nUSO ORAL\nPrednisolona 20mg —----------------------------------------------------------------------------------- Tomar 1-2mg/kg (max 40mg) por dia\n\nComo sulfatar\nUSO INTRAVENOSO\nSulfato de magnesio ----------------------------------------------------------------------------------- 50mg/kg (max 2g) EV correr em 20 min. (25-75mg/kg podemos fazer uma expansão volêmica antes de sulfatar para prevenção de hipotenção)" },
+            { area: "Respiratório", doenca: "DPOC", cid: "", texto: "X → RX\nB → broncodilatador \nA → ATB (casos específicos)\nC → corticoide \nON → O2 não invasivo (BiPAP) = pacientes mais graves\n\n\n \nVIA ORAL\n1) Azitromicina 500mg —-----------------------------------------------------------------------------------------\nTomar 01 cp por dia durante 03 dias\n1) Clavulin 875+125 —---------------------------------------------------------------------------------\nTomar 1cp a cada 12h por 05 dias\n1) Sulfametoxazol + Trimetoprim 800/160 —------------------------------------------------- 10cps\nTomar 01 cp a cada 12 horas durante 05 dias\n1) Levofloxacino 500(750mg se Pseudomonas) —---------------------------------------- 05 cps\nTomar 01 cp por dia durante 05 dias\n2) Prednisona 20mg _______________________________________________ 10cps\n Tomar 2 cps por dia durante 5 dias pela manhã.\n\nVIA INALATÓRIA\n3) Formoterol 6mcg + Budesonida 200mcg -------------------------------------------------------\nAspirar 1cp a cada 12 horas" },
+            { area: "Dermatologia", doenca: "Anafilaxia", cid: "", texto: "Adrenalina IM:\n< 10kg è 0,01 mg/kg ou 0,1mg.\n10 a 25kg è 0,15mg\n25kg a 50kg è 0,3 mg\n> 50kg è 0,5mg\nAplicar a adrenalina no músculo vasto lateral pode ser repetido a cada 5-10 minutos" },
+            { area: "Dermatologia", doenca: "Escabiose", cid: "", texto: "                                        USO ORAL \n1) Ivermectina 6mg -------------------------------------------------------------------------------- \nTomar X comprimidos dose única. Repetir a dose após 7 dias.\n\n2) Hidroxizina 25mg------------------------------------------------------------------------------ \nTomar 1 comprimido de 8 em 8 horas se coceira intensa. \n \n                                        USO TÓPICO \n1) Permetrina 5%------------------------------------------------------------------------------------ \nAplicar a loção no corpo todo à noite, com pele limpa, seca e fria, da cabeça aos pés, passando entre os dedos e lavar o corpo após 12 horas. No terceiro dia, lavar todas as roupas pessoais e de cama. Repetir o procedimento após 7 dias." },
+            { area: "Dermatologia", doenca: "Urticária", cid: "", texto: "USO ORAL \n1) Loratadina 10 mg ----------------------------------------------------------------------------------\nTomar 1 comprimido por dia durante 5 dias. \n\nSE ANGIOEDEMA:\n2) Prednisona 20mg ------------------------------------------------------------------------------ 5 cps\nTomar 1 cp pela  manhã durante 05 dias\n\nPEDIATRIA\n2-6 anos \nLoratadina suspensão oral 1mg/ml --------------------------------------------------------\nTomar 5ml por dia durante 5 dias\n>6 anos\nLoratadina suspensão oral 1mg/ml --------------------------------------------------------\nTomar 10ml por dia durante 5 dias" },
+            { area: "Dermatologia", doenca: "Celulite/Erisipela", cid: "", texto: "USO ORAL \n1. Clindamicina 300mg --------------------------------------------------------------------------------- 20 cps \nTomar 01 cp a cada 6 horas por 5 dias.\n\n1. Cefalexina 500mg —-------------------------------------------------------------------------------- 20 cps\nTomar 01 cp a cada 06h durante 05 dias\n\n1. Amoxicilina 500 mg —------------------------------------------------------------------------------ 15 cps\nTomar 01 cp  a cada 8 horas por 5 dias\n\n2. Dipirona 500mg-------------------------------------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre. \n\n3. Ibuprofeno 300mg ----------------------------------------------------------------------------------------\nTomar 01 cp de 08 em 08 horas se dor ou febre\n\nSINAIS DE ALARME: Retornar ao PS se\nManutenção da lesão ou desconforto após 2 dias  tratamento\nManutenção de febre após 2 dias de tratamento \nPiora/Progressão da lesão com o tempo" },
+            { area: "Dermatologia", doenca: "Impetigo", cid: "", texto: "Lesões em pele e não muito extensas, sem sintomas sistêmicos\n\nUSO TÓPICO\nMupirocina creme 20mg/g ------------------------------------------------------------------ \nAplique nas lesões de 2 a 3 vezes ao dia, cubra com gaze após aplicação e evite contato com olhos e mucosa.\n\nOU\n\nRetapamulina 1% creme --------------------------------------------------------------------- \nAplicar nas lesões de 2 a 3 vezes por dia, cubra com gaze após aplicação caso necessário, evite contato com olhos e mucosa.\n\nLesões muito extensas ou sintomas sistêmicos:\n\nUSO ORAL\nCefalexina 500mg —----------------------------------------------------------------------------- Tomar 2 (dois) comprimidos de 6 em 6 horas por 7 dias, não interromper tratamento antes do término dos 7 dias.\n\nCriança:\nCefalexina 250mg/5ml ------------------------------------------------------------------------- \nTomar X gotas de 6 em 6 horas por 7 dias, não interromper o tratamento antes do término dos 7 dias.\n\nAlternativas:\nClaritromicina 500mg —-------------------------------------------------------------------------- Tomar 1 (um) comprimido de 12 em 12 horas por 5 dias, não interromper tratamento antes do término dos 5 dias.\n\nOU\n\nAzitromicina 500mg —---------------------------------------------------------------------------- Tomar 1 (um) comprimido uma vez por dia por 5 dias, não interromper tratamento antes do término dos 5 dias." },
+            { area: "Dermatologia", doenca: "Queimadura", cid: "", texto: "Primeiro grau\n1. Dipirona 1g EV agora\n2. Lavar com soro fisiológico e curativo com gaze. \n\nSegundo grau\nNo PS:\n1. Dipirona 1g EV agora \n2. Lavar com soro fisiológico e fazer curativo com sulfadiazina de prata\n\nPara casa: \nUSO TÓPICO\n1)  Sulfadiazina de prata pomada --------------------------------------------------- \nAplicar sobre as feridas e realizar curativo com gaze depois \n\n● USO ORAL \n1)  Dipirona 500 mg —---------------------------------------------------------------------- \nTomar 2 comprimidos de 6 em 6 horas se dor" },
+            { area: "Dermatologia", doenca: "Queimadura Solar", cid: "", texto: "USO TÓPICO \n\n1. Valerato de betametasona pomada 1mg/g-------------------------------------- \nAplicar sobre as feridas pela manhã e à noite até melhora \n\n2. Calamed pós sol —--------------------------------------------------------------- \nHidratar a pele queimada após o banho e antes de deitar até melhora \n\n\n3. Realizar compressas frias com chá de camomila" },
+            { area: "Dermatologia", doenca: "Herpes-Zóster (<72h)", cid: "", texto: "SUS         \nUSO ORAL\n1) Aciclovir 200mg ---------------------------------------------------------------------------------------- \nTomar 4 cps a cada 4 horas, não tomar durante a madrugada, durante 07 dias\n\n2) Dipirona 500 mg ---------------------------------------------------------------------------------------\nTomar 2 cp  de 6/6 horas se dor \n\n3) Ibuprofeno 300 mg ------------------------------------------------------------------------------------\nTomar 2 cp a cada 08 horas se dor por, no máximo, 5 dias \n\nSE DOR MUITO INTENSA:\n\n4) Paracetamol + codeína 500 mg + 30 mg --------------------------------------------------\nTomar 1 comprimido de 6 em 6 horas, se dor.\n\nPRIVADO\n1) Valaciclovir 1000mg --------------------------------------------------------------------------- 21 cps\nTomar 01 cp a cada 08 horas durante 07 dias\nOU\n1) Fanciclovir 500mg ---------------------------------------------------------------------------    21 cps\nTomar 01 cp a cada 08 horas durante 07 dias\n\n2) Dipirona 500 mg ---------------------------------------------------------------------------------------------\nTomar 02 cp  de 6/6 horas se dor \n\n3)Cetoprofeno 100 mg —--------------------------------------------------------------------------------------\nTomar 01 cp a cada 12 horas se dor por, no máximo, 5 dias\n\n\nCorreção de posologia pela FUNÇÃO RENAL\nINTERNAÇÃO se >= dois dermátomos; imunossupressão" },
+            { area: "Osteomuscular", doenca: "Dor osteomuscular", cid: "", texto: "SUS  \n\nUSO ORAL\n\n1) Dipirona 500 mg --------------------------------------------------------------------------------------------\nTomar 2 cp  de 6/6 horas se dor \n\n2) Ibuprofeno 300 mg -------------------------------------------------------------------------------------------\nTomar 2 cp a cada 08 horas se dor por, no máximo, 5 dias \n\nPRIVADO\n        \nUSO ORAL\n\n1) Dipirona 500 mg —---------------------------------------------------------------------------------------------\nTomar 02 cp  de 6/6 horas se dor \n\n2) Cetoprofeno 100 mg —--------------------------------------------------------------------------------------\nTomar 01 cp a cada 12 horas se dor por, no máximo, 5 dias \n\n3) Ciclobenzaprina 10mg ----------------------------------------------------------------------------------------\nTomar 01 cp à noite durante 05 dias\n\nPREÇO: Ciclobenzaprina (12 reais)\nDor Neuropática associada\nUSO ORAL\n1) Amitriptilina 25mg ------------------------------------------------------------------------- 01 cx\nTomar 01 cp à noite" },
+            { area: "Neurologia", doenca: "Cefaleia tensional", cid: "", texto: "USO ORAL\n\n1) Dipirona 500 mg --------------------------------------------------------------------------------------------\nTomar 2 comprimidos de 6/6 horas se dor.\n\n2) Ibuprofeno 300 mg -------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas se dor por, no máximo, 5 dias." },
+            { area: "Neurologia", doenca: "Migrânea (Enxaqueca)", cid: "", texto: "                                        USO ENDOVENOSO\n1) Dipirona 2g  EV agora\n2) Cetoprofeno 100mg EV agora\n3) Metoclopramida 10mg EV agora\n4) Dexametasona 4mg EV agora (principalmente se dor >72h)" },
+            { area: "Neurologia", doenca: "Cefaleia em salvas", cid: "", texto: "1) O2 100% em máscara não reinalante 10-12 litros/minuto por 20 minutos, com paciente sentado\n2) Sumatriptana 6mg SC agora\n\nAlta:\n1)  Verapamil 80 mg --------------------------------------------------------------------- 1 caixa\nTome um comprimido a cada 8 horas por 2 meses, concomitante ao acompanhamento com neurologista.\n\n2) Prednisona 20 mg -------------------------------------------------------------------\nTomar 1 comprimido de 8 em 8 horas por 5 dias. Reduzir para meio comprimido por mais 3 dias.\n\n\nEncaminhamento para neurologista (realização de imagem e tratamento profilático" },
+            { area: "Neurologia", doenca: "Neuralgia do trigêmeo", cid: "", texto: "USO ORAL\n1 . Carbamazepina 200 mg -------------------------- 1 caixa\nTomar um comprimido a cada 12 horas" },
+            { area: "Neurologia", doenca: "Paralisia de Bell", cid: "", texto: "USO ORAL\n1) Prednisona 20mg ----------------------------------------------------------------------- 21 cps\nTomar 3 comprimidos por dia, pela manhã, durante 7 dias\n\n2) Valaciclovir 500mg --------------------------------------------------------------------- 1 caixa\nTomar 1 comprimido a cada 12 horas durante 7 dias.\n\nOU\n\n2) Aciclovir 400mg -------------------------------------------------------------------------\nTomar 1 comprimido de 4 em 4 horas, totalizando 5 comprimidos ao dia, durante 10 dias.\n\nUSO TÓPICO\n1) Carmelose sódica 0,5% —-----------------------------------------------------------\nAplicar nos olhos afetados 2 gotas a cada 2-4 horas, se necessário\n\n2) Dexpantenol gel oftálmico 50 mg/g) ------------------------------------------------ \nAplicar 1 a 2 gotas na parte interna da pálpebra antes de dormir. Após isso, ocluir a pálpebra com auxílio de uma fita adesiva.\n\nOrientações:\nUtilizar óculos escuros durante o dia\nLubrificar bem o olho acometido\n\n\nSinais de Alarme: Sempre examinar conduto auditivo (Ramsay-Hunt?), Palpar parótida (Tumor?)" },
+            { area: "Cirurgia", doenca: "Hemorroida", cid: "", texto: "USO TÓPICO\n\n1) Proctyl® (cinchocaína + policresuleno) ---------------------------------\nAplicar na região afetada uma pequena camada 4 vezes ao dia e após evacuações.\n\n2) Banho de assento -----------------------------------------------------------\nFazer de 2 a 3 vezes por dia durante 20 minutos com água morna.\n\nUSO ORAL\n\n1) Dipirona 500mg\nTomar 2 comprimidos de 6 em 6 horas, se dor.\n\n2) Ibuprofeno 600mg \nTomar 1 comprimido de 8 em 8 horas, durante 3 dias.\n\n3) Metamucil ------------------------------------------------------------------------------- 1 frasco\nTomar uma colher de sobremesa em 250 ml de água 2 vezes ao dia junto às refeições.\n\nOU\n\n3) Lactulose 667 mg/mL ---------------------------------------------------------------- 1 frasco\nTomar de 15 a 30 mL por dia, uma vez por dia." },
+            { area: "Oftalmologia", doenca: "Conjuntivite viral", cid: "", texto: "USO TÓPICO \n\n1) Systane, Lacrima Plus ou Hyabak (carmelose sódica) ---------------------------------------------\nPingar duas gotas no olho afetado, várias vezes ao dia, até alívio dos sintomas. \n\n2)  Lavar olho com gaze estéril e soro fisiológico gelado -------------------------------------------\nSob demanda. Pode fazer compressa. \n\nOrientações: não levar as mãos ao olho. Lavar as mãos após contato." },
+            { area: "Oftalmologia", doenca: "Conjuntivite bacteriana", cid: "", texto: "USO TÓPICO\n\n1)  Compressa de água gelada 4x/dia, por 15 minutos; \n\n2) Tobramicina 0,3% solução oftálmica -------------------------------------------------------------------\nAplicar 1 gota de 4 a 6 vezes ao dia, por 7 dias\n\nOU \n\n2) Ciprofloxacino 0,3% solução oftálmica —-----------------------------------------------------------------\nAplicar 1 gota de 4 a 6 vezes ao dia, por 7 dias\n\nOU \n\n2) Norfloxacino 0,3% solução oftálmica: -----------------------------------------------------------------\nAplicar 1 gota de 4 a 6 vezes ao dia, por 7 dias" },
+            { area: "Oftalmologia", doenca: "Conjuntivite alérgica", cid: "", texto: "USO TÓPICO \n\n1) Systane, Lacrima Plus ou Hyabak (carmelose sódica) ---------------------------------------------\nPingar duas gotas no olho afetado, várias vezes ao dia, até alívio dos sintomas. \n\n2)  Lavar olho com gaze estéril e soro fisiológico gelado -------------------------------------------\nSob demanda. Pode fazer compressa. \n\n3) Olopatadina solução oftálmica 0,1%) --------------------------------------------------\nAplicar 1 gota em cada olho afetado a cada 12 horas até resolução do quadro" },
+            { area: "Oftalmologia", doenca: "Blefarite", cid: "", texto: "USO TÓPICO \n1. Lacrifilm colírio-------------------------------------------------------------------------------------- \nPingar uma gota no olho acometido se sentir incômodo. \n*Não pingar mais que 4 vezes ao dia*\n2. Realizar higiene do olho com água morna e shampoo Johnson, lavando a região dos cílios com os olhos fechados. \n3. Realizar compressas com água morna" },
+            { area: "Oftalmologia", doenca: "Celulite Periorbitária / Pré-septal", cid: "", texto: "USO ORAL\n1. cefalexina 500 mg —------------------------------------------------------\nTomar 1 cp de 6/6h\n\nOU\n1. amoxicilina 400mg + clavulanato 57mg/5 mL" },
+            { area: "Ginecológico", doenca: "Dismenorreia", cid: "", texto: "USO ORAL \n1 Ácido Mefenâmico 500 mg --------------------------------------------------------------------------------\nTomar 1 comprimido a cada 8 horas se cólica menstrual. \n2 Buscopam 10 mg ------------------------------------------------------------------------------------------- \nTomar 1 comprimido a cada 8 horas se dor abdominal." },
+            { area: "Infectologia", doenca: "Dengue (Exemplo 2)", cid: "", texto: "USO ORAL \nDipirona 1g —--------------------------------------------------------------------------------------- Tomar 1 comprimido de 6 em 6 horas se dor ou febre (temperatura acima de 37,8ºC)\nOndansetrona 8mg —------------------------------------------------------------------------ Tomar 1 comprimido de 8 em 8 horas se náusea ou vômitos.\nSais de Reidratação Oral —---------------------------------------------------------------------------\nDiluir 1 sachê em 1 L de água filtrada ou aquecida e tomar em até 24h, tomar 700 ml por dia até 48h do final da febre. \n*Conservar em temperatura ambiente (entre 15°C e 30°C), protegido da luz e umidade. A solução preparada deve ser mantida em temperatura ambiente (entre 15°C e 30°C) para ser utilizada por um período de 24 horas\n\nORIENTAÇÕES\nNão fazer uso de anti-inflamatórios (exemplos: Nimesulida, Ibuprofeno, Naproxeno, Cetoprofeno, AAS… ).\nAumentar ingesta de líquidos e manter alimentação (2l por dia)\nEvitar esforço físico.\nRetornar ao serviço médico em caso de sangramento nasal, sangramento de gengiva, aparecimento de manchas vermelhas pelo corpo, diminuição da quantidade de urina,  dor abdominal (barriga) forte, incapacidade de ingerir líquidos, sonolência, vômitos persistentes, dificuldade de respirar…\nTrazer sempre o cartão dengue quando procurar serviços médicos." },
+            { area: "Infectologia", doenca: "Parotidite viral (Caxumba)", cid: "", texto: "USO ORAL\nDipirona 500mg —-------------------------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre\nParacetamol 500mg —--------------------------------------------------------------------------\nTomar 1 comprimido de \nIbuprofeno\n\nOrientações\nHidratação abundante e evitar alimentos ácidos\nEvitar aglomerações por 9 dias a partir do início dos sintomas\nRepouso relativo\nSinais de alarme: cefaleia, sonolência, alteração comportamental, edema testicular." }
+        ];
+
+        // --- Configuração do Firebase ---
+        // As variáveis __firebase_config, __app_id, e __initial_auth_token
+        // serão injetadas pelo ambiente de hospedagem.
+        let firebaseConfig;
+        let appId;
+        let initialAuthToken;
+
+        try {
+            firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+            appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+            if (!firebaseConfig.apiKey) {
+                console.warn("Configuração do Firebase não encontrada. Usando valores de fallback.");
+                // Adicione sua configuração de fallback aqui se estiver testando localmente
+                // firebaseConfig = { apiKey: "...", authDomain: "...", ... };
+            }
+        } catch (e) {
+            console.error("Erro ao parsear configuração do Firebase:", e);
+            showMessage("Erro Crítico", "Não foi possível carregar a configuração do aplicativo. Por favor, recarregue a página.");
+        }
+
+        let app;
+        let auth;
+        let db;
+        let prescricoesCollection;
+        let unsubscribePrescricoes = null; // Para desligar o listener onSnapshot
+        
+        // Estado global
+        let authUser = null;
+        let allPrescricoes = []; // Cache local de todas as prescrições
+        let lastSelectedArea = null;
+        let lastSelectedDoenca = null;
+
+        // --- Referências do DOM ---
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const sidebarNav = document.getElementById('sidebar-nav');
+        const navLoading = document.getElementById('nav-loading');
+        const navEmpty = document.getElementById('nav-empty');
+        const searchInput = document.getElementById('search-input');
+        
+        const contentArea = document.getElementById('content-area');
+        const contentPlaceholder = document.getElementById('content-placeholder');
+        const contentDisplay = document.getElementById('content-display');
+        const contentTitle = document.getElementById('content-title');
+        const contentCid = document.getElementById('content-cid');
+        const contentText = document.getElementById('content-text');
+        const copyBtn = document.getElementById('copy-btn');
+        const breadcrumb = document.getElementById('breadcrumb');
+        
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+
+        const adminLoginBtn = document.getElementById('admin-login-btn');
+        const adminPanelBtn = document.getElementById('admin-panel-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        const loginModal = document.getElementById('login-modal');
+        const loginForm = document.getElementById('login-form');
+
+        const adminPanelModal = document.getElementById('admin-panel-modal');
+        const adminForm = document.getElementById('admin-form');
+        const formTitle = document.getElementById('form-title');
+        const formEditId = document.getElementById('form-edit-id');
+        const formArea = document.getElementById('form-area');
+        const formAreaDatalist = document.getElementById('area-datalist');
+        const formDoenca = document.getElementById('form-doenca');
+        const formCid = document.getElementById('form-cid');
+        const formTexto = document.getElementById('form-texto');
+        const formSubmitBtn = document.getElementById('form-submit-btn');
+        const formCancelBtn = document.getElementById('form-cancel-btn');
+        const adminListContainer = document.getElementById('admin-list-container');
+        const addExampleDataBtn = document.getElementById('add-example-data-btn');
+
+        const messageModal = document.getElementById('message-modal');
+        const messageIcon = document.getElementById('message-icon');
+        const messageTitle = document.getElementById('message-title');
+        const messageText = document.getElementById('message-text');
+        const messageButtons = document.getElementById('message-buttons');
+        const messageOkBtn = document.getElementById('message-ok-btn');
+        const messageCancelBtn = document.getElementById('message-cancel-btn');
+        let messageCallback = null;
+
+        // --- Funções Utilitárias ---
+
+        const showLoading = (show) => {
+            if (show) {
+                loadingOverlay.classList.remove('hidden-transition');
+                loadingOverlay.classList.add('visible-transition');
+            } else {
+                loadingOverlay.classList.remove('visible-transition');
+                loadingOverlay.classList.add('hidden-transition');
+            }
+        };
+
+        const openModal = (modalEl) => {
+            modalEl.classList.remove('hidden-transition');
+            modalEl.classList.add('visible-transition');
+        };
+
+        const closeModal = (modalEl) => {
+            modalEl.classList.remove('visible-transition');
+            modalEl.classList.add('hidden-transition');
+        };
+        
+        /**
+         * Mostra uma mensagem modal customizada (substitui alert/confirm)
+         * @param {string} title - Título da mensagem
+         * @param {string} text - Corpo da mensagem
+         * @param {'success' | 'error' | 'confirm' | 'info'} type - Tipo de ícone e botões
+         * @param {function(boolean)} callback - Função chamada ao fechar (recebe true para OK, false para Cancelar)
+         */
+        const showMessage = (title, text, type = 'info', callback = null) => {
+            messageTitle.textContent = title;
+            messageText.textContent = text;
+            messageCallback = callback;
+
+            // Configura ícone
+            messageIcon.innerHTML = '';
+            if (type === 'success') {
+                messageIcon.innerHTML = `<ion-icon name="checkmark-circle-outline" class="text-6xl text-green-500"></ion-icon>`;
+            } else if (type === 'error') {
+                messageIcon.innerHTML = `<ion-icon name="close-circle-outline" class="text-6xl text-red-500"></ion-icon>`;
+            } else if (type === 'confirm') {
+                messageIcon.innerHTML = `<ion-icon name="help-circle-outline" class="text-6xl text-yellow-500"></ion-icon>`;
+            } else {
+                messageIcon.innerHTML = `<ion-icon name="information-circle-outline" class="text-6xl text-blue-500"></ion-icon>`;
+            }
+
+            // Configura botões
+            if (type === 'confirm') {
+                messageOkBtn.textContent = "Confirmar";
+                messageCancelBtn.textContent = "Cancelar";
+                messageCancelBtn.classList.remove('hidden');
+                messageButtons.classList.remove('justify-center');
+                messageButtons.classList.add('justify-between');
+                messageOkBtn.classList.remove('flex-1');
+                messageCancelBtn.classList.remove('flex-1');
+                messageOkBtn.classList.add('flex-auto');
+                messageCancelBtn.classList.add('flex-auto');
+
+            } else {
+                messageOkBtn.textContent = "OK";
+                messageCancelBtn.classList.add('hidden');
+                messageButtons.classList.add('justify-center');
+                messageButtons.classList.remove('justify-between');
+                messageOkBtn.classList.add('flex-1');
+                messageCancelBtn.classList.add('flex-1');
+                messageOkBtn.classList.remove('flex-auto');
+                messageCancelBtn.classList.remove('flex-auto');
+            }
+            
+            openModal(messageModal);
+        };
+
+        const closeMessage = (result) => {
+            closeModal(messageModal);
+            if (messageCallback) {
+                messageCallback(result);
+            }
+            messageCallback = null;
+        };
+        
+        // --- Funções de Renderização ---
+
+        const renderSidebar = (prescricoes) => {
+            if (prescricoes.length === 0) {
+                navLoading.classList.add('hidden');
+                navEmpty.classList.remove('hidden');
+                sidebarNav.innerHTML = ''; // Limpa qualquer conteúdo antigo
+                return;
+            }
+
+            navLoading.classList.add('hidden');
+            navEmpty.classList.add('hidden');
+
+            // Agrupar por área
+            const grouped = prescricoes.reduce((acc, curr) => {
+                const area = curr.area || "Sem Área";
+                if (!acc[area]) {
+                    acc[area] = [];
+                }
+                acc[area].push(curr);
+                return acc;
+            }, {});
+
+            // Ordenar doenças dentro de cada área
+            for (const area in grouped) {
+                grouped[area].sort((a, b) => a.doenca.localeCompare(b.doenca));
+            }
+            
+            // Ordenar áreas
+            const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+
+            let html = '';
+            let datalistHtml = '';
+            const areaSet = new Set();
+
+            sortedAreas.forEach(area => {
+                areaSet.add(area);
+                html += `
+                    <div class="space-y-1" data-area-group="${area.toLowerCase()}">
+                        <h3 class="text-xl font-bold text-teal-700 px-2 py-1">${area}</h3>
+                        <ul class="space-y-0.5 ml-2 border-l-2 border-gray-200">
+                `;
+                
+                grouped[area].forEach(item => {
+                    html += `
+                        <li class="flex">
+                            <button data-id="${item.id}" data-area="${item.area}" data-doenca="${item.doenca}" 
+                                    class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
+                                    data-search-term="${item.doenca.toLowerCase()} ${item.area.toLowerCase()} ${item.cid.toLowerCase()}">
+                                ${item.doenca}
+                            </button>
+                        </li>
+                    `;
+                });
+
+                html += `</ul></div>`;
+            });
+            
+            sidebarNav.innerHTML = html;
+            
+            // Preencher datalist para o formulário
+            areaSet.forEach(area => {
+                datalistHtml += `<option value="${area}">`;
+            });
+            formAreaDatalist.innerHTML = datalistHtml;
+        };
+
+        const renderAdminList = (prescricoes) => {
+            if (prescricoes.length === 0) {
+                adminListContainer.innerHTML = '<p class="text-gray-500 text-center">Nenhuma prescrição cadastrada.</p>';
+                addExampleDataBtn.classList.remove('hidden');
+                return;
+            }
+
+            addExampleDataBtn.classList.add('hidden');
+
+            // Agrupar e ordenar como na sidebar
+            const grouped = prescricoes.reduce((acc, curr) => {
+                const area = curr.area || "Sem Área";
+                if (!acc[area]) {
+                    acc[area] = [];
+                }
+                acc[area].push(curr);
+                return acc;
+            }, {});
+
+            for (const area in grouped) {
+                grouped[area].sort((a, b) => a.doenca.localeCompare(b.doenca));
+            }
+            const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+
+            let html = '';
+            sortedAreas.forEach(area => {
+                html += `
+                    <div class="space-y-2">
+                        <h4 class="text-base font-semibold text-gray-500 uppercase tracking-wider">${area}</h4>
+                `;
+                
+                grouped[area].forEach(item => {
+                    html += `
+                        <div class="bg-gray-50 p-3 rounded-lg flex justify-between items-center shadow-sm border border-gray-200">
+                            <div>
+                                <p class="font-medium text-gray-800">${item.doenca}</p>
+                                <p class="text-sm text-gray-500">${item.cid || 'Sem CID'}</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button data-id="${item.id}" class="edit-btn text-blue-600 hover:text-blue-800 p-1.5 rounded-full hover:bg-blue-100 transition-colors">
+                                    <ion-icon name="create-outline" class="text-xl"></ion-icon>
+                                </button>
+                                <button data-id="${item.id}" data-doenca="${item.doenca}" class="delete-btn text-red-600 hover:text-red-800 p-1.5 rounded-full hover:bg-red-100 transition-colors">
+                                    <ion-icon name="trash-outline" class="text-xl"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+            });
+            
+            adminListContainer.innerHTML = html;
+        };
+
+        const displayPrescription = (id) => {
+            const item = allPrescricoes.find(p => p.id === id);
+            if (!item) {
+                console.error("Não foi possível encontrar a prescrição com ID:", id);
+                return;
+            }
+
+            contentTitle.textContent = item.doenca;
+            contentCid.textContent = item.cid ? `CID: ${item.cid}` : '';
+            contentText.textContent = item.texto; // `pre` e `whitespace-pre-wrap` fazem a mágica
+
+            contentPlaceholder.classList.add('hidden');
+            contentDisplay.classList.remove('hidden');
+
+            breadcrumb.textContent = `${item.area} > ${item.doenca}`;
+            lastSelectedArea = item.area;
+            lastSelectedDoenca = item.doenca;
+
+            // Atualizar seleção na sidebar
+            document.querySelectorAll('.nav-item-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-100', 'text-teal-700', 'font-semibold');
+                if (btn.dataset.id === id) {
+                    btn.classList.add('bg-teal-100', 'text-teal-700', 'font-semibold');
+                }
+            });
+
+            // Fechar sidebar no mobile após seleção
+            if (window.innerWidth < 768) {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            }
+        };
+
+        const filterSidebar = (term) => {
+            const lowerTerm = term.toLowerCase();
+            const items = document.querySelectorAll('.nav-item-btn');
+            let areaGroups = document.querySelectorAll('[data-area-group]');
+            let itemsFound = 0;
+
+            items.forEach(item => {
+                const searchTerm = item.dataset.searchTerm;
+                if (searchTerm.includes(lowerTerm)) {
+                    item.parentElement.classList.remove('hidden');
+                    itemsFound++;
+                } else {
+                    item.parentElement.classList.add('hidden');
+                }
+            });
+
+            // Ocultar títulos de área se todos os itens estiverem ocultos
+            areaGroups.forEach(group => {
+                const visibleItems = group.querySelectorAll('li:not(.hidden)');
+                if (visibleItems.length === 0) {
+                    group.classList.add('hidden');
+                } else {
+                    group.classList.remove('hidden');
+                }
+            });
+            
+            if (itemsFound === 0 && allPrescricoes.length > 0) {
+                navEmpty.textContent = "Nenhum resultado encontrado.";
+                navEmpty.classList.remove('hidden');
+            } else if (allPrescricoes.length > 0) {
+                navEmpty.classList.add('hidden');
+            }
+        };
+
+        // --- Funções de CRUD (Firebase) ---
+
+        const handleFormSubmit = async (e) => {
+            e.preventDefault();
+            const id = formEditId.value;
+            const data = {
+                area: formArea.value.trim(),
+                doenca: formDoenca.value.trim(),
+                cid: formCid.value.trim(),
+                texto: formTexto.value.trim()
+            };
+
+            if (!data.area || !data.doenca || !data.texto) {
+                showMessage("Erro", "Os campos 'Área', 'Doença' e 'Texto' são obrigatórios.", 'error');
+                return;
+            }
+
+            showLoading(true);
+            try {
+                if (id) {
+                    // Editando
+                    const docRef = doc(prescricoesCollection, id);
+                    await setDoc(docRef, data);
+                    showMessage("Sucesso!", "Prescrição atualizada com sucesso.", 'success');
+                } else {
+                    // Adicionando
+                    await addDoc(prescricoesCollection, data);
+                    showMessage("Sucesso!", "Nova prescrição adicionada com sucesso.", 'success');
+                }
+                resetAdminForm();
+            } catch (error) {
+                console.error("Erro ao salvar prescrição: ", error);
+                showMessage("Erro", `Não foi possível salvar a prescrição: ${error.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        };
+
+        const showEditForm = (id) => {
+            const item = allPrescricoes.find(p => p.id === id);
+            if (!item) return;
+
+            formTitle.textContent = "Editar Prescrição";
+            formEditId.value = item.id;
+            formArea.value = item.area;
+            formDoenca.value = item.doenca;
+            formCid.value = item.cid;
+            formTexto.value = item.texto;
+            formSubmitBtn.textContent = "Salvar Alterações";
+            formCancelBtn.classList.remove('hidden');
+            
+            // Scroll to top of modal
+            adminPanelModal.querySelector('.flex-1.flex.flex-col.md\\:flex-row.overflow-hidden.p-6.gap-6').scrollTop = 0;
+        };
+
+        const resetAdminForm = () => {
+            adminForm.reset();
+            formTitle.textContent = "Adicionar Nova Prescrição";
+            formEditId.value = "";
+            formSubmitBtn.textContent = "Salvar Prescrição";
+            formCancelBtn.classList.add('hidden');
+        };
+        
+        const handleDelete = (id, doenca) => {
+            showMessage(
+                "Confirmar Exclusão", 
+                `Tem certeza que deseja excluir a prescrição para "${doenca}"? Esta ação não pode ser desfeita.`, 
+                'confirm', 
+                async (confirmed) => {
+                    if (confirmed) {
+                        showLoading(true);
+                        try {
+                            const docRef = doc(prescricoesCollection, id);
+                            await deleteDoc(docRef);
+                            showMessage("Excluído", `A prescrição "${doenca}" foi excluída.`, 'success');
+                            
+                            // Se a prescrição excluída estava sendo exibida, limpa a tela
+                            if (contentTitle.textContent === doenca) {
+                                contentDisplay.classList.add('hidden');
+                                contentPlaceholder.classList.remove('hidden');
+                                breadcrumb.textContent = "Selecione uma área e uma doença no menu ao lado.";
+                            }
+                        } catch (error) {
+                            console.error("Erro ao excluir: ", error);
+                            showMessage("Erro", `Não foi possível excluir: ${error.message}`, 'error');
+                        } finally {
+                            showLoading(false);
+                        }
+                    }
+                }
+            );
+        };
+
+        const addExampleData = async () => {
+            showMessage(
+                "Adicionar Dados de Exemplo",
+                `Isso irá adicionar ${DADOS_EXEMPLO.length} prescrições de exemplo ao banco de dados. Deseja continuar?`,
+                'confirm',
+                async (confirmed) => {
+                    if (!confirmed) return;
+
+                    showLoading(true);
+                    try {
+                        const batch = writeBatch(db);
+                        DADOS_EXEMPLO.forEach(item => {
+                            const docRef = doc(prescricoesCollection); // Cria uma nova referência com ID automático
+                            batch.set(docRef, item);
+                        });
+                        await batch.commit();
+                        showMessage("Sucesso!", "Dados de exemplo adicionados com sucesso.", 'success');
+                    } catch (error) {
+                        console.error("Erro ao adicionar dados de exemplo:", error);
+                        showMessage("Erro", `Não foi possível adicionar os dados: ${error.message}`, 'error');
+                    } finally {
+                        showLoading(false);
+                    }
+                }
+            );
+        };
+
+        // --- Funções de Autenticação ---
+
+        const handleAdminLogin = async (e) => {
+            e.preventDefault();
+            const email = loginForm['login-email'].value;
+            const password = loginForm['login-password'].value;
+            
+            showLoading(true);
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                closeModal(loginModal);
+                loginForm.reset();
+                // onAuthStateChanged cuidará do resto
+            } catch (error) {
+                console.error("Erro de login:", error.code, error.message);
+                let friendlyMessage = "Ocorreu um erro ao tentar fazer login.";
+                if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+                    friendlyMessage = "Email ou senha incorretos. Por favor, tente novamente.";
+                }
+                showMessage("Falha no Login", friendlyMessage, 'error');
+            } finally {
+                showLoading(false);
+            }
+        };
+
+        const handleLogout = async () => {
+            showLoading(true);
+            try {
+                await signOut(auth);
+                // onAuthStateChanged cuidará da UI e do login anônimo
+            } catch (error) {
+                console.error("Erro ao sair:", error);
+                showMessage("Erro", `Não foi possível sair: ${error.message}`, 'error');
+            } finally {
+                showLoading(false);
+            }
+        };
+
+        const setupFirebaseListeners = () => {
+            // Se já houver um listener, cancela-o antes de criar um novo
+            if (unsubscribePrescricoes) {
+                unsubscribePrescricoes();
+            }
+
+            if (auth.currentUser) {
+                const q = query(prescricoesCollection);
+                unsubscribePrescricoes = onSnapshot(q, (snapshot) => {
+                    allPrescricoes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    
+                    // Re-renderiza tudo
+                    renderSidebar(allPrescricoes);
+                    if (authUser && !authUser.isAnonymous) {
+                        renderAdminList(allPrescricoes);
+                    }
+                    
+                    // Se algo estava selecionado, tenta re-selecionar
+                    if(lastSelectedDoenca && lastSelectedArea) {
+                        const item = allPrescricoes.find(p => p.doenca === lastSelectedDoenca && p.area === lastSelectedArea);
+                        if (item) {
+                            displayPrescription(item.id);
+                        }
+                    }
+                    
+                }, (error) => {
+                    console.error("Erro ao buscar prescrições: ", error);
+                    showMessage("Erro de Conexão", "Não foi possível carregar os dados. Verifique sua conexão e tente recarregar.", 'error');
+                    navLoading.classList.add('hidden');
+                    navEmpty.textContent = "Erro ao carregar dados.";
+                    navEmpty.classList.remove('hidden');
+                });
+            }
+        };
+
+        // --- Inicialização ---
+
+        const initialize = async () => {
+            if (!firebaseConfig.apiKey) {
+                showMessage("Erro de Configuração", "A configuração do Firebase não foi carregada. O aplicativo não pode funcionar.");
+                return;
+            }
+
+            try {
+                // Inicializar Firebase
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                // Habilitar logs de debug
+                setLogLevel('debug');
+                
+                // Caminho da coleção pública
+                prescricoesCollection = collection(db, `/artifacts/${appId}/public/data/prescricoes`);
+                
+                // Monitorar estado de autenticação
+                onAuthStateChanged(auth, async (user) => {
+                    showLoading(true);
+                    if (user) {
+                        // Usuário está logado (Admin ou Anônimo)
+                        authUser = user;
+                        if (user.isAnonymous) {
+                            // Usuário anônimo (público)
+                            adminLoginBtn.classList.remove('hidden');
+                            adminPanelBtn.classList.add('hidden');
+                            logoutBtn.classList.add('hidden');
+                        } else {
+                            // Admin logado
+                            adminLoginBtn.classList.add('hidden');
+                            adminPanelBtn.classList.remove('hidden');
+                            logoutBtn.classList.remove('hidden');
+                        }
+                        // Iniciar listener do Firestore
+                        setupFirebaseListeners();
+                    } else {
+                        // Usuário deslogado, tentar login anônimo
+                        authUser = null;
+                        adminLoginBtn.classList.remove('hidden');
+                        adminPanelBtn.classList.add('hidden');
+                        logoutBtn.classList.add('hidden');
+                        
+                        try {
+                            if (initialAuthToken) {
+                                console.log("Tentando login com Custom Token...");
+                                await signInWithCustomToken(auth, initialAuthToken);
+                            } else {
+                                console.log("Tentando login anônimo...");
+                                await signInAnonymously(auth);
+                            }
+                            // onAuthStateChanged será chamado novamente
+                        } catch (authError) {
+                            console.error("Erro na autenticação inicial:", authError);
+                            showMessage("Erro de Autenticação", "Não foi possível conectar ao serviço. Por favor, recarregue a página.", 'error');
+                        }
+                    }
+                    showLoading(false);
+                });
+
+            } catch (e) {
+                console.error("Erro fatal ao inicializar Firebase:", e);
+                showMessage("Erro Crítico", "Falha ao inicializar o aplicativo. Por favor, recarregue a página.", 'error');
+            }
+        };
+
+        // --- Event Listeners ---
+
+        // Mobile Sidebar
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('open');
+        });
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('open');
+        });
+
+        // Busca
+        searchInput.addEventListener('keyup', (e) => {
+            filterSidebar(e.target.value);
+        });
+
+        // Seleção de Prescrição (Delegação de evento)
+        sidebarNav.addEventListener('click', (e) => {
+            const btn = e.target.closest('.nav-item-btn');
+            if (btn) {
+                displayPrescription(btn.dataset.id);
+            }
+        });
+
+        // Copiar Prescrição
+        copyBtn.addEventListener('click', async () => {
+            try {
+                // Tenta usar a API moderna (pode falhar no iframe)
+                // await navigator.clipboard.writeText(contentText.textContent);
+                
+                // Fallback com execCommand
+                const textArea = document.createElement('textarea');
+                textArea.value = contentText.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                copyBtn.querySelector('span').textContent = 'Copiado!';
+                copyBtn.querySelector('ion-icon').setAttribute('name', 'checkmark-outline');
+                setTimeout(() => {
+                    copyBtn.querySelector('span').textContent = 'Copiar';
+                    copyBtn.querySelector('ion-icon').setAttribute('name', 'copy-outline');
+                }, 2000);
+            } catch (err) {
+                console.error('Falha ao copiar: ', err);
+                showMessage("Erro", "Não foi possível copiar o texto. Tente manualmente.", 'error');
+            }
+        });
+
+        // Login/Logout Admin
+        adminLoginBtn.addEventListener('click', () => openModal(loginModal));
+        loginForm.addEventListener('submit', handleAdminLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+
+        // Painel Admin
+        adminPanelBtn.addEventListener('click', () => {
+            renderAdminList(allPrescricoes); // Garante que a lista está atualizada
+            openModal(adminPanelModal);
+        });
+        adminForm.addEventListener('submit', handleFormSubmit);
+        formCancelBtn.addEventListener('click', resetAdminForm);
+        addExampleDataBtn.addEventListener('click', addExampleData);
+
+        // Delegação de Eventos no Painel Admin
+        adminListContainer.addEventListener('click', (e) => {
+            const editButton = e.target.closest('.edit-btn');
+            if (editButton) {
+                showEditForm(editButton.dataset.id);
+                return;
+            }
+
+            const deleteButton = e.target.closest('.delete-btn');
+            if (deleteButton) {
+                handleDelete(deleteButton.dataset.id, deleteButton.dataset.doenca);
+                return;
+            }
+        });
+
+        // Fechar Modais
+        document.querySelectorAll('.modal-close-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                closeModal(e.target.closest('.modal-backdrop-fade'));
+            });
+        });
+        
+        // Mensagem Modal Botões
+        messageOkBtn.addEventListener('click', () => closeMessage(true));
+        messageCancelBtn.addEventListener('click', () => closeMessage(false));
+
+        // Iniciar a aplicação
+        initialize();
+
+    </script>
+</body>
+</html>
+
+
