@@ -298,7 +298,7 @@
                     <!-- Ícone de sucesso ou erro aqui -->
                 </div>
                 <h3 id="message-title" class="text-2xl font-bold text-gray-800 mb-3"></h3>
-                <p id="message-text" class="text-base text-gray-600 mb-8 max-h-[60vh] overflow-y-auto whitespace-pre-wrap text-left px-4"></p>
+                <div id="message-text" class="text-base text-gray-600 mb-8 max-h-[60vh] overflow-y-auto whitespace-pre-wrap text-left px-4"></div>
                 <div id="message-buttons" class="flex justify-center space-x-4">
                     <button id="message-ok-btn" class="flex-1 bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-teal-700 transition-colors">OK</button>
                     <button id="message-cancel-btn" class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors">Cancelar</button>
@@ -450,7 +450,7 @@
          */
         const showMessage = (title, text, type = 'info', callback = null) => {
             messageTitle.textContent = title;
-            messageText.textContent = text;
+            messageText.innerHTML = text; // Alterado para innerHTML para permitir formatação
             messageCallback = callback;
 
             // Configura ícone
@@ -694,7 +694,7 @@
             const data = {
                 area: formArea.value.trim(),
                 doenca: formDoenca.value.trim(),
-                cid: formCid.value.trim(),
+                cid: formCid.value.trim().toUpperCase(),
                 texto: formTexto.value.trim()
             };
 
@@ -702,6 +702,10 @@
                 showMessage("Erro", "Os campos 'Área', 'Doença' e 'Texto' são obrigatórios.", 'error');
                 return;
             }
+
+            // Normaliza capitalização para consistência
+            data.area = data.area.charAt(0).toUpperCase() + data.area.slice(1).toLowerCase();
+            data.doenca = data.doenca.charAt(0).toUpperCase() + data.doenca.slice(1).toLowerCase();
 
             showLoading(true);
             try {
@@ -828,90 +832,131 @@
             reader.onload = async (e) => {
                 const text = e.target.result;
                 try {
-                    const { success, failures, skipped } = parseImportText(text);
+                    const { readyToImport, failures, skipped } = parseImportText(text);
                     
-                    if (success.length > 0) {
-                        await saveImportedPrescricoes(success);
-                    }
-
-                    // Gerar relatório detalhado
-                    let reportMessage = `Importação finalizada.\n\nSucesso: ${success.length}\nDuplicatas ignoradas: ${skipped}\nFalhas: ${failures.length}`;
-                    if (failures.length > 0) {
-                        const failureDetails = failures.map(f => `- Bloco ${f.blockIndex}: ${f.reason}`).join('\n');
-                        reportMessage += `\n\nDetalhes das falhas:\n${failureDetails}`;
-                    }
-                    showMessage("Relatório de Importação", reportMessage, 'info');
-
+                    showImportPreview(readyToImport, failures, skipped);
                 } catch (error) {
                     console.error("Erro ao processar arquivo:", error);
                     showMessage("Erro de Importação", `Falha ao processar o arquivo: ${error.message}`, 'error');
                 }
             };
             reader.onerror = () => {
-                showMessage("Erro de Leitura", "Não foi possível ler o arquivo selecionado.", 'error');
+                showMessage("Erro de Leitura", "Não foi possível ler o arquivo selecionado.", "error");
             };
             reader.readAsText(file);
-
-            // Limpa o input para permitir selecionar o mesmo arquivo novamente
             event.target.value = '';
         };
 
+        const showImportPreview = (readyToImport, failures, skipped) => {
+            let previewHtml = `<div class="space-y-4">`;
+            previewHtml += `<p class="font-semibold">Análise do arquivo concluída:</p>`;
+            previewHtml += `<ul class="list-disc list-inside space-y-1">`;
+            previewHtml += `<li><span class="font-bold text-green-600">${readyToImport.length}</span> prescrições prontas para importar.</li>`;
+            previewHtml += `<li><span class="font-bold text-yellow-600">${skipped}</span> duplicatas ignoradas.</li>`;
+            previewHtml += `<li><span class="font-bold text-red-600">${failures.length}</span> com erros.</li>`;
+            previewHtml += `</ul>`;
+
+            if (failures.length > 0) {
+                previewHtml += `<p class="font-semibold mt-4">Detalhes dos erros:</p>`;
+                previewHtml += `<ul class="text-sm text-red-700 bg-red-50 p-2 rounded-md list-disc list-inside">`;
+                failures.forEach(f => {
+                    previewHtml += `<li><b>Bloco ${f.blockIndex}:</b> ${f.reason}</li>`;
+                });
+                previewHtml += `</ul>`;
+            }
+
+            if (readyToImport.length > 0) {
+                previewHtml += `<p class="font-semibold mt-4">Pré-visualização do que será importado:</p>`;
+                previewHtml += `<div class="max-h-40 overflow-y-auto border rounded-md p-2 bg-gray-50 text-sm space-y-2">`;
+                readyToImport.forEach(item => {
+                    previewHtml += `<div class="p-2 border-b"><p><b>Área:</b> ${item.area}</p><p><b>Doença:</b> ${item.doenca}</p></div>`;
+                });
+                previewHtml += `</div>`;
+            }
+            previewHtml += `</div>`;
+
+            const title = "Pré-visualização da Importação";
+            if (readyToImport.length === 0) {
+                showMessage(title, previewHtml, 'info');
+                return;
+            }
+
+            showMessage(title, previewHtml, 'confirm', (confirmed) => {
+                if (confirmed) {
+                    saveImportedPrescricoes(readyToImport);
+                } else {
+                    showMessage("Importação Cancelada", "Nenhuma prescrição foi importada.", 'info');
+                }
+            });
+        };
+
         const parseImportText = (text) => {
-            const success = [];
+            const readyToImport = [];
             const failures = [];
             let skipped = 0;
 
-            // Normaliza quebras de linha para consistência
             const normalizedText = text.replace(/\r\n/g, '\n');
             const blocos = normalizedText.split('---').map(b => b.trim()).filter(b => b);
-            // Função auxiliar para extrair um campo usando regex e remover a linha do bloco de texto.
-            const extractField = (bloco, fieldName) => {
-                const regex = new RegExp(`^${fieldName}\\s*:\\s*(.*)`, "im");
+
+            const normalizeString = (str) => {
+                if (!str) return '';
+                const trimmed = str.trim();
+                return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+            };
+
+            const extractField = (bloco, fieldNames) => {
+                const fieldRegex = fieldNames.join('|');
+                const regex = new RegExp(`^(${fieldRegex})(?:\\s*:\\s*|\\s+)(.*)`, "im");
                 const match = bloco.match(regex);
                 if (match) {
-                    // Remove a linha correspondente do bloco para que reste apenas o texto da prescrição.
                     bloco = bloco.replace(regex, '').trim();
-                    // Retorna o valor encontrado e o texto restante do bloco.
-                    return { value: match[1].trim(), remainingText: bloco };
+                    return { value: match[2].trim(), remainingText: bloco };
                 }
                 return { value: '', remainingText: bloco };
             };
 
             blocos.forEach((bloco, index) => {
-                const blockIndex = index + 1;
+                let blockIndex = index + 1;
                 let data = {};
                 let remainingText = bloco;
 
-                ({ value: data.area,   remainingText } = extractField(remainingText, 'Area'));
-                ({ value: data.doenca, remainingText } = extractField(remainingText, 'Doenca'));
-                ({ value: data.cid,    remainingText } = extractField(remainingText, 'CID'));
+                ({ value: data.area,   remainingText } = extractField(remainingText, ['Area', 'Área']));
+                ({ value: data.doenca, remainingText } = extractField(remainingText, ['Doenca', 'Doença']));
+                ({ value: data.cid,    remainingText } = extractField(remainingText, ['CID']));
 
                 data.texto = remainingText.trim();
 
-                // Validações
                 if (!data.area) {
                     failures.push({ blockIndex, reason: "Campo 'Area' não encontrado." });
-                    return; // Pula para o próximo bloco
+                    return;
                 }
                 if (!data.doenca) {
                     failures.push({ blockIndex, reason: "Campo 'Doenca' não encontrado." });
                     return;
                 }
                 if (!data.texto) {
-                    failures.push({ blockIndex, reason: "Nenhum texto de prescrição encontrado." });
+                    failures.push({ blockIndex, reason: "Campo 'Texto da Prescrição' está vazio." });
                     return;
                 }
 
-                // Checagem de duplicata
-                const isDuplicate = allPrescricoes.some(p => p.area.toLowerCase() === data.area.toLowerCase() && p.doenca.toLowerCase() === data.doenca.toLowerCase());
+                // Normalização e checagem de duplicata
+                data.area = normalizeString(data.area);
+                data.doenca = normalizeString(data.doenca);
+                data.cid = data.cid.trim().toUpperCase();
+
+                const isDuplicate = allPrescricoes.some(p => 
+                    p.area.toLowerCase() === data.area.toLowerCase() && 
+                    p.doenca.toLowerCase() === data.doenca.toLowerCase()
+                );
+
                 if (isDuplicate) {
                     skipped++;
                     return;
                 }
 
-                success.push(data);
+                readyToImport.push(data);
             });
-            return { success, failures, skipped };
+            return { readyToImport, failures, skipped };
         };
 
         const saveImportedPrescricoes = async (prescricoes) => {
@@ -923,6 +968,7 @@
             });
             await batch.commit();
             showLoading(false);
+            showMessage("Sucesso!", `${prescricoes.length} prescrições foram importadas com sucesso.`, 'success');
         };
 
         const setupAuthListener = () => {

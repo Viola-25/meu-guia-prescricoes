@@ -2,106 +2,55 @@ const DADOS_EXEMPLO_TEXTO = `
 Area: Infectologia
 Doenca: Dengue
 CID: A90
-
-USO ORAL
-
-1) Dipirona 500mg ---------------------------------------- 2 cx
-Tomar 02 cps de 6/6h se dor ou febre
-
-2) Paracetamol 750mg ---------------------------------- 2cx
-Tomar 01 cp de 6/6h se dor ou febre
-
-3) Metoclopramida 10 mg ------------------------------- 2 cx
-Tomar 1 cp a cada 8 horas se náusea ou vômito
-
-4) Aumentar a ingesta de líquidos durante os próximos dias (pelo menos 3L por dia).
-
-Conduta:
-1) Prescrevo sintomáticos
-2) Encaminho paciente à UPA/UBS para realização de teste de dengue
-3) Solicito à equipe de enfermagem a notificação do caso suspeito de arbovirose
-4) Oriento sinais de alarme e retorno imediato ao PS caso necessário.
+ 
+USO ORAL:
+1. Dipirona 500mg ........................................ 2 caixas
+   Tomar 2 comprimidos de 6/6h se dor ou febre.
+ 
+2. Metoclopramida 10mg ................................... 1 caixa
+   Tomar 1 comprimido de 8/8h se náuseas ou vômitos.
+ 
+ORIENTAÇÕES:
+- Aumentar a ingesta de líquidos (pelo menos 3L por dia).
+- Retornar ao pronto-socorro se apresentar sinais de alarme (dor abdominal intensa, vômitos persistentes, sangramentos).
+- Realizar notificação compulsória de caso suspeito de arbovirose.
 ---
 Area: Otorrinolaringologia
 Doenca: Faringoamigdalite
-CID: 
-
-SUS
-USO INTRAMUSCULAR
-
-1. Penicilina G Benzatina 1.200.000UI -------------------------------------------------------
-Aplicar 1.200.000UI intramuscular dose única
-
-USO ORAL 
-1) Amoxicilina 500 mg ------------------------------------------------------------------ 21 cps
-Tomar 2 comprimidos a cada 8 horas por 10 dias. 
-
-2) Ibuprofeno 300 mg -----------------------------------------------------------------------------
-Tomar 2 comprimidos a cada 8 horas durante 5 dias  
-3) Dipirona 500mg -------------------------------------------------------------
-Tomar 2 comprimidos de 6 em 6 horas se dor ou febre 
-
-PRIVADO
-1) Amoxicilina + Clavulanato 875 mg + 125 mg —----------------------------------------------- 14 cps
-Tomar 1 comprimido a cada 12 horas por 10 dias
-
-2) Cetoprofeno 100 mg —----------------------------------------------------------------------------------------
-Tomar 1 comprimido a cada 12 horas por 5 dias  
-
-3) Dipirona 500 mg--------------------------------------------------------------------------------------------
-Tomar 2 comprimidos a cada 6 horas se dor ou febre
-
-PEDIATRIA
-USO INJETÁVEL (< 30Kg)
-1) Penicilina G Benzatina 600.000UI -------------------------------------------------------------
-Aplicar 600.000UI intramuscular dose única
-
-USO INJETÁVEL (> 30Kg)
-1) Penicilina G Benzatina 1.200.000UI -------------------------------------------------------------
-Aplicar 1.200.000UI intramuscular dose única
-
-USO ORAL
-1) Dipirona gotas 500mg/ml -------------------------------------------------------------------- 
-Tomar X gotas de 6 em 6 horas se dor ou febre.
-
-2) Ibuprofeno gotas 100mg/ml --------------------------------------------------------------- 
-Tomar X gotas de 8 em 8 horas por 5 dias.
-
-
-ORIENTAÇÕES
-1) Aumentar a ingesta de líquidos.
-2) Manter alimentação.
-3) Retornar ao serviço em caso de manutenção ou aparecimento de febre (temperatura maior que 37,7ºC), falta de ar, cansaço, esforço para respirar, sonolência, incapacidade ou muita dor ao abrir a boca, dor ao virar o pescoço, incapacidade de se alimentar ou beber líquidos.
+CID: J02.9
+ 
+ADULTOS (SUS):
+1. Penicilina G Benzatina 1.200.000 UI ................... 1 frasco-ampola
+   Aplicar 1 dose intramuscular, agora.
+ 
+2. Ibuprofeno 600mg ....................................... 1 caixa
+   Tomar 1 comprimido de 8/8h por 5 dias.
+ 
+ADULTOS (PRIVADO):
+1. Amoxicilina + Clavulanato 875/125mg ................. 2 caixas
+   Tomar 1 comprimido de 12/12h por 10 dias.
+ 
+2. Nimesulida 100mg ...................................... 1 caixa
+   Tomar 1 comprimido de 12/12h por 5 dias.
+ 
+ORIENTAÇÕES GERAIS:
+- Manter repouso e hidratação.
+- Evitar alimentos muito quentes ou ácidos.
 ---
 Area: Otorrinolaringologia
 Doenca: Rinossinusite
-CID: 
-
-SUS
-1) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------
-Tomar 2 comprimidos a cada 8 horas se dor ou febre por 5 dias  
-
-2) Dipirona 500 mg -------------------------------------------------------------------------------------------
-Tomar 2 comprimidos a cada 6 horas se dor ou febre
-
-3) Loratadina 10 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido 1 vez ao dia se coriza ou tosse 
-
-3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse
-
-4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------
-Aplicar 20 mL de soro em cada narina de 6/6 horas  
-
-Pediatria
-1) Ibuprofeno gotas 100mg/ml ------------------------------------------------------------------------------------------
-Tomar x gotas de 8 em 8 horas se dor ou febre por 5 dias.  
-
-2) Dipirona 500mg/ml -------------------------------------------------------------------------------------------
-Tomar x gotas a cada 6 horas se dor ou febre (temperatura acima de 37,8 ºC).
-
-3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse 
-
-3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse
-
-4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------
-Aplicar 20 mL de soro em cada narina de 6/6 horas
-`;
+CID: J32.9
+ 
+TRATAMENTO:
+1. Amoxicilina 500mg ...................................... 3 caixas
+   Tomar 1 comprimido de 8/8h por 14 dias.
+ 
+2. Prednisona 20mg ....................................... 1 caixa
+   Tomar 1 comprimido pela manhã por 5 dias.
+ 
+SINTOMÁTICOS:
+1. Dipirona 1g ........................................... 1 caixa
+   Tomar 1 comprimido até de 6/6h se dor ou febre.
+ 
+HIGIENE NASAL:
+- Realizar lavagem nasal com soro fisiológico 0,9% em abundância, 3 a 4 vezes ao dia.
