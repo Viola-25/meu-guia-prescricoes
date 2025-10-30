@@ -381,33 +381,17 @@
 
         // --- Configuração do Firebase ---
         // As variáveis __firebase_config, __app_id, e __initial_auth_token
-        // serão injetadas pelo ambiente de hospedagem.
-        let firebaseConfig;
-        let appId;
-        let initialAuthToken;
-
-        try {
-            firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-            appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-            initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-            if (!firebaseConfig.apiKey) {
-                console.warn("Configuração do Firebase não encontrada. Usando valores de fallback.");
-                // Adicione sua configuração de fallback aqui para testar localmente.
-                // Substitua com suas credenciais reais do Firebase.
-                firebaseConfig = {
-                    apiKey: "AIzaSyCSMBeiEUs5YVj51_T3IvIPAjQuG_Q6GSs",
-                    authDomain: "meu-guia-prescricoes.firebaseapp.com",
-                    projectId: "meu-guia-prescricoes",
-                    storageBucket: "meu-guia-prescricoes.firebasestorage.app",
-                    messagingSenderId: "186631859769",
-                    appId: "1:186631859769:web:52cabde2845701a2ab67e8"
-                };
-            }
-        } catch (e) {
-            console.error("Erro ao parsear configuração do Firebase:", e);
-            showMessage("Erro Crítico", "Não foi possível carregar a configuração do aplicativo. Por favor, recarregue a página.");
-        }
+        // são definidas diretamente, pois o site não está no Firebase Hosting.
+        const firebaseConfig = {
+            apiKey: "AIzaSyCSMBeiEUs5YVj51_T3IvIPAjQuG_Q6GSs",
+            authDomain: "meu-guia-prescricoes.firebaseapp.com",
+            projectId: "meu-guia-prescricoes",
+            storageBucket: "meu-guia-prescricoes.firebasestorage.app",
+            messagingSenderId: "186631859769",
+            appId: "1:186631859769:web:52cabde2845701a2ab67e8"
+        };
+        const appId = firebaseConfig.appId;
+        const initialAuthToken = null; // Não usado no GitHub Pages
 
         let app;
         let auth;
@@ -842,9 +826,28 @@
                 'confirm',
                 async (confirmed) => {
                     if (!confirmed) return;
+            showLoading(true);
+            try {
+                // Carrega o script de dados de exemplo dinamicamente
+                await import('./dados-exemplo.js');
+                
+                // Agora a variável DADOS_EXEMPLO está disponível globalmente
+                if (typeof DADOS_EXEMPLO === 'undefined' || DADOS_EXEMPLO.length === 0) {
+                    throw new Error("Não foi possível carregar os dados de exemplo.");
+                }
 
                     showLoading(true);
                     try {
+                showMessage(
+                    "Adicionar Dados de Exemplo",
+                    `Isso irá adicionar ${DADOS_EXEMPLO.length} prescrições de exemplo ao banco de dados. Deseja continuar?`,
+                    'confirm',
+                    async (confirmed) => {
+                        if (!confirmed) {
+                            showLoading(false);
+                            return;
+                        }
+                        
                         const batch = writeBatch(db);
                         DADOS_EXEMPLO.forEach(item => {
                             const docRef = doc(prescricoesCollection); // Cria uma nova referência com ID automático
@@ -860,6 +863,13 @@
                     }
                 }
             );
+                );
+            } catch (error) {
+                console.error("Erro ao carregar ou adicionar dados de exemplo:", error);
+                showMessage("Erro", `Não foi possível adicionar os dados: ${error.message}`, 'error');
+            } finally {
+                // O loading é desligado dentro do callback do showMessage ou no catch
+            }
         };
 
         // --- Funções de Autenticação ---
