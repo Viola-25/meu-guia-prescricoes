@@ -820,55 +820,39 @@
         };
 
         const addExampleData = async () => {
-            showMessage(
-                "Adicionar Dados de Exemplo",
-                `Isso irá adicionar ${DADOS_EXEMPLO.length} prescrições de exemplo ao banco de dados. Deseja continuar?`,
-                'confirm',
-                async (confirmed) => {
-                    if (!confirmed) return;
             showLoading(true);
             try {
                 // Carrega o script de dados de exemplo dinamicamente
                 await import('./dados-exemplo.js');
-                
+
                 // Agora a variável DADOS_EXEMPLO está disponível globalmente
                 if (typeof DADOS_EXEMPLO === 'undefined' || DADOS_EXEMPLO.length === 0) {
                     throw new Error("Não foi possível carregar os dados de exemplo.");
                 }
 
-                    showLoading(true);
-                    try {
                 showMessage(
                     "Adicionar Dados de Exemplo",
                     `Isso irá adicionar ${DADOS_EXEMPLO.length} prescrições de exemplo ao banco de dados. Deseja continuar?`,
                     'confirm',
                     async (confirmed) => {
-                        if (!confirmed) {
-                            showLoading(false);
-                            return;
-                        }
-                        
+                        if (!confirmed) { showLoading(false); return; }
+
                         const batch = writeBatch(db);
                         DADOS_EXEMPLO.forEach(item => {
                             const docRef = doc(prescricoesCollection); // Cria uma nova referência com ID automático
                             batch.set(docRef, item);
                         });
                         await batch.commit();
-                        showMessage("Sucesso!", "Dados de exemplo adicionados com sucesso.", 'success');
-                    } catch (error) {
-                        console.error("Erro ao adicionar dados de exemplo:", error);
-                        showMessage("Erro", `Não foi possível adicionar os dados: ${error.message}`, 'error');
-                    } finally {
                         showLoading(false);
+                        showMessage("Sucesso!", "Dados de exemplo adicionados com sucesso.", 'success');
                     }
-                }
-            );
                 );
             } catch (error) {
                 console.error("Erro ao carregar ou adicionar dados de exemplo:", error);
                 showMessage("Erro", `Não foi possível adicionar os dados: ${error.message}`, 'error');
+                showLoading(false);
             } finally {
-                // O loading é desligado dentro do callback do showMessage ou no catch
+                // O loading agora é controlado dentro do try/catch e do callback
             }
         };
 
