@@ -972,13 +972,13 @@
 
         // --- Inicialização ---
 
-        const initializeApp = () => {
+        const initializeApplication = () => {
             if (!firebaseConfig.apiKey) {
                 showMessage("Erro de Configuração", "A configuração do Firebase não foi carregada. O aplicativo não pode funcionar.");
                 return;
             }
             // Inicializar Firebase
-            app = initializeApp(firebaseConfig);
+            app = initializeApp(firebaseConfig); // Agora chama a função correta do Firebase SDK
             auth = getAuth(app);
             db = getFirestore(app);
 
@@ -1096,7 +1096,7 @@
         messageCancelBtn.addEventListener('click', () => closeMessage(false));
 
         // Iniciar a aplicação
-        initializeApp();
+        initializeApplication();
         setupAuthListener();
 
 
