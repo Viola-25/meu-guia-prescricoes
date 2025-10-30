@@ -712,10 +712,6 @@
                 if (id) {
                     // Editando
                     const docRef = doc(prescricoesCollection, id);
-                    await setDoc(docRef, data);
-                    showMessage("Sucesso!", "Prescrição atualizada com sucesso.", 'success');
-                } else {
-                    // Adicionando
                     await addDoc(prescricoesCollection, data);
                     showMessage("Sucesso!", "Nova prescrição adicionada com sucesso.", 'success');
                 }
@@ -793,10 +789,6 @@
             showLoading(true);
             try {
                 await signInWithEmailAndPassword(auth, email, password);
-                closeModal(loginModal);
-                showMessage("Sucesso", "Login bem-sucedido! Bem-vindo(a).", 'success');
-                loginForm.reset();
-                // onAuthStateChanged cuidará do resto
             } catch (error) {
                 console.error("Erro de login:", error.code, error.message);
                 let friendlyMessage = "Ocorreu um erro ao tentar fazer login.";
@@ -806,6 +798,12 @@
                 showMessage("Falha no Login", friendlyMessage, 'error');
             } finally {
                 showLoading(false);
+                // A mensagem de sucesso é mostrada apenas se não houver erro
+                if (!auth.currentUser.isAnonymous) {
+                    closeModal(loginModal);
+                    showMessage("Sucesso", "Login bem-sucedido! Bem-vindo(a).", 'success');
+                    loginForm.reset();
+                }
             }
         };
 
@@ -975,7 +973,14 @@
             onAuthStateChanged(auth, async (user) => {
                 showLoading(true);
                 try {
-                    if (user) {
+                    if (user && !user.isAnonymous && !authUser) { // Apenas se for um novo login de admin
+                        // Admin logado
+                        authUser = user;
+                        adminLoginBtn.classList.add('hidden');
+                        adminPanelBtn.classList.remove('hidden');
+                        logoutBtn.classList.remove('hidden');
+                        setupFirebaseListeners();
+                    } else if (user) {
                         // Usuário está logado (Admin ou Anônimo)
                         authUser = user;
                         if (user.isAnonymous) {
