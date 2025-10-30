@@ -259,20 +259,19 @@
                         
                         <!-- Botões de Ação -->
                         <div class="flex flex-wrap items-center gap-3 pt-2">
-                            <button type="submit" id="form-submit-btn" class="flex-grow bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            <button type="submit" id="form-submit-btn" class="bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
                                 Salvar Prescrição
                             </button>
-                            <button type="button" id="form-import-btn" class="flex-grow bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                            <button type="button" id="form-import-btn" class="bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
                                 Importar de TXT
                             </button>
                             <input type="file" id="import-file-input" class="hidden" accept=".txt">
-                            <button type="button" id="form-cancel-btn" class="hidden flex-grow bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                            <button type="button" id="form-cancel-btn" class="hidden bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
                                 Cancelar Edição
                             </button>
-                        </div>
-                        <div class="text-center">
-                            <a href="#" id="download-example-link" class="text-sm text-blue-600 hover:underline">
-                                Precisa de ajuda? Baixe um arquivo de exemplo (.txt) para importação.</a>
+                            <button type="button" id="download-example-btn" class="bg-gray-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-600 transition-colors">
+                                Baixar Exemplo
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -408,7 +407,7 @@
         const adminListContainer = document.getElementById('admin-list-container');
         const importBtn = document.getElementById('form-import-btn');
         const importFileInput = document.getElementById('import-file-input');
-        const downloadExampleLink = document.getElementById('download-example-link');
+        const downloadExampleBtn = document.getElementById('download-example-btn');
 
         const messageModal = document.getElementById('message-modal');
         const messageIcon = document.getElementById('message-icon');
@@ -1038,7 +1037,7 @@
         });
 
         // Download do arquivo de exemplo
-        downloadExampleLink.addEventListener('click', (e) => {
+        downloadExampleBtn.addEventListener('click', (e) => {
             e.preventDefault();
             const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n3) Metoclopramida 10 mg ------------------------------- 2 cx\nTomar 1 cp a cada 8 horas se náusea ou vômito\n\n4) Aumentar a ingesta de líquidos durante os próximos dias (pelo menos 3L por dia).\n\nConduta:\n1) Prescrevo sintomáticos\n2) Encaminho paciente à UPA/UBS para realização de teste de dengue\n3) Solicito à equipe de enfermagem a notificação do caso suspeito de arbovirose\n4) Oriento sinais de alarme e retorno imediato ao PS caso necessário.\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: \n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI -------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg ------------------------------------------------------------------ 21 cps\nTomar 2 comprimidos a cada 8 horas por 10 dias. \n\n2) Ibuprofeno 300 mg -----------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas durante 5 dias  \n3) Dipirona 500mg -------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre \n\nPRIVADO\n1) Amoxicilina + Clavulanato 875 mg + 125 mg —----------------------------------------------- 14 cps\nTomar 1 comprimido a cada 12 horas por 10 dias\n\n2) Cetoprofeno 100 mg —----------------------------------------------------------------------------------------\nTomar 1 comprimido a cada 12 horas por 5 dias  \n\n3) Dipirona 500 mg--------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\nPEDIATRIA\nUSO INJETÁVEL (< 30Kg)\n1) Penicilina G Benzatina 600.000UI -------------------------------------------------------------\nAplicar 600.000UI intramuscular dose única\n\nUSO INJETÁVEL (> 30Kg)\n1) Penicilina G Benzatina 1.200.000UI -------------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL\n1) Dipirona gotas 500mg/ml -------------------------------------------------------------------- \nTomar X gotas de 6 em 6 horas se dor ou febre.\n\n2) Ibuprofeno gotas 100mg/ml --------------------------------------------------------------- \nTomar X gotas de 8 em 8 horas por 5 dias.\n\n\nORIENTAÇÕES\n1) Aumentar a ingesta de líquidos.\n2) Manter alimentação.\n3) Retornar ao serviço em caso de manutenção ou aparecimento de febre (temperatura maior que 37,7ºC), falta de ar, cansaço, esforço para respirar, sonolência, incapacidade ou muita dor ao abrir a boca, dor ao virar o pescoço, incapacidade de se alimentar ou beber líquidos.\n---\nArea: Otorrinolaringologia\nDoenca: Rinossinusite\nCID: \n\nSUS\n1) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas se dor ou febre por 5 dias  \n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\n3) Loratadina 10 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\nPediatria\n1) Ibuprofeno gotas 100mg/ml ------------------------------------------------------------------------------------------\nTomar x gotas de 8 em 8 horas se dor ou febre por 5 dias.  \n\n2) Dipirona 500mg/ml -------------------------------------------------------------------------------------------\nTomar x gotas a cada 6 horas se dor ou febre (temperatura acima de 37,8 ºC).\n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas`;
             const blob = new Blob([exampleText], { type: 'text/plain' });
