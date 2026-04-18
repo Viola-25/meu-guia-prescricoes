@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "area": "Infectologia",
+    "doenca": "Dengue",
+    "cid": "A90",
+    "texto": "USO ORAL:\n1. Dipirona 500mg ........................................ 2 caixas\n   Tomar 2 comprimidos de 6/6h se dor ou febre.\n\n2. Metoclopramida 10mg ................................... 1 caixa\n   Tomar 1 comprimido de 8/8h se náuseas ou vômitos.\n\nORIENTACOES:\n- Aumentar a ingesta de liquidos (pelo menos 3L por dia).\n- Retornar ao pronto-socorro se apresentar sinais de alarme (dor abdominal intensa, vomitos persistentes, sangramentos).\n- Realizar notificacao compulsoria de caso suspeito de arbovirose."
+  },
+  {
+    "id": "2",
+    "area": "Otorrinolaringologia",
+    "doenca": "Faringoamigdalite",
+    "cid": "J02.9",
+    "texto": "ADULTOS (SUS):\n1. Penicilina G Benzatina 1.200.000 UI ................... 1 frasco-ampola\n   Aplicar 1 dose intramuscular, agora.\n\n2. Ibuprofeno 600mg ....................................... 1 caixa\n   Tomar 1 comprimido de 8/8h por 5 dias.\n\nADULTOS (PRIVADO):\n1. Amoxicilina + Clavulanato 875/125mg ................. 2 caixas\n   Tomar 1 comprimido de 12/12h por 10 dias.\n\n2. Nimesulida 100mg ...................................... 1 caixa\n   Tomar 1 comprimido de 12/12h por 5 dias.\n\nORIENTACOES GERAIS:\n- Manter repouso e hidratacao.\n- Evitar alimentos muito quentes ou acidos."
+  },
+  {
+    "id": "3",
+    "area": "Otorrinolaringologia",
+    "doenca": "Rinossinusite",
+    "cid": "J32.9",
+    "texto": "TRATAMENTO:\n1. Amoxicilina 500mg ...................................... 3 caixas\n   Tomar 1 comprimido de 8/8h por 14 dias.\n\n2. Prednisona 20mg ....................................... 1 caixa\n   Tomar 1 comprimido pela manha por 5 dias.\n\nSINTOMATICOS:\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido ate de 6/6h se dor ou febre.\n\nHIGIENE NASAL:\n- Realizar lavagem nasal com soro fisiologico 0,9% em abundancia, 3 a 4 vezes ao dia."
+  }
+]

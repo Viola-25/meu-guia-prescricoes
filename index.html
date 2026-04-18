@@ -3,91 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Prescrições</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>Guia de Prescricoes</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts - Inter -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Ícones (Heroicons) -->
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚕️</text></svg>">
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        
-        /* Estilo para preservar a formatação da prescrição */
+
         .prescription-content {
-            font-family: 'Roboto Mono', monospace; /* Fonte monoespaçada para alinhar hífens */
-            white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+            font-family: 'Roboto Mono', monospace;
+            white-space: pre-wrap;
             word-wrap: break-word;
         }
 
-        /* Scrollbar customizada */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 10px;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #c1c1c1;
             border-radius: 10px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #a1a1a1;
         }
 
-        /* Animação de fade-in para modais */
-        .modal-fade {
-            animation: fadeIn 0.3s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .modal-backdrop-fade {
-            animation: fadeInBackdrop 0.3s ease-out;
-        }
-        @keyframes fadeInBackdrop {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .hidden-transition {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .visible-transition {
-            display: flex !important; /* Garante que o display seja flex */
-            opacity: 1;
-        }
-
-        /* Esconde a sidebar em telas pequenas */
         @media (max-width: 767px) {
             #sidebar {
                 transform: translateX(-100%);
                 transition: transform 0.3s ease-in-out;
-                z-index: 40; /* Abaixo do overlay */
+                z-index: 40;
             }
+
             #sidebar.open {
                 transform: translateX(0);
             }
+
             #sidebar-overlay {
                 display: none;
                 z-index: 30;
             }
+
             #sidebar-overlay.open {
                 display: block;
             }
@@ -95,83 +67,59 @@
     </style>
 </head>
 <body class="bg-gray-100 antialiased">
-
-    <!-- Container Principal -->
     <div class="flex h-screen overflow-hidden">
-
-        <!-- Overlay da Sidebar (Mobile) -->
         <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 md:hidden"></div>
 
-        <!-- Sidebar / Navegação -->
         <aside id="sidebar" class="absolute inset-y-0 left-0 md:static w-72 md:w-80 bg-white shadow-lg h-full flex flex-col overflow-y-auto">
             <div class="p-4 border-b">
-                <h1 class="text-2xl font-bold text-teal-700">Guia de Prescrições</h1>
-                <!-- Botão de fechar (Mobile) -->
+                <h1 class="text-2xl font-bold text-teal-700">Guia de Prescricoes</h1>
                 <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-800">
                     <ion-icon name="close-outline" class="text-3xl"></ion-icon>
                 </button>
             </div>
-            
-            <!-- Busca -->
+
             <div class="p-4 border-b">
                 <div class="relative">
-                    <input type="text" id="search-input" placeholder="Buscar doença..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <input type="text" id="search-input" placeholder="Buscar doenca..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
                     <ion-icon name="search-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></ion-icon>
                 </div>
             </div>
 
-            <!-- Lista de Navegação (Preenchida pelo JS) -->
             <nav id="sidebar-nav" class="flex-1 p-4 space-y-4 overflow-y-auto">
-                <!-- Conteúdo dinâmico aqui -->
                 <div id="nav-loading" class="text-center text-gray-500 mt-8">
                     <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-500"></div>
                     <p class="mt-2">Carregando...</p>
                 </div>
-                <div id="nav-empty" class="text-center text-gray-500 mt-8 hidden">Nenhuma prescrição encontrada.</div>
+                <div id="nav-empty" class="text-center text-gray-500 mt-8 hidden">Nenhuma prescricao encontrada.</div>
             </nav>
         </aside>
 
-        <!-- Área de Conteúdo Principal -->
         <main class="flex-1 flex flex-col overflow-hidden">
-            <!-- Header do Conteúdo -->
             <header class="bg-white shadow-md p-4 flex justify-between items-center z-10">
-                <!-- Botão Menu (Mobile) -->
                 <button id="menu-btn" class="md:hidden text-gray-700 hover:text-teal-600">
                     <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
                 </button>
+
                 <div class="hidden md:block">
-                    <p id="breadcrumb" class="text-sm text-gray-500">Selecione uma área e uma doença no menu ao lado.</p>
+                    <p id="breadcrumb" class="text-sm text-gray-500">Selecione uma area e uma doenca no menu ao lado.</p>
                 </div>
-                
-                <!-- Botões de Admin -->
-                <div class="flex items-center space-x-3">
-                    <button id="admin-login-btn" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition-colors shadow-sm flex items-center space-x-2">
-                        <ion-icon name="log-in-outline" class="text-xl"></ion-icon>
-                        <span>Login Admin</span>
-                    </button>
-                    <button id="admin-panel-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm flex items-center space-x-2">
-                        <ion-icon name="shield-checkmark-outline" class="text-xl"></ion-icon>
-                        <span>Painel Admin</span>
-                    </button>
-                    <button id="logout-btn" class="hidden bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors shadow-sm flex items-center space-x-2">
-                        <ion-icon name="log-out-outline" class="text-xl"></ion-icon>
-                        <span>Sair</span>
-                    </button>
+
+                <div class="bg-teal-50 text-teal-700 px-3 py-2 rounded-lg text-sm font-medium border border-teal-200">
+                    Base estatica (somente leitura)
                 </div>
             </header>
 
-            <!-- Conteúdo da Prescrição -->
-            <div id="content-area" class="flex-1 overflow-y-auto p-6 md:p-8">
+            <div class="flex-1 overflow-y-auto p-6 md:p-8">
                 <div id="content-placeholder" class="text-center text-gray-500 mt-16">
                     <ion-icon name="document-text-outline" class="text-8xl text-gray-300"></ion-icon>
-                    <h2 class="text-2xl font-medium mt-4">Bem-vindo!</h2>
-                    <p class="mt-2">Selecione uma doença no menu lateral para ver a prescrição.</p>
+                    <h2 class="text-2xl font-medium mt-4">Bem-vindo</h2>
+                    <p class="mt-2">Selecione uma doenca no menu lateral para ver a prescricao.</p>
                 </div>
 
                 <div id="content-display" class="hidden max-w-4xl mx-auto">
                     <h2 id="content-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-2"></h2>
                     <p id="content-cid" class="text-lg text-gray-500 font-medium mb-6"></p>
-                    
+
                     <div class="relative">
                         <button id="copy-btn" class="absolute top-4 right-4 bg-gray-200 text-gray-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors flex items-center space-x-1.5">
                             <ion-icon name="copy-outline"></ion-icon>
@@ -184,195 +132,19 @@
         </main>
     </div>
 
-    <!-- Modal de Login Admin -->
-    <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 z-50 modal-backdrop-fade">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
-            <!-- Header -->
-            <div class="flex justify-between items-center p-6 border-b border-gray-200">
-                <h3 class="text-2xl font-bold text-gray-800">Login de Administrador</h3>
-                <button class="modal-close-btn text-gray-400 hover:text-gray-700">
-                    <ion-icon name="close-outline" class="text-3xl"></ion-icon>
-                </button>
-            </div>
-            <!-- Body -->
-            <form id="login-form" class="p-6 md:p-8 space-y-6">
-                <div>
-                    <label for="login-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" id="login-email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg" placeholder="admin@email.com">
-                </div>
-                <div>
-                    <label for="login-password" class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
-                    <input type="password" id="login-password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-lg" placeholder="••••••••">
-                </div>
-                <!-- Footer -->
-                <div class="pt-2">
-                    <button type="submit" class="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-teal-700 transition-colors shadow-md">
-                        Entrar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal do Painel Admin -->
-    <div id="admin-panel-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 md:p-8 z-50 modal-backdrop-fade">
-        <div class="bg-gray-100 rounded-2xl shadow-xl w-full h-full max-w-7xl flex flex-col modal-fade">
-            <!-- Header -->
-            <div class="flex justify-between items-center p-5 border-b border-gray-300 bg-white rounded-t-2xl">
-                <h3 class="text-2xl font-bold text-gray-800 flex items-center space-x-3">
-                    <ion-icon name="shield-checkmark-outline" class="text-blue-600"></ion-icon>
-                    <span>Painel de Administração</span>
-                </h3>
-                <button class="modal-close-btn text-gray-400 hover:text-gray-700">
-                    <ion-icon name="close-outline" class="text-3xl"></ion-icon>
-                </button>
-            </div>
-            
-            <!-- Conteúdo do Painel -->
-            <div class="flex-1 flex flex-col md:flex-row overflow-hidden p-6 gap-6">
-                <!-- Coluna 1: Adicionar/Editar Formulário -->
-                <div class="w-full md:w-1/2 lg:w-2/5 flex flex-col">
-                    <form id="admin-form" class="bg-white rounded-lg shadow p-6 space-y-4 flex flex-col overflow-y-auto">
-                        <h4 id="form-title" class="text-xl font-semibold text-gray-700 border-b pb-2">Adicionar Nova Prescrição</h4>
-                        <input type="hidden" id="form-edit-id">
-                        
-                        <div>
-                            <label for="form-area" class="block text-sm font-medium text-gray-700 mb-1">Área</label>
-                            <input type="text" id="form-area" list="area-datalist" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Infectologia">
-                            <datalist id="area-datalist"></datalist>
-                        </div>
-                        
-                        <div>
-                            <label for="form-doenca" class="block text-sm font-medium text-gray-700 mb-1">Doença / Condição</label>
-                            <input type="text" id="form-doenca" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Dengue">
-                        </div>
-                        
-                        <div>
-                            <label for="form-cid" class="block text-sm font-medium text-gray-700 mb-1">CID (Opcional)</label>
-                            <input type="text" id="form-cid" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: A90">
-                        </div>
-                        
-                        <div class="flex-1 flex flex-col">
-                            <label for="form-texto" class="block text-sm font-medium text-gray-700 mb-1">Texto da Prescrição</label>
-                            <textarea id="form-texto" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1 text-sm font-mono" rows="15" placeholder="Cole a prescrição formatada aqui..."></textarea>
-                        </div>
-                        
-                        <!-- Botões de Ação -->
-                        <div class="flex flex-wrap items-center gap-3 pt-2">
-                            <button type="submit" id="form-submit-btn" class="bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                                Salvar Prescrição
-                            </button>
-                            <button type="button" id="form-import-btn" class="bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                                Importar de TXT
-                            </button>
-                            <input type="file" id="import-file-input" class="hidden" accept=".txt">
-                            <button type="button" id="form-cancel-btn" class="hidden bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
-                                Cancelar Edição
-                            </button>
-                            <button type="button" id="download-example-btn" class="bg-gray-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-600 transition-colors">
-                                Baixar Exemplo
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Coluna 2: Lista de Prescrições -->
-                <div class="w-full md:w-1/2 lg:w-3/5 flex flex-col bg-white rounded-lg shadow overflow-hidden">
-                    <div class="p-6 border-b flex justify-between items-center">
-                        <h4 class="text-xl font-semibold text-gray-700">Prescrições Atuais</h4>
-                        <!-- O botão de adicionar exemplos foi removido após popular o banco de dados -->
-                    </div>
-                    <div id="admin-list-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-                        <!-- Conteúdo da lista preenchido por JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Mensagem/Confirmação (Substitui alert/confirm) -->
-    <div id="message-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 items-center justify-center p-4 z-[60] modal-backdrop-fade">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md modal-fade">
-            <div class="p-6 md:p-8 text-center">
-                <div id="message-icon" class="mx-auto mb-4">
-                    <!-- Ícone de sucesso ou erro aqui -->
-                </div>
-                <h3 id="message-title" class="text-2xl font-bold text-gray-800 mb-3"></h3>
-                <div id="message-text" class="text-base text-gray-600 mb-8 max-h-[60vh] overflow-y-auto whitespace-pre-wrap text-left px-4"></div>
-                <div id="message-buttons" class="flex justify-center space-x-4">
-                    <button id="message-ok-btn" class="flex-1 bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-teal-700 transition-colors">OK</button>
-                    <button id="message-cancel-btn" class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Overlay de Loading Global -->
     <div id="loading-overlay" class="hidden fixed inset-0 bg-white bg-opacity-80 items-center justify-center z-[70]">
         <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-600"></div>
     </div>
-    
-    <!-- Firebase SDKs -->
-    <script type="module">
-        // Importar os módulos necessários do Firebase
-        import { initializeApp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { 
-            getAuth, 
-            signInAnonymously, 
-            signInWithCustomToken, 
-            onAuthStateChanged,
-            signInWithEmailAndPassword,
-            signOut
-            // setLogLevel foi movido para firebase-app.js
-        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { 
-            getFirestore, 
-            collection, 
-            doc, 
-            addDoc, 
-            setDoc, 
-            deleteDoc, 
-            onSnapshot,
-            query,
-            getDocs,
-            writeBatch
-            // setLogLevel as setFirestoreLogLevel foi removido, use o setLogLevel principal
-        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // --- Configuração do Firebase ---
-        // As variáveis __firebase_config, __app_id, e __initial_auth_token
-        // são definidas diretamente, pois o site não está no Firebase Hosting.
-        const firebaseConfig = {
-            apiKey: "AIzaSyCSMBeiEUs5YVj51_T3IvIPAjQuG_Q6GSs",
-            authDomain: "meu-guia-prescricoes.firebaseapp.com",
-            projectId: "meu-guia-prescricoes",
-            storageBucket: "meu-guia-prescricoes.firebasestorage.app",
-            messagingSenderId: "186631859769",
-            appId: "1:186631859769:web:52cabde2845701a2ab67e8"
-        };
-        const appId = firebaseConfig.appId;
-        const initialAuthToken = null; // Não usado no GitHub Pages
+    <script>
+        let allPrescricoes = [];
 
-        let app;
-        let auth;
-        let db;
-        let prescricoesCollection;
-        let unsubscribePrescricoes = null; // Para desligar o listener onSnapshot
-        
-        // Estado global
-        let authUser = null;
-        let allPrescricoes = []; // Cache local de todas as prescrições
-        let lastSelectedArea = null;
-        let lastSelectedDoenca = null;
-
-        // --- Referências do DOM ---
         const loadingOverlay = document.getElementById('loading-overlay');
         const sidebarNav = document.getElementById('sidebar-nav');
         const navLoading = document.getElementById('nav-loading');
         const navEmpty = document.getElementById('nav-empty');
         const searchInput = document.getElementById('search-input');
-        
-        const contentArea = document.getElementById('content-area');
+
         const contentPlaceholder = document.getElementById('content-placeholder');
         const contentDisplay = document.getElementById('content-display');
         const contentTitle = document.getElementById('content-title');
@@ -380,141 +152,33 @@
         const contentText = document.getElementById('content-text');
         const copyBtn = document.getElementById('copy-btn');
         const breadcrumb = document.getElementById('breadcrumb');
-        
+
         const menuBtn = document.getElementById('menu-btn');
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebar-overlay');
         const closeSidebarBtn = document.getElementById('close-sidebar-btn');
 
-        const adminLoginBtn = document.getElementById('admin-login-btn');
-        const adminPanelBtn = document.getElementById('admin-panel-btn');
-        const logoutBtn = document.getElementById('logout-btn');
-
-        const loginModal = document.getElementById('login-modal');
-        const loginForm = document.getElementById('login-form');
-
-        const adminPanelModal = document.getElementById('admin-panel-modal');
-        const adminForm = document.getElementById('admin-form');
-        const formTitle = document.getElementById('form-title');
-        const formEditId = document.getElementById('form-edit-id');
-        const formArea = document.getElementById('form-area');
-        const formAreaDatalist = document.getElementById('area-datalist');
-        const formDoenca = document.getElementById('form-doenca');
-        const formCid = document.getElementById('form-cid');
-        const formTexto = document.getElementById('form-texto');
-        const formSubmitBtn = document.getElementById('form-submit-btn');
-        const formCancelBtn = document.getElementById('form-cancel-btn');
-        const adminListContainer = document.getElementById('admin-list-container');
-        const importBtn = document.getElementById('form-import-btn');
-        const importFileInput = document.getElementById('import-file-input');
-        const downloadExampleBtn = document.getElementById('download-example-btn');
-
-        const messageModal = document.getElementById('message-modal');
-        const messageIcon = document.getElementById('message-icon');
-        const messageTitle = document.getElementById('message-title');
-        const messageText = document.getElementById('message-text');
-        const messageButtons = document.getElementById('message-buttons');
-        const messageOkBtn = document.getElementById('message-ok-btn');
-        const messageCancelBtn = document.getElementById('message-cancel-btn');
-        let messageCallback = null;
-
-        // --- Funções Utilitárias ---
-
         const showLoading = (show) => {
-            // Usando classes simples de 'hidden' e 'flex' para evitar conflitos.
-            // 'flex' é necessário para centralizar o spinner.
             loadingOverlay.classList.toggle('hidden', !show);
             loadingOverlay.classList.toggle('flex', show);
         };
 
-        const openModal = (modalEl) => {
-            modalEl.classList.remove('hidden');
-            modalEl.classList.add('flex'); // 'flex' é usado para centralizar o conteúdo do modal
-            modalEl.classList.add('opacity-100');
-            modalEl.classList.remove('opacity-0');
-        };
-
-        const closeModal = (modalEl) => {
-            modalEl.classList.add('opacity-0');
-            modalEl.classList.remove('opacity-100');
-            // Aguarda a transição de opacidade terminar antes de adicionar 'hidden'
-            setTimeout(() => { modalEl.classList.add('hidden'); modalEl.classList.remove('flex'); }, 300); // 300ms é a duração da animação
-        };
-        
-        /**
-         * Mostra uma mensagem modal customizada (substitui alert/confirm)
-         * @param {string} title - Título da mensagem
-         * @param {string} text - Corpo da mensagem
-         * @param {'success' | 'error' | 'confirm' | 'info'} type - Tipo de ícone e botões
-         * @param {function(boolean)} callback - Função chamada ao fechar (recebe true para OK, false para Cancelar)
-         */
-        const showMessage = (title, text, type = 'info', callback = null) => {
-            messageTitle.textContent = title;
-            messageText.innerHTML = text; // Alterado para innerHTML para permitir formatação
-            messageCallback = callback;
-
-            // Configura ícone
-            messageIcon.innerHTML = '';
-            if (type === 'success') {
-                messageIcon.innerHTML = `<ion-icon name="checkmark-circle-outline" class="text-6xl text-green-500"></ion-icon>`;
-            } else if (type === 'error') {
-                messageIcon.innerHTML = `<ion-icon name="close-circle-outline" class="text-6xl text-red-500"></ion-icon>`;
-            } else if (type === 'confirm') {
-                messageIcon.innerHTML = `<ion-icon name="help-circle-outline" class="text-6xl text-yellow-500"></ion-icon>`;
-            } else {
-                messageIcon.innerHTML = `<ion-icon name="information-circle-outline" class="text-6xl text-blue-500"></ion-icon>`;
-            }
-
-            // Configura botões
-            if (type === 'confirm') {
-                messageOkBtn.textContent = "Confirmar";
-                messageCancelBtn.textContent = "Cancelar";
-                messageCancelBtn.classList.remove('hidden');
-                messageButtons.classList.remove('justify-center');
-                messageButtons.classList.add('justify-between');
-                messageOkBtn.classList.remove('flex-1');
-                messageCancelBtn.classList.remove('flex-1');
-                messageOkBtn.classList.add('flex-auto');
-                messageCancelBtn.classList.add('flex-auto');
-
-            } else {
-                messageOkBtn.textContent = "OK";
-                messageCancelBtn.classList.add('hidden');
-                messageButtons.classList.add('justify-center');
-                messageButtons.classList.remove('justify-between');
-                messageOkBtn.classList.add('flex-1');
-                messageCancelBtn.classList.add('flex-1');
-                messageOkBtn.classList.remove('flex-auto');
-                messageCancelBtn.classList.remove('flex-auto');
-            }
-            
-            openModal(messageModal);
-        };
-
-        const closeMessage = (result) => {
-            closeModal(messageModal);
-            if (messageCallback) {
-                messageCallback(result);
-            }
-            messageCallback = null;
-        };
-        
-        // --- Funções de Renderização ---
+        const normalizeForSearch = (text) => (text || '').toLowerCase();
 
         const renderSidebar = (prescricoes) => {
             if (prescricoes.length === 0) {
                 navLoading.classList.add('hidden');
+                navEmpty.textContent = 'Nenhuma prescricao encontrada.';
                 navEmpty.classList.remove('hidden');
-                sidebarNav.innerHTML = ''; // Limpa qualquer conteúdo antigo
+                sidebarNav.innerHTML = '';
                 return;
             }
 
             navLoading.classList.add('hidden');
             navEmpty.classList.add('hidden');
 
-            // Agrupar por área
             const grouped = prescricoes.reduce((acc, curr) => {
-                const area = curr.area || "Sem Área";
+                const area = curr.area || 'Sem Area';
                 if (!acc[area]) {
                     acc[area] = [];
                 }
@@ -522,130 +186,58 @@
                 return acc;
             }, {});
 
-            // Ordenar doenças dentro de cada área
             for (const area in grouped) {
                 grouped[area].sort((a, b) => a.doenca.localeCompare(b.doenca));
             }
-            
-            // Ordenar áreas
+
             const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
-
             let html = '';
-            let datalistHtml = '';
-            const areaSet = new Set();
 
-            sortedAreas.forEach(area => {
-                areaSet.add(area);
+            sortedAreas.forEach((area) => {
                 html += `
-                    <div class="space-y-1" data-area-group="${area.toLowerCase()}">
+                    <div class="space-y-1" data-area-group="${normalizeForSearch(area)}">
                         <h3 class="text-xl font-bold text-teal-700 px-2 py-1">${area}</h3>
                         <ul class="space-y-0.5 ml-2 border-l-2 border-gray-200">
                 `;
-                
-                grouped[area].forEach(item => {
+
+                grouped[area].forEach((item) => {
                     html += `
                         <li class="flex">
-                            <button data-id="${item.id}" data-area="${item.area}" data-doenca="${item.doenca}" 
-                                    class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
-                                    data-search-term="${item.doenca.toLowerCase()} ${item.area.toLowerCase()} ${item.cid.toLowerCase()}">
+                            <button data-id="${item.id}" class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
+                                data-search-term="${normalizeForSearch(item.doenca)} ${normalizeForSearch(item.area)} ${normalizeForSearch(item.cid)}">
                                 ${item.doenca}
                             </button>
                         </li>
                     `;
                 });
 
-                html += `</ul></div>`;
+                html += '</ul></div>';
             });
-            
+
             sidebarNav.innerHTML = html;
-            
-            // Preencher datalist para o formulário
-            areaSet.forEach(area => {
-                datalistHtml += `<option value="${area}">`;
-            });
-            formAreaDatalist.innerHTML = datalistHtml;
-        };
-
-        const renderAdminList = (prescricoes) => {
-            if (prescricoes.length === 0) {
-                adminListContainer.innerHTML = '<p class="text-gray-500 text-center">Nenhuma prescrição cadastrada.</p>';
-                return;
-            }
-
-            // Agrupar e ordenar como na sidebar
-            const grouped = prescricoes.reduce((acc, curr) => {
-                const area = curr.area || "Sem Área";
-                if (!acc[area]) {
-                    acc[area] = [];
-                }
-                acc[area].push(curr);
-                return acc;
-            }, {});
-
-            for (const area in grouped) {
-                grouped[area].sort((a, b) => a.doenca.localeCompare(b.doenca));
-            }
-            const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
-
-            let html = '';
-            sortedAreas.forEach(area => {
-                html += `
-                    <div class="space-y-2">
-                        <h4 class="text-base font-semibold text-gray-500 uppercase tracking-wider">${area}</h4>
-                `;
-                
-                grouped[area].forEach(item => {
-                    html += `
-                        <div class="bg-gray-50 p-3 rounded-lg flex justify-between items-center shadow-sm border border-gray-200">
-                            <div>
-                                <p class="font-medium text-gray-800">${item.doenca}</p>
-                                <p class="text-sm text-gray-500">${item.cid || 'Sem CID'}</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button data-id="${item.id}" class="edit-btn text-blue-600 hover:text-blue-800 p-1.5 rounded-full hover:bg-blue-100 transition-colors">
-                                    <ion-icon name="create-outline" class="text-xl"></ion-icon>
-                                </button>
-                                <button data-id="${item.id}" data-doenca="${item.doenca}" class="delete-btn text-red-600 hover:text-red-800 p-1.5 rounded-full hover:bg-red-100 transition-colors">
-                                    <ion-icon name="trash-outline" class="text-xl"></ion-icon>
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                html += `</div>`;
-            });
-            
-            adminListContainer.innerHTML = html;
         };
 
         const displayPrescription = (id) => {
-            const item = allPrescricoes.find(p => p.id === id);
+            const item = allPrescricoes.find((p) => p.id === id);
             if (!item) {
-                console.error("Não foi possível encontrar a prescrição com ID:", id);
                 return;
             }
 
             contentTitle.textContent = item.doenca;
             contentCid.textContent = item.cid ? `CID: ${item.cid}` : '';
-            contentText.textContent = item.texto; // `pre` e `whitespace-pre-wrap` fazem a mágica
+            contentText.textContent = item.texto;
 
             contentPlaceholder.classList.add('hidden');
             contentDisplay.classList.remove('hidden');
-
             breadcrumb.textContent = `${item.area} > ${item.doenca}`;
-            lastSelectedArea = item.area;
-            lastSelectedDoenca = item.doenca;
 
-            // Atualizar seleção na sidebar
-            document.querySelectorAll('.nav-item-btn').forEach(btn => {
+            document.querySelectorAll('.nav-item-btn').forEach((btn) => {
                 btn.classList.remove('bg-teal-100', 'text-teal-700', 'font-semibold');
                 if (btn.dataset.id === id) {
                     btn.classList.add('bg-teal-100', 'text-teal-700', 'font-semibold');
                 }
             });
 
-            // Fechar sidebar no mobile após seleção
             if (window.innerWidth < 768) {
                 sidebar.classList.remove('open');
                 sidebarOverlay.classList.remove('open');
@@ -653,12 +245,12 @@
         };
 
         const filterSidebar = (term) => {
-            const lowerTerm = term.toLowerCase();
+            const lowerTerm = normalizeForSearch(term);
             const items = document.querySelectorAll('.nav-item-btn');
-            let areaGroups = document.querySelectorAll('[data-area-group]');
+            const areaGroups = document.querySelectorAll('[data-area-group]');
             let itemsFound = 0;
 
-            items.forEach(item => {
+            items.forEach((item) => {
                 const searchTerm = item.dataset.searchTerm;
                 if (searchTerm.includes(lowerTerm)) {
                     item.parentElement.classList.remove('hidden');
@@ -668,430 +260,66 @@
                 }
             });
 
-            // Ocultar títulos de área se todos os itens estiverem ocultos
-            areaGroups.forEach(group => {
+            areaGroups.forEach((group) => {
                 const visibleItems = group.querySelectorAll('li:not(.hidden)');
-                if (visibleItems.length === 0) {
-                    group.classList.add('hidden');
-                } else {
-                    group.classList.remove('hidden');
-                }
+                group.classList.toggle('hidden', visibleItems.length === 0);
             });
-            
+
             if (itemsFound === 0 && allPrescricoes.length > 0) {
-                navEmpty.textContent = "Nenhum resultado encontrado.";
+                navEmpty.textContent = 'Nenhum resultado encontrado.';
                 navEmpty.classList.remove('hidden');
             } else if (allPrescricoes.length > 0) {
                 navEmpty.classList.add('hidden');
             }
         };
 
-        // --- Funções de CRUD (Firebase) ---
-
-        const handleFormSubmit = async (e) => {
-            e.preventDefault();
-            const id = formEditId.value;
-            const data = {
-                area: formArea.value.trim(),
-                doenca: formDoenca.value.trim(),
-                cid: formCid.value.trim().toUpperCase(),
-                texto: formTexto.value.trim()
-            };
-
-            if (!data.area || !data.doenca || !data.texto) {
-                showMessage("Erro", "Os campos 'Área', 'Doença' e 'Texto' são obrigatórios.", 'error');
-                return;
-            }
-
-            // Normaliza capitalização para consistência
-            data.area = data.area.charAt(0).toUpperCase() + data.area.slice(1).toLowerCase();
-            data.doenca = data.doenca.charAt(0).toUpperCase() + data.doenca.slice(1).toLowerCase();
-
+        const loadStaticData = async () => {
             showLoading(true);
             try {
-                if (id) {
-                    // Editando
-                    const docRef = doc(prescricoesCollection, id);
-                    await addDoc(prescricoesCollection, data);
-                    showMessage("Sucesso!", "Nova prescrição adicionada com sucesso.", 'success');
+                const response = await fetch('data/prescricoes.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`Falha ao carregar base estatica (${response.status}).`);
                 }
-                resetAdminForm();
+
+                const data = await response.json();
+                allPrescricoes = data.map((item, index) => ({
+                    id: item.id || String(index + 1),
+                    area: item.area || 'Sem Area',
+                    doenca: item.doenca || 'Sem nome',
+                    cid: item.cid || '',
+                    texto: item.texto || ''
+                }));
+
+                renderSidebar(allPrescricoes);
             } catch (error) {
-                console.error("Erro ao salvar prescrição: ", error);
-                showMessage("Erro", `Não foi possível salvar a prescrição: ${error.message}`, 'error');
+                console.error(error);
+                navLoading.classList.add('hidden');
+                navEmpty.textContent = 'Erro ao carregar dados locais. Use um servidor HTTP local.';
+                navEmpty.classList.remove('hidden');
             } finally {
                 showLoading(false);
             }
         };
 
-        const showEditForm = (id) => {
-            const item = allPrescricoes.find(p => p.id === id);
-            if (!item) return;
-
-            formTitle.textContent = "Editar Prescrição";
-            formEditId.value = item.id;
-            formArea.value = item.area;
-            formDoenca.value = item.doenca;
-            formCid.value = item.cid;
-            formTexto.value = item.texto;
-            formSubmitBtn.textContent = "Salvar Alterações";
-            formCancelBtn.classList.remove('hidden');
-            
-            // Scroll to top of modal
-            adminPanelModal.querySelector('.flex-1.flex.flex-col.md\\:flex-row.overflow-hidden.p-6.gap-6').scrollTop = 0;
-        };
-
-        const resetAdminForm = () => {
-            adminForm.reset();
-            formTitle.textContent = "Adicionar Nova Prescrição";
-            formEditId.value = "";
-            formSubmitBtn.textContent = "Salvar Prescrição";
-            formCancelBtn.classList.add('hidden');
-        };
-        
-        const handleDelete = (id, doenca) => {
-            showMessage(
-                "Confirmar Exclusão", 
-                `Tem certeza que deseja excluir a prescrição para "${doenca}"? Esta ação não pode ser desfeita.`, 
-                'confirm', 
-                async (confirmed) => {
-                    if (confirmed) {
-                        showLoading(true);
-                        try {
-                            const docRef = doc(prescricoesCollection, id);
-                            await deleteDoc(docRef);
-                            showMessage("Excluído", `A prescrição "${doenca}" foi excluída.`, 'success');
-                            
-                            // Se a prescrição excluída estava sendo exibida, limpa a tela
-                            if (contentTitle.textContent === doenca) {
-                                contentDisplay.classList.add('hidden');
-                                contentPlaceholder.classList.remove('hidden');
-                                breadcrumb.textContent = "Selecione uma área e uma doença no menu ao lado.";
-                            }
-                        } catch (error) {
-                            console.error("Erro ao excluir: ", error);
-                            showMessage("Erro", `Não foi possível excluir: ${error.message}`, 'error');
-                        } finally {
-                            showLoading(false);
-                        }
-                    }
-                }
-            );
-        };
-
-        // --- Funções de Autenticação ---
-
-        const handleAdminLogin = async (e) => {
-            e.preventDefault();
-            const email = loginForm['login-email'].value;
-            const password = loginForm['login-password'].value;
-            
-            showLoading(true);
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                console.error("Erro de login:", error.code, error.message);
-                let friendlyMessage = "Ocorreu um erro ao tentar fazer login.";
-                if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
-                    friendlyMessage = "Email ou senha incorretos. Por favor, tente novamente.";
-                }
-                showMessage("Falha no Login", friendlyMessage, 'error');
-            } finally {
-                showLoading(false);
-                // A mensagem de sucesso é mostrada apenas se não houver erro
-                if (!auth.currentUser.isAnonymous) {
-                    closeModal(loginModal);
-                    showMessage("Sucesso", "Login bem-sucedido! Bem-vindo(a).", 'success');
-                    loginForm.reset();
-                }
-            }
-        };
-
-        const handleLogout = async () => {
-            showLoading(true);
-            try {
-                await signOut(auth);
-                // onAuthStateChanged cuidará da UI e do login anônimo
-            } catch (error) {
-                console.error("Erro ao sair:", error);
-                showMessage("Erro", `Não foi possível sair: ${error.message}`, 'error');
-            } finally {
-                showLoading(false);
-            }
-        };
-
-        // --- Funções de Importação ---
-
-        const handleFileImport = (event) => {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                const text = e.target.result;
-                try {
-                    const { readyToImport, failures, skipped } = parseImportText(text);
-                    
-                    showImportPreview(readyToImport, failures, skipped);
-                } catch (error) {
-                    console.error("Erro ao processar arquivo:", error);
-                    showMessage("Erro de Importação", `Falha ao processar o arquivo: ${error.message}`, 'error');
-                }
-            };
-            reader.onerror = () => {
-                showMessage("Erro de Leitura", "Não foi possível ler o arquivo selecionado.", "error");
-            };
-            reader.readAsText(file);
-            event.target.value = '';
-        };
-
-        const showImportPreview = (readyToImport, failures, skipped) => {
-            let previewHtml = `<div class="space-y-4">`;
-            previewHtml += `<p class="font-semibold">Análise do arquivo concluída:</p>`;
-            previewHtml += `<ul class="list-disc list-inside space-y-1">`;
-            previewHtml += `<li><span class="font-bold text-green-600">${readyToImport.length}</span> prescrições prontas para importar.</li>`;
-            previewHtml += `<li><span class="font-bold text-yellow-600">${skipped}</span> duplicatas ignoradas.</li>`;
-            previewHtml += `<li><span class="font-bold text-red-600">${failures.length}</span> com erros.</li>`;
-            previewHtml += `</ul>`;
-
-            if (failures.length > 0) {
-                previewHtml += `<p class="font-semibold mt-4">Detalhes dos erros:</p>`;
-                previewHtml += `<ul class="text-sm text-red-700 bg-red-50 p-2 rounded-md list-disc list-inside">`;
-                failures.forEach(f => {
-                    previewHtml += `<li><b>Bloco ${f.blockIndex}:</b> ${f.reason}</li>`;
-                });
-                previewHtml += `</ul>`;
-            }
-
-            if (readyToImport.length > 0) {
-                previewHtml += `<p class="font-semibold mt-4">Pré-visualização do que será importado:</p>`;
-                previewHtml += `<div class="max-h-40 overflow-y-auto border rounded-md p-2 bg-gray-50 text-sm space-y-2">`;
-                readyToImport.forEach(item => {
-                    previewHtml += `<div class="p-2 border-b"><p><b>Área:</b> ${item.area}</p><p><b>Doença:</b> ${item.doenca}</p></div>`;
-                });
-                previewHtml += `</div>`;
-            }
-            previewHtml += `</div>`;
-
-            const title = "Pré-visualização da Importação";
-            if (readyToImport.length === 0) {
-                showMessage(title, previewHtml, 'info');
-                return;
-            }
-
-            showMessage(title, previewHtml, 'confirm', (confirmed) => {
-                if (confirmed) {
-                    saveImportedPrescricoes(readyToImport);
-                } else {
-                    showMessage("Importação Cancelada", "Nenhuma prescrição foi importada.", 'info');
-                }
-            });
-        };
-
-        const parseImportText = (text) => {
-            const readyToImport = [];
-            const failures = [];
-            let skipped = 0;
-
-            const normalizedText = text.replace(/\r\n/g, '\n');
-            const blocos = normalizedText.split('---').map(b => b.trim()).filter(b => b);
-
-            const normalizeString = (str) => {
-                if (!str) return '';
-                const trimmed = str.trim();
-                return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
-            };
-
-            const extractField = (bloco, fieldNames) => {
-                const fieldRegex = fieldNames.join('|');
-                const regex = new RegExp(`^(${fieldRegex})(?:\\s*:\\s*|\\s+)(.*)`, "im");
-                const match = bloco.match(regex);
-                if (match) {
-                    bloco = bloco.replace(regex, '').trim();
-                    return { value: match[2].trim(), remainingText: bloco };
-                }
-                return { value: '', remainingText: bloco };
-            };
-
-            blocos.forEach((bloco, index) => {
-                let blockIndex = index + 1;
-                let data = {};
-                let remainingText = bloco;
-
-                ({ value: data.area,   remainingText } = extractField(remainingText, ['Area', 'Área']));
-                ({ value: data.doenca, remainingText } = extractField(remainingText, ['Doenca', 'Doença']));
-                ({ value: data.cid,    remainingText } = extractField(remainingText, ['CID']));
-
-                data.texto = remainingText.trim();
-
-                if (!data.area) {
-                    failures.push({ blockIndex, reason: "Campo 'Area' não encontrado." });
-                    return;
-                }
-                if (!data.doenca) {
-                    failures.push({ blockIndex, reason: "Campo 'Doenca' não encontrado." });
-                    return;
-                }
-                if (!data.texto) {
-                    failures.push({ blockIndex, reason: "Campo 'Texto da Prescrição' está vazio." });
-                    return;
-                }
-
-                // Normalização e checagem de duplicata
-                data.area = normalizeString(data.area);
-                data.doenca = normalizeString(data.doenca);
-                data.cid = data.cid.trim().toUpperCase();
-
-                const isDuplicate = allPrescricoes.some(p => 
-                    p.area.toLowerCase() === data.area.toLowerCase() && 
-                    p.doenca.toLowerCase() === data.doenca.toLowerCase()
-                );
-
-                if (isDuplicate) {
-                    skipped++;
-                    return;
-                }
-
-                readyToImport.push(data);
-            });
-            return { readyToImport, failures, skipped };
-        };
-
-        const saveImportedPrescricoes = async (prescricoes) => {
-            showLoading(true);
-            const batch = writeBatch(db);
-            prescricoes.forEach(p => {
-                const newDocRef = doc(prescricoesCollection);
-                batch.set(newDocRef, p);
-            });
-            await batch.commit();
-            showLoading(false);
-            showMessage("Sucesso!", `${prescricoes.length} prescrições foram importadas com sucesso.`, 'success');
-        };
-
-        const setupAuthListener = () => {
-            onAuthStateChanged(auth, async (user) => {
-                showLoading(true);
-                try {
-                    if (user && !user.isAnonymous && !authUser) { // Apenas se for um novo login de admin
-                        // Admin logado
-                        authUser = user;
-                        adminLoginBtn.classList.add('hidden');
-                        adminPanelBtn.classList.remove('hidden');
-                        logoutBtn.classList.remove('hidden');
-                        setupFirebaseListeners();
-                    } else if (user) {
-                        // Usuário está logado (Admin ou Anônimo)
-                        authUser = user;
-                        if (user.isAnonymous) {
-                            // Usuário anônimo (público)
-                            adminLoginBtn.classList.remove('hidden');
-                            adminPanelBtn.classList.add('hidden');
-                            logoutBtn.classList.add('hidden');
-                        } else {
-                            // Admin logado
-                            adminLoginBtn.classList.add('hidden');
-                            adminPanelBtn.classList.remove('hidden');
-                            logoutBtn.classList.remove('hidden');
-                        }
-                        // Iniciar listener do Firestore
-                        setupFirebaseListeners();
-                    } else {
-                        // Usuário deslogado, tentar login anônimo
-                        authUser = null;
-                        adminLoginBtn.classList.remove('hidden');
-                        adminPanelBtn.classList.add('hidden');
-                        logoutBtn.classList.add('hidden');
-                        
-                        console.log("Usuário deslogado. Tentando login anônimo...");
-                        await signInAnonymously(auth);
-                        // A chamada acima irá disparar o onAuthStateChanged novamente.
-                    }
-                } catch (authError) {
-                    console.error("Erro no listener de autenticação:", authError);
-                    showMessage("Erro de Autenticação", "Ocorreu um problema na sessão. Por favor, recarregue a página.", 'error');
-                } finally {
-                    showLoading(false);
-                }
-            });
-        };
-
-        const setupFirebaseListeners = () => {
-            // Se já houver um listener, cancela-o antes de criar um novo
-            if (unsubscribePrescricoes) {
-                unsubscribePrescricoes();
-            }
-
-            if (auth.currentUser) {
-                const q = query(prescricoesCollection);
-                unsubscribePrescricoes = onSnapshot(q, (snapshot) => {
-                    allPrescricoes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    
-                    // Re-renderiza tudo
-                    renderSidebar(allPrescricoes);
-                    if (authUser && !authUser.isAnonymous) {
-                        renderAdminList(allPrescricoes);
-                    }
-                    
-                    // Se algo estava selecionado, tenta re-selecionar
-                    if(lastSelectedDoenca && lastSelectedArea) {
-                        const item = allPrescricoes.find(p => p.doenca === lastSelectedDoenca && p.area === lastSelectedArea);
-                        if (item) {
-                            displayPrescription(item.id);
-                        }
-                    }
-                    
-                }, (error) => {
-                    console.error("Erro ao buscar prescrições: ", error);
-                    showMessage("Erro de Conexão", "Não foi possível carregar os dados. Verifique sua conexão e tente recarregar.", 'error');
-                    navLoading.classList.add('hidden');
-                    navEmpty.textContent = "Erro ao carregar dados.";
-                    navEmpty.classList.remove('hidden');
-                });
-            }
-        };
-
-        // --- Inicialização ---
-
-        const initializeApplication = () => {
-            if (!firebaseConfig.apiKey) {
-                showMessage("Erro de Configuração", "A configuração do Firebase não foi carregada. O aplicativo não pode funcionar.");
-                return;
-            }
-            // Inicializar Firebase
-            app = initializeApp(firebaseConfig); // Agora chama a função correta do Firebase SDK
-            auth = getAuth(app);
-            db = getFirestore(app);
-
-            // Habilitar logs de debug
-            setLogLevel('debug');
-            
-            // Caminho da coleção pública
-            prescricoesCollection = collection(db, `/artifacts/${appId}/public/data/prescricoes`);
-        };
-
-        // --- Event Listeners ---
-
-        // Mobile Sidebar
         menuBtn.addEventListener('click', () => {
             sidebar.classList.add('open');
             sidebarOverlay.classList.add('open');
         });
+
         closeSidebarBtn.addEventListener('click', () => {
             sidebar.classList.remove('open');
             sidebarOverlay.classList.remove('open');
         });
+
         sidebarOverlay.addEventListener('click', () => {
             sidebar.classList.remove('open');
             sidebarOverlay.classList.remove('open');
         });
 
-        // Busca
         searchInput.addEventListener('keyup', (e) => {
             filterSidebar(e.target.value);
         });
 
-        // Seleção de Prescrição (Delegação de evento)
         sidebarNav.addEventListener('click', (e) => {
             const btn = e.target.closest('.nav-item-btn');
             if (btn) {
@@ -1099,88 +327,21 @@
             }
         });
 
-        // Copiar Prescrição
         copyBtn.addEventListener('click', async () => {
-            const textToCopy = contentText.textContent;
             try {
-                await navigator.clipboard.writeText(textToCopy);
-
+                await navigator.clipboard.writeText(contentText.textContent);
                 copyBtn.querySelector('span').textContent = 'Copiado!';
                 copyBtn.querySelector('ion-icon').setAttribute('name', 'checkmark-outline');
-                
                 setTimeout(() => {
                     copyBtn.querySelector('span').textContent = 'Copiar';
                     copyBtn.querySelector('ion-icon').setAttribute('name', 'copy-outline');
-                }, 2000);
-            } catch (err) {
-                console.error('Falha ao copiar: ', err);
-                showMessage("Erro", "Não foi possível copiar o texto. Tente manualmente.", 'error');
+                }, 1500);
+            } catch (error) {
+                alert('Nao foi possivel copiar o texto.');
             }
         });
 
-        // Download do arquivo de exemplo
-        downloadExampleBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const exampleText = `Area: Infectologia\nDoenca: Dengue\nCID: A90\n\nUSO ORAL\n\n1) Dipirona 500mg ---------------------------------------- 2 cx\nTomar 02 cps de 6/6h se dor ou febre\n\n2) Paracetamol 750mg ---------------------------------- 2cx\nTomar 01 cp de 6/6h se dor ou febre\n\n3) Metoclopramida 10 mg ------------------------------- 2 cx\nTomar 1 cp a cada 8 horas se náusea ou vômito\n\n4) Aumentar a ingesta de líquidos durante os próximos dias (pelo menos 3L por dia).\n\nConduta:\n1) Prescrevo sintomáticos\n2) Encaminho paciente à UPA/UBS para realização de teste de dengue\n3) Solicito à equipe de enfermagem a notificação do caso suspeito de arbovirose\n4) Oriento sinais de alarme e retorno imediato ao PS caso necessário.\n---\nArea: Otorrinolaringologia\nDoenca: Faringoamigdalite\nCID: \n\nSUS\nUSO INTRAMUSCULAR\n\n1. Penicilina G Benzatina 1.200.000UI -------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL \n1) Amoxicilina 500 mg ------------------------------------------------------------------ 21 cps\nTomar 2 comprimidos a cada 8 horas por 10 dias. \n\n2) Ibuprofeno 300 mg -----------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas durante 5 dias  \n3) Dipirona 500mg -------------------------------------------------------------\nTomar 2 comprimidos de 6 em 6 horas se dor ou febre \n\nPRIVADO\n1) Amoxicilina + Clavulanato 875 mg + 125 mg —----------------------------------------------- 14 cps\nTomar 1 comprimido a cada 12 horas por 10 dias\n\n2) Cetoprofeno 100 mg —----------------------------------------------------------------------------------------\nTomar 1 comprimido a cada 12 horas por 5 dias  \n\n3) Dipirona 500 mg--------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\nPEDIATRIA\nUSO INJETÁVEL (< 30Kg)\n1) Penicilina G Benzatina 600.000UI -------------------------------------------------------------\nAplicar 600.000UI intramuscular dose única\n\nUSO INJETÁVEL (> 30Kg)\n1) Penicilina G Benzatina 1.200.000UI -------------------------------------------------------------\nAplicar 1.200.000UI intramuscular dose única\n\nUSO ORAL\n1) Dipirona gotas 500mg/ml -------------------------------------------------------------------- \nTomar X gotas de 6 em 6 horas se dor ou febre.\n\n2) Ibuprofeno gotas 100mg/ml --------------------------------------------------------------- \nTomar X gotas de 8 em 8 horas por 5 dias.\n\n\nORIENTAÇÕES\n1) Aumentar a ingesta de líquidos.\n2) Manter alimentação.\n3) Retornar ao serviço em caso de manutenção ou aparecimento de febre (temperatura maior que 37,7ºC), falta de ar, cansaço, esforço para respirar, sonolência, incapacidade ou muita dor ao abrir a boca, dor ao virar o pescoço, incapacidade de se alimentar ou beber líquidos.\n---\nArea: Otorrinolaringologia\nDoenca: Rinossinusite\nCID: \n\nSUS\n1) Ibuprofeno 300 mg ------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 8 horas se dor ou febre por 5 dias  \n\n2) Dipirona 500 mg -------------------------------------------------------------------------------------------\nTomar 2 comprimidos a cada 6 horas se dor ou febre\n\n3) Loratadina 10 mg ------------------------------------------------------------------------------------------- Tomar 1 comprimido 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas  \n\nPediatria\n1) Ibuprofeno gotas 100mg/ml ------------------------------------------------------------------------------------------\nTomar x gotas de 8 em 8 horas se dor ou febre por 5 dias.  \n\n2) Dipirona 500mg/ml -------------------------------------------------------------------------------------------\nTomar x gotas a cada 6 horas se dor ou febre (temperatura acima de 37,8 ºC).\n\n3) Loratadina 10 mg —------------------------------------------------------------------------------------------- Tomar 01 cp 1 vez ao dia se coriza ou tosse \n\n3) Loratadina 1mg/ml —------------------------------------------------------------------------------------------- Tomar 10 ml à noite por 5 dias se coriza ou tosse\n\n4) Soro Fisiológico 0,9% —------------------------------------------------------------------------------------\nAplicar 20 mL de soro em cada narina de 6/6 horas`;
-            const blob = new Blob([exampleText], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'exemplo_import.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        });
-
-        // Login/Logout Admin
-        adminLoginBtn.addEventListener('click', () => openModal(loginModal));
-        loginForm.addEventListener('submit', handleAdminLogin);
-        logoutBtn.addEventListener('click', handleLogout);
-
-        // Painel Admin
-        adminPanelBtn.addEventListener('click', () => {
-            renderAdminList(allPrescricoes); // Garante que a lista está atualizada
-            openModal(adminPanelModal);
-        });
-        adminForm.addEventListener('submit', handleFormSubmit);
-        formCancelBtn.addEventListener('click', resetAdminForm);
-
-        // Importação de Arquivo
-        importBtn.addEventListener('click', () => importFileInput.click());
-        importFileInput.addEventListener('change', handleFileImport);
-
-        // Delegação de Eventos no Painel Admin
-        adminListContainer.addEventListener('click', (e) => {
-            const editButton = e.target.closest('.edit-btn');
-            if (editButton) {
-                showEditForm(editButton.dataset.id);
-                return;
-            }
-
-            const deleteButton = e.target.closest('.delete-btn');
-            if (deleteButton) {
-                handleDelete(deleteButton.dataset.id, deleteButton.dataset.doenca);
-                return;
-            }
-        });
-
-        // Fechar Modais
-        document.querySelectorAll('.modal-close-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                closeModal(e.target.closest('.modal-backdrop-fade'));
-            });
-        });
-        
-        // Mensagem Modal Botões
-        messageOkBtn.addEventListener('click', () => closeMessage(true));
-        messageCancelBtn.addEventListener('click', () => closeMessage(false));
-
-        // Iniciar a aplicação
-        initializeApplication();
-        setupAuthListener();
-
-
+        loadStaticData();
     </script>
 </body>
 </html>
