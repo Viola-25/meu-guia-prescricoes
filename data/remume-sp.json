@@ -1,0 +1,2378 @@
+[
+  {
+    "id": "remume-1",
+    "nome": "abacavir, sulfato (ABC) 20 mg/mL solução oral",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-2",
+    "nome": "abacavir, sulfato (ABC) 300 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-3",
+    "nome": "aciclovir 30 mg/g (3%) pomada oftálmica",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento em"
+  },
+  {
+    "id": "remume-4",
+    "nome": "Hospital Dia / AMAE/ AE e em unidades de referência em Oftalmologia aciclovir 50 mg/g (5%) creme",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento em"
+  },
+  {
+    "id": "remume-5",
+    "nome": "SAE/IST/AIDS, Centro de Especialidades Odontológicas, Casa Ser, Hospital Dia/ AMAE/ AE aciclovir 200 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-6",
+    "nome": "aciclovir 400 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-7",
+    "nome": "nestas unidades ácido acetilsalicílico 100 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-8",
+    "nome": "ácido fólico 0,2 mg/mL solução oral (gotas)",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-9",
+    "nome": "ácido fólico 5 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-10",
+    "nome": "ácido folínico 5 mg/mL solução oral",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-11",
+    "nome": "toxoplasmose ácido paraminossalicílico 4g sachê granulado revestido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-12",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT adapaleno 1 mg/g (0,1%) gel",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-13",
+    "nome": "albendazol 40 mg/mL suspensão oral",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-14",
+    "nome": "albendazol 400 mg comprimido mastigável",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-15",
+    "nome": "alendronato de sódio 70 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para o tratamento da osteopenia/osteoporose. Necessário formulário para prescrição e"
+  },
+  {
+    "id": "remume-16",
+    "nome": "dispensação alfapeginterferona 2A 180 mcg seringa preenchida",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-17",
+    "nome": "hepatites virais algestona acetofenida 150 mg/mL + enantato de estradiol 10 mg/mL solução injetável",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-18",
+    "nome": "alopurinol 100 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-19",
+    "nome": "amiodarona, cloridrato 200 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-20",
+    "nome": "amitriptilina, cloridrato 25 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-21",
+    "nome": "amoxicilina 50 mg/mL pó para suspensão oral",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-22",
+    "nome": "amoxicilina 500 mg cápsula",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-23",
+    "nome": "anlodipino, besilato 5 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-24",
+    "nome": "anlodipino, besilato 10 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-25",
+    "nome": "atazanavir, sulfato (ATV) 300 mg cápsula",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-26",
+    "nome": "atenolol 50 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-27",
+    "nome": "atorvastatina 10 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-28",
+    "nome": "nestas unidades azitromicina 40 mg/mL suspensão oral",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-29",
+    "nome": "azitromicina 500 mg comprimido",
+    "grupo": "A",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-30",
+    "nome": "beclometasona, dipropionato 50 mcg/dose pó, solução inalante ou aerossol oral",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-31",
+    "nome": "beclometasona, dipropionato 200 mcg/dose aerossol oral",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-32",
+    "nome": "beclometasona, dipropionato 50 mcg/dose aerossol nasal",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-33",
+    "nome": "benzilpenicilina benzatina 600.000 UI pó para suspensão injetável fam",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-34",
+    "nome": "benzilpenicilina benzatina 1.200.000 UI pó para suspensão injetável fam",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-35",
+    "nome": "benzoilmetronidazol 40 mg/mL (equivalente a 25 mg de metronidazol) suspensão oral ou secnidazol 30 mg/mL suspensão oral",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-36",
+    "nome": "biperideno, cloridrato 2 mg comprimido",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-37",
+    "nome": "brimonidina 2 mg/mL (0,2%) solução oftálmica",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-38",
+    "nome": "glaucoma. Prescrição por médico oftalmologista das unidades da rede municipal bupropiona, cloridrato 150 mg comprimido",
+    "grupo": "B",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no Programa de Controle de Tabagismo do SUS"
+  },
+  {
+    "id": "remume-39",
+    "nome": "cabergolina 0,5 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-40",
+    "nome": "nestas unidades captopril 25 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-41",
+    "nome": "carbamazepina 20 mg/mL (2%) suspensão oral",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-42",
+    "nome": "carbamazepina 200 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-43",
+    "nome": "carbonato de cálcio 1.250 mg (equivalente a 500 mg de Ca++) comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-44",
+    "nome": "carbonato de lítio 300 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-45",
+    "nome": "carvedilol 6,25 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-46",
+    "nome": "carvedilol 12,5 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-47",
+    "nome": "cefalexina 50 mg/mL suspensão oral",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-48",
+    "nome": "cefalexina comprimido 500 mg",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-49",
+    "nome": "cetoconazol 20 mg/g (2%) creme",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-50",
+    "nome": "cetoconazol 2% shampoo",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-51",
+    "nome": "cianocobalamina (vit. B12) 2,5 mg/mL (2.500 mcg) solução injetável",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-52",
+    "nome": "ciprofloxacino, cloridrato 500 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-53",
+    "nome": "ciproterona 50 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-54",
+    "nome": "Programa de Saúde Integral da População LGBTIA+ da SMS claritromicina 50 mg/mL pó para suspensão oral",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-55",
+    "nome": "claritromicina 500 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-56",
+    "nome": "e em unidades de referência para tratamento de esquemas especiais de TB/MNT clindamicina, cloridrato 300 mg cápsula",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-57",
+    "nome": "clofazimina 100 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-58",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT clofazimina 100 mg + clofazimina 50 mg + rifampicina 300 mg + dapsona 100 mg (multibacilar) adulto comprimidos em blister",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-59",
+    "nome": "referência para o tratamento da hanseníase clofazimina 150 mg + clofazimina 50 mg + rifampicina 300 mg + rifampicina 150 mg + dapsona 50 mg (multibacilar) pediátrico comprimidos em blister",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-60",
+    "nome": "referência para o tratamento da hanseníase clomipramina, cloridrato 25 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-61",
+    "nome": "clonazepam 2,5 mg/mL (0,25%) solução oral gotas",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-62",
+    "nome": "clonazepam 0,5 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-63",
+    "nome": "clonazepam 2 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-64",
+    "nome": "cloranfenicol 5 mg/g + retinol, acetato 10.000 UI/g + aminoácidos 25 mg/g + metionina 5 mg/g pomada oftálmica",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-65",
+    "nome": "cloreto de sódio 9 mg/mL (0,9 % - 0,154 mEq/mL) solução injetável ampola",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-66",
+    "nome": "cloreto de sódio 9 mg/mL (0,9%) solução nasal gotas",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-67",
+    "nome": "clorpromazina, cloridrato 40 mg/mL (4%) solução oral (gotas)",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-68",
+    "nome": "clorpromazina, cloridrato 25 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-69",
+    "nome": "clorpromazina, cloridrato 100 mg comprimido",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-70",
+    "nome": "colecalciferol (vitamina D3) 200 UI a 220 UI/gota solução oral",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-71",
+    "nome": "referência Dispensação sob protocolo (em elaboração) Cynara scolymus L. (alcachofra) 24 a 48 mg derivados de ácido cafeoilquínico expressos em ácido clorogênico",
+    "grupo": "C",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na Rede Municipal de Saúde Orientação técnica para prescrição e dispensação"
+  },
+  {
+    "id": "remume-72",
+    "nome": "daclatasvir 60 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-73",
+    "nome": "hepatites virais dapsona 100 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-74",
+    "nome": "darunavir (DRV) 75 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-75",
+    "nome": "darunavir (DRV) 150 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-76",
+    "nome": "darunavir (DRV) 600 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-77",
+    "nome": "darunavir (DRV) 800 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-78",
+    "nome": "dexametasona 0,1 mg/mL solução oral",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-79",
+    "nome": "dexametasona 1 mg/g (0,1%) creme",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-80",
+    "nome": "dexametasona 1 mg/mL (0,1%) suspensão oftálmica",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento por"
+  },
+  {
+    "id": "remume-81",
+    "nome": "médico oftalmologista dexclorfeniramina, maleato 0,4 mg/mL solução oral",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-82",
+    "nome": "dextrana 1 mg/mL + hipromelose 3 mg/mL (0,3%) solução oftálmica",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-83",
+    "nome": "diazepam 5 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-84",
+    "nome": "diclofenaco 50 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-85",
+    "nome": "digoxina 0,25 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-86",
+    "nome": "dimenidrinato 25 mg/mL + piridoxina, cloridrato (vit. B6) 5 mg/mL solução oral gotas",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-87",
+    "nome": "dipirona sódica 500 mg/mL solução oral gotas",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-88",
+    "nome": "dipirona sódica 500 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-89",
+    "nome": "dolutegravir 50 mg (DTG) comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-90",
+    "nome": "doxazosina 2 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-91",
+    "nome": "doxiciclina, cloridrato 100 mg comprimido",
+    "grupo": "D",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-92",
+    "nome": "efavirenz (EFZ) 30 mg/mL solução oral",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-93",
+    "nome": "efavirenz (EFZ) 200 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-94",
+    "nome": "efavirenz (EFZ) 600 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-95",
+    "nome": "enalapril, maleato 5 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-96",
+    "nome": "enalapril, maleato 20 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-97",
+    "nome": "enfuvirtida (T-20) 90 mg/mL pó para solução injetavel",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-98",
+    "nome": "enoxaparina sódica 20 mg (equivalente a 100 mg/mL) solução injetável seringa 0,2 mL SC",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Dispensação exclusiva para usuários em tratamento na Rede Municipal de Saúde Necessário formulário para prescrição e dispensação"
+  },
+  {
+    "id": "remume-99",
+    "nome": "enoxaparina sódica 40 mg (equivalente a 100 mg/mL) solução injetável seringa 0,4 mL SC",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Dispensação exclusiva para usuários em tratamento na Rede Municipal de Saúde Necessário formulário para prescrição e"
+  },
+  {
+    "id": "remume-100",
+    "nome": "dispensação enoxaparina sódica 60 mg (equivalente a 100 mg/mL) solução injetável seringa 0,6 mL SC",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Dispensação exclusiva para usuários em tratamento na Rede Municipal de Saúde Necessário formulário para prescrição e"
+  },
+  {
+    "id": "remume-101",
+    "nome": "dispensação entecavir 0,5 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-102",
+    "nome": "hepatites virais escopolamina 10 mg/mL solução oral gotas ou comprimido 10 mg",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-103",
+    "nome": "escopolamina 6,67 mg/mL + dipirona sódica 333,4 mg/mL solução oral gotas",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-104",
+    "nome": "espiramicina 500 mg (equivalente a 1.500.000 UI) comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-105",
+    "nome": "toxoplasmose espironolactona 25 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-106",
+    "nome": "espironolactona 100 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-107",
+    "nome": "estradiol, valerato 1mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-108",
+    "nome": "estradiol, valerato 2mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-109",
+    "nome": "Programa de Saúde Integral da População LGBTIA+ da SMS estriol 1 mg/g (0,1%) creme vaginal",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-110",
+    "nome": "etambutol, cloridrato 400 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-111",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT etionamida 250 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência - exclusivo para tratamento de esquemas especiais de TB/MNT"
+  },
+  {
+    "id": "remume-112",
+    "nome": "etonogestrel 68 mg implante subdérmico",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em u nidades de referência Necessário formulário para procedimento"
+  },
+  {
+    "id": "remume-113",
+    "nome": "etravirina (ETR) 100 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-114",
+    "nome": "etravirina (ETR) 200 mg comprimido",
+    "grupo": "E",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-115",
+    "nome": "fenitoína ou fenitoína sódica 100 mg comprimido",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-116",
+    "nome": "fenobarbital 100 mg comprimido",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-117",
+    "nome": "fenobarbital 40 mg/mL (4%) solução oral gotas",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-118",
+    "nome": "fenoterol 5 mg/mL solução inalante gotas",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-119",
+    "nome": "finasterida 5 mg comprimido",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento por"
+  },
+  {
+    "id": "remume-120",
+    "nome": "urologista fluconazol 100 mg cápsula",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-121",
+    "nome": "nestas unidades fluconazol 150 mg cápsula",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-122",
+    "nome": "fluoxetina, cloridrato 20 mg cápsula",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-123",
+    "nome": "folinato de cálcio 15 mg comprimido",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-124",
+    "nome": "toxoplasmose formoterol 6 mcg + budesonida 200 mcg pó em cápsula para inalação",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-125",
+    "nome": "Rede Municipal de Saúde formoterol 12 mcg + budesonida 400 mcg pó em cápsula para inalação",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-126",
+    "nome": "Rede Municipal de Saúde furosemida 40 mg comprimido",
+    "grupo": "F",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-127",
+    "nome": "gabapentina 300 mg comprimido",
+    "grupo": "G",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-128",
+    "nome": "nestas unidades gliclazida 60 mg comprimido de liberação prolongada",
+    "grupo": "G",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-129",
+    "nome": "Glycine max(L.) Merril.(isoflavonas de soja) mínimo de 50 mg de isoflavonas totais",
+    "grupo": "G",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na Rede Municipal de Saúde Orientação técnica para prescrição e dispensação"
+  },
+  {
+    "id": "remume-130",
+    "nome": "haloperidol 2 mg/mL (0,2%) solução oral gotas",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-131",
+    "nome": "haloperidol 1 mg comprimido",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-132",
+    "nome": "haloperidol 5 mg comprimido",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-133",
+    "nome": "haloperidol, decanoato 70,52 mg/mL (equivalente a 50 mg/mL de haloperidol) solução injetável",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-134",
+    "nome": "Harpagophytum procumbens(Burch.) DC. (garra do diabo) harpagosídeo 5 mg a 50 mg comprimido",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-135",
+    "nome": "Rede Municipal de Saúde Orientação técnica para prescrição e dispensação hidroclorotiazida 25 mg comprimido",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-136",
+    "nome": "hidrocortisona, acetato 10 mg/g (1%) creme",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-137",
+    "nome": "hidróxido de alumínio 60 mg/mL a 63 mg/mL suspensão oral",
+    "grupo": "H",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde hipoclorito de sódio 25 mg/mL de cloro ativo (2,5 %) solução disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-138",
+    "nome": "ibuprofeno 50 mg/mL suspensão oral gotas",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-139",
+    "nome": "ibuprofeno 300 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-140",
+    "nome": "imipramina, cloridrato 25 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-141",
+    "nome": "imiquimode 50 mg/g (5%) creme",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-142",
+    "nome": "nestas unidades imunoglobulina anti Rho (D) 250 mcg a 300 mcg solução injetável fam",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-143",
+    "nome": "referência Exclusivo para procedimento imunoglobulina humana anti-hepatite B 1000 UI/ 5 mL solução injetável",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-144",
+    "nome": "hepatites virais insulina humana NPH 100 UI/mL suspensão injetável frasco",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-145",
+    "nome": "insulina humana NPH 100 UI/mL suspensão injetável caneta",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Orientação técnica para prescrição e dispensação Necessário formulário para dispensação"
+  },
+  {
+    "id": "remume-146",
+    "nome": "Insulina humana NPH 100 UI/mL suspensão injetável carpule / tubete",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Orientação técnica para prescrição e dispensação Necessário formulário para dispensação"
+  },
+  {
+    "id": "remume-147",
+    "nome": "insulina humana regular 100 UI/mL solução injetável frasco",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-148",
+    "nome": "insulina humana regular 100 UI/mL solução injetável caneta",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Orientação técnica para prescrição e dispensação Necessário formulário para dispensação"
+  },
+  {
+    "id": "remume-149",
+    "nome": "insulina humana regular 100 UI/mL solução injetável carpule / tubete",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Orientação técnica para prescrição e dispensação Necessário formulário para dispensação"
+  },
+  {
+    "id": "remume-150",
+    "nome": "ipratrópio, brometo 0,25 mg/mL (0,025%) solução inalante gotas",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-151",
+    "nome": "isoniazida 100 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-152",
+    "nome": "referência - medicamento exclusivo para tratamento de esquemas especiais de TB/MNT; tratamento da Infeccção Latente da Tuberculose (ILTB) e tratamento de crianças isoniazida 300 mg comprimido medicamento utilizado no tratamento de ILTB em unidades IST/Aids; tratamento de ILTB, associado a rifapentina 150mg, exclusivo em unidades de referência isoniazida 150 mg + rifampicina 300 mg comprimido medicamento exclusivo para tratamento com esquema básico de TB nas Unidades de Saúde; tratamento de esquemas especiais de TB em unidades de referência isoniazida 75 mg + rifampicina 150 mg comprimido medicamento exclusivo para tratamento com esquema básico de TB nas Unidades de Saúde; tratamento de esquemas especiais de TB em unidades de referência isossorbida, dinitrato 5 mg comprimido sublingual ou propatilnitrato 10 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-153",
+    "nome": "isossorbida, mononitrato 20 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-154",
+    "nome": "itraconazol 100 mg cápsula",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-155",
+    "nome": "ivermectina 6 mg comprimido",
+    "grupo": "I",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-156",
+    "nome": "lamivudina (3TC) 10 mg/mL solução oral",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-157",
+    "nome": "lamivudina (3TC) 150 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-158",
+    "nome": "levodopa 100 mg + benserazida 25 mg cápsula de liberação prolongada (HBS)",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-159",
+    "nome": "referência levodopa 100 mg + benserazida 25 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-160",
+    "nome": "referência levodopa 100 mg + benserazida 25 mg comprimido dispersível",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-161",
+    "nome": "referência levodopa 200 mg + benserazida 50 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-162",
+    "nome": "referência levodopa 250 mg + carbidopa 25 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-163",
+    "nome": "referência levofloxacino 250 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência - exclusivo para tratamento de esquemas especiais de TB/MNT"
+  },
+  {
+    "id": "remume-164",
+    "nome": "levofloxacino 500 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-165",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT levonorgestrel 0,75 mg comprimido cartela",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-166",
+    "nome": "levonorgestrel 0,15 mg + etinilestradiol 0,03 mg comprimido cartela",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-167",
+    "nome": "levonorgestrel 19,5 mg sistema intrauterino (SIU)",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Necessário formulário para procedimento"
+  },
+  {
+    "id": "remume-168",
+    "nome": "levonorgestrel 52 mg sistema intrauterino (SIU)",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Necessário formulário para procedimento"
+  },
+  {
+    "id": "remume-169",
+    "nome": "levotiroxina sódica 12,5 mcg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-170",
+    "nome": "levotiroxina sódica 25 mcg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-171",
+    "nome": "levotiroxina sódica 50 mcg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-172",
+    "nome": "levotiroxina sódica 100 mcg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-173",
+    "nome": "linezolida 600 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-174",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT loperamida 2 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-175",
+    "nome": "nestas unidades lopinavir (LPV) 80 mg/mL + ritonavir (r) 20 mg/mL solução oral",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-176",
+    "nome": "lopinavir (LPV) 100 mg + ritonavir (r) 25 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-177",
+    "nome": "loratadina 1 mg/mL solução oral",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-178",
+    "nome": "loratadina 10 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-179",
+    "nome": "losartana potássica 50 mg comprimido",
+    "grupo": "L",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-180",
+    "nome": "maraviroque (MVQ) 150 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-181",
+    "nome": "Maytenus ilicifolia Mart. ex. Reissek. (espinheira santa) taninos totais 13 mg a 20 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-182",
+    "nome": "Rede Municipal de Saúde Orientação técnica para prescrição e dispensação mebendazol 20 mg/mL suspensão oral",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-183",
+    "nome": "medroxiprogesterona, acetato 10 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-184",
+    "nome": "medroxiprogesterona, acetato 25 mg + estradiol cipionato 5 mg suspensão injetável",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-185",
+    "nome": "medroxiprogesterona, acetato 150 mg/mL suspensão injetável",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-186",
+    "nome": "metformina, cloridrato 500 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-187",
+    "nome": "metformina, cloridrato 850 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-188",
+    "nome": "metildopa 250 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-189",
+    "nome": "metilfenidato 10 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para os pacientes em tratamento"
+  },
+  {
+    "id": "remume-190",
+    "nome": "na Rede Municipal de Saúde Orientação técnica para prescrição metoclopramida, cloridrato 10 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-191",
+    "nome": "metronidazol 100 mg/g (10%) creme ou gel vaginal",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-192",
+    "nome": "metronidazol 250 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-193",
+    "nome": "miconazol, nitrato 20 mg/g (2%) creme vaginal",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-194",
+    "nome": "Mikania glomerata spreng (guaco) solução oral",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-195",
+    "nome": "Rede Municipal de Saúde Orientação técnica para prescrição e dispensação morfina, sulfato 30 mg comprimido de liberação modificada",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento em"
+  },
+  {
+    "id": "remume-196",
+    "nome": "Hospital Dia moxifloxacino 400 mg comprimido",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência - exclusivo para tratamento de esquemas especiais de TB/MNT"
+  },
+  {
+    "id": "remume-197",
+    "nome": "mupirocina 20 mg/g pomada bisnaga",
+    "grupo": "M",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento em Hospital Dia / AMAE/ AE/ Centros de Exame da Mulher"
+  },
+  {
+    "id": "remume-198",
+    "nome": "naltrexona 50 mg comprimido",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em UBS e CAPS AD"
+  },
+  {
+    "id": "remume-199",
+    "nome": "nevirapina (NVP) 10 mg/mL suspensão oral",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-200",
+    "nome": "nevirapina (NVP) 200 mg comprimido",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-201",
+    "nome": "nicotina 2 mg goma de mascar",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-202",
+    "nome": "Programa de Controle de Tabagismo do SUS nicotina 7 mg adesivo transdérmico",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-203",
+    "nome": "Programa de Controle de Tabagismo do SUS nicotina 14 mg adesivo transdérmico",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-204",
+    "nome": "Programa de Controle de Tabagismo do SUS nicotina 21 mg adesivo transdérmico",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-205",
+    "nome": "Programa de Controle de Tabagismo do SUS nifedipino 20 mg comprimido liberação prolongada",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-206",
+    "nome": "nirmatrelvir + ritonavir comprimidos revestidos",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-207",
+    "nome": "referência Exclusivo para tratamento de COVID-19 nistatina 100.000 UI/mL suspensão oral",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-208",
+    "nome": "nitrofurantoína 100 mg comprimido",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-209",
+    "nome": "noretisterona 0,35 mg comprimido cartela",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-210",
+    "nome": "noretisterona, enantato 50 mg/mL + estradiol, valerato 5 mg/mL solução injetável",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-211",
+    "nome": "norfloxacino 400 mg comprimido",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-212",
+    "nome": "nortriptilina, cloridrato 25 mg comprimido",
+    "grupo": "N",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-213",
+    "nome": "óleo mineral frasco",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-214",
+    "nome": "omeprazol 20 mg cápsula",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-215",
+    "nome": "oseltamivir 30 mg cápsula",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-216",
+    "nome": "oseltamivir 45 mg cápsula",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-217",
+    "nome": "oseltamivir 75 mg cápsula",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-218",
+    "nome": "óxido de zinco 150 a 250 mg/g + retinol (vit. A) + colecalciferol pomada",
+    "grupo": "O",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-219",
+    "nome": "paracetamol 200 mg/mL solução oral gotas",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-220",
+    "nome": "paracetamol 500 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-221",
+    "nome": "pentoxifilina 400 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-222",
+    "nome": "referência de hanseníase periciazina 40 mg/mL (4%) solução oral gotas",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-223",
+    "nome": "permetrina 10 mg/mL (1%) loção capilar",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-224",
+    "nome": "permetrina 50 mg/mL (5%) creme ou loção",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-225",
+    "nome": "pilocarpina, cloridrato 20 mg/mL (2%) solução oftálmica",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-226",
+    "nome": "glaucoma. Prescrição por médico oftalmologista das unidades da rede municipal pirazinamida 500 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-227",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT pirazinamida 150 mg comprimido dispersível",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência -exclusivo para tratamento de TB em crianças e de esquemas especiais de TB/MNT"
+  },
+  {
+    "id": "remume-228",
+    "nome": "piridoxina, cloridrato (vit. B6) 40 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-229",
+    "nome": "e em unidades de referência para tratamento de Tuberculose em condições específicas piridoxina, cloridrato (vit. B6) 50 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-230",
+    "nome": "referência -exclusivo para tratamento de TB em gestantes pirimetamina 25 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-231",
+    "nome": "toxoplasmose pirimetamina 3 mg/mL solução oral",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-232",
+    "nome": "toxoplasmose polivitamínico (vitaminas A, C, D, E e do complexo B) comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes atendidos na"
+  },
+  {
+    "id": "remume-233",
+    "nome": "Linha de Cuidado do Sobrepeso e Obesidade da Rede Municipal pravastatina 20 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-234",
+    "nome": "nestas unidades praziquantel 600 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-235",
+    "nome": "referência, utilizado no tratamento da esquistossomose prednisolona, fosfato sódico 4,02 mg/mL (equivalente a 3 mg/mL de prednisolona) solução oral",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-236",
+    "nome": "prednisona 5 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-237",
+    "nome": "prednisona 20 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-238",
+    "nome": "primaquina 15 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-239",
+    "nome": "progesterona 200 mg cápsula gelatinosa",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-240",
+    "nome": "prometazina, cloridrato 25 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-241",
+    "nome": "propiltiuracila 100 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-242",
+    "nome": "propranolol, cloridrato 40 mg comprimido",
+    "grupo": "P",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-243",
+    "nome": "raltegravir (RAL) 100 mg comprimido",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-244",
+    "nome": "raltegravir (RAL) 100 mg granulado sachê",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-245",
+    "nome": "raltegravir (RAL) 400 mg comprimido",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-246",
+    "nome": "retinol, acetato (vit. A) 50.000 UI/mL + colecalciferol (vit. D) 10.000 UI/mL solução oral gotas",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-247",
+    "nome": "rifabutina 150 mg cápsula",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-248",
+    "nome": "referência - exclusivo para o tratamento de TB para pacientes em uso de inibidores de protease; rifampicina 20 mg/mL (2%) suspensão oral",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-249",
+    "nome": "referência - exclusivo para tratamento de TB em crianças; cobertura de foco de meningites bacterianas e doenca miningocóccica; tratamento da Infeccção Latente da Tuberculose (ILTB); tratamento de esquemas especiais de TB rifampicina 300 mg cápsula",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-250",
+    "nome": "referência - exclusivo para cobertura de foco de meningites bacterianas e doença meningocóccica; hidradenite supurativa; tratamento da Infeccção Latente da Tuberculose (ILTB); tratamento de esquemas especiais de TB/ MNT rifampicina 150 mg + isoniazida 75 mg + pirazinamida 400 mg + etambutol, cloridrato 275 mg comprimido medicamento exclusivo para tratamento de TB nas Unidades de Saúde; tratamento de esquemas especiais de TB em unidades de referência rifampicina 75 mg + isoniazida 50 mg + pirazinamida 150 mg comprimido dispersível",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-251",
+    "nome": "referência - exclusivo para tratamento de tuberculose em crianças rifampicina 75 mg + isoniazida 50 mg comprimido dispersível",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-252",
+    "nome": "referência - exclusivo para tratamento de tuberculose em crianças rifapentina 150 mg comprimido",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-253",
+    "nome": "referência - exclusivo para tratamento da Infecção Latente de Tuberculose (ILTB) risperidona 2 mg comprimido",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-254",
+    "nome": "ritonavir 100 mg/mL pó para suspensão oral",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-255",
+    "nome": "ritonavir (RTV) 100 mg comprimido",
+    "grupo": "R",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-256",
+    "nome": "sais para reidratação oral pó para solução oral",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-257",
+    "nome": "salbutamol, sulfato 100 mcg/dose aerossol oral frasco",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-258",
+    "nome": "sertralina 50 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-259",
+    "nome": "sinvastatina 10 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-260",
+    "nome": "sinvastatina 20 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-261",
+    "nome": "sinvastatina 40 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-262",
+    "nome": "sofosbuvir 400 mg comprimido revestido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-263",
+    "nome": "hepatites virais sofosbuvir 400 mg + velpatasvir 100 mg comprimido revestido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-264",
+    "nome": "hepatites virais sofosbuvir 400 mg + velpatasvir 100 mg + voxilaprevir 100 mg comprimido revestido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-265",
+    "nome": "hepatites virais sofosbuvir 200 mg + velpatasvir 50 mg granulado",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência para tratamento de hepatites virais Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-266",
+    "nome": "hepatites virais sulfadiazina 500 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-267",
+    "nome": "toxoplasmose sulfadiazina 150 mg/mL solução oral",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de"
+  },
+  {
+    "id": "remume-268",
+    "nome": "toxoplasmose sulfametoxazol 40 mg/mL + trimetoprima 8 mg/mL suspensão oral",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-269",
+    "nome": "sulfametoxazol 800 mg + trimetoprima 160 mg comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-270",
+    "nome": "sulfato ferroso heptahidratado 125 mg/mL (equivalente a 25 mg de Fe++) solução oral gotas",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-271",
+    "nome": "sulfato ferroso heptahidratado equivalente a 40 mg de Fe++ comprimido",
+    "grupo": "S",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-272",
+    "nome": "talidomida 100 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS e em"
+  },
+  {
+    "id": "remume-273",
+    "nome": "unidades de referência em hanseníase tenofovir 300 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS e em"
+  },
+  {
+    "id": "remume-274",
+    "nome": "unidades de referência para tratamento de hepatites virais. tenofovir alafenamida 25 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS e em"
+  },
+  {
+    "id": "remume-275",
+    "nome": "unidades de referência para tratamento de hepatites virais. tenofovir (TDF) 300 mg + lamivudina (3TC) 300 mg + efavirenz (EFZ) 600 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-276",
+    "nome": "tenofovir (TDF) 300 mg + entricitabina (FTC) 200 mg",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-277",
+    "nome": "tenofovir (TDF) 300 mg + lamivudina (3TC) 300 mg",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS e em"
+  },
+  {
+    "id": "remume-278",
+    "nome": "unidades de referência para tratamento de hepatites virais. teofilina 100 mg cápsula de liberação prolongada",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-279",
+    "nome": "terbinafina 250 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-280",
+    "nome": "terizidona 250 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de"
+  },
+  {
+    "id": "remume-281",
+    "nome": "referência - exclusivo para tratamento de esquemas especiais de TB/MNT testosterona, undecanoato 250 mg/mL solução injetável",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes cadastrados no"
+  },
+  {
+    "id": "remume-282",
+    "nome": "Programa de Saúde Integral da População LGBTIA+ da SMS tiamazol 5 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-283",
+    "nome": "tiamina, cloridrato (vit. B1) 300 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-284",
+    "nome": "timolol, maleato 5 mg/mL (0,5%) solução oftálmica",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento de glaucoma. Prescrição por médico oftalmologista das unidades da rede municipal"
+  },
+  {
+    "id": "remume-285",
+    "nome": "tinidazol 500 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-286",
+    "nome": "tobramicina 3 mg/mL (0,3%) solução oftálmica",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-287",
+    "nome": "tramadol 50 mg comprimido",
+    "grupo": "T",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em unidades de referência Exclusivamente para pacientes em tratamento em Hospital Dia ureia 100 mg/g (10%) creme medicamento para pacientes em tratamento nas unidades de hanseníase"
+  },
+  {
+    "id": "remume-288",
+    "nome": "valaciclovir 500 mg comprimido",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS Exclusivamente para pacientes em tratamento"
+  },
+  {
+    "id": "remume-289",
+    "nome": "nestas unidades Valeriana officinalis L. (valeriana) sesquiterpenos 0,8 mg a 3,5 mg comprimido",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde Exclusivamente para pacientes em tratamento na"
+  },
+  {
+    "id": "remume-290",
+    "nome": "Rede Municipal de Saúde Orientação técnica para prescrição e dispensação valproato de sódio 57, 624 mg/mL (equivalente a 50 mg de ácido valpróico) solução oral ou xarope",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-291",
+    "nome": "valproato de sódio 576 mg (equivalente a 500 mg de ácido valpróico) comprimido revestido ou cápsula",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-292",
+    "nome": "varfarina sódica 2,5 mg comprimido",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-293",
+    "nome": "varfarina sódica 5 mg comprimido",
+    "grupo": "V",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível nas Unidades de Saúde"
+  },
+  {
+    "id": "remume-294",
+    "nome": "zidovudina (AZT) 10 mg/mL solução injetável",
+    "grupo": "Z",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-295",
+    "nome": "zidovudina (AZT) 10 mg/mL solução oral",
+    "grupo": "Z",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-296",
+    "nome": "zidovudina (AZT) 100 mg cápsula",
+    "grupo": "Z",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  },
+  {
+    "id": "remume-297",
+    "nome": "zidovudina (AZT) 300 mg + lamivudina (3TC) 150 mg comprimido",
+    "grupo": "Z",
+    "categoria": "REMUME SP JAN/2026",
+    "apresentacao": "",
+    "observacao": "medicamento disponível em SAE/IST/AIDS"
+  }
+]

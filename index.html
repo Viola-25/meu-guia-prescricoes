@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Prescricoes</title>
+    <title>Guia de Prescricoes e REMUME SP</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -109,6 +109,17 @@
                 </div>
             </header>
 
+            <div class="bg-white border-b px-4 md:px-8 py-3">
+                <div class="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
+                    <button id="tab-prescricoes" class="px-4 py-2 rounded-md text-sm font-semibold bg-teal-600 text-white">
+                        Prescricoes
+                    </button>
+                    <button id="tab-remume" class="px-4 py-2 rounded-md text-sm font-semibold text-gray-700 hover:bg-gray-100">
+                        REMUME SP
+                    </button>
+                </div>
+            </div>
+
             <div class="flex-1 overflow-y-auto p-6 md:p-8">
                 <div id="content-placeholder" class="text-center text-gray-500 mt-16">
                     <ion-icon name="document-text-outline" class="text-8xl text-gray-300"></ion-icon>
@@ -138,6 +149,8 @@
 
     <script>
         let allPrescricoes = [];
+        let allRemume = [];
+        let currentTab = 'prescricoes';
 
         const loadingOverlay = document.getElementById('loading-overlay');
         const sidebarNav = document.getElementById('sidebar-nav');
@@ -157,6 +170,8 @@
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebar-overlay');
         const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+        const tabPrescricoes = document.getElementById('tab-prescricoes');
+        const tabRemume = document.getElementById('tab-remume');
 
         const showLoading = (show) => {
             loadingOverlay.classList.toggle('hidden', !show);
@@ -165,10 +180,10 @@
 
         const normalizeForSearch = (text) => (text || '').toLowerCase();
 
-        const renderSidebar = (prescricoes) => {
-            if (prescricoes.length === 0) {
+        const renderSidebar = (items, options) => {
+            if (items.length === 0) {
                 navLoading.classList.add('hidden');
-                navEmpty.textContent = 'Nenhuma prescricao encontrada.';
+                navEmpty.textContent = options.emptyMessage;
                 navEmpty.classList.remove('hidden');
                 sidebarNav.innerHTML = '';
                 return;
@@ -177,17 +192,21 @@
             navLoading.classList.add('hidden');
             navEmpty.classList.add('hidden');
 
-            const grouped = prescricoes.reduce((acc, curr) => {
-                const area = curr.area || 'Sem Area';
-                if (!acc[area]) {
-                    acc[area] = [];
+            const grouped = items.reduce((acc, curr) => {
+                const groupKey = curr[options.groupField] || options.defaultGroup;
+                if (!acc[groupKey]) {
+                    acc[groupKey] = [];
                 }
-                acc[area].push(curr);
+                acc[groupKey].push(curr);
                 return acc;
             }, {});
 
-            for (const area in grouped) {
-                grouped[area].sort((a, b) => a.doenca.localeCompare(b.doenca));
+            for (const groupKey in grouped) {
+                grouped[groupKey].sort((a, b) => {
+                    const aText = a[options.titleField] || '';
+                    const bText = b[options.titleField] || '';
+                    return aText.localeCompare(bText);
+                });
             }
 
             const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
@@ -201,11 +220,19 @@
                 `;
 
                 grouped[area].forEach((item) => {
+                    const title = item[options.titleField] || 'Sem nome';
+                    const searchTerms = [
+                        item[options.titleField],
+                        item[options.groupField],
+                        item.cid,
+                        item.categoria,
+                        item.apresentacao
+                    ].join(' ');
                     html += `
                         <li class="flex">
-                            <button data-id="${item.id}" class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
-                                data-search-term="${normalizeForSearch(item.doenca)} ${normalizeForSearch(item.area)} ${normalizeForSearch(item.cid)}">
-                                ${item.doenca}
+                            <button data-id="${item.id}" data-type="${options.type}" class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
+                                data-search-term="${normalizeForSearch(searchTerms)}">
+                                ${title}
                             </button>
                         </li>
                     `;
@@ -244,6 +271,39 @@
             }
         };
 
+        const displayRemume = (id) => {
+            const item = allRemume.find((p) => p.id === id);
+            if (!item) {
+                return;
+            }
+
+            contentTitle.textContent = item.nome;
+            contentCid.textContent = item.categoria ? `Categoria: ${item.categoria}` : 'Medicamento REMUME SP';
+            contentText.textContent = [
+                `Apresentacao: ${item.apresentacao || 'Nao informada'}`,
+                '',
+                `Grupo: ${item.grupo || 'Nao informado'}`,
+                '',
+                `Observacao: ${item.observacao || 'Sem observacoes.'}`
+            ].join('\n');
+
+            contentPlaceholder.classList.add('hidden');
+            contentDisplay.classList.remove('hidden');
+            breadcrumb.textContent = `REMUME SP > ${item.nome}`;
+
+            document.querySelectorAll('.nav-item-btn').forEach((btn) => {
+                btn.classList.remove('bg-teal-100', 'text-teal-700', 'font-semibold');
+                if (btn.dataset.id === id) {
+                    btn.classList.add('bg-teal-100', 'text-teal-700', 'font-semibold');
+                }
+            });
+
+            if (window.innerWidth < 768) {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+            }
+        };
+
         const filterSidebar = (term) => {
             const lowerTerm = normalizeForSearch(term);
             const items = document.querySelectorAll('.nav-item-btn');
@@ -265,24 +325,69 @@
                 group.classList.toggle('hidden', visibleItems.length === 0);
             });
 
-            if (itemsFound === 0 && allPrescricoes.length > 0) {
+            const activeCount = currentTab === 'prescricoes' ? allPrescricoes.length : allRemume.length;
+            if (itemsFound === 0 && activeCount > 0) {
                 navEmpty.textContent = 'Nenhum resultado encontrado.';
                 navEmpty.classList.remove('hidden');
-            } else if (allPrescricoes.length > 0) {
+            } else if (activeCount > 0) {
                 navEmpty.classList.add('hidden');
             }
+        };
+
+        const setTabStyles = () => {
+            tabPrescricoes.classList.toggle('bg-teal-600', currentTab === 'prescricoes');
+            tabPrescricoes.classList.toggle('text-white', currentTab === 'prescricoes');
+            tabPrescricoes.classList.toggle('text-gray-700', currentTab !== 'prescricoes');
+
+            tabRemume.classList.toggle('bg-teal-600', currentTab === 'remume');
+            tabRemume.classList.toggle('text-white', currentTab === 'remume');
+            tabRemume.classList.toggle('text-gray-700', currentTab !== 'remume');
+        };
+
+        const renderActiveTab = () => {
+            contentDisplay.classList.add('hidden');
+            contentPlaceholder.classList.remove('hidden');
+
+            if (currentTab === 'prescricoes') {
+                breadcrumb.textContent = 'Selecione uma area e uma doenca no menu ao lado.';
+                searchInput.placeholder = 'Buscar doenca...';
+                renderSidebar(allPrescricoes, {
+                    type: 'prescricao',
+                    groupField: 'area',
+                    titleField: 'doenca',
+                    defaultGroup: 'Sem Area',
+                    emptyMessage: 'Nenhuma prescricao encontrada.'
+                });
+            } else {
+                breadcrumb.textContent = 'Selecione um medicamento REMUME SP no menu ao lado.';
+                searchInput.placeholder = 'Buscar medicamento REMUME...';
+                renderSidebar(allRemume, {
+                    type: 'remume',
+                    groupField: 'grupo',
+                    titleField: 'nome',
+                    defaultGroup: 'Sem Grupo',
+                    emptyMessage: 'Nenhum medicamento REMUME encontrado.'
+                });
+            }
+
+            filterSidebar(searchInput.value);
+            setTabStyles();
         };
 
         const loadStaticData = async () => {
             showLoading(true);
             try {
-                const response = await fetch('data/prescricoes.json', { cache: 'no-store' });
-                if (!response.ok) {
-                    throw new Error(`Falha ao carregar base estatica (${response.status}).`);
+                const [prescricoesResponse, remumeResponse] = await Promise.all([
+                    fetch('data/prescricoes.json', { cache: 'no-store' }),
+                    fetch('data/remume-sp.json', { cache: 'no-store' })
+                ]);
+
+                if (!prescricoesResponse.ok) {
+                    throw new Error(`Falha ao carregar prescricoes (${prescricoesResponse.status}).`);
                 }
 
-                const data = await response.json();
-                allPrescricoes = data.map((item, index) => ({
+                const prescricoesData = await prescricoesResponse.json();
+                allPrescricoes = prescricoesData.map((item, index) => ({
                     id: item.id || String(index + 1),
                     area: item.area || 'Sem Area',
                     doenca: item.doenca || 'Sem nome',
@@ -290,7 +395,21 @@
                     texto: item.texto || ''
                 }));
 
-                renderSidebar(allPrescricoes);
+                if (remumeResponse.ok) {
+                    const remumeData = await remumeResponse.json();
+                    allRemume = remumeData.map((item, index) => ({
+                        id: item.id || `remume-${index + 1}`,
+                        nome: item.nome || 'Sem nome',
+                        grupo: item.grupo || 'Sem Grupo',
+                        categoria: item.categoria || '',
+                        apresentacao: item.apresentacao || '',
+                        observacao: item.observacao || ''
+                    }));
+                } else {
+                    allRemume = [];
+                }
+
+                renderActiveTab();
             } catch (error) {
                 console.error(error);
                 navLoading.classList.add('hidden');
@@ -323,8 +442,22 @@
         sidebarNav.addEventListener('click', (e) => {
             const btn = e.target.closest('.nav-item-btn');
             if (btn) {
-                displayPrescription(btn.dataset.id);
+                if (btn.dataset.type === 'remume') {
+                    displayRemume(btn.dataset.id);
+                } else {
+                    displayPrescription(btn.dataset.id);
+                }
             }
+        });
+
+        tabPrescricoes.addEventListener('click', () => {
+            currentTab = 'prescricoes';
+            renderActiveTab();
+        });
+
+        tabRemume.addEventListener('click', () => {
+            currentTab = 'remume';
+            renderActiveTab();
         });
 
         copyBtn.addEventListener('click', async () => {
