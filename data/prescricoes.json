@@ -1,142 +1,143 @@
-[
+﻿[
   {
-    "id": "1",
-    "area": "Infectologia",
-    "doenca": "Dengue",
-    "cid": "A90",
-    "texto": "USO ORAL:\n1. Dipirona 500mg ........................................ 2 caixas\n   Tomar 2 comprimidos de 6/6h se dor ou febre.\n\n2. Paracetamol 750mg ..................................... 2 caixas\n   Tomar 1 comprimido de 6/6h se dor ou febre (alternativa).\n\n3. Metoclopramida 10mg ................................... 1 caixa\n   Tomar 1 comprimido de 8/8h se nauseas ou vomitos.\n\n4. Ondansetrona 4mg ...................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nauseas intensas (alternativa).\n\nORIENTACOES:\n- Aumentar ingesta de liquidos (pelo menos 3L por dia).\n- Evitar AAS e anti-inflamatorios.\n- Retornar ao pronto-socorro se dor abdominal intensa, sangramento, tontura persistente ou piora clinica."
+    "ID": "1",
+    "AREA": "INFECTOLOGIA",
+    "DOENCA": "DENGUE",
+    "CID": "A90",
+    "TEXTO": "USO ORAL:\n1. DIPIRONA 500MG ........................................ 2 CAIXAS\n   TOMAR 2 COMPRIMIDOS DE 6/6H SE DOR OU FEBRE.\n\n2. PARACETAMOL 750MG ..................................... 2 CAIXAS\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR OU FEBRE (ALTERNATIVA).\n\n3. METOCLOPRAMIDA 10MG ................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS OU VOMITOS.\n\n4. ONDANSETRONA 4MG ...................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS INTENSAS (ALTERNATIVA).\n\nORIENTACOES:\n- AUMENTAR INGESTA DE LIQUIDOS (PELO MENOS 3L POR DIA).\n- EVITAR AAS E ANTI-INFLAMATORIOS.\n- RETORNAR AO PRONTO-SOCORRO SE DOR ABDOMINAL INTENSA, SANGRAMENTO, TONTURA PERSISTENTE OU PIORA CLINICA."
   },
   {
-    "id": "2",
-    "area": "Otorrinolaringologia",
-    "doenca": "Faringoamigdalite",
-    "cid": "J02.9",
-    "texto": "ANTIBIOTICO (ADULTO):\n1. Penicilina G Benzatina 1.200.000 UI ................... 1 frasco-ampola\n   Aplicar 1 dose intramuscular, agora.\n\n2. Amoxicilina 500mg ..................................... 21 capsulas\n   Tomar 1 capsula de 8/8h por 10 dias (alternativa oral).\n\n3. Amoxicilina + Clavulanato 875/125mg ................... 14 comprimidos\n   Tomar 1 comprimido de 12/12h por 7 dias (casos selecionados).\n\nANALGESIA:\n1. Ibuprofeno 600mg ...................................... 1 caixa\n   Tomar 1 comprimido de 8/8h por 3 a 5 dias.\n\n2. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor ou febre.\n\nORIENTACOES:\n- Hidratar, evitar irritantes e manter repouso relativo.\n- Retornar se disfagia importante, dispneia, trismo ou febre persistente."
+    "ID": "2",
+    "AREA": "OTORRINOLARINGOLOGIA",
+    "DOENCA": "FARINGOAMIGDALITE",
+    "CID": "J02.9",
+    "TEXTO": "ANTIBIOTICO (ADULTO):\n1. PENICILINA G BENZATINA 1.200.000 UI ................... 1 FRASCO-AMPOLA\n   APLICAR 1 DOSE INTRAMUSCULAR, AGORA.\n\n2. AMOXICILINA 500MG ..................................... 21 CAPSULAS\n   TOMAR 1 CAPSULA DE 8/8H POR 10 DIAS (ALTERNATIVA ORAL).\n\n3. AMOXICILINA + CLAVULANATO 875/125MG ................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 7 DIAS (CASOS SELECIONADOS).\n\nANALGESIA:\n1. IBUPROFENO 600MG ...................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 8/8H POR 3 A 5 DIAS.\n\n2. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR OU FEBRE.\n\nORIENTACOES:\n- HIDRATAR, EVITAR IRRITANTES E MANTER REPOUSO RELATIVO.\n- RETORNAR SE DISFAGIA IMPORTANTE, DISPNEIA, TRISMO OU FEBRE PERSISTENTE."
   },
   {
-    "id": "3",
-    "area": "Otorrinolaringologia",
-    "doenca": "Rinossinusite",
-    "cid": "J32.9",
-    "texto": "TRATAMENTO:\n1. Amoxicilina 500mg ..................................... 21 capsulas\n   Tomar 1 capsula de 8/8h por 7 dias (quando bacteriana).\n\n2. Amoxicilina + Clavulanato 875/125mg ................... 14 comprimidos\n   Tomar 1 comprimido de 12/12h por 7 dias (alternativa).\n\n3. Prednisona 20mg ....................................... 1 caixa\n   Tomar 1 comprimido pela manha por 5 dias (casos selecionados).\n\nSINTOMATICOS:\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor ou febre.\n\n2. Loratadina 10mg ....................................... 1 caixa\n   Tomar 1 comprimido ao dia se coriza/prurido.\n\nHIGIENE NASAL:\n- Lavagem com soro fisiologico 0,9% varias vezes ao dia."
+    "ID": "3",
+    "AREA": "OTORRINOLARINGOLOGIA",
+    "DOENCA": "RINOSSINUSITE",
+    "CID": "J32.9",
+    "TEXTO": "TRATAMENTO:\n1. AMOXICILINA 500MG ..................................... 21 CAPSULAS\n   TOMAR 1 CAPSULA DE 8/8H POR 7 DIAS (QUANDO BACTERIANA).\n\n2. AMOXICILINA + CLAVULANATO 875/125MG ................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 7 DIAS (ALTERNATIVA).\n\n3. PREDNISONA 20MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO PELA MANHA POR 5 DIAS (CASOS SELECIONADOS).\n\nSINTOMATICOS:\n1. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR OU FEBRE.\n\n2. LORATADINA 10MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO AO DIA SE CORIZA/PRURIDO.\n\nHIGIENE NASAL:\n- LAVAGEM COM SORO FISIOLOGICO 0,9% VARIAS VEZES AO DIA.\n- ASPIRE O CONTEÃšDO DA AMPOLA DE SORO FISIOLÃ“GICO 0,9% COM A SERINGA E REALIZE A LAVAGEM NASAL"
   },
   {
-    "id": "4",
-    "area": "Clinica Medica",
-    "doenca": "IVAS (quadro viral)",
-    "cid": "J06.9",
-    "texto": "SINTOMATICOS (ADULTO):\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor ou febre.\n\n2. Paracetamol 750mg ..................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor/febre (alternativa).\n\n3. Loratadina 10mg ....................................... 1 caixa\n   Tomar 1 comprimido 1 vez ao dia por 5 dias.\n\n4. Dextrometorfano xarope ................................ 1 frasco\n   Tomar conforme bula se tosse seca (opcional).\n\n5. Soro fisiologico 0,9% nasal ............................ 1 frasco\n   Aplicar em ambas as narinas varias vezes ao dia.\n\nORIENTACOES:\n- Nao ha indicacao rotineira de antibiotico sem sinais de complicacao.\n- Retornar se febre >72h, dispneia, dor toracica ou piora geral."
+    "ID": "4",
+    "AREA": "CLINICA MEDICA",
+    "DOENCA": "IVAS (QUADRO VIRAL)",
+    "CID": "J06.9",
+    "TEXTO": "SINTOMATICOS (ADULTO):\n1. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR OU FEBRE.\n\n2. PARACETAMOL 750MG ..................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR/FEBRE (ALTERNATIVA).\n\n3. LORATADINA 10MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO 1 VEZ AO DIA POR 5 DIAS.\n\n4. DEXTROMETORFANO XAROPE ................................ 1 FRASCO\n   TOMAR CONFORME BULA SE TOSSE SECA (OPCIONAL).\n\n5. SORO FISIOLOGICO 0,9% NASAL ............................ 1 FRASCO\n   APLICAR EM AMBAS AS NARINAS VARIAS VEZES AO DIA.\n   ASPIRE O CONTEÃšDO DA AMPOLA DE SORO FISIOLÃ“GICO 0,9% COM A SERINGA E REALIZE A LAVAGEM NASAL\n\nORIENTACOES:\n- NAO HA INDICACAO ROTINEIRA DE ANTIBIOTICO SEM SINAIS DE COMPLICACAO.\n- RETORNAR SE FEBRE >72H, DISPNEIA, DOR TORACICA OU PIORA GERAL."
   },
   {
-    "id": "5",
-    "area": "Clinica Medica",
-    "doenca": "Diarreia aguda sem sinais de gravidade",
-    "cid": "A09",
-    "texto": "HIDRATACAO E CONTROLE DE SINTOMAS:\n1. Sais de reidratacao oral ............................... 6 envelopes\n   Diluir 1 envelope conforme embalagem e ofertar apos episodios diarreicos.\n\n2. Ondansetrona 4mg ...................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nauseas/vomitos.\n\n3. Racecadotrila 100mg ................................... 12 capsulas\n   Tomar 1 capsula de 8/8h por ate 3 dias.\n\n4. Probiótico (saccharomyces boulardii) ................... 1 caixa\n   Tomar 1 capsula de 12/12h por 5 dias (opcional).\n\nORIENTACOES:\n- Dieta leve fracionada e hidratacao vigorosa.\n- Retornar se sangue nas fezes, febre alta, dor intensa ou sinais de desidratacao."
+    "ID": "5",
+    "AREA": "CLINICA MEDICA",
+    "DOENCA": "DIARREIA AGUDA SEM SINAIS DE GRAVIDADE",
+    "CID": "A09",
+    "TEXTO": "HIDRATACAO E CONTROLE DE SINTOMAS:\n1. SAIS DE REIDRATACAO ORAL ............................... 6 ENVELOPES\n   DILUIR 1 SACHÃŠ EM 1 LITRO DE ÃGUA, RESERVANDO ATÃ‰ 24 HORAS EM GELADEIRA. TOMAR 1 COPO DESTA SOLUÃ‡ÃƒO A CADA VÃ”MITO OU EVACUAÃ‡ÃƒO. APÃ“S 24 HORAS EM GELADEIRA, DESCARTAR E, SE NECESSÃRIO, PREPARAR OUTRO LITRO DE SOLUÃ‡ÃƒO\n\n2. ONDANSETRONA 4MG ...................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS/VOMITOS.\n\n3. RACECADOTRILA 100MG ................................... 12 CAPSULAS\n   TOMAR 1 CAPSULA DE 8/8H POR ATE 3 DIAS.\n\n4. PROBIÃ“TICO (SACCHAROMYCES BOULARDII) ................... 1 CAIXA\n   TOMAR 1 CAPSULA DE 12/12H POR 5 DIAS (OPCIONAL).\n\nORIENTACOES:\n- DIETA LEVE FRACIONADA E HIDRATACAO VIGOROSA.\n- RETORNAR SE SANGUE NAS FEZES, FEBRE ALTA, DOR INTENSA OU SINAIS DE DESIDRATACAO."
   },
   {
-    "id": "6",
-    "area": "Clinica Medica",
-    "doenca": "Lombalgia aguda mecanica",
-    "cid": "M54.5",
-    "texto": "ANALGESIA (ADULTO):\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor.\n\n2. Ibuprofeno 600mg ...................................... 1 caixa\n   Tomar 1 comprimido de 8/8h por 3 a 5 dias apos refeicao.\n\n3. Naproxeno 500mg ....................................... 1 caixa\n   Tomar 1 comprimido de 12/12h por 5 dias (alternativa).\n\n4. Ciclobenzaprina 5mg ................................... 10 comprimidos\n   Tomar 1 comprimido a noite por 5 dias.\n\nORIENTACOES:\n- Evitar repouso absoluto prolongado; mobilizar conforme tolerancia.\n- Retornar se deficit neurologico, febre, trauma relevante ou incontinencia."
+    "ID": "6",
+    "AREA": "CLINICA MEDICA",
+    "DOENCA": "LOMBALGIA AGUDA MECANICA",
+    "CID": "M54.5",
+    "TEXTO": "ANALGESIA (ADULTO):\n1. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR.\n\n2. IBUPROFENO 600MG ...................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 8/8H POR 3 A 5 DIAS APOS REFEICAO.\n\n3. NAPROXENO 500MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 5 DIAS (ALTERNATIVA).\n\n4. CICLOBENZAPRINA 5MG ................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO A NOITE POR 5 DIAS.\n\nORIENTACOES:\n- EVITAR REPOUSO ABSOLUTO PROLONGADO; MOBILIZAR CONFORME TOLERANCIA.\n- RETORNAR SE DEFICIT NEUROLOGICO, FEBRE, TRAUMA RELEVANTE OU INCONTINENCIA."
   },
   {
-    "id": "7",
-    "area": "Clinica Medica",
-    "doenca": "Cefaleia primaria sem sinais de alarme",
-    "cid": "R51",
-    "texto": "ANALGESIA:\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor.\n\n2. Naproxeno 500mg ....................................... 1 caixa\n   Tomar 1 comprimido de 12/12h por ate 3 dias.\n\n3. Sumatriptano 50mg ..................................... 4 comprimidos\n   Tomar 1 comprimido ao inicio da crise de enxaqueca (casos selecionados).\n\n4. Metoclopramida 10mg ................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nauseas.\n\nORIENTACOES:\n- Procurar PS imediatamente se cefaleia subita intensa, deficit focal, febre ou rigidez de nuca."
+    "ID": "7",
+    "AREA": "CLINICA MEDICA",
+    "DOENCA": "CEFALEIA PRIMARIA SEM SINAIS DE ALARME",
+    "CID": "R51",
+    "TEXTO": "ANALGESIA:\n1. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR.\n\n2. NAPROXENO 500MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 12/12H POR ATE 3 DIAS.\n\n3. SUMATRIPTANO 50MG ..................................... 4 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO AO INICIO DA CRISE DE ENXAQUECA (CASOS SELECIONADOS).\n\n4. METOCLOPRAMIDA 10MG ................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS.\n\nORIENTACOES:\n- PROCURAR PS IMEDIATAMENTE SE CEFALEIA SUBITA INTENSA, DEFICIT FOCAL, FEBRE OU RIGIDEZ DE NUCA."
   },
   {
-    "id": "8",
-    "area": "Urologia",
-    "doenca": "Cistite nao complicada",
-    "cid": "N30.0",
-    "texto": "TRATAMENTO:\n1. Nitrofurantoina 100mg ................................. 20 capsulas\n   Tomar 1 capsula de 6/6h por 5 dias.\n\n2. Fosfomicina trometamol 3g .............................. 1 envelope\n   Diluir e tomar dose unica (alternativa).\n\n3. Cefalexina 500mg ...................................... 28 capsulas\n   Tomar 1 capsula de 6/6h por 7 dias (alternativa).\n\n4. Dipirona 500mg ........................................ 1 caixa\n   Tomar 1 a 2 comprimidos de 6/6h se dor.\n\nORIENTACOES:\n- Aumentar ingesta hidrica.\n- Retornar se febre, dor lombar, vomitos ou sem melhora em 48h."
+    "ID": "8",
+    "AREA": "UROLOGIA",
+    "DOENCA": "CISTITE NAO COMPLICADA",
+    "CID": "N30.0",
+    "TEXTO": "TRATAMENTO:\n1. NITROFURANTOINA 100MG ................................. 20 CAPSULAS\n   TOMAR 1 CAPSULA DE 6/6H POR 5 DIAS.\n\n2. FOSFOMICINA TROMETAMOL 3G .............................. 1 ENVELOPE\n   DILUIR E TOMAR DOSE UNICA (ALTERNATIVA).\n\n3. CEFALEXINA 500MG ...................................... 28 CAPSULAS\n   TOMAR 1 CAPSULA DE 6/6H POR 7 DIAS (ALTERNATIVA).\n\n4. DIPIRONA 500MG ........................................ 1 CAIXA\n   TOMAR 1 A 2 COMPRIMIDOS DE 6/6H SE DOR.\n\nORIENTACOES:\n- AUMENTAR INGESTA HIDRICA.\n- RETORNAR SE FEBRE, DOR LOMBAR, VOMITOS OU SEM MELHORA EM 48H."
   },
   {
-    "id": "9",
-    "area": "Pneumologia",
-    "doenca": "Crise asmatica leve",
-    "cid": "J45.9",
-    "texto": "POS-ATENDIMENTO:\n1. Salbutamol aerossol 100mcg/jato ....................... 1 frasco\n   Fazer 2 jatos de 6/6h por 48h, depois se necessario.\n\n2. Prednisona 20mg ....................................... 1 caixa\n   Tomar 2 comprimidos pela manha por 5 dias.\n\n3. Budesonida inalatoria 200mcg .......................... 1 frasco\n   Usar conforme plano de controle (introducao/ajuste).\n\nORIENTACOES:\n- Revisar tecnica inalatória e plano de acao.\n- Retornar se dispneia em repouso, fala entrecortada ou piora apos broncodilatador."
+    "ID": "9",
+    "AREA": "PNEUMOLOGIA",
+    "DOENCA": "CRISE ASMATICA LEVE",
+    "CID": "J45.9",
+    "TEXTO": "POS-ATENDIMENTO:\n1. SALBUTAMOL AEROSSOL 100MCG/JATO ....................... 1 FRASCO\n   FAZER 2 JATOS DE 6/6H POR 48H, DEPOIS SE NECESSARIO.\n\n2. PREDNISONA 20MG ....................................... 1 CAIXA\n   TOMAR 2 COMPRIMIDOS PELA MANHA POR 5 DIAS.\n\n3. BUDESONIDA INALATORIA 200MCG .......................... 1 FRASCO\n   USAR CONFORME PLANO DE CONTROLE (INTRODUCAO/AJUSTE).\n\nORIENTACOES:\n- REVISAR TECNICA INALATÃ“RIA E PLANO DE ACAO.\n- RETORNAR SE DISPNEIA EM REPOUSO, FALA ENTRECORTADA OU PIORA APOS BRONCODILATADOR."
   },
   {
-    "id": "10",
-    "area": "Gastroenterologia",
-    "doenca": "Dispepsia",
-    "cid": "K30",
-    "texto": "CONTROLE DE SINTOMAS:\n1. Omeprazol 20mg ........................................ 14 capsulas\n   Tomar 1 capsula em jejum pela manha por 14 dias.\n\n2. Pantoprazol 40mg ...................................... 14 comprimidos\n   Tomar 1 comprimido ao dia (alternativa).\n\n3. Hidroxido de aluminio + magnesio ....................... 1 frasco\n   Tomar 10 mL ate 3 vezes ao dia se pirose.\n\n4. Ondansetrona 4mg ...................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nauseas.\n\nORIENTACOES:\n- Evitar alcool, AINE e alimentos gatilho.\n- Retornar se hematemese, melena, perda ponderal ou dor persistente."
+    "ID": "10",
+    "AREA": "GASTROENTEROLOGIA",
+    "DOENCA": "DISPEPSIA",
+    "CID": "K30",
+    "TEXTO": "CONTROLE DE SINTOMAS:\n1. OMEPRAZOL 20MG ........................................ 14 CAPSULAS\n   TOMAR 1 CAPSULA EM JEJUM PELA MANHA POR 14 DIAS.\n\n2. PANTOPRAZOL 40MG ...................................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO AO DIA (ALTERNATIVA).\n\n3. HIDROXIDO DE ALUMINIO + MAGNESIO ....................... 1 FRASCO\n   TOMAR 10 ML ATE 3 VEZES AO DIA SE PIROSE.\n\n4. ONDANSETRONA 4MG ...................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS.\n\nORIENTACOES:\n- EVITAR ALCOOL, AINE E ALIMENTOS GATILHO.\n- RETORNAR SE HEMATEMESE, MELENA, PERDA PONDERAL OU DOR PERSISTENTE."
   },
   {
-    "id": "11",
-    "area": "Otorrinolaringologia",
-    "doenca": "Otite media aguda",
-    "cid": "H66.9",
-    "texto": "TRATAMENTO:\n1. Amoxicilina 500mg ..................................... 21 capsulas\n   Tomar 1 capsula de 8/8h por 7 dias.\n\n2. Amoxicilina + Clavulanato 875/125mg ................... 14 comprimidos\n   Tomar 1 comprimido de 12/12h por 7 dias (alternativa).\n\n3. Dipirona 500mg ........................................ 1 caixa\n   Tomar 1 a 2 comprimidos de 6/6h se dor/febre.\n\nORIENTACOES:\n- Retornar se piora da dor, otorreia, vertigem ou febre persistente."
+    "ID": "11",
+    "AREA": "OTORRINOLARINGOLOGIA",
+    "DOENCA": "OTITE MEDIA AGUDA",
+    "CID": "H66.9",
+    "TEXTO": "TRATAMENTO:\n1. AMOXICILINA 500MG ..................................... 21 CAPSULAS\n   TOMAR 1 CAPSULA DE 8/8H POR 7 DIAS.\n\n2. AMOXICILINA + CLAVULANATO 875/125MG ................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 7 DIAS (ALTERNATIVA).\n\n3. DIPIRONA 500MG ........................................ 1 CAIXA\n   TOMAR 1 A 2 COMPRIMIDOS DE 6/6H SE DOR/FEBRE.\n\nORIENTACOES:\n- RETORNAR SE PIORA DA DOR, OTORREIA, VERTIGEM OU FEBRE PERSISTENTE."
   },
   {
-    "id": "12",
-    "area": "Clinica Medica",
-    "doenca": "Nausea e vomitos inespecificos",
-    "cid": "R11",
-    "texto": "CONTROLE DE SINTOMAS:\n1. Ondansetrona 4mg ...................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nausea/vomito.\n\n2. Metoclopramida 10mg ................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se necessario.\n\n3. Dimenidrinato 50mg .................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h (alternativa).\n\n4. Sais de reidratacao oral ............................... 6 envelopes\n   Repor perdas em pequenos volumes repetidos.\n\nORIENTACOES:\n- Retornar se vomitos incoerciveis, sangue em vomito ou sinais de desidratacao."
+    "ID": "12",
+    "AREA": "CLINICA MEDICA",
+    "DOENCA": "NAUSEA E VOMITOS INESPECIFICOS",
+    "CID": "R11",
+    "TEXTO": "CONTROLE DE SINTOMAS:\n1. ONDANSETRONA 4MG ...................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEA/VOMITO.\n\n2. METOCLOPRAMIDA 10MG ................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NECESSARIO.\n\n3. DIMENIDRINATO 50MG .................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H (ALTERNATIVA).\n\n4. SAIS DE REIDRATACAO ORAL ............................... 6 ENVELOPES\n   DILUIR 1 SACHÃŠ EM 1 LITRO DE ÃGUA, RESERVANDO ATÃ‰ 24 HORAS EM GELADEIRA. TOMAR 1 COPO DESTA SOLUÃ‡ÃƒO A CADA VÃ”MITO OU EVACUAÃ‡ÃƒO. APÃ“S 24 HORAS EM GELADEIRA, DESCARTAR E, SE NECESSÃRIO, PREPARAR OUTRO LITRO DE SOLUÃ‡ÃƒO\n\nORIENTACOES:\n- RETORNAR SE VOMITOS INCOERCIVEIS, SANGUE EM VOMITO OU SINAIS DE DESIDRATACAO."
   },
   {
-    "id": "13",
-    "area": "Pneumologia",
-    "doenca": "Pneumonia adquirida na comunidade (ambulatorial)",
-    "cid": "J18.9",
-    "texto": "ANTIBIOTICO:\n1. Amoxicilina 500mg ..................................... 42 capsulas\n   Tomar 2 capsulas de 8/8h por 7 dias.\n\n2. Azitromicina 500mg .................................... 5 comprimidos\n   Tomar 1 comprimido ao dia por 5 dias (alternativa/associacao).\n\n3. Amoxicilina + Clavulanato 875/125mg ................... 14 comprimidos\n   Tomar 1 comprimido de 12/12h por 7 dias (alternativa).\n\nSINTOMATICOS:\n- Dipirona 1g de 6/6h se dor ou febre.\n\nORIENTACOES:\n- Retornar em 48h para reavaliacao ou antes se piora respiratoria."
+    "ID": "13",
+    "AREA": "PNEUMOLOGIA",
+    "DOENCA": "PNEUMONIA ADQUIRIDA NA COMUNIDADE (AMBULATORIAL)",
+    "CID": "J18.9",
+    "TEXTO": "ANTIBIOTICO:\n1. AMOXICILINA 500MG ..................................... 42 CAPSULAS\n   TOMAR 2 CAPSULAS DE 8/8H POR 7 DIAS.\n\n2. AZITROMICINA 500MG .................................... 5 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO AO DIA POR 5 DIAS (ALTERNATIVA/ASSOCIACAO).\n\n3. AMOXICILINA + CLAVULANATO 875/125MG ................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 7 DIAS (ALTERNATIVA).\n\nSINTOMATICOS:\n- DIPIRONA 1G DE 6/6H SE DOR OU FEBRE.\n\nORIENTACOES:\n- RETORNAR EM 48H PARA REAVALIACAO OU ANTES SE PIORA RESPIRATORIA."
   },
   {
-    "id": "14",
-    "area": "Pneumologia",
-    "doenca": "Exacerbacao de DPOC leve a moderada",
-    "cid": "J44.1",
-    "texto": "TRATAMENTO:\n1. Salbutamol aerossol 100mcg/jato ....................... 1 frasco\n   Fazer 2 jatos de 4/4h por 48h e depois reduzir.\n\n2. Prednisona 20mg ....................................... 1 caixa\n   Tomar 2 comprimidos pela manha por 5 dias.\n\n3. Amoxicilina + Clavulanato 875/125mg ................... 14 comprimidos\n   Tomar 1 comprimido de 12/12h por 7 dias (se escarro purulento).\n\nORIENTACOES:\n- Manter broncodilatadores de base.\n- Retornar se dessaturacao, sonolencia, piora da dispneia ou cianose."
+    "ID": "14",
+    "AREA": "PNEUMOLOGIA",
+    "DOENCA": "EXACERBACAO DE DPOC LEVE A MODERADA",
+    "CID": "J44.1",
+    "TEXTO": "TRATAMENTO:\n1. SALBUTAMOL AEROSSOL 100MCG/JATO ....................... 1 FRASCO\n   FAZER 2 JATOS DE 4/4H POR 48H E DEPOIS REDUZIR.\n\n2. PREDNISONA 20MG ....................................... 1 CAIXA\n   TOMAR 2 COMPRIMIDOS PELA MANHA POR 5 DIAS.\n\n3. AMOXICILINA + CLAVULANATO 875/125MG ................... 14 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 7 DIAS (SE ESCARRO PURULENTO).\n\nORIENTACOES:\n- MANTER BRONCODILATADORES DE BASE.\n- RETORNAR SE DESSATURACAO, SONOLENCIA, PIORA DA DISPNEIA OU CIANOSE."
   },
   {
-    "id": "15",
-    "area": "Urologia",
-    "doenca": "Colica renal",
-    "cid": "N23",
-    "texto": "ANALGESIA:\n1. Dipirona 1g ........................................... 1 caixa\n   Tomar 1 comprimido de 6/6h se dor.\n\n2. Cetorolaco 10mg ....................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h por ate 3 dias (alternativa).\n\n3. Escopolamina + dipirona ............................... 1 caixa\n   Tomar 1 comprimido de 8/8h se colica.\n\n4. Tansulosina 0,4mg ..................................... 10 capsulas\n   Tomar 1 capsula a noite por 10 dias (expulsivo em casos selecionados).\n\nORIENTACOES:\n- Hidratar-se conforme tolerancia.\n- Retornar se febre, anuria, vomitos persistentes ou dor refrataria."
+    "ID": "15",
+    "AREA": "UROLOGIA",
+    "DOENCA": "COLICA RENAL",
+    "CID": "N23",
+    "TEXTO": "ANALGESIA:\n1. DIPIRONA 1G ........................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 6/6H SE DOR.\n\n2. CETOROLACO 10MG ....................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H POR ATE 3 DIAS (ALTERNATIVA).\n\n3. ESCOPOLAMINA + DIPIRONA ............................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO DE 8/8H SE COLICA.\n\n4. TANSULOSINA 0,4MG ..................................... 10 CAPSULAS\n   TOMAR 1 CAPSULA A NOITE POR 10 DIAS (EXPULSIVO EM CASOS SELECIONADOS).\n\nORIENTACOES:\n- HIDRATAR-SE CONFORME TOLERANCIA.\n- RETORNAR SE FEBRE, ANURIA, VOMITOS PERSISTENTES OU DOR REFRATARIA."
   },
   {
-    "id": "16",
-    "area": "Dermatologia",
-    "doenca": "Celulite nao complicada",
-    "cid": "L03.9",
-    "texto": "ANTIBIOTICO:\n1. Cefalexina 500mg ...................................... 28 capsulas\n   Tomar 1 capsula de 6/6h por 7 dias.\n\n2. Clindamicina 300mg .................................... 21 capsulas\n   Tomar 1 capsula de 8/8h por 7 dias (alternativa).\n\n3. Dipirona 500mg ........................................ 1 caixa\n   Tomar 1 a 2 comprimidos de 6/6h se dor/febre.\n\nORIENTACOES:\n- Marcar area de eritema para controle de progressao.\n- Retornar se piora em 24-48h, febre alta ou sinais de abscesso."
+    "ID": "16",
+    "AREA": "DERMATOLOGIA",
+    "DOENCA": "CELULITE NAO COMPLICADA",
+    "CID": "L03.9",
+    "TEXTO": "ANTIBIOTICO:\n1. CEFALEXINA 500MG ...................................... 28 CAPSULAS\n   TOMAR 1 CAPSULA DE 6/6H POR 7 DIAS.\n\n2. CLINDAMICINA 300MG .................................... 21 CAPSULAS\n   TOMAR 1 CAPSULA DE 8/8H POR 7 DIAS (ALTERNATIVA).\n\n3. DIPIRONA 500MG ........................................ 1 CAIXA\n   TOMAR 1 A 2 COMPRIMIDOS DE 6/6H SE DOR/FEBRE.\n\nORIENTACOES:\n- MARCAR AREA DE ERITEMA PARA CONTROLE DE PROGRESSAO.\n- RETORNAR SE PIORA EM 24-48H, FEBRE ALTA OU SINAIS DE ABSCESSO."
   },
   {
-    "id": "17",
-    "area": "Oftalmologia",
-    "doenca": "Conjuntivite bacteriana",
-    "cid": "H10.9",
-    "texto": "TRATAMENTO:\n1. Tobramicina colirio 3mg/mL ............................ 1 frasco\n   Aplicar 1 gota de 6/6h por 7 dias.\n\n2. Moxifloxacino colirio .................................. 1 frasco\n   Aplicar 1 gota de 8/8h por 7 dias (alternativa).\n\nORIENTACOES:\n- Higienizar maos, nao compartilhar toalhas e evitar lentes de contato.\n- Retornar se dor ocular intensa, baixa visual ou fotofobia marcada."
+    "ID": "17",
+    "AREA": "OFTALMOLOGIA",
+    "DOENCA": "CONJUNTIVITE BACTERIANA",
+    "CID": "H10.9",
+    "TEXTO": "TRATAMENTO:\n1. TOBRAMICINA COLIRIO 3MG/ML ............................ 1 FRASCO\n   APLICAR 1 GOTA DE 6/6H POR 7 DIAS.\n\n2. MOXIFLOXACINO COLIRIO .................................. 1 FRASCO\n   APLICAR 1 GOTA DE 8/8H POR 7 DIAS (ALTERNATIVA).\n\nORIENTACOES:\n- HIGIENIZAR MAOS, NAO COMPARTILHAR TOALHAS E EVITAR LENTES DE CONTATO.\n- RETORNAR SE DOR OCULAR INTENSA, BAIXA VISUAL OU FOTOFOBIA MARCADA."
   },
   {
-    "id": "18",
-    "area": "Alergologia",
-    "doenca": "Urticaria aguda",
-    "cid": "L50.9",
-    "texto": "TRATAMENTO:\n1. Loratadina 10mg ....................................... 1 caixa\n   Tomar 1 comprimido ao dia por 7 dias.\n\n2. Fexofenadina 180mg .................................... 1 caixa\n   Tomar 1 comprimido ao dia (alternativa).\n\n3. Prednisona 20mg ....................................... 1 caixa\n   Tomar 1 comprimido ao dia por 3 a 5 dias em casos extensos.\n\nORIENTACOES:\n- Evitar fator desencadeante suspeito.\n- Procurar emergencia se edema de lingua, dispneia ou rouquidao progressiva."
+    "ID": "18",
+    "AREA": "ALERGOLOGIA",
+    "DOENCA": "URTICARIA AGUDA",
+    "CID": "L50.9",
+    "TEXTO": "TRATAMENTO:\n1. LORATADINA 10MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO AO DIA POR 7 DIAS.\n\n2. FEXOFENADINA 180MG .................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO AO DIA (ALTERNATIVA).\n\n3. PREDNISONA 20MG ....................................... 1 CAIXA\n   TOMAR 1 COMPRIMIDO AO DIA POR 3 A 5 DIAS EM CASOS EXTENSOS.\n\nORIENTACOES:\n- EVITAR FATOR DESENCADEANTE SUSPEITO.\n- PROCURAR EMERGENCIA SE EDEMA DE LINGUA, DISPNEIA OU ROUQUIDAO PROGRESSIVA."
   },
   {
-    "id": "19",
-    "area": "Gastroenterologia",
-    "doenca": "Constipacao intestinal",
-    "cid": "K59.0",
-    "texto": "TRATAMENTO:\n1. Lactulose xarope ....................................... 1 frasco\n   Tomar 15-30 mL a noite, ajustar conforme resposta.\n\n2. Macrogol (PEG) ......................................... 1 caixa\n   Tomar 1 envelope ao dia (alternativa).\n\n3. Bisacodil 5mg .......................................... 1 caixa\n   Tomar 1 a 2 comprimidos a noite por curto prazo.\n\nORIENTACOES:\n- Aumentar agua, fibras e atividade fisica.\n- Retornar se dor intensa, vomitos, sangue nas fezes ou sem evacuar por varios dias."
+    "ID": "19",
+    "AREA": "GASTROENTEROLOGIA",
+    "DOENCA": "CONSTIPACAO INTESTINAL",
+    "CID": "K59.0",
+    "TEXTO": "TRATAMENTO:\n1. LACTULOSE XAROPE ....................................... 1 FRASCO\n   TOMAR 15-30 ML A NOITE, AJUSTAR CONFORME RESPOSTA.\n\n2. MACROGOL (PEG) ......................................... 1 CAIXA\n   TOMAR 1 ENVELOPE AO DIA (ALTERNATIVA).\n\n3. BISACODIL 5MG .......................................... 1 CAIXA\n   TOMAR 1 A 2 COMPRIMIDOS A NOITE POR CURTO PRAZO.\n\nORIENTACOES:\n- AUMENTAR AGUA, FIBRAS E ATIVIDADE FISICA.\n- RETORNAR SE DOR INTENSA, VOMITOS, SANGUE NAS FEZES OU SEM EVACUAR POR VARIOS DIAS."
   },
   {
-    "id": "20",
-    "area": "Neurologia",
-    "doenca": "Vertigem periferica",
-    "cid": "H81.3",
-    "texto": "TRATAMENTO:\n1. Dimenidrinato 50mg .................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h por 3 dias.\n\n2. Betahistina 24mg ...................................... 20 comprimidos\n   Tomar 1 comprimido de 12/12h por 10 dias (alternativa).\n\n3. Ondansetrona 4mg ...................................... 10 comprimidos\n   Tomar 1 comprimido de 8/8h se nauseas.\n\nORIENTACOES:\n- Evitar dirigir durante crises e levantar-se lentamente.\n- Retornar se deficit neurologico, cefaleia intensa nova, ataxia importante ou diplopia."
+    "ID": "20",
+    "AREA": "NEUROLOGIA",
+    "DOENCA": "VERTIGEM PERIFERICA",
+    "CID": "H81.3",
+    "TEXTO": "TRATAMENTO:\n1. DIMENIDRINATO 50MG .................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H POR 3 DIAS.\n\n2. BETAHISTINA 24MG ...................................... 20 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 12/12H POR 10 DIAS (ALTERNATIVA).\n\n3. ONDANSETRONA 4MG ...................................... 10 COMPRIMIDOS\n   TOMAR 1 COMPRIMIDO DE 8/8H SE NAUSEAS.\n\nORIENTACOES:\n- EVITAR DIRIGIR DURANTE CRISES E LEVANTAR-SE LENTAMENTE.\n- RETORNAR SE DEFICIT NEUROLOGICO, CEFALEIA INTENSA NOVA, ATAXIA IMPORTANTE OU DIPLOPIA."
   }
 ]
+

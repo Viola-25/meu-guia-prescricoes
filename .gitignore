@@ -1,0 +1,5 @@
+# Local Python environment
+.venv/
+
+# Temporary backup files generated during data transformations
+data/*.bak-*
