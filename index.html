@@ -299,6 +299,57 @@
             return normalized;
         };
 
+        const sanitizeTextValue = (value) => String(value || '').trim();
+
+        const buildPrescriptionText = (rec) => {
+            const receituario = Array.isArray(rec.receituario)
+                ? rec.receituario.map(sanitizeTextValue).filter(Boolean)
+                : [];
+            const orientacoes = Array.isArray(rec.orientacoes)
+                ? rec.orientacoes.map(sanitizeTextValue).filter(Boolean)
+                : [];
+            const textoDireto = sanitizeTextValue(rec.texto);
+
+            if (textoDireto) {
+                return textoDireto;
+            }
+
+            const sections = [];
+
+            if (receituario.length) {
+                sections.push(
+                    `RECEITUARIO:\n${receituario.map((item, index) => `${index + 1}. ${item}`).join('\n')}`
+                );
+            }
+
+            if (orientacoes.length) {
+                sections.push(
+                    `ORIENTACOES:\n${orientacoes.map((item) => `- ${item}`).join('\n')}`
+                );
+            }
+
+            return sections.join('\n\n') || 'Conteudo nao informado.';
+        };
+
+        const cleanRemumeName = (nome) => {
+            const cleaned = sanitizeTextValue(nome);
+            const knownPrefixes = [
+                'NESTAS UNIDADES ',
+                'HOSPITAL DIA ',
+                'HOSPITAL DIA / AMAE/ AE E EM UNIDADES DE REFERÊNCIA EM OFTALMOLOGIA ',
+                'SAE/IST/AIDS, CENTRO DE ESPECIALIDADES ODONTOLÓGICAS, CASA SER, HOSPITAL DIA/ AMAE/ AE ',
+                'REFERÊNCIA - EXCLUSIVO PARA TRATAMENTO DE ESQUEMAS ESPECIAIS DE TB/MNT '
+            ];
+
+            for (const prefix of knownPrefixes) {
+                if (cleaned.startsWith(prefix)) {
+                    return cleaned.slice(prefix.length).trim() || cleaned;
+                }
+            }
+
+            return cleaned;
+        };
+
         const updateCounters = () => {
             countPrescricoes.textContent = `Prescricoes: ${allPrescricoes.length}`;
             countRemume.textContent = `REMUME: ${allRemume.length}`;
@@ -334,14 +385,19 @@
             }
 
             const sortedAreas = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
-            let html = '';
+            const fragment = document.createDocumentFragment();
 
             sortedAreas.forEach((area) => {
-                html += `
-                    <div class="space-y-1" data-area-group="${normalizeForSearch(area)}">
-                        <h3 class="text-xl font-bold text-teal-700 px-2 py-1">${area}</h3>
-                        <ul class="space-y-0.5 ml-2 border-l-2 border-gray-200">
-                `;
+                const groupContainer = document.createElement('div');
+                groupContainer.className = 'space-y-1';
+                groupContainer.dataset.areaGroup = normalizeForSearch(area);
+
+                const groupTitle = document.createElement('h3');
+                groupTitle.className = 'text-xl font-bold text-teal-700 px-2 py-1';
+                groupTitle.textContent = area;
+
+                const list = document.createElement('ul');
+                list.className = 'space-y-0.5 ml-2 border-l-2 border-gray-200';
 
                 grouped[area].forEach((item) => {
                     const title = item[options.titleField] || 'Sem nome';
@@ -352,20 +408,27 @@
                         item.categoria,
                         item.apresentacao
                     ].join(' ');
-                    html += `
-                        <li class="flex">
-                            <button data-id="${item.id}" data-type="${options.type}" class="nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150"
-                                data-search-term="${normalizeForSearch(searchTerms)}">
-                                ${title}
-                            </button>
-                        </li>
-                    `;
+
+                    const li = document.createElement('li');
+                    li.className = 'flex';
+
+                    const btn = document.createElement('button');
+                    btn.dataset.id = item.id;
+                    btn.dataset.type = options.type;
+                    btn.dataset.searchTerm = normalizeForSearch(searchTerms);
+                    btn.className = 'nav-item-btn w-full text-left text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-r-lg px-4 py-2 transition-colors duration-150';
+                    btn.textContent = title;
+
+                    li.appendChild(btn);
+                    list.appendChild(li);
                 });
 
-                html += '</ul></div>';
+                groupContainer.appendChild(groupTitle);
+                groupContainer.appendChild(list);
+                fragment.appendChild(groupContainer);
             });
 
-            sidebarNav.innerHTML = html;
+            sidebarNav.replaceChildren(fragment);
         };
 
         const displayPrescription = (id) => {
@@ -435,7 +498,7 @@
             let itemsFound = 0;
 
             items.forEach((item) => {
-                const searchTerm = item.dataset.searchTerm;
+                const searchTerm = item.dataset.searchTerm || '';
                 if (searchTerm.includes(lowerTerm)) {
                     item.parentElement.classList.remove('hidden');
                     itemsFound++;
@@ -523,10 +586,10 @@
                         const rec = normalizeRecordKeys(item);
                         return {
                             id: String(rec.id || index + 1),
-                            area: rec.area || 'Sem Area',
-                            doenca: rec.doenca || 'Sem nome',
-                            cid: rec.cid || '',
-                            texto: rec.texto || ''
+                            area: sanitizeTextValue(rec.area) || 'Sem Area',
+                            doenca: sanitizeTextValue(rec.doenca) || 'Sem nome',
+                            cid: sanitizeTextValue(rec.cid),
+                            texto: buildPrescriptionText(rec)
                         };
                     })()
                 }));
@@ -538,11 +601,11 @@
                             const rec = normalizeRecordKeys(item);
                             return {
                                 id: String(rec.id || `remume-${index + 1}`),
-                                nome: rec.nome || 'Sem nome',
-                                grupo: rec.grupo || 'Sem Grupo',
-                                categoria: rec.categoria || '',
-                                apresentacao: rec.apresentacao || '',
-                                observacao: rec.observacao || ''
+                                nome: cleanRemumeName(rec.nome) || 'Sem nome',
+                                grupo: sanitizeTextValue(rec.grupo) || 'Sem Grupo',
+                                categoria: sanitizeTextValue(rec.categoria),
+                                apresentacao: sanitizeTextValue(rec.apresentacao),
+                                observacao: sanitizeTextValue(rec.observacao)
                             };
                         })()
                     }));
@@ -586,7 +649,7 @@
             sidebarOverlay.classList.remove('open');
         });
 
-        searchInput.addEventListener('keyup', (e) => {
+        searchInput.addEventListener('input', (e) => {
             filterSidebar(e.target.value);
             clearSearchBtn.classList.toggle('hidden', !e.target.value);
         });
@@ -646,7 +709,16 @@
                 .replace(/\s+/g, '-')
                 .toLowerCase();
 
-            const blob = new Blob([contentText.textContent], { type: 'text/plain;charset=utf-8' });
+            const exportDate = new Date().toLocaleString('pt-BR');
+            const exportContent = [
+                contentTitle.textContent || 'Guia de Prescricoes',
+                contentCid.textContent || '',
+                `Exportado em: ${exportDate}`,
+                '',
+                contentText.textContent
+            ].join('\n');
+
+            const blob = new Blob([exportContent], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
