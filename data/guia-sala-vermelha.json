@@ -107,7 +107,47 @@
                 "≥ 2 pontos = Alta prob. disfunção orgânica",
                 ""
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "qsofa-fr",
+                  "label": "Frequência respiratória ≥ 22 irpm",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "qsofa-pas",
+                  "label": "PA Sistólica ≤ 100 mmHg",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "qsofa-glasgow",
+                  "label": "Alteração do nível de consciência (GCS < 15)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "qSOFA",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 1,
+                    "label": "Baixo risco — considerar sepse?",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 2,
+                    "max": 3,
+                    "label": "Alto risco — suspeitar sepse, considerar SOFA",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           }
         ],
         "alvos": [
@@ -141,7 +181,8 @@
     "fontes": [
       "Medicina de Emergência 19ed — Cap. 8 (Choque) + Cap. 9 (Sepse)",
       "Sepsis in Emergency Medicine 2025",
-      "Protocolo Sepse SES-DF 2025"
+      "Protocolo Sepse SES-DF 2025",
+      "Sanford Guide 2022 — Antimicrobial Therapy"
     ],
     "categoria": "Cardiovascular"
   },
@@ -249,7 +290,77 @@
                 "E",
                 "Colapso/extreme"
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "scai-a",
+                  "label": "Estágio A — At Risk",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "scai-b",
+                  "label": "Estágio B — Beginning",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "scai-c",
+                  "label": "Estágio C — Classic",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "scai-d",
+                  "label": "Estágio D — Deteriorating",
+                  "pontos": 3,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "scai-e",
+                  "label": "Estágio E — Extremis",
+                  "pontos": 4,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Estágio SCAI",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 0,
+                    "label": "At Risk — monitorizar",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 1,
+                    "max": 1,
+                    "label": "Beginning — iniciar suporte",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "Classic — vasopressores/inotrópicos",
+                    "cor": "#ea580c"
+                  },
+                  {
+                    "min": 3,
+                    "max": 3,
+                    "label": "Deteriorating — IMEC/ECMO",
+                    "cor": "#dc2626"
+                  },
+                  {
+                    "min": 4,
+                    "max": 4,
+                    "label": "Extremis — suporte máx., considerar transplante",
+                    "cor": "#7f1d1d"
+                  }
+                ]
+              }
+            }
           }
         ],
         "alvos": [
@@ -508,7 +619,7 @@
           },
           {
             "nome": "Sulfato de Magnésio",
-            "apresentacao": "500 mg/mL 10mL (10%)",
+            "apresentacao": "500 mg/mL 10mL (50%)",
             "diluicao": "Diluir em 10 mL SF (50 mg/mL)",
             "dose": "1-2 g IV em 5 min (Torsades de Pointes)",
             "sus": "rename"
@@ -909,7 +1020,7 @@
             "sus": "basico"
           },
           {
-            "nome": "Heparina de Baixo Peso Molecular (HNF)",
+            "nome": "Heparina Não Fracionada (HNF)",
             "apresentacao": "5.000 UI/mL (frasco)",
             "diluicao": "Frasco padrão",
             "dose": "Bolus 60-70 UI/kg IV → infusão 12-15 UI/kg/h",
@@ -980,7 +1091,65 @@
                 "IV",
                 "Choque cardiogênico"
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "killip-1",
+                  "label": "Classe I — Sem ICC",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "killip-2",
+                  "label": "Classe II — ICC leve (crepitações, S3, JVP↑)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "killip-3",
+                  "label": "Classe III — ICC severa (edema pulmonar)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "killip-4",
+                  "label": "Classe IV — Choque cardiogênico",
+                  "pontos": 3,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Killip-Kimball",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 0,
+                    "label": "Mortalidade ~6%",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 1,
+                    "max": 1,
+                    "label": "Mortalidade ~17%",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "Mortalidade ~38%",
+                    "cor": "#ea580c"
+                  },
+                  {
+                    "min": 3,
+                    "max": 3,
+                    "label": "Mortalidade ~67%",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           },
           {
             "nome": "TIMI — NSTEMI/Angina Instável",
@@ -1022,7 +1191,77 @@
                 "0-1 pt: Baixo risco | 2: Intermediário-baixo | 3-4: Intermediário-alto | 5-7: Alto risco",
                 ""
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "timi-idade",
+                  "label": "Idade ≥ 65 anos",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-3dac",
+                  "label": "≥ 3 fatores de risco para DAC",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-ecg",
+                  "label": "Alteração de ST ≥ 0,5 mm",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-angina",
+                  "label": "Angina ≥ 2 episódios em 24h",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-asp7d",
+                  "label": "Uso de AAS nos últimos 7 dias",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-enzimas",
+                  "label": "Marcadores necrose (CK-MB/troponina) elevados",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "timi-estenose",
+                  "label": "Estenose coronária ≥ 50%",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "TIMI (NSTEMI/AI)",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 2,
+                    "label": "Baixo risco — mortalidade 30d ~3-5%",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 3,
+                    "max": 4,
+                    "label": "Risco intermediário — mortalidade 30d ~8-13%",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 5,
+                    "max": 7,
+                    "label": "Alto risco — mortalidade 30d ~23-41%",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           },
           {
             "nome": "GRACE 2.0",
@@ -1159,7 +1398,7 @@
             "apresentacao": "10 mg comprimido",
             "diluicao": "VO direto",
             "dose": "Carga 60 mg VO (após ICP + anatomia). Manter 10 mg/dia. CONTRA se ≥ 75a, ICC, AVC prévio, peso < 60 kg",
-            "sus": "basico"
+            "sus": "rename"
           },
           {
             "nome": "Ticagrelor",
@@ -1183,7 +1422,7 @@
             "sus": "ceaf"
           },
           {
-            "nome": "HNF (Heparina de Baixo Peso Molecular)",
+            "nome": "Heparina Não Fracionada (HNF)",
             "apresentacao": "5.000 UI/mL (frasco)",
             "diluicao": "Frasco padrão",
             "dose": "Bolus 70 UI/kg IV → 15 UI/kg/h. APTT meta 50-70s",
@@ -1400,7 +1639,7 @@
         ],
         "dados": [
           {
-            "nome": "Heparina de Baixo Peso Molecular (HNF)",
+            "nome": "Heparina Não Fracionada (HNF)",
             "apresentacao": "5.000 UI/mL (frasco)",
             "diluicao": "Frasco padrão",
             "dose": "Bolus 80 U/kg IV → infusão contínua 18 U/kg/h (ajustar por PTTa 1,5-2,5×)",
@@ -1520,7 +1759,77 @@
                 "≥ 4 pts = Provável ( AngioTC direta ) | < 4 pts = Improvável ( D-dímero )",
                 ""
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "wells-cancer",
+                  "label": "Câncer ativo (tratamento nos últimos 6 meses)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-hemoptise",
+                  "label": "Hemoptise",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-imobilizacao",
+                  "label": "Imobilização ≥ 3 dias ou cirurgia nos últimos 4 semanas",
+                  "pontos": 1.5,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-tvp",
+                  "label": "TVS pregressa",
+                  "pontos": 1.5,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-fc",
+                  "label": "FC > 100 bpm",
+                  "pontos": 1.5,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-tvp-sinais",
+                  "label": "Sinais/sintomas de TVP (edema, dor, veia palpável)",
+                  "pontos": 3,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "wells-alternativa",
+                  "label": "Nenhum diagnóstico alternativo mais provável",
+                  "pontos": 3,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Wells (TEP)",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 4,
+                    "label": "Probabilidade baixa — TEP improvável",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 4.5,
+                    "max": 6,
+                    "label": "Probabilidade intermediária",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 6.5,
+                    "max": 12.5,
+                    "label": "Probabilidade alta — TEP provável",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           },
           {
             "nome": "PESI (Simplified) — Mortalidade a 30 dias",
@@ -1566,7 +1875,77 @@
                 "0-1 pt = Classe I (mortalidade 1,5-3,2%) → considerar alta | ≥ 2 pt = Classe II-V (mortalidade 5,6-24,5%) → internar",
                 ""
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "pesi-idade",
+                  "label": "Idade > 80 anos",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-cancer",
+                  "label": "Câncer",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-icc",
+                  "label": "ICC crônica",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-fc",
+                  "label": "FC ≥ 110 bpm",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-pas",
+                  "label": "PAS < 100 mmHg",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-spo2",
+                  "label": "SpO2 < 90%",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-confusao",
+                  "label": "Alteração do nível de consciência",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "pesi-irm",
+                  "label": "Insuficiência renal",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "sPESI (TEP)",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 0,
+                    "label": "Baixo risco — pode considerar tratamento domiciliar",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 1,
+                    "max": 8,
+                    "label": "Alto risco — internar, considerar terapia trombolítica",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           },
           {
             "nome": "HESTIA — Critérios de Alta Ambulatorial",
@@ -2070,7 +2449,65 @@
                 "Sem congestão, com hipoperfusão",
                 "Expansão volêmica cautelosa + Inotrópico"
               ]
-            ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "perfil-a",
+                  "label": "Perfil A — Quente Seco (PA↑, RVP↑)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "perfil-b",
+                  "label": "Perfil B — Quente Congesto (PA normal, RVP↑, IC↓)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "perfil-c",
+                  "label": "Perfil C — Frio Congesto (PA↓, RVP↑, IC↓↓)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "perfil-l",
+                  "label": "Perfil L — Frio Seco (PA↓↓, RVP↓, IC↓)",
+                  "pontos": 3,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Perfil Hemodinâmico",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 0,
+                    "label": "Hipertensivo — vasodilatadores, diurético",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 1,
+                    "max": 1,
+                    "label": "Congestionado quente — diuréticos + vasodilatadores",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "Congestão + hipoperfusão — vasodilatador + diurético + inotrópico ± vasopressor",
+                    "cor": "#ea580c"
+                  },
+                  {
+                    "min": 3,
+                    "max": 3,
+                    "label": "Hipoperfusão seca — expansão volêmica cautelosa + inotrópico",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
           },
           {
             "nome": "Critérios Diagnósticos — BNP e NT-proBNP",
@@ -2184,5 +2621,323 @@
       }
     ],
     "categoria": "Cardiovascular"
+  },
+  {
+    "id": "arritmias-emergencia",
+    "titulo": "Fibrilação Atrial / Taquiarritmias / Bradicardias",
+    "cid": "I48",
+    "cor": "#7c3aed",
+    "icon": "pulse-outline",
+    "categoria": "Cardiovascular",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 32 (FA), 33 (Taquiarritmias), 34 (Bradicardias)",
+      "Diretriz de FA ACC/AHA 2023",
+      "ESC Guidelines 2020 (Fibrilação Atrial)",
+      "ESC Guidelines 2022 (Arritmias Ventriculares)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Manejo da Fibrilação Atrial (FA) — ABC",
+        "itens": [
+          "**A — Anticoagulação para prevenção de AVC**",
+          "Escore **CHA₂DS₂-VA ≥ 1** indica anticoagulação oral",
+          "C = IC (1pt), H = HAS (1pt), A₂ = idade ≥75 (2pt), D = DM (1pt), S₂ = AVC/AIT prévio (2pt), V = doença vascular (1pt), A = idade 65-74 (1pt)",
+          "**Primeira escolha:** ACO direta (DOAC): Apixabana 5mg 12/12h, Rivaroxabana 20mg 1x/d, Dabigatrana 150mg 12/12h, Edoxabana 60mg 1x/d",
+          "**Estenose mitral moderada/grave ou prótese mecânica:** Varfarina (INR 2-3)",
+          "**FA < 24h:** Cardioversão pode ser realizada; anticoagular ≥4 semanas se CHA₂DS₂-VA ≥ 1",
+          "**FA ≥ 24h ou indeterminada:** 3 semanas de ACO OUTEE antes de cardioversão",
+          "Avaliar risco de sangramento com **HAS-BLED** (≥3 = alto risco, não contraindica ACO)",
+          "",
+          "**B — Better controle de frequência**",
+          "**Alvo:** FC < 110 bpm (leniente) ou < 80 bpm se sintomático",
+          "**Sem IC:** Betabloqueador (Metoprolol 5mg EV bolus) ou BCC não-DHP (Diltiazem 0,25mg/kg EV 2min ou Verapamil 2,5-5mg EV 3min)",
+          "**Com IC FE < 40%:** **NÃO usar BCC não-DHP**. Amiodarona 150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h",
+          "**Em sepse:** Evitar betabloqueador. Amiodarona ou Digoxina",
+          "**Magnésio adjuvante:** MgSO₄ 2,5g EV em 20min → 2,5g em 2h",
+          "",
+          "**C — Controle de fatores de risco**",
+          "Investigar e tratar: anemia, infecção/sepse, hipoxemia, tireotoxicose, dor, febre, desidratação, álcool"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Cardioversão — Antiarrítmicos",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Amiodarona",
+            "apresentacao": "150mg/3mL",
+            "diluicao": "150mg + SG5% 100mL",
+            "dose": "150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Propafenona (VO)",
+            "apresentacao": "300mg, 600mg",
+            "diluicao": "Uso oral",
+            "dose": "450mg (<70kg) ou 600mg (≥70kg) VO — primeiro uso em monitorização",
+            "sus": "rename"
+          },
+          {
+            "nome": "Propafenona (EV)",
+            "apresentacao": "70mg/20mL",
+            "diluicao": "1,5-2mg/kg diluído em SF",
+            "dose": "1,5-2mg/kg EV em 10min — sem doença estrutural cardíaca",
+            "sus": "rename"
+          },
+          {
+            "nome": "Flecainida (VO)",
+            "apresentacao": "100mg",
+            "diluicao": "Uso oral",
+            "dose": "200-300mg VO — sem doença estrutural cardíaca",
+            "sus": "comercial"
+          },
+          {
+            "nome": "Adenosina",
+            "apresentacao": "6mg/mL",
+            "diluicao": "6mg diluído em 10-20mL SF",
+            "dose": "6mg EV bolus rápido → 12mg se falhar (máx 2 repetições). Usar torneira de 3 vias ou seringa única",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escores de Risco na FA",
+        "escores": [
+          {
+            "nome": "CHA₂DS₂-VA — Risco de AVC",
+            "descricao": "Indica necessidade de anticoagulação oral",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "IC (ICFE ou ICFEP)",
+                "1"
+              ],
+              [
+                "Hipertensão",
+                "1"
+              ],
+              [
+                "Idade ≥ 75 anos",
+                "2"
+              ],
+              [
+                "Diabetes mellitus",
+                "1"
+              ],
+              [
+                "AVC ou AIT prévio",
+                "2"
+              ],
+              [
+                "Doença vascular coronariana/periférica",
+                "1"
+              ],
+              [
+                "Idade 65-74 anos",
+                "1"
+              ]
+            ],
+            "alvos": [
+              [
+                "Escore",
+                "Conduta"
+              ],
+              [
+                "0",
+                "Sem anticoagulação"
+              ],
+              [
+                "≥ 1",
+                "Anticoagulação oral indicada"
+              ],
+              [
+                "≥ 2 (em uso de ACO)",
+                "Alvo INR 2-3 se varfarina"
+              ]
+            ]
+          },
+          {
+            "nome": "HAS-BLED — Risco de Sangramento",
+            "descricao": "Avalia risco de sangramento em uso de anticoagulantes. ≥3 = alto risco (não contraindica ACO)",
+            "colunas": [
+              "Letra",
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "H",
+                "Hipertensão sem controle (PAS ≥ 160)",
+                "1"
+              ],
+              [
+                "A",
+                "Função renal/hepática anormal (Cr > 2,6 ou cirrose)",
+                "1"
+              ],
+              [
+                "S",
+                "AVC prévio",
+                "1"
+              ],
+              [
+                "B",
+                "Sangramento prévio ou predisposição",
+                "1"
+              ],
+              [
+                "L",
+                "INR lábil",
+                "1"
+              ],
+              [
+                "E",
+                "Idade > 65 anos",
+                "1"
+              ],
+              [
+                "D",
+                "Uso de drogas/álcool",
+                "1-2"
+              ]
+            ],
+            "alvos": [
+              [
+                "HAS-BLED",
+                "Classificação"
+              ],
+              [
+                "0-2",
+                "Risco baixo/moderado"
+              ],
+              [
+                "≥ 3",
+                "Alto risco — otimizar fatores modificáveis"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Taquiarritmias Supraventriculares (TSV)",
+        "itens": [
+          "**Manobras vagais em primeira linha:**",
+          "**Valsalva modificada (REVERT):** sentado a 45° → soprar seringa 15s → deitar + elevar pernas 45° por 15s (sucesso 43%)",
+          "**Massagem carotídea:** compressão unilateral por 5-20s (nunca bilateral). Auscultar sopro antes",
+          "",
+          "**Tratamento farmacológico — TSV estável:**",
+          "**Adenosina:** 6mg EV bolus rápido → 12mg se falhar. Método seringa única (diluir em 10-20mL SF). Efeitos transitórios em <30s",
+          "**Sem resposta?** Diltiazem 0,25mg/kg EV 2min (repetir 0,35mg/kg) ou Verapamil 2,5-5mg EV 3min",
+          "**CUIDADO:** BCC e betabloqueadores CONTRAINDICADOS em IC FE < 40%",
+          "",
+          "**TSV + Pré-excitação (WPW):**",
+          "**NÃO usar:** Adenosina, betabloqueadores, BCC, digitálicos, amiodarona (risco de FV)",
+          "**Escolha:** Cardioversão elétrica 200J bifásica OU Procainamida/Flecainida (se disponível)"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Taquicardia Ventricular (TV)",
+        "itens": [
+          "**Toda taquicardia de QRS largo = TRATAR COMO TV até provar o contrário**",
+          "",
+          "**TV INSTÁVEL (com pulso):**",
+          "**Cardioversão elétrica sincronizada:** 100J → aumentar progressivamente",
+          "Caso sincronização não possível: choque NÃO sincronizado",
+          "",
+          "**TV ESTÁVEL monomórfica:**",
+          "**Amiodarona:** 150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h (droga de escolha com cardiopatia estrutural)",
+          "**Sem cardiopatia estrutural:** Procainamida 10mg/kg EV 100mg/min (se disponível)",
+          "**Lidocaína:** 1mg/kg EV em 2-5min (opção alternativa — baixa taxa de reversão 20-30%)",
+          "",
+          "**TV POLIMÓRFICA / Torsades de Pointes:**",
+          "**MgSO₄:** 1-2g EV em 5-20min (primeira linha)",
+          "**Isquemia aguda?** Cardioversão + reperfusão",
+          "Suspender medicações que prolongam QT",
+          "EVITAR amiodarona (pode piorar QT longo)",
+          "",
+          "**Sinais de instabilidade:** Hipotensão, choque, diminuição consciência, dor torácica, dispneia → Cardioversão IMEDIATA"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Medicamentos — Controle de Frequência",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Metoprolol",
+            "apresentacao": "5mg/mL",
+            "diluicao": "Pode usar direto",
+            "dose": "5mg EV em 5min, repetir até 15mg. Cuidado: IC FE<40%, broncoespasmo",
+            "sus": "basico"
+          },
+          {
+            "nome": "Diltiazem",
+            "apresentacao": "50mg",
+            "diluicao": "50mg + SG5% 100mL (0,5mg/mL)",
+            "dose": "0,25mg/kg EV em 2min → 0,35mg/kg se necessário → manutenção 5-15mg/h",
+            "sus": "rename"
+          },
+          {
+            "nome": "Amiodarona",
+            "apresentacao": "150mg/3mL",
+            "diluicao": "150mg + SG5% 100mL",
+            "dose": "150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h. Máx 1,2g/24h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Digoxina",
+            "apresentacao": "0,25mg/mL",
+            "diluicao": "Pode usar direto",
+            "dose": "0,25-0,5mg EV bolus, até 1mg total. Cuidado: intoxicação digitálica",
+            "sus": "basico"
+          },
+          {
+            "nome": "Esmolol",
+            "apresentacao": "10mg/mL (2,5g)",
+            "diluicao": "2.500mg + SF 240mL (10mg/mL)",
+            "dose": "Dose ataque: 0,5mg/kg em 1min → Manutenção: 50-200mcg/kg/min",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Bradicardias — Quando Tratar",
+        "itens": [
+          "**Indicação de tratamento:** Bradicardia SINTOMÁTICA (hipotensão, confusão, dor torácica, síncope, choque)",
+          "",
+          "**Atropina:** 0,5mg EV a cada 3-5min (máx 3mg). Primeira linha. **NÃO usar em transplante cardíaco**",
+          "",
+          "**Sem resposta à atropina:**",
+          "**Estimulação elétrica transcutânea** (marcapasso temporário) — para bradicardia refratária",
+          "**Dopamina:** 5-20mcg/kg/min EV (infusão contínua)",
+          "**Adrenalina:** 2-10mcg/min EV (infusão contínua)",
+          "",
+          "**Bloqueio AV de 2º grau Mobitz II ou Bloqueio AV de 3º grau:**",
+          "Sempre considerar marcapasso — são indicações relativas",
+          "**Atropina pode NÃO funcionar** em bloqueios infranodais (Mobitz II e 3º grau)",
+          "",
+          "**Causas reversíveis:** Drogas (betabloqueadores, CCB, amiodarona, digoxina), IAM inferior, miocardite, hipotireoidismo, hipercalemia"
+        ]
+      }
+    ]
   }
 ]

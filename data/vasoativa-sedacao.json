@@ -12,18 +12,18 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Opção 1 (Padrão):** 4 mg (1 ampola) + SG 5% **250 mL** → **16.000 mcg/250 mL**",
-          "**Opção 2 (UTI/Volume):** 4 mg (1 ampola) + SG 5% **500 mL** → **16.000 mcg/500 mL**",
-          "Se volume restrito: 4 mg (1 ampola) + SF 0,9% **50 mL** (seringa) → **80.000 mcg/50 mL**"
+          "**Opção 1 (Padrão):** 16 mg (4 ampolas = 16 mL) + SG 5% **234 mL** → **64 mcg/mL**",
+          "**Opção 2 (Volume):** 8 mg (2 ampolas = 8 mL) + SG 5% **242 mL** → **32 mcg/mL**",
+          "**Opção 3 (Seringa):** 4 mg (1 ampola = 4 mL) + SF 0,9% **46 mL** (seringa) → **80 mcg/mL** (usar microbomba)"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**250 mL:** 1 mL/h = **64 mcg/min** (ou 1,07 mcg/kg/min para 60 kg)",
-          "**500 mL:** 1 mL/h = **32 mcg/min** (ou 0,53 mcg/kg/min para 60 kg)",
-          "**Seringa 50 mL:** 1 mL/h = **1.600 mcg/min** (usar microbomba — ⚠️ atenção à concentração)"
+          "**250 mL (16 mg):** 1 mL/h = **64 mcg/h** (ou 1,07 mcg/kg/h para 60 kg)",
+          "**250 mL (8 mg):** 1 mL/h = **32 mcg/h** (ou 0,53 mcg/kg/h para 60 kg)",
+          "**Seringa 50 mL (4 mg):** 1 mL/h = **80 mcg/h** (usar microbomba — ⚠️ atenção à concentração)"
         ]
       },
       {
@@ -55,7 +55,7 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "4 mg + SG5% 250 mL",
+          "rotulo": "16 mg (4 amps) + SG5% 250 mL",
           "volume_ml": 250,
           "concentracao": 64,
           "doses": [
@@ -72,8 +72,8 @@
           ]
         },
         {
-          "rotulo": "4 mg + SG5% 500 mL",
-          "volume_ml": 500,
+          "rotulo": "8 mg (2 amps) + SG5% 250 mL",
+          "volume_ml": 250,
           "concentracao": 32,
           "doses": [
             {
@@ -89,9 +89,9 @@
           ]
         },
         {
-          "rotulo": "4 mg + SF0.9% 50 mL",
+          "rotulo": "4 mg (1 amp) + SF0.9% 50 mL",
           "volume_ml": 50,
-          "concentracao": 320,
+          "concentracao": 80,
           "doses": [
             {
               "rotulo": "Dose inicial",
@@ -126,8 +126,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 50 mg (1 frasco) + SG 5% **250 mL** → **200.000 mcg/250 mL**",
-          "**Alternativa:** 50 mg + SG 5% **500 mL** → **200.000 mcg/500 mL**",
+          "**Padrão:** 50 mg (1 frasco) + SG 5% **250 mL** → **50.000 mcg/250 mL**",
+          "**Alternativa:** 50 mg + SG 5% **500 mL** → **50.000 mcg/500 mL**",
           "**⚠️ Proteger da luz:** envolver a bolsa/siringa com alumínio ou papel escuro (degradação fotossensível)"
         ]
       },
@@ -135,8 +135,8 @@
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**250 mL:** 1 mL/h = **13,3 mcg/min** (≈ 0,22 mcg/kg/min para 60 kg)",
-          "**500 mL:** 1 mL/h = **6,7 mcg/min** (≈ 0,11 mcg/kg/min para 60 kg)",
+          "**250 mL:** 1 mL/h = **3,3 mcg/min** (≈ 0,056 mcg/kg/min para 60 kg)",
+          "**500 mL:** 1 mL/h = **1,7 mcg/min** (≈ 0,028 mcg/kg/min para 60 kg)",
           "Fórmula prática: mcg/min = (mL/h × concentração total em mcg) ÷ tempo total (min)"
         ]
       },
@@ -172,7 +172,7 @@
         {
           "rotulo": "50 mg + SG5% 250 mL",
           "volume_ml": 250,
-          "concentracao": 800,
+          "concentracao": 200,
           "doses": [
             {
               "rotulo": "Dose inicial",
@@ -189,7 +189,7 @@
         {
           "rotulo": "50 mg + SG5% 500 mL",
           "volume_ml": 500,
-          "concentracao": 400,
+          "concentracao": 100,
           "doses": [
             {
               "rotulo": "Dose inicial",
@@ -223,8 +223,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
-          "**Padrão:** 10 mcg/kg (ex: 500 mcg para 50 kg) + SF 0,9% ou SG 5% **50 mL** → concentração em mcg/mL = peso × 2",
-          "**Exemplo prático (paciente 70 kg):** 700 mcg (7 ampolas) + SF 0,9% **50 mL** → **14 mcg/mL**",
+          "**Padrão:** 10 mcg/kg (ex: 500 mcg para 50 kg) + SF 0,9% ou SG 5% **até 50 mL** → concentração em mcg/mL = peso ÷ 5",
+          "**Exemplo prático (paciente 70 kg):** 700 mcg (7 ampolas = 14 mL) + SF 0,9% **36 mL** → **14 mcg/mL**",
           "**Para bolus (curto prazo):** pode usar ampola pura (50 mcg/mL) — diluir em SF 0,9% para volume adequado"
         ]
       },
@@ -233,9 +233,9 @@
         "titulo": "Concentração Final",
         "itens": [
           "**Fórmula:** Concentração (mcg/mL) = (dose em mcg) ÷ 50 mL",
-          "**Exemplo 50 kg:** 500 mcg ÷ 50 mL = **10 mcg/mL** → 1 mL/h = 10 mcg/h (0,2 mcg/kg/min)",
-          "**Exemplo 70 kg:** 700 mcg ÷ 50 mL = **14 mcg/mL** → 1 mL/h = 14 mcg/h (0,2 mcg/kg/min)",
-          "Variação de 1 mL/h = equivalente a 0,2 mcg/kg/min"
+          "**Exemplo 50 kg:** 500 mcg ÷ 50 mL = **10 mcg/mL** → 1 mL/h = 10 mcg/h (0,2 mcg/kg/h)",
+          "**Exemplo 70 kg:** 700 mcg ÷ 50 mL = **14 mcg/mL** → 1 mL/h = 14 mcg/h (0,2 mcg/kg/h)",
+          "Variação de 1 mL/h = equivalente a 0,2 mcg/kg/h"
         ]
       },
       {
@@ -323,8 +323,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
-          "**Padrão:** 50 mg (5 ampolas de 10 mg) + SF 0,9% ou SG 5% **50 mL** → **10 mg/mL**",
-          "**Alternativa (menor concentração):** 30 mg + SG 5% **50 mL** → **6 mg/mL**",
+          "**Padrão:** 50 mg (5 ampolas de 10 mg) + SF 0,9% ou SG 5% **50 mL** → **1 mg/mL**",
+          "**Alternativa (menor concentração):** 30 mg + SG 5% **50 mL** → **0,6 mg/mL**",
           "**Para bolus:** ampola pura 1 mg/mL — dose de 0,02-0,05 mg/kg IV"
         ]
       },
@@ -424,7 +424,7 @@
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
           "**Padrão:** 200 mg (1 frasco 20 mL) + SF 0,9% ou SG 5% **30 mL** → **4 mg/mL**",
-          "**Alternativa:** 200 mg + SG 5% **50 mL** → **4 mg/mL**",
+          "**Alternativa:** 200 mg + SG 5% **80 mL** → **2 mg/mL**",
           "**Bolus:** ampola pura 10 mg/mL — dose 0,5-1 mg/kg IV (indução) ou 10-20 mg IV (sedação)"
         ]
       },
@@ -434,7 +434,7 @@
         "itens": [
           "**4 mg/mL (padrão):** 1 mL/h = **4 mg/h** (≈ 0,057 mg/kg/h para 70 kg)",
           "**2 mg/mL:** 1 mL/h = **2 mg/h** — útil em titulação fina",
-          "Variação de 0,5 mL/h ≈ equivalente a 0,007 mg/kg/h",
+          "Variação de 0,5 mL/h ≈ equivalente a 0,03 mg/kg/h",
           "**Fórmula:** mg/mL = 200 mg ÷ volume final em mL"
         ]
       },
@@ -523,8 +523,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Opção 1 (Padrão):** 200 mg + SG 5% **250 mL** → **800 mcg/mL**",
-          "**Opção 2 (Alta concentração):** 400 mg + SG 5% **250 mL** → **1.600 mcg/mL**",
+          "**Opção 1 (Padrão):** 200 mg + SG 5% **245 mL** → **800 mcg/mL**",
+          "**Opção 2 (Alta concentração):** 400 mg + SG 5% **240 mL** → **1.600 mcg/mL**",
           "Dose depende da apresentação e diluição utilizada — verificar sempre a concentração final"
         ]
       },
@@ -532,8 +532,8 @@
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**800 mcg/mL (250 mL):** 1 mL/h = **32 mcg/min** (≈ 0,53 mcg/kg/min para 60 kg)",
-          "**1.600 mcg/mL (250 mL):** 1 mL/h = **64 mcg/min** (≈ 1,07 mcg/kg/min para 60 kg)",
+          "**800 mcg/mL (250 mL):** 1 mL/h = **13,3 mcg/min** (≈ 0,22 mcg/kg/min para 60 kg)",
+          "**1.600 mcg/mL (250 mL):** 1 mL/h = **26,7 mcg/min** (≈ 0,44 mcg/kg/min para 60 kg)",
           "Fórmula prática: mcg/min = (mL/h × concentração em mcg/mL) ÷ tempo total (min)"
         ]
       },
@@ -632,8 +632,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Infusão contínua — Opção 1:** 1 mg + SF 0,9% **250 mL** → **4 mcg/mL**",
-          "**Infusão contínua — Opção 2:** 6 mg + SF 0,9% **250 mL** → **24 mcg/mL**",
+          "**Infusão contínua — Opção 1:** 1 mg + SF 0,9% **249 mL** → **4 mcg/mL**",
+          "**Infusão contínua — Opção 2:** 6 mg + SF 0,9% **244 mL** → **24 mcg/mL**",
           "**Anafilaxia (bolus IM):** ampola pura 1 mg/mL — diluir em SF 0,9% para 1:1.000 se necessário"
         ]
       },
@@ -641,8 +641,8 @@
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**4 mcg/mL (250 mL):** 1 mL/h = **0,067 mcg/kg/min** para 60 kg",
-          "**24 mcg/mL (250 mL):** 1 mL/h = **0,4 mcg/kg/min** para 60 kg",
+          "**4 mcg/mL (250 mL):** 1 mL/h = **0,067 mcg/kg/h** para 60 kg",
+          "**24 mcg/mL (250 mL):** 1 mL/h = **0,4 mcg/kg/h** para 60 kg",
           "Para bolus IM: usar concentração 1:1.000 (1 mg/mL)"
         ]
       },
@@ -730,8 +730,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 250 mg (1 frasco) + SG 5% **250 mL** → **1.000 mcg/mL**",
-          "**Alternativa (volume reduzido):** 250 mg + SG 5% **100 mL** → **2.500 mcg/mL** (usar microbomba)",
+          "**Padrão:** 250 mg (1 frasco) + SG 5% **245 mL** → **1.000 mcg/mL**",
+          "**Alternativa (volume reduzido):** 250 mg + SG 5% **95 mL** → **2.500 mcg/mL** (usar microbomba)",
           "Diluir imediatamente antes do uso — solução instável em pH alcalino"
         ]
       },
@@ -838,8 +838,8 @@
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**0,2 UI/mL (100 mL):** 1 mL/h = **0,2 UI/h** (≈ 0,003 UI/min para 60 kg)",
-          "**0,4 UI/mL (100 mL):** 1 mL/h = **0,4 UI/h** (≈ 0,006 UI/min para 60 kg)",
+          "**0,2 UI/mL (100 mL):** 1 mL/h = **0,2 UI/h** (≈ 0,003 UI/min)",
+          "**0,4 UI/mL (100 mL):** 1 mL/h = **0,4 UI/h** (≈ 0,007 UI/min)",
           "Dose fixa: 0,03 UI/min = 9 mL/h (concentração 0,2 UI/mL)"
         ]
       },

@@ -43,7 +43,7 @@
         "itens": [
           "**Salbutamol (Spray)** — 4 a 10 jatos a cada 20 min por 1 hora (ciclos), com espaçador. Máx 600 mcg/dia",
           "**Prednisolona 40mg** — 1 comprimido ao dia, VO, por 5 a 7 dias (adulto). Criança: 1-2 mg/kg/dia (máx 40mg) por 5-7 dias",
-          "**Brometo de Ipratrópio (Spray)** — 2 jatos de 6/6h, VO, com espaçador, se crise moderada (adicionar ao salbutamol nos ciclos)"
+          "**Brometo de Ipratrópio (Spray)** — 2 jatos de 6/6h, via inalatória (VDI), com espaçador, se crise moderada (adicionar ao salbutamol nos ciclos)"
         ],
         "orientacoes": [
           "Manter uso do corticóide inalatório de manutenção (corticosteroide inalatório) se já em uso",
@@ -81,9 +81,9 @@
           "Manter atividade: evitar repouso absoluto; caminhar e manter movimentos leves orienta melhora",
           "Calor local na região lombar pode aliviar o espasmo muscular",
           "Evitar: flexão-tronco com peso, sentar por tempo prolongado, dormir de barriga para cima sem apoio",
-          "Retornar ao PS se: dor irradiando para pernas com perda de força, perda de controle da bexiga/bowel (incontinência), dormência na região perineal (síndrome da cauda equina — emergência), febre associada, histórico de neoplasia ou trauma recente",
+          "Retornar ao PS se: dor irradiando para pernas com perda de força, perda de controle da bexiga/intestino (incontinência), dormência na região perineal (síndrome da cauda equina — emergência), febre associada, histórico de neoplasia ou trauma recente",
           "Encaminhar a clínico/médico da família para reavaliação em até 7 dias se dor persistir",
-          "Critérios de alta: dor EVA < 4 com analgésicos orais, deambulação autônoma, sem sinais de banderilha, sem déficit neurológico"
+          "Critérios de alta: dor EVA < 4 com analgésicos orais, deambulação autônoma, sem sinais de bandeira, sem déficit neurológico"
         ]
       }
     ],
@@ -105,8 +105,17 @@
         "itens": [
           "**Paracetamol 750mg** — 1 comprimido de 6/6h, VO (máx 3g/dia) — PRIMEIRA LINHA para febre e dor",
           "**Dipirona 1g** — 1 comprimido de 6/6h, VO, SEPARADO do paracetamol, se febre persistente (máx 4g/dia)",
-          "**SRO (Soro de Reidratação Oral)** — 1 sachê em 1 litro de água;adulto: 60 mL/kg/dia; iniciar volume maior no início do dia",
-          "**NÃO usar:** AAS (ácido acetilsalicílico), AINEs (ibuprofeno, diclofenaco, nimesulida) — risco de hemorragia"
+          "**SRO (Soro de Reidratação Oral)** — 1 sachê em 1 litro de água; adulto: 60 mL/kg/dia; iniciar volume maior no início do dia",
+          "**NÃO usar:** AAS (ácido acetilsalicílico), AINEs (ibuprofeno, diclofenaco, nimesulida) — risco de hemorragia",
+          "",
+          "**⚠ Sinais de Alarme — Transferir para SV (Dengue Grave/Hemorrágica):**",
+          "Plasmatócitos > 1% OU plaquetas < 20.000/mm³",
+          "Hemoconcentração (hematócrito > 50% macho, > 44% fêmea) com queda de plaquetas",
+          "Sangramento ativo (gengiva, pele, GU, GI)",
+          "Choque: PAM < 60, taquicardia > 120, extremidades frias, tempo de enchimento > 3s",
+          "Hepatomegalia dolorosa > 2cm, ascite, derrame pleural",
+          "Letargia / irritabilidade / confusão mental",
+          "→ Protocolo de Suporte: volume (20mL/kg cristaloide), hemoderivados, vigilância de hematócrito"
         ],
         "orientacoes": [
           "Hidratação oral: beber SRO + líquidos caseiros (água, suco, soro caseiro, água de coco); evitar refrigerantes e álcool",
@@ -135,6 +144,16 @@
         "tipo": "receituario",
         "titulo": "Receituário — Faringoamigdalite Estreptocócica (sugestão clínica: exsudato + febre + adenomegalia + ausência de coriza)",
         "itens": [
+          "**Antibioticoterapia Empírica — Faringite Estreptocócica (GAS)**",
+          "**Penicilina V:** 500mg VO 3x/dia por 10 dias — primeira escolha",
+          "**Alternativa oral:** Amoxicilina 500mg 12/12h ou 1000mg 1x/dia por 10 dias",
+          "**Em alérgico a beta-lactâmicos:** Azitromicina 500mg 1x/dia x 3 dias OU Claritromicina 250mg 12/12h x 10 dias",
+          "**Cefdinir:** 300mg 12/12h x 10 dias (se alergia e não pode macrolídeo)",
+          "**Peritonsilar abscesso (suspeita F. necrophorum):** Pip-Tazo 3,375g IV q6h + drenagem cirúrgica. Evitar macrolídeo (Fusobacterium resistente)",
+          "**Dose pediátrica Pen V:** 50mg/kg/dia div q12h (máx 500mg/dose) por 10 dias",
+          "NEVER use: FQs, tetraciclinas, TMP-SMX para GAS (resistência, falha clínica)",
+          "",
+          "**FARPE = Faringite Aguda por Estreptococo do Grupo A**",
           "**Amoxicilina 500mg** — 1 comprimido de 8/8h, VO, por 10 dias (primeira linha; 1ª escolha para SGA). Alternativa pediátrica: suspensão 50 mg/kg/dia (máx 2g/dia) dividido em 2-3 doses",
           "**Azitromicina 500mg** — 1 comprimido ao dia, VO, por 5 dias (SE ALERGIA A PENICILINA; 2ª linha). Criança: 10 mg/kg 1º dia, depois 5 mg/kg por 4 dias",
           "**Paracetamol 750mg** — 1 comprimido de 6/6h, VO, por 5 dias (antitérmico/analgésico)",
@@ -150,10 +169,106 @@
           "Retorno em 48-72h se não houver melhora com antibioticoterapia (reavaliar diagnóstico)",
           "Critérios de alta: melhora da dor de garganta, retorno da deglutição normal, afebrilidade por > 24h, melhora do estado geral"
         ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Centor / McIsaac — Probabilidade de Faringite Estreptocócica",
+        "escores": [
+          {
+            "nome": "Centor (modificado por McIsaac)",
+            "descricao": "Estimativa de probabilidade de FARPE em adultos. Usar na decisão de solicitar teste rápido ou cultura.",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Febre > 38°C",
+                "1"
+              ],
+              [
+                "Ausência de tosse",
+                "1"
+              ],
+              [
+                "Linfadenopatia cervical anterior",
+                "1"
+              ],
+              [
+                "Exsudato amigdiano / edema amigdaliano",
+                "1"
+              ],
+              [
+                "Idade 3-14 anos (+1) ou 15-44 anos (0) ou ≥45 anos (-1)",
+                "1"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "centor-febre",
+                  "label": "Febre > 38°C",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "centor-tosse",
+                  "label": "Ausência de tosse",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "centor-linfadenopatia",
+                  "label": "Linfadenopatia cervical anterior",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "centor-exsudato",
+                  "label": "Exsudato amigdiano / edema amigdaliano",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Centor",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 1,
+                    "label": "0-1 pts: FARPE improvável (~1-10%). Sintomático.",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "2 pts: FARPE possível (~11-17%). Considerar Teste Rápido.",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 3,
+                    "max": 3,
+                    "label": "3 pts: FARPE provável (~28-36%). Teste Rápido ou Cultura.",
+                    "cor": "#ea580c"
+                  },
+                  {
+                    "min": 4,
+                    "max": 4,
+                    "label": "4 pts: FARPE muito provável (~51-53%). Tratar ou confirmar.",
+                    "cor": "#dc2626"
+                  }
+                ]
+              },
+              "nota": "McIsaac: ajustar ±1 ponto conforme idade (3-14 anos: +1; ≥45 anos: -1)"
+            }
+          }
+        ]
       }
     ],
     "fontes": [
-      "Medicina de Emergência 19ed — Cap. 48 (IVAS)"
+      "Medicina de Emergência 19ed — Cap. 48 (IVAS)",
+      "Sanford Guide 2022 — Antimicrobial Therapy"
     ],
     "categoria": "Infeccioso"
   },
@@ -168,6 +283,13 @@
         "tipo": "receituario",
         "titulo": "Receituário",
         "itens": [
+          "**Antibioticoterapia Empírica — Exacerbação de DPOC (ABECB)**",
+          "**Leve (sem fatores de risco Pseudomonas):** Amox-Clav 875/125mg VO 12/12h OU Azitromicina 500mg 1x/dia x 3 dias OU Claritromicina ER 1000mg 1x/dia OU Levofloxacino 750mg 1x/dia",
+          "**Grave (hospitalizado, sem risco Pseudomonas):** Levofloxacino 750mg EV/VO 1x/dia OU Ceftriaxona 2g IV 1x/dia",
+          "**Grave com risco de Pseudomonas:** Piperacilina-Tazobactam 4,5g IV q6h OU Cefepima 2g IV q8h",
+          "**Fatores de risco Pseudomonas:** Internação recente (>2d), antibiótico nos últimos 90d, FE <40%, DPOC grave (VEF1 <30%), bronquiectasia",
+          "**Duração:** 5 dias (guidelines GOLD 2024)",
+          "Atenção: Causas que não são infecção — não tratar com antibiótico se ausente indicador de infecção",
           "**Salbutamol 2,5mg** — nebulização a cada 15-20 min nas primeiras 3 doses, depois a cada 4-6h (associar ipratrópio na fase aguda)",
           "**Brometo de Ipratrópio 500mcg** — nebulização junto com salbutamol, a cada 6h (dual β2 + anticolinérgico; não usar isolado na crise)",
           "**Prednisona 40mg** — 1 comprimido ao dia, VO, por 5 dias (se grave: Metilprednisolona 20-60mg IV a cada 6h)",
@@ -189,11 +311,26 @@
           "Critérios de alta: FR<24, FC<100, SpO2≥92% com O2 suplementar (se necessário), melhora da dispneia, tolerância oral, sem acidose, sem sinais de insuficiência respiratória",
           "Orientar cessação do tabagismo (principal fator de progressão); vacinação anual (influenza e pneumocócica); reabilitação pulmonar"
         ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "⚠ Quando Escalar para Sala Vermelha",
+        "itens": [
+          "**Transferir para SV se:**",
+          "Falha ventilatória: PaO2 < 55 mmHg ou PaCO2 > 50 mmHg em ar ambiente",
+          "Acidose respiratória: pH < 7,35 com hipercapnia",
+          "NVM necessária (frothing, alteração consciência, falha de NIV)",
+          "Pneumotórax associado — ver secção pneumotórax",
+          "Sepse / pneumonia grave associada — ver Protocolo Choque Séptico",
+          "",
+          "**Manejo de NIV (pré-intubação):** CPAP/BiPAP 10-15 cmH2O, FiO2 para SpO2 > 88-92%"
+        ]
       }
     ],
     "fontes": [
       "Medicina de Emergência 19ed — Cap. 43 (DPOC)",
-      "GOLD 2025 — Global Strategy Report"
+      "GOLD 2025 — Global Strategy Report",
+      "Sanford Guide 2022 — Antimicrobial Therapy"
     ],
     "categoria": "Respiratório"
   },
@@ -224,6 +361,20 @@
           "Retorno em 48-72h após alta para reavaliação clínica e controle laboratorial (hemograma, função hepática)",
           "Se úlcera péptica: testar e tratar H. pylori (tripla terapia por 14 dias); evitar tabagismo e álcool; retorno ao gastroenterologista",
           "Critérios de alta: sem sangramento ativo por > 24h, hemograma estável, hemodinâmica estável (PA e FC normais), tolerância oral, sem sinais de alarme"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "⚠ Quando Escalar para Sala Vermelha",
+        "itens": [
+          "**Transferir para SV se:**",
+          "Hemorragia ativa com instabilidade: PAS < 90, FC > 120, enchimento capilar > 3s",
+          "Hematemese / melena volumosa com necessidade de transfusão",
+          "Necessidade de reposição volêmica agressiva ou vasopressores",
+          "Ingestão recente de AAS/IECA + hemorragia (alto risco de sangramento ativo)",
+          "Varizes esofágicas com sangramento — octreotida + banding urgente",
+          "",
+          "**Referência:** Choque Hemorrágico, Transfusão, Endoscopia urgente"
         ]
       }
     ],
@@ -269,5 +420,482 @@
       "Medicina de Emergência 19ed — Cap. 54 (AVC Isquêmico)"
     ],
     "categoria": "Neurológico"
+  },
+  {
+    "id": "pneumonia",
+    "titulo": "Pneumonia — Classificação e Conduta",
+    "cid": "J18",
+    "cor": "#059669",
+    "icon": "medkit-outline",
+    "categoria": "Respiratório",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 42 (Pneumonias)",
+      "Sanford Guide 2022 — Empiric Therapy CAP",
+      "ATS/IDSA Guidelines 2019 — CAP",
+      "BTS Guidelines 2015 — Pneumonia"
+    ],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Escores de Severidade — Decisão de Internar",
+        "escores": [
+          {
+            "nome": "CURB-65 — Severidade de Pneumonia",
+            "descricao": "Escore para estratificar risco e decidir internação vs alta ambulatorial. ≥2 = internar.",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Confusão mental (nova)",
+                "1"
+              ],
+              [
+                "Ureia > 50 mg/dL (> 7 mmol/L)",
+                "1"
+              ],
+              [
+                "Frequência respiratória ≥ 30 irpm",
+                "1"
+              ],
+              [
+                "Pressão arterial: PAS < 90 ou PAD ≤ 60 mmHg",
+                "1"
+              ],
+              [
+                "Idade ≥ 65 anos",
+                "1"
+              ]
+            ],
+            "alvos": [
+              [
+                "CURB-65",
+                "Conduta"
+              ],
+              [
+                "0-1",
+                "Alta ambulatorial (baixo risco)"
+              ],
+              [
+                "2",
+                "Internação considerada (risco intermediário)"
+              ],
+              [
+                "3-5",
+                "Internação hospitalar / UTI se ≥ 4"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "curb-confusao",
+                  "label": "Confusão mental (nova)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "curb-ureia",
+                  "label": "Ureia > 50 mg/dL (ou > 7 mmol/L)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "curb-fr",
+                  "label": "Frequência respiratória ≥ 30 irpm",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "curb-pa",
+                  "label": "PAS < 90 ou PAD ≤ 60 mmHg",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "curb-idade",
+                  "label": "Idade ≥ 65 anos",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "CURB-65",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 1,
+                    "label": "0-1 pts: Baixo risco — considerar alta ambulatorial",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "2 pts: Risco intermediário — internação considerada",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 3,
+                    "max": 5,
+                    "label": "3-5 pts: Alto risco — internação hospitalar / UTI",
+                    "cor": "#dc2626"
+                  }
+                ]
+              },
+              "nota": "CURB-65 ≥ 2 indica internação. Ajustar conforme quadro clínico — idade sozinha não é suficiente para internar."
+            }
+          },
+          {
+            "nome": "PSI/PORT — Índice de Severidade de Pneumonia",
+            "descricao": "Escore preditivo de mortalidade em 30 dias. Classe I-II = ambulatorial; III = observação; IV-V = internar.",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Idade (macho +1, fêmea +0)",
+                "Anos"
+              ],
+              [
+                "Residência em asilo",
+                "+10"
+              ],
+              [
+                "Doença pulmonar neoplásica",
+                "+30"
+              ],
+              [
+                "Doença hepática",
+                "+20"
+              ],
+              [
+                "Insuficiência cardíaca congestiva",
+                "+10"
+              ],
+              [
+                "Doença cerebral vascular",
+                "+10"
+              ],
+              [
+                "Doença renal crônica",
+                "+10"
+              ],
+              [
+                "Frequência cardíaca ≥ 125 bpm",
+                "+10"
+              ],
+              [
+                "Frequência respiratória ≥ 30 irpm",
+                "+20"
+              ],
+              [
+                "Temperatura < 35°C ou ≥ 40°C",
+                "+15"
+              ],
+              [
+                "Frequência cardíaca < 60 bpm",
+                "+10"
+              ],
+              [
+                "Pressão arterial sistólica < 90 mmHg",
+                "+30"
+              ],
+              [
+                "pH < 7,35",
+                "+30"
+              ],
+              [
+                "Ureia ≥ 30 mg/dL (≥ 10,7 mmol/L)",
+                "+20"
+              ],
+              [
+                "Sódio < 130 mEq/L",
+                "+20"
+              ],
+              [
+                "Glicose ≥ 250 mg/dL",
+                "+10"
+              ],
+              [
+                "Hematócrito < 30%",
+                "+10"
+              ],
+              [
+                "PaO2 < 60 mmHg ou SpO2 < 90%",
+                "+10"
+              ],
+              [
+                "Derrame pleural",
+                "+10"
+              ]
+            ],
+            "alvos": [
+              [
+                "Classe",
+                "Mortalidade 30d",
+                "Conduta"
+              ],
+              [
+                "I (≤50 pts)",
+                "0,1%",
+                "Ambulatorial"
+              ],
+              [
+                "II (51-70 pts)",
+                "0,7%",
+                "Ambulatorial"
+              ],
+              [
+                "III (71-90 pts)",
+                "0,9%",
+                "Observação 24h"
+              ],
+              [
+                "IV (91-130 pts)",
+                "9,3%",
+                "Internação"
+              ],
+              [
+                "V (>130 pts)",
+                "27%",
+                "Internação / UTI"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Classificação por Local de Aquisição",
+        "itens": [
+          "**CAP — Pneumonia Adquirida na Comunidade**",
+          "Mecanismo aspirativo ou hematogênico. Pneumococo continua sendo o principal agente",
+          "Etiologia mais comum: S. pneumoniae, H. influenzae, M. catarrhalis, atípicos (M. pneumoniae, C. pneumoniae, L. pneumophila)",
+          "",
+          "**HAP — Pneumonia Associada a Hospital**",
+          "≥48h após admissão hospitalar. Risco de Pseudomonas, MRSA, Gram-negativos multirresistentes",
+          "",
+          "**VAP — Pneumonia Associada a Ventilação**",
+          "≥48h após intubação orotraqueal. Mesmos patógenos da HAP",
+          "",
+          "**Aspiração**",
+          "Risco: disfagia, alteração consciência, refluso. Anaeróbios + Gram-negativos"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Terapia Empírica CAP — Sanford Guide 2022",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Amoxicilina (primeira escolha)",
+            "apresentacao": "500mg, 875mg",
+            "diluicao": "VO",
+            "dose": "1g VO 8/8h x 5-7 dias (semen graves)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Amox-Clav + Macrolídeo",
+            "apresentacao": "875/125mg + 500mg",
+            "diluicao": "VO",
+            "dose": "Amox-Clav 875/125mg 12/12h + Azitromicina 500mg 1x/dia x 5d",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ceftriaxona + Azitromicina (hospitalar)",
+            "apresentacao": "1g, 2g + 500mg",
+            "diluicao": "1-2g + SF 100mL",
+            "dose": "Ceftriaxona 1-2g IV 1x/dia + Azitromicina 500mg IV/VO 1x/dia",
+            "sus": "basico"
+          },
+          {
+            "nome": "Levofloxacino (monoterapia)",
+            "apresentacao": "750mg",
+            "diluicao": "750mg + SF 250mL",
+            "dose": "750mg IV ou VO 1x/dia x 5 dias. Cobre atípicos + pneumococo",
+            "sus": "rename"
+          },
+          {
+            "nome": "Moxifloxacino",
+            "apresentacao": "400mg",
+            "diluicao": "400mg + SF 250mL",
+            "dose": "400mg IV ou VO 1x/dia. Alternativa ao levofloxacino",
+            "sus": "rename"
+          },
+          {
+            "nome": "Vancomicina (se suspeita MRSA)",
+            "apresentacao": "1g",
+            "diluicao": "1g + SF 250mL",
+            "dose": "15-20mg/kg IV q8-12h. Meta AUC/MIC 400-600. Monitorar PTV",
+            "sus": "basico"
+          },
+          {
+            "nome": "Piperacilina-Tazobactam (HAP/VAP)",
+            "apresentacao": "4,5g",
+            "diluicao": "4,5g + SF 100mL",
+            "dose": "4,5g IV q6h (infusão 4h). Se Pseudomonas: considerar combinação",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta por Severidade — CAP",
+        "itens": [
+          "**Ambulatorial (CURB-65 0-1, PSI I-II):**",
+          "Amoxicilina 1g VO 8/8h OU Amox-Clav 875/125 12/12h + Azitromicina",
+          "Se alergia beta-lactâmico: Levofloxacino 750mg 1x/dia VO",
+          "Duração: 5-7 dias (mínimo 5 dias + 48h afebril)",
+          "",
+          "**Internação (CURB-65 2, PSI III-IV):**",
+          "Ceftriaxona 1-2g IV 1x/dia + Azitromicina 500mg IV 1x/dia",
+          "OU Levofloxacino 750mg IV 1x/dia em monoterapia",
+          "Avaliar: eletrólitos, gasometria, hemoculturas antes do antibiótico",
+          "",
+          "**UTI (CURB-65 ≥3, PSI V, sepse, IRA):**",
+          "Cefepima 2g IV q8h OU Pip-Tazo 4,5g IV q6h",
+          "+ Vancomicina (se suspeita MRSA ou fator de risco)",
+          "+ Azitromicina ou Levofloxacino (cobertura atípicos)",
+          "Considerar: PCT (procalcitonina) para descontinuar antibiótico"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Critérios de Internação e Alta",
+        "itens": [
+          "**Internação obrigatória:**",
+          "CURB-65 ≥ 2, PSI IV-V, instabilidade hemodinâmica, hipoxemia (PaO2 <60),",
+          "derrame pleural empiema, pneumonia necrosante, abscesso pulmonar",
+          "",
+          "**Critérios de alta hospitalar:**",
+          "Melhora clínica, tolerância oral, FC <100, FR <24, SatO2 >90%, PA estável",
+          "Afebril por ≥48h, sem necessidade de O2 suplementar",
+          "",
+          "**Seguimento pós-alta:**",
+          "Raio-X de controle em 6 semanas (excluir neoplasia em >50 anos)",
+          "Reavaliar se não melhorar em 48-72h (reclassificar etiologia, considerar complicação)"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "⚠ Quando Escalar para Sala Vermelha",
+        "itens": [
+          "**Transferir para SV se:**",
+          "Instabilidade hemodinâmica: PAS < 90 mmHg, PAM < 65 mmHg, lactato > 2 mmol/L",
+          "Choque séptico — seguir Protocolo Choque Séptico (SV)",
+          "Hipoxemia grave: PaO2/FiO2 < 200, necessidade de VM ou NIV",
+          "Confusão mental aguda / Glasgow < 8",
+          "Curva clínica descendente apesar de antibiótico adequado em 48-72h",
+          "Complicações: empiema, abscesso pulmonar, SDRA",
+          "",
+          "**Referências cruzadas:** Choque Séptico (SV), ICAD (SV) se descompensação cardíaca"
+        ]
+      },
+      {
+        "tipo": "urgencia",
+        "titulo": "Sinais de Alarme — Encaminhar à UTI",
+        "itens": [
+          "Frequência respiratória > 30 ou frequência cardíaca > 125",
+          "PAS < 90 mmHg ou PAM < 65 mmHg",
+          "Glasgow < 8 ou confusão mental aguda",
+          "PaO2/FiO2 < 250 ou necessidade de VM",
+          "Leucócitos < 4.000 ou > 30.000",
+          "Plaquetas < 100.000",
+          "Creatinina > 2,0 mg/dL ou IRA",
+          "Metabólise ácida (pH < 7,35, lactato > 2 mmol/L)",
+          "Derrame pleural empiema (pH < 7,2, glicose < 40, LDH > 1000)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pneumotorax",
+    "titulo": "Pneumotórax",
+    "cid": "J93",
+    "cor": "#0891b2",
+    "icon": "body-outline",
+    "categoria": "Respiratório",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 47 (Pneumotórax)",
+      "BTS Pleural Disease Guideline 2023",
+      "ACCP Delphi Consensus Statement"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Pneumotórax Hipertensivo — Emergência",
+        "itens": [
+          "**EMERGÊNCIA ABSOLUTA — Não esperar exames de imagem**",
+          "**Descompressão torácica IMEDIATA**",
+          "",
+          "**1ª opção:** Punção com Jelco 14G (≥5cm) — 2º espaço intercostal, linha hemiclavicular",
+          "**Alternativa:** 4º EIC linha axilar anterior",
+          "**Inserir apenas a parte flexível do jelco, retirar a agulha**",
+          "",
+          "**Tratamento definitivo:** Toracostomia (5º EIC linha axilar média) + selo d'água",
+          "Dreno 10-14F (maiores se ventilação mecânica ou doença pulmonar)",
+          "",
+          "**Critérios de instabilidade:** Hipotensão, desvio traqueal, SpO2 <90%, taquicardia >120bpm, hipoxemia grave",
+          "",
+          "**DPOC + pneumotórax:** Risco maior de complicação. Drenar sempre se >2cm"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Pneumotórax Espontâneo — Conduta",
+        "itens": [
+          "**Achados:** Dor torácica pleurítica + dispneia súbita. Taquicardia + murmúrio vesicular diminuído",
+          "",
+          "**Diagnóstico:** Rx PA em pé (linha pleural + ausência de trama vascular). USG POC >95% sensibilidade",
+          "",
+          "**Tratamento conservador** (BTS 2023): Pode ser considerado em TODO pneumotórax minimamente sintomático",
+          "**Critérios:** Sem dor significativa, sem dispneia, sem hipoxemia, FC 60-120, PA normal, SaO2 >90%",
+          "**Observação:** 6h (pequeno <2cm) ou 12h (grande >2cm) + Rx controle",
+          "O2 suplementar >30% FiO2 — aumenta reabsorção pleural 3-4x",
+          "",
+          "**Indicação de drenagem:** Sintomático, instável, pneumotórax >2cm, DPOC, ventilação mecânica",
+          "",
+          "**Técnicas de drenagem:**",
+          "1. Punção e aspiração (Jelco 14G + seringa 60mL) — até 2-3L aspirados = fístula → drenar",
+          "2. Pigtail por Seldinger (5º EIC linha axilar média) — menor agressão, maior mobilidade",
+          "3. Toracostomia tubular — padrão ouro, 95% sucesso"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Achados por Imagem",
+        "itens": [
+          "**Rx de tórax PA:** Linha pleural visceral + ausência de vasos além dela. Desvio traqueal = hipertensivo",
+          "**USG POC:** Sinal da cauda de cometa ausente + ausência de lung sliding = pneumotórax",
+          "**TC de tórax:** Padrão-ouro. Raramente necessária para diagnóstico. Útil em DPOC com bolhas",
+          "",
+          "**Classificação por tamanho (ACCP):**",
+          "Pequeno: até 3cm do ápice à cúpula",
+          "Grande: ≥2cm (BTS) ou >3cm (ACCP)"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "⚠ Quando Escalar para Sala Vermelha",
+        "itens": [
+          "**Transferir para SV se:**",
+          "**Pneumotórax hipertensivo:** Instabilidade hemodinâmica, desvio traqueal, choque obstrutivo",
+          "→ Descompressão torácica IMEDIATA com Jelco 14G (2º EIC linha hemiclavicular)",
+          "",
+          "**Deterioração clínica:** Hipoxemia progressiva (PaO2 < 60), FC > 120, PA < 90",
+          "**DPOC com pneumotórax:** Maior risco de complicação — internar sempre se >2cm",
+          "**Hemotórax associado:** Hemorragia ativa → toracostomia com dreno calibroso",
+          "",
+          "**Referência cruzada:** Pneumotórax Hipertensivo (protocolo emergencial no SV)"
+        ]
+      }
+    ]
   }
 ]

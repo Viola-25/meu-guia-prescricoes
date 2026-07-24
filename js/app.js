@@ -145,6 +145,7 @@
     // Clear search
     searchInput.value = '';
     buscaTermo = '';
+    _lastSearchTerm = '';
     clearSearchBtn.classList.remove('visible');
 
     try { localStorage.setItem('guia-secao', sectionId); } catch (e) { /* noop */ }
@@ -153,7 +154,13 @@
   // =============================================
   // SIDEBAR RENDERING
   // =============================================
-  const renderSidebar = (items) => {
+  const sectionLabels = {
+    'sala-vermelha': 'Sala Vermelha',
+    'condutas-porta': 'Porta',
+    'vasoativa-sedacao': 'Vasoativa'
+  };
+
+  const renderSidebar = (items, showSectionBadge) => {
     sidebarNav.innerHTML = '';
 
     if (items.length === 0) {
@@ -194,6 +201,7 @@
         btn.className = 'nav-btn';
         btn.dataset.id = cond.id;
         btn.dataset.categoria = catName || '';
+        btn.dataset.section = cond._section || secaoAtual;
         btn.setAttribute('role', 'button');
         if (condicaoAtual && condicaoAtual.id === cond.id) {
           btn.classList.add('active');
@@ -210,11 +218,22 @@
             if (s.tipo === 'tabela_farmacos' && s.dados) {
               s.dados.forEach((d) => searchTerms.push(d.nome));
             }
-            if (s.tipo === 'receituario' && s.itens) {
+            if (s.itens) {
               s.itens.forEach((item) => searchTerms.push(item));
             }
             if (s.orientacoes) {
               s.orientacoes.forEach((o) => searchTerms.push(o));
+            }
+            if (s.escores) {
+              s.escores.forEach((e) => {
+                searchTerms.push(e.nome);
+                if (e.descricao) searchTerms.push(e.descricao);
+              });
+            }
+            if (s.causas_reversiveis) {
+              const cr = s.causas_reversiveis;
+              if (cr.cinco_h) cr.cinco_h.forEach((h) => searchTerms.push(h.join(' ')));
+              if (cr.cinco_t) cr.cinco_t.forEach((t) => searchTerms.push(t.join(' ')));
             }
           });
         }
@@ -238,12 +257,15 @@
         titleSpan.textContent = cond.titulo;
         infoDiv.appendChild(titleSpan);
 
-        if (cond.cid) {
-          const cidSpan = document.createElement('span');
-          cidSpan.className = 'nav-cid';
-          cidSpan.textContent = `CID: ${cond.cid}`;
-          infoDiv.appendChild(cidSpan);
+        const metaDiv = document.createElement('span');
+        metaDiv.className = 'nav-meta';
+        const metaParts = [];
+        if (cond.cid) metaParts.push(`CID: ${cond.cid}`);
+        if (showSectionBadge && cond._section) {
+          metaParts.push(sectionLabels[cond._section] || cond._section);
         }
+        metaDiv.textContent = metaParts.join(' · ');
+        infoDiv.appendChild(metaDiv);
 
         btn.appendChild(iconSpan);
         btn.appendChild(infoDiv);
@@ -255,8 +277,30 @@
     sidebarNav.appendChild(fragment);
   };
 
+  let _lastSearchTerm = '';
+
   const filterSidebar = (term) => {
     const normalizedTerm = normalizeForSearch(term);
+
+    // Cross-section search: when searching, combine ALL sections
+    if (normalizedTerm && dadosPorSecao['sala-vermelha']) {
+      if (_lastSearchTerm !== normalizedTerm) {
+        _lastSearchTerm = normalizedTerm;
+        const allItems = [];
+        Object.entries(dadosPorSecao).forEach(([secId, items]) => {
+          if (Array.isArray(items)) {
+            items.forEach((c) => allItems.push({ ...c, _section: secId }));
+          }
+        });
+        renderSidebar(allItems, true);
+      }
+    } else if (!normalizedTerm && _lastSearchTerm) {
+      _lastSearchTerm = '';
+      renderSidebar(condicoes, false);
+      navEmpty.hidden = true;
+      return;
+    }
+
     const buttons = sidebarNav.querySelectorAll('.nav-btn');
     let visibleCount = 0;
 
@@ -279,8 +323,11 @@
       cat.style.display = hasVisible ? '' : 'none';
     });
 
-    navEmpty.hidden = visibleCount > 0 || condicoes.length === 0;
-    if (visibleCount === 0 && condicoes.length > 0) {
+    const totalItems = normalizedTerm
+      ? Object.values(dadosPorSecao).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0)
+      : condicoes.length;
+    navEmpty.hidden = visibleCount > 0 || totalItems === 0;
+    if (visibleCount === 0 && totalItems > 0) {
       navEmpty.textContent = 'Nenhum resultado encontrado.';
     }
   };
@@ -592,6 +639,8 @@
     if (secao.escores) {
       secao.escores.forEach((escore) => {
         card.appendChild(renderEscoreTable(escore));
+        const calcEl = renderCalculadoraEscore(escore);
+        if (calcEl) card.appendChild(calcEl);
       });
     }
 
@@ -606,6 +655,108 @@
         card.appendChild(targetsGrid);
       }
     }
+
+    return card;
+  };
+
+  const renderCalculadoraEscore = (escore) => {
+    const calc = escore.calculadora_escore;
+    if (!calc) return null;
+
+    const card = document.createElement('div');
+    card.className = 'section-card section-card--escore-calc';
+    card.setAttribute('role', 'region');
+    card.setAttribute('aria-label', `Calculadora: ${escore.nome}`);
+
+    const title = document.createElement('h3');
+    title.className = 'section-title section-title--escore-calc';
+    title.innerHTML = `<ion-icon name="calculator-outline" aria-hidden="true"></ion-icon> Calculadora: ${escore.nome}`;
+    card.appendChild(title);
+
+    const form = document.createElement('div');
+    form.className = 'escore-calc-form';
+
+    calc.inputs.forEach((input) => {
+      const opt = document.createElement('label');
+      opt.className = 'escore-calc-option';
+
+      const inputEl = document.createElement('input');
+      inputEl.type = input.tipo;
+      inputEl.name = `escore-${escore.nome.replace(/\s/g, '-')}`;
+      inputEl.value = input.pontos;
+      inputEl.className = 'escore-calc-input';
+      inputEl.dataset.inputId = input.id;
+
+      const text = document.createElement('span');
+      text.className = 'escore-calc-label';
+      text.textContent = input.label;
+
+      opt.appendChild(inputEl);
+      opt.appendChild(text);
+      form.appendChild(opt);
+    });
+
+    card.appendChild(form);
+
+    if (calc.nota) {
+      const nota = document.createElement('div');
+      nota.className = 'escore-calc-nota';
+      nota.innerHTML = `<ion-icon name="information-circle-outline" aria-hidden="true"></ion-icon> ${calc.nota}`;
+      card.appendChild(nota);
+    }
+
+    const resultBox = document.createElement('div');
+    resultBox.className = 'escore-calc-result';
+    resultBox.setAttribute('role', 'status');
+    resultBox.setAttribute('aria-live', 'polite');
+    card.appendChild(resultBox);
+
+    const calculate = () => {
+      let total = 0;
+      const inputs = form.querySelectorAll('.escore-calc-input');
+
+      if (calc.tipo === 'contagem') {
+        inputs.forEach((inp) => {
+          if (inp.checked) total += parseFloat(inp.value);
+        });
+      } else {
+        inputs.forEach((inp) => {
+          if (inp.checked) total = parseFloat(inp.value);
+        });
+      }
+
+      let interp = null;
+      for (const i of calc.resultado.interpretacoes) {
+        if (total >= i.min && total <= i.max) {
+          interp = i;
+          break;
+        }
+      }
+
+      resultBox.innerHTML = '';
+      if (calc.tipo === 'contagem' || inputs.length > 0) {
+        const valueEl = document.createElement('div');
+        valueEl.className = 'escore-calc-value';
+        valueEl.innerHTML = `<span class="escore-calc-number">${total}</span> <span class="escore-calc-score-name">${calc.resultado.titulo}</span>`;
+        resultBox.appendChild(valueEl);
+      }
+
+      if (interp) {
+        const interpEl = document.createElement('div');
+        interpEl.className = 'escore-calc-interpretation';
+        interpEl.style.borderLeftColor = interp.cor;
+        interpEl.innerHTML = `<strong style="color:${interp.cor}">${interp.label}</strong>`;
+        resultBox.appendChild(interpEl);
+      } else {
+        const emptyEl = document.createElement('div');
+        emptyEl.className = 'escore-calc-interpretation escore-calc-empty';
+        emptyEl.textContent = 'Selecione os critérios';
+        resultBox.appendChild(emptyEl);
+      }
+    };
+
+    form.addEventListener('change', calculate);
+    calculate();
 
     return card;
   };
@@ -830,7 +981,7 @@
         const doseBig = document.createElement('div');
         doseBig.className = 'calc-readout-dose';
         if (calc.dose_fixa) {
-          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(doseAtual)}</span> <span class="calc-readout-unit">${calc.unidade}</span>`;
+          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(calc.dose_fixa)}</span> <span class="calc-readout-unit">${calc.unidade} (fixo)</span>`;
         } else {
           doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(doseAtual)}</span> <span class="calc-readout-unit">${calc.unidade}</span>`;
         }
@@ -1078,7 +1229,23 @@
   // CONDITION SELECTION
   // =============================================
   const selectCondition = (id) => {
-    const cond = condicoes.find((c) => c.id === id);
+    // Find the condition in current section or all sections
+    let cond = condicoes.find((c) => c.id === id);
+
+    // If not found in current section, search all sections and switch
+    if (!cond) {
+      for (const [secId, items] of Object.entries(dadosPorSecao)) {
+        if (Array.isArray(items)) {
+          const found = items.find((c) => c.id === id);
+          if (found) {
+            switchSection(secId);
+            cond = condicoes.find((c) => c.id === id);
+            break;
+          }
+        }
+      }
+    }
+
     if (!cond) return;
     condicaoAtual = cond;
     renderCondition(cond);
@@ -1148,6 +1315,9 @@
         lines.push('  5T:');
         if (secao.cinco_t) secao.cinco_t.forEach(([c, v]) => lines.push(`    ${c}: ${v}`));
       } else if (secao.tipo === 'urgencia') {
+        secao.itens.forEach((item) => lines.push(`- ${item.replace(/\*\*/g, '')}`));
+      } else if (secao.tipo === 'orientacoes') {
+        lines.push(`  ${secao.titulo || 'Orientações de Enfermagem'}:`);
         secao.itens.forEach((item) => lines.push(`- ${item.replace(/\*\*/g, '')}`));
       }
       lines.push('');
