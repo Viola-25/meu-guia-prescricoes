@@ -670,6 +670,17 @@
     }
   };
 
+  const calcDoseFromMLH = (mlh, peso, conc, unidade) => {
+    switch (unidade) {
+      case 'mcg/kg/min': return (mlh * conc) / (peso * 60);
+      case 'mcg/kg/h': return (mlh * conc) / peso;
+      case 'mcg/h': return mlh * conc;
+      case 'mg/h': return mlh * conc;
+      case 'UI/min': return (mlh * conc) / 60;
+      default: return 0;
+    }
+  };
+
   const calcAbsoluto = (dose, peso, unidade) => {
     switch (unidade) {
       case 'mcg/kg/min': return dose * peso;
@@ -707,122 +718,195 @@
     title.innerHTML = `<ion-icon name="calculator-outline" aria-hidden="true"></ion-icon> Calculadora de Doses`;
     card.appendChild(title);
 
+    // --- Row 1: Peso ---
     const pesoRow = document.createElement('div');
-    pesoRow.className = 'calc-peso-row';
-
+    pesoRow.className = 'calc-input-row';
     const pesoLabel = document.createElement('label');
-    pesoLabel.className = 'calc-peso-label';
-    pesoLabel.setAttribute('for', 'calc-peso-input');
-    pesoLabel.innerHTML = `<ion-icon name="person-outline" aria-hidden="true"></ion-icon> Peso do paciente`;
-
-    const pesoInputWrap = document.createElement('div');
-    pesoInputWrap.className = 'calc-peso-input-wrap';
-
+    pesoLabel.className = 'calc-label';
+    pesoLabel.setAttribute('for', 'calc-peso');
+    pesoLabel.innerHTML = `<ion-icon name="person-outline" aria-hidden="true"></ion-icon> Peso`;
+    const pesoWrap = document.createElement('div');
+    pesoWrap.className = 'calc-input-wrap';
     const pesoInput = document.createElement('input');
     pesoInput.type = 'number';
-    pesoInput.id = 'calc-peso-input';
-    pesoInput.className = 'calc-peso-input';
+    pesoInput.id = 'calc-peso';
+    pesoInput.className = 'calc-input';
     pesoInput.min = '20';
     pesoInput.max = '300';
     pesoInput.step = '1';
     pesoInput.value = '70';
     pesoInput.setAttribute('aria-label', 'Peso do paciente em quilogramas');
-
     const pesoUnit = document.createElement('span');
-    pesoUnit.className = 'calc-peso-unit';
+    pesoUnit.className = 'calc-unit';
     pesoUnit.textContent = 'kg';
-
-    pesoInputWrap.appendChild(pesoInput);
-    pesoInputWrap.appendChild(pesoUnit);
+    pesoWrap.appendChild(pesoInput);
+    pesoWrap.appendChild(pesoUnit);
     pesoRow.appendChild(pesoLabel);
-    pesoRow.appendChild(pesoInputWrap);
+    pesoRow.appendChild(pesoWrap);
     card.appendChild(pesoRow);
 
-    const unidadeLabel = document.createElement('div');
-    unidadeLabel.className = 'calc-unidade-label';
-    unidadeLabel.innerHTML = `Unidade: <strong>${calc.unidade}</strong> | Concentração em <strong>${calc.concentracao_unidade}</strong>`;
-    card.appendChild(unidadeLabel);
+    // --- Row 2: Diluição (select) ---
+    const dilRow = document.createElement('div');
+    dilRow.className = 'calc-input-row';
+    const dilLabel = document.createElement('label');
+    dilLabel.className = 'calc-label';
+    dilLabel.setAttribute('for', 'calc-diluicao');
+    dilLabel.innerHTML = `<ion-icon name="flask-outline" aria-hidden="true"></ion-icon> Diluição`;
+    const dilSelect = document.createElement('select');
+    dilSelect.id = 'calc-diluicao';
+    dilSelect.className = 'calc-select';
+    dilSelect.setAttribute('aria-label', 'Diluição preparada');
+    calc.diluicoes.forEach((dil, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `${dil.rotulo} (${fmtNum(dil.concentracao)} ${calc.concentracao_unidade})`;
+      dilSelect.appendChild(opt);
+    });
+    dilRow.appendChild(dilLabel);
+    dilRow.appendChild(dilSelect);
+    card.appendChild(dilRow);
 
-    const resultsContainer = document.createElement('div');
-    resultsContainer.className = 'calc-results';
-    card.appendChild(resultsContainer);
+    // --- Row 3: Velocimetro (mL/h atual) ---
+    const velRow = document.createElement('div');
+    velRow.className = 'calc-input-row';
+    const velLabel = document.createElement('label');
+    velLabel.className = 'calc-label';
+    velLabel.setAttribute('for', 'calc-mlh');
+    velLabel.innerHTML = `<ion-icon name="speedometer-outline" aria-hidden="true"></ion-icon> Bomba`;
+    const velWrap = document.createElement('div');
+    velWrap.className = 'calc-input-wrap';
+    const velInput = document.createElement('input');
+    velInput.type = 'number';
+    velInput.id = 'calc-mlh';
+    velInput.className = 'calc-input calc-input--mlh';
+    velInput.min = '0';
+    velInput.max = '500';
+    velInput.step = '0.1';
+    velInput.value = '5';
+    velInput.setAttribute('aria-label', 'Velocidade da bomba de infusão em mL por hora');
+    const velUnit = document.createElement('span');
+    velUnit.className = 'calc-unit';
+    velUnit.textContent = 'mL/h';
+    velWrap.appendChild(velInput);
+    velWrap.appendChild(velUnit);
+    velRow.appendChild(velLabel);
+    velRow.appendChild(velWrap);
+    card.appendChild(velRow);
 
-    const renderResults = () => {
+    // --- Readout: Dose atual ---
+    const readout = document.createElement('div');
+    readout.className = 'calc-readout';
+    readout.setAttribute('role', 'status');
+    readout.setAttribute('aria-live', 'polite');
+    card.appendChild(readout);
+
+    // --- Referencia table ---
+    const refTitle = document.createElement('h3');
+    refTitle.className = 'calc-ref-title';
+    refTitle.innerHTML = `<ion-icon name="list-outline" aria-hidden="true"></ion-icon> Referência`;
+    card.appendChild(refTitle);
+
+    const refContainer = document.createElement('div');
+    refContainer.className = 'calc-results';
+    card.appendChild(refContainer);
+
+    // --- Recalculate on any change ---
+    const renderAll = () => {
       const peso = parseFloat(pesoInput.value) || 70;
-      resultsContainer.innerHTML = '';
+      const mlh = parseFloat(velInput.value) || 0;
+      const dilIdx = parseInt(dilSelect.value) || 0;
+      const dil = calc.diluicoes[dilIdx];
 
-      calc.diluicoes.forEach((dil) => {
-        const dilCard = document.createElement('div');
-        dilCard.className = 'calc-diluicao';
+      // Reverse calculation: mL/h → dose
+      const doseAtual = calcDoseFromMLH(mlh, peso, dil.concentracao, calc.unidade);
+      const absAtual = calcAbsoluto(doseAtual, peso, calc.unidade);
 
-        const dilHeader = document.createElement('div');
-        dilHeader.className = 'calc-dil-header';
-        dilHeader.innerHTML = `<span class="calc-dil-name">${dil.rotulo}</span><span class="calc-dil-conc">${fmtNum(dil.concentracao)} ${calc.concentracao_unidade}</span>`;
-        dilCard.appendChild(dilHeader);
+      // Readout
+      readout.innerHTML = '';
+      if (mlh > 0) {
+        const readoutInner = document.createElement('div');
+        readoutInner.className = 'calc-readout-inner';
 
-        const table = document.createElement('table');
-        table.className = 'calc-table';
-        table.setAttribute('role', 'table');
+        const doseBig = document.createElement('div');
+        doseBig.className = 'calc-readout-dose';
+        if (calc.dose_fixa) {
+          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(doseAtual)}</span> <span class="calc-readout-unit">${calc.unidade}</span>`;
+        } else {
+          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(doseAtual)}</span> <span class="calc-readout-unit">${calc.unidade}</span>`;
+        }
 
-        const thead = document.createElement('thead');
-        const hRow = document.createElement('tr');
-        ['Faixa', calc.unidade, calcUnidadeAbs(calc.unidade), 'mL/h'].forEach((col) => {
-          const th = document.createElement('th');
-          th.setAttribute('scope', 'col');
-          th.textContent = col;
-          hRow.appendChild(th);
-        });
-        thead.appendChild(hRow);
-        table.appendChild(thead);
+        const absLine = document.createElement('div');
+        absLine.className = 'calc-readout-abs';
+        if (!calc.dose_fixa && calc.unidade !== calcUnidadeAbs(calc.unidade)) {
+          absLine.textContent = `= ${fmtNum(absAtual)} ${calcUnidadeAbs(calc.unidade)}`;
+        } else {
+          absLine.innerHTML = `Concentração: <strong>${fmtNum(dil.concentracao)} ${calc.concentracao_unidade}</strong>`;
+        }
 
-        const tbody = document.createElement('tbody');
-        dil.doses.forEach((dose) => {
-          const doseMinAbs = calcAbsoluto(dose.dose_min, peso, calc.unidade);
-          const doseMaxAbs = calcAbsoluto(dose.dose_max, peso, calc.unidade);
-          const mlhMin = calcMLH(dose.dose_min, peso, dil.concentracao, calc.unidade);
-          const mlhMax = calcMLH(dose.dose_max, peso, dil.concentracao, calc.unidade);
+        readoutInner.appendChild(doseBig);
+        readoutInner.appendChild(absLine);
+        readout.appendChild(readoutInner);
+      } else {
+        readout.innerHTML = '<div class="calc-readout-empty">Insira a velocidade da bomba para ver a dose atual</div>';
+      }
 
-          const tr = document.createElement('tr');
-          const tdLabel = document.createElement('td');
-          tdLabel.className = 'calc-dose-label';
-          tdLabel.textContent = dose.rotulo;
-          tr.appendChild(tdLabel);
+      // Reference table
+      refContainer.innerHTML = '';
+      const table = document.createElement('table');
+      table.className = 'calc-table';
+      table.setAttribute('role', 'table');
 
-          const tdDose = document.createElement('td');
-          tdDose.className = 'calc-dose-range';
-          tdDose.innerHTML = calc.dose_fixa
-            ? `${fmtNum(dose.dose_min)} ${calc.unidade}`
-            : `${fmtNum(dose.dose_min)} – ${fmtNum(dose.dose_max)}`;
-          tr.appendChild(tdDose);
-
-          const tdAbs = document.createElement('td');
-          tdAbs.className = 'calc-abs';
-          if (calc.dose_fixa) {
-            tdAbs.textContent = '—';
-          } else {
-            tdAbs.innerHTML = `${fmtNum(doseMinAbs)} – ${fmtNum(doseMaxAbs)}`;
-          }
-          tr.appendChild(tdAbs);
-
-          const tdMlh = document.createElement('td');
-          tdMlh.className = 'calc-mlh';
-          if (mlhMin === mlhMax || calc.dose_fixa) {
-            tdMlh.innerHTML = `<strong>${fmtNum(mlhMin)} mL/h</strong>`;
-          } else {
-            tdMlh.innerHTML = `<strong>${fmtNum(mlhMin)} – ${fmtNum(mlhMax)} mL/h</strong>`;
-          }
-          tr.appendChild(tdMlh);
-
-          tbody.appendChild(tr);
-        });
-        table.appendChild(tbody);
-        dilCard.appendChild(table);
-        resultsContainer.appendChild(dilCard);
+      const thead = document.createElement('thead');
+      const hRow = document.createElement('tr');
+      ['Faixa', calc.unidade, 'mL/h'].forEach((col) => {
+        const th = document.createElement('th');
+        th.setAttribute('scope', 'col');
+        th.textContent = col;
+        hRow.appendChild(th);
       });
+      thead.appendChild(hRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      dil.doses.forEach((dose) => {
+        const mlhMin = calcMLH(dose.dose_min, peso, dil.concentracao, calc.unidade);
+        const mlhMax = calcMLH(dose.dose_max, peso, dil.concentracao, calc.unidade);
+
+        const tr = document.createElement('tr');
+
+        const tdLabel = document.createElement('td');
+        tdLabel.className = 'calc-dose-label';
+        tdLabel.textContent = dose.rotulo;
+        tr.appendChild(tdLabel);
+
+        const tdDose = document.createElement('td');
+        tdDose.className = 'calc-dose-range';
+        if (calc.dose_fixa) {
+          tdDose.textContent = `${fmtNum(dose.dose_min)} ${calc.unidade}`;
+        } else {
+          tdDose.textContent = `${fmtNum(dose.dose_min)} – ${fmtNum(dose.dose_max)}`;
+        }
+        tr.appendChild(tdDose);
+
+        const tdMlh = document.createElement('td');
+        tdMlh.className = 'calc-mlh';
+        if (mlhMin === mlhMax || calc.dose_fixa) {
+          tdMlh.innerHTML = `<strong>${fmtNum(mlhMin)} mL/h</strong>`;
+        } else {
+          tdMlh.innerHTML = `<strong>${fmtNum(mlhMin)} – ${fmtNum(mlhMax)} mL/h</strong>`;
+        }
+        tr.appendChild(tdMlh);
+
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      refContainer.appendChild(table);
     };
 
-    pesoInput.addEventListener('input', renderResults);
-    renderResults();
+    pesoInput.addEventListener('input', renderAll);
+    velInput.addEventListener('input', renderAll);
+    dilSelect.addEventListener('change', renderAll);
+    renderAll();
 
     return card;
   };

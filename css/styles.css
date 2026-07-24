@@ -387,105 +387,168 @@ input:focus-visible {
   color: var(--accent);
 }
 
-.calc-peso-row {
+.calc-input-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 16px;
+  gap: 12px;
+  padding: 10px 14px;
   background: var(--bg-secondary);
   border-radius: var(--radius-sm);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.calc-peso-label {
+.calc-label {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
-.calc-peso-label ion-icon {
-  font-size: 1.25rem;
+.calc-label ion-icon {
+  font-size: 1.125rem;
   color: var(--accent);
 }
 
-.calc-peso-input-wrap {
+.calc-input-wrap {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.calc-peso-input {
+.calc-input {
   width: 72px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border: 2px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   text-align: center;
-  color: var(--accent);
+  color: var(--text-primary);
   background: var(--bg-primary);
   transition: border-color 0.15s;
 }
 
-.calc-peso-input:focus {
+.calc-input:focus {
   border-color: var(--accent);
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-.calc-peso-unit {
-  font-size: 0.875rem;
+.calc-input--mlh {
+  width: 80px;
+  color: var(--accent);
+  border-color: var(--accent);
+  font-size: 1.125rem;
+}
+
+.calc-unit {
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--text-muted);
 }
 
-.calc-unidade-label {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  margin-bottom: 16px;
+.calc-select {
+  flex: 1;
+  max-width: 320px;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  appearance: auto;
 }
 
-.calc-unidade-label strong {
+.calc-select:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* --- Readout (dose atual) --- */
+.calc-readout {
+  margin: 12px 0;
+}
+
+.calc-readout-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--accent-light), var(--info-bg));
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.calc-readout-dose {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.calc-readout-value {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.calc-readout-unit {
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--text-secondary);
+}
+
+.calc-readout-abs {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.calc-readout-abs strong {
+  color: var(--text-primary);
+}
+
+.calc-readout-empty {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+}
+
+/* --- Reference table --- */
+.calc-ref-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 16px 0 8px;
+}
+
+.calc-ref-title ion-icon {
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
 .calc-results {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.calc-diluicao {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-
-.calc-dil-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
-}
-
-.calc-dil-name {
-  font-weight: 600;
-  font-size: 0.875rem;
-  color: var(--text-primary);
-}
-
-.calc-dil-conc {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--accent);
-  font-weight: 600;
 }
 
 .calc-table {
@@ -528,13 +591,6 @@ input:focus-visible {
   white-space: nowrap;
 }
 
-.calc-abs {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
 .calc-mlh {
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -547,23 +603,28 @@ input:focus-visible {
 }
 
 @media (max-width: 768px) {
-  .calc-peso-row {
+  .calc-input-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
 
-  .calc-table {
-    font-size: 0.75rem;
+  .calc-select {
+    max-width: 100%;
   }
 
-  .calc-table th,
-  .calc-table td {
-    padding: 6px 8px;
+  .calc-readout-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 
-  .calc-table th:nth-child(3),
-  .calc-table td:nth-child(3) {
+  .calc-readout-value {
+    font-size: 1.5rem;
+  }
+
+  .calc-table th:nth-child(2),
+  .calc-table td:nth-child(2) {
     display: none;
   }
 }
