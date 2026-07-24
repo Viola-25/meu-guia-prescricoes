@@ -323,8 +323,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
-          "**Padrão:** 50 mg (5 ampolas de 10 mg) + SF 0,9% ou SG 5% **50 mL** → **1 mg/mL**",
-          "**Alternativa (menor concentração):** 30 mg + SG 5% **50 mL** → **0,6 mg/mL**",
+          "**Padrão:** 50 mg (5 ampolas de 10 mg = 10 mL) + SF 0,9% ou SG 5% **40 mL** → **50 mL** → **1 mg/mL**",
+          "**Alternativa (menor concentração):** 30 mg + SG 5% **q.s.p. 50 mL** → **0,6 mg/mL**",
           "**Para bolus:** ampola pura 1 mg/mL — dose de 0,02-0,05 mg/kg IV"
         ]
       },
@@ -470,7 +470,7 @@
       "concentracao_unidade": "mg/mL",
       "diluicoes": [
         {
-          "rotulo": "200 mg + SG5% 50 mL",
+          "rotulo": "200 mg + 30 mL SF (total 50 mL)",
           "volume_ml": 50,
           "concentracao": 4.0,
           "doses": [
@@ -487,9 +487,9 @@
           ]
         },
         {
-          "rotulo": "200 mg + SG5% 30 mL",
-          "volume_ml": 30,
-          "concentracao": 6.67,
+          "rotulo": "200 mg + 80 mL SF (total 100 mL)",
+          "volume_ml": 100,
+          "concentracao": 2.0,
           "doses": [
             {
               "rotulo": "Sedação leve",

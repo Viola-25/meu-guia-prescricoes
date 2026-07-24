@@ -151,7 +151,7 @@
           "**Cefdinir:** 300mg 12/12h x 10 dias (se alergia e não pode macrolídeo)",
           "**Peritonsilar abscesso (suspeita F. necrophorum):** Pip-Tazo 3,375g IV q6h + drenagem cirúrgica. Evitar macrolídeo (Fusobacterium resistente)",
           "**Dose pediátrica Pen V:** 50mg/kg/dia div q12h (máx 500mg/dose) por 10 dias",
-          "NEVER use: FQs, tetraciclinas, TMP-SMX para GAS (resistência, falha clínica)",
+          "NUNCA usar: FQs, tetraciclinas, TMP-SMX para GAS (resistência, falha clínica)",
           "",
           "**FARPE = Faringite Aguda por Estreptococo do Grupo A**",
           "**Amoxicilina 500mg** — 1 comprimido de 8/8h, VO, por 10 dias (primeira linha; 1ª escolha para SGA). Alternativa pediátrica: suspensão 50 mg/kg/dia (máx 2g/dia) dividido em 2-3 doses",
@@ -229,15 +229,36 @@
                   "label": "Exsudato amigdiano / edema amigdaliano",
                   "pontos": 1,
                   "tipo": "checkbox"
+                },
+                {
+                  "id": "centor-idade-14",
+                  "label": "Idade 3-14 anos",
+                  "pontos": 1,
+                  "tipo": "radio",
+                  "grupo": "centor-idade"
+                },
+                {
+                  "id": "centor-idade-15a44",
+                  "label": "Idade 15-44 anos",
+                  "pontos": 0,
+                  "tipo": "radio",
+                  "grupo": "centor-idade"
+                },
+                {
+                  "id": "centor-idade-mais45",
+                  "label": "Idade ≥45 anos",
+                  "pontos": -1,
+                  "tipo": "radio",
+                  "grupo": "centor-idade"
                 }
               ],
               "resultado": {
                 "titulo": "Centor",
                 "interpretacoes": [
                   {
-                    "min": 0,
+                    "min": -1,
                     "max": 1,
-                    "label": "0-1 pts: FARPE improvável (~1-10%). Sintomático.",
+                    "label": "-1 a 1 pts: FARPE improvável (~1-10%). Sintomático.",
                     "cor": "#16a34a"
                   },
                   {
@@ -254,13 +275,12 @@
                   },
                   {
                     "min": 4,
-                    "max": 4,
-                    "label": "4 pts: FARPE muito provável (~51-53%). Tratar ou confirmar.",
+                    "max": 5,
+                    "label": "4-5 pts: FARPE muito provável (~51-53%). Tratar ou confirmar.",
                     "cor": "#dc2626"
                   }
                 ]
-              },
-              "nota": "McIsaac: ajustar ±1 ponto conforme idade (3-14 anos: +1; ≥45 anos: -1)"
+              }
             }
           }
         ]

@@ -408,7 +408,7 @@
         "titulo": "Sequência Rápida de Intubação — Passo a Passo",
         "itens": [
           "**PRÉ-OXIGENAÇÃO (3-5 min):** NRB a 15 L/min O2. CPAP/BIPAP FiO2 100% se possível. SpO2 > 95% antes de iniciar.",
-          "**POSICIONAMENTO:** Posição 'sniffing'. Manobra deBURP se necessário. Eixo oral-faringe-laringe-alinhado.",
+          "**POSICIONAMENTO:** Posição 'sniffing'. Manobra de BURP se necessário. Eixo oral-faringe-laringe-alinhado.",
           "**PREPARO DO MATERIAL:** Laringoscópio (MacIntosh 3-4) ou Videolaringoscópio. COT 7,0-8,0mm (mulher) / 7,5-8,5mm (homem). Bougie disponível.",
           "**SRI — Opção 1 (Clássica):** ETO 3 mg/kg IV + Succinilcolina 1,5 mg/kg IV.",
           "**SRI — Opção 2 (Sem depolarizantes):** ETO 3 mg/kg IV ou Ketamina 1-2 mg/kg IV + Rocurônio 1,2 mg/kg IV.",
@@ -1126,25 +1126,25 @@
                   {
                     "min": 0,
                     "max": 0,
-                    "label": "Mortalidade ~6%",
+                    "label": "Mortalidade 2-3%",
                     "cor": "#16a34a"
                   },
                   {
                     "min": 1,
                     "max": 1,
-                    "label": "Mortalidade ~17%",
+                    "label": "Mortalidade 8-10%",
                     "cor": "#d97706"
                   },
                   {
                     "min": 2,
                     "max": 2,
-                    "label": "Mortalidade ~38%",
+                    "label": "Mortalidade 20-25%",
                     "cor": "#ea580c"
                   },
                   {
                     "min": 3,
                     "max": 3,
-                    "label": "Mortalidade ~67%",
+                    "label": "Mortalidade 45-70%",
                     "cor": "#dc2626"
                   }
                 ]
@@ -1168,7 +1168,7 @@
                 "1"
               ],
               [
-                "Estenose coronariana ≥ 50% em 2+ vasos",
+                "Estenose coronariana ≥ 50% conhecida",
                 "1"
               ],
               [
@@ -1180,7 +1180,7 @@
                 "1"
               ],
               [
-                "Uso de AAS nas últimas 72h",
+                "Uso de AAS nos últimos 7 dias",
                 "1"
               ],
               [
@@ -1203,7 +1203,7 @@
                 },
                 {
                   "id": "timi-3dac",
-                  "label": "≥ 3 fatores de risco para DAC",
+                  "label": "≥ 3 fatores de risco para DAC (DM, HAS, HAS familiar, dislipidemia, tabagismo)",
                   "pontos": 1,
                   "tipo": "checkbox"
                 },
@@ -1560,7 +1560,7 @@
               [
                 "Ruptura de parede livre",
                 "Tamponamento + Choque",
-                "Péricardiocenteze + cirurgia"
+                "Pericardiocentese + cirurgia"
               ],
               [
                 "Aneurisma de VD",
@@ -1753,10 +1753,10 @@
               ],
               [
                 "TVP prévia comprovada",
-                "1"
+                "1,5"
               ],
               [
-                "≥ 4 pts = Provável ( AngioTC direta ) | < 4 pts = Improvável ( D-dímero )",
+                "0-1 Baixa | 2-6 Intermediária | ≥ 7 Alta",
                 ""
               ]
             ],
@@ -1783,7 +1783,7 @@
                 },
                 {
                   "id": "wells-tvp",
-                  "label": "TVS pregressa",
+                  "label": "TVP prévia comprovada",
                   "pontos": 1.5,
                   "tipo": "checkbox"
                 },
@@ -1811,18 +1811,18 @@
                 "interpretacoes": [
                   {
                     "min": 0,
-                    "max": 4,
+                    "max": 1,
                     "label": "Probabilidade baixa — TEP improvável",
                     "cor": "#16a34a"
                   },
                   {
-                    "min": 4.5,
+                    "min": 2,
                     "max": 6,
                     "label": "Probabilidade intermediária",
                     "cor": "#d97706"
                   },
                   {
-                    "min": 6.5,
+                    "min": 7,
                     "max": 12.5,
                     "label": "Probabilidade alta — TEP provável",
                     "cor": "#dc2626"
@@ -1868,10 +1868,6 @@
                 "1"
               ],
               [
-                "Creatinina > 2 mg/dL (176 µmol/L)",
-                "1"
-              ],
-              [
                 "0-1 pt = Classe I (mortalidade 1,5-3,2%) → considerar alta | ≥ 2 pt = Classe II-V (mortalidade 5,6-24,5%) → internar",
                 ""
               ]
@@ -1893,7 +1889,7 @@
                 },
                 {
                   "id": "pesi-icc",
-                  "label": "ICC crônica",
+                  "label": "ICC ou DPOC",
                   "pontos": 1,
                   "tipo": "checkbox"
                 },
@@ -1920,12 +1916,6 @@
                   "label": "Alteração do nível de consciência",
                   "pontos": 1,
                   "tipo": "checkbox"
-                },
-                {
-                  "id": "pesi-irm",
-                  "label": "Insuficiência renal",
-                  "pontos": 1,
-                  "tipo": "checkbox"
                 }
               ],
               "resultado": {
@@ -1939,7 +1929,7 @@
                   },
                   {
                     "min": 1,
-                    "max": 8,
+                    "max": 7,
                     "label": "Alto risco — internar, considerar terapia trombolítica",
                     "cor": "#dc2626"
                   }
@@ -2312,7 +2302,7 @@
     "cor": "#2563eb",
     "icon": "water-outline",
     "fontes": [
-      "Medicina de EmerGENCY 19ed — Cap. 35 (IC Aguda)",
+      "Medicina de Emergência 19ed — Cap. 35 (IC Aguda)",
       "SBC ICC Crônica e Aguda 2018"
     ],
     "secoes": [
