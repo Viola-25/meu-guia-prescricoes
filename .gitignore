@@ -1,0 +1,43 @@
+# === PDFs (pesados, não necessários para deploy) ===
+*.pdf
+Medicina de emergência*
+Sanford Guide*
+
+# === Extrair textos (capítulos, OCR) ===
+data/*_extracted.txt
+data/livro-extracoes/
+data/guias-extracoes/
+
+# === PDFs de referência/diretrizes ===
+asma-dpoc-gina-gold/
+injetaveis-anvisa/
+protocolos-sepse/
+referencia-sbcardio/
+
+# === Scripts temporários ===
+data/check_ocr.py
+data/ocr_sanford.py
+data/test_path.py
+data/sanford_ocr_test.pdf
+data/sanford_online.pdf
+
+# === Dados não utilizados pelo app ===
+data/prescricoes.json
+data/remume-sp.json
+data/guia-sala-vermelha.md
+
+# === Sistema / IDE ===
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*.tmp
+
+# === Node (se existir) ===
+node_modules/
+package-lock.json
+
+# === AGENTS.md (contexto interno) ===
+AGENTS.md

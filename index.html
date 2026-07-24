@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia rápido de emergências clínicas — Sala Vermelha, Condutas de Porta e Vasoativa/Sedação. Conduta, medicamentos, diluições, escores e alvos terapêuticos.">
+  <meta name="theme-color" content="#dc2626" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <title>Guia de Emergência — PS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#conteudo-principal" class="skip-link">Pular para conteúdo</a>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay" role="alert" aria-live="polite" aria-label="Carregando conteúdo">
+    <div class="loading-spinner" aria-hidden="true"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header-left">
+      <button class="btn btn-ghost menu-btn" id="menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="sidebar">
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+      <a href="#" class="header-title" aria-label="Guia de Emergência — Página inicial">
+        <span class="logo-icon" aria-hidden="true"><ion-icon name="pulse-outline"></ion-icon></span>
+        <span>Guia de Emergência</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo escuro" title="Alternar modo escuro (D)">
+        <ion-icon name="moon-outline" aria-hidden="true" id="theme-icon-moon"></ion-icon>
+        <ion-icon name="sunny-outline" aria-hidden="true" id="theme-icon-sun" style="display:none"></ion-icon>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section Tabs -->
+  <nav class="section-tabs" role="tablist" aria-label="Seções do guia">
+    <button class="section-tab active" role="tab" aria-selected="true" aria-controls="tab-sala-vermelha" id="tab-btn-sala" data-section="sala-vermelha">
+      <ion-icon name="pulse-outline" aria-hidden="true"></ion-icon>
+      <span>Sala Vermelha</span>
+    </button>
+    <button class="section-tab" role="tab" aria-selected="false" aria-controls="tab-condutas-porta" id="tab-btn-porta" data-section="condutas-porta">
+      <ion-icon name="medkit-outline" aria-hidden="true"></ion-icon>
+      <span>Condutas de Porta</span>
+    </button>
+    <button class="section-tab" role="tab" aria-selected="false" aria-controls="tab-vasoativa" id="tab-btn-vaso" data-section="vasoativa-sedacao">
+      <ion-icon name="water-outline" aria-hidden="true"></ion-icon>
+      <span>Vasoativa / Sedação</span>
+    </button>
+  </nav>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar" aria-label="Condições clínicas">
+      <div class="sidebar-header">
+        <div class="search-container">
+          <ion-icon name="search-outline" class="search-icon" aria-hidden="true"></ion-icon>
+          <input
+            type="search"
+            class="search-input"
+            id="search-input"
+            placeholder="Buscar condição ou medicamento..."
+            aria-label="Buscar condição ou medicamento"
+            autocomplete="off"
+          >
+          <span class="search-shortcut" aria-hidden="true">/</span>
+          <button class="clear-search" id="clear-search-btn" aria-label="Limpar busca">
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-nav" id="sidebar-nav" role="list" aria-label="Lista de condições">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="nav-empty" id="nav-empty" hidden>
+        Nenhuma condição encontrada.
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="conteudo-principal" role="main" aria-live="polite">
+      <!-- Placeholder -->
+      <div class="content-placeholder" id="content-placeholder">
+        <div class="placeholder-icon" aria-hidden="true"><ion-icon name="medical-outline"></ion-icon></div>
+        <h2>Guia Sala Vermelha</h2>
+        <p>Selecione uma condição clínica no menu lateral para visualizar conduta, medicamentos e alvos terapêuticos.</p>
+      </div>
+
+      <!-- Content Display -->
+      <div id="content-display" hidden>
+        <div class="condition-header">
+          <h1 class="condition-title" id="condition-title"></h1>
+          <span class="condition-cid" id="condition-cid"></span>
+        </div>
+
+        <div id="condition-sections">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="actions-bar">
+          <button class="btn btn-ghost btn-sm" id="copy-btn" aria-label="Copiar conteúdo da condição">
+            <ion-icon name="copy-outline" aria-hidden="true"></ion-icon>
+            <span>Copiar</span>
+          </button>
+          <button class="btn btn-ghost btn-sm" id="export-btn" aria-label="Exportar conteúdo como texto">
+            <ion-icon name="download-outline" aria-hidden="true"></ion-icon>
+            <span>Exportar .txt</span>
+          </button>
+          <button class="btn btn-ghost btn-sm" id="print-btn" aria-label="Imprimir conteúdo">
+            <ion-icon name="print-outline" aria-hidden="true"></ion-icon>
+            <span>Imprimir</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

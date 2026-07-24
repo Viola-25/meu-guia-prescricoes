@@ -1,0 +1,273 @@
+[
+  {
+    "id": "colica-nefretica",
+    "titulo": "Cólica Nefrética",
+    "cid": "N23",
+    "cor": "#7c3aed",
+    "icon": "water-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Dipirona 1g** — 1 comprimido de 6/6h, VO, por 5 dias (máx 4g/dia)",
+          "**Diclofenaco 50mg** — 1 comprimido de 8/8h, VO, por 5 dias (após alimento; evitar se IRA, gastrite ou asma)",
+          "**Hidrocloreto de Tamsulosina 0,4mg** — 1 cápsula ao dia, VO, por 4 a 6 semanas (terapia expulsiva para cálculos 5-10mm; causar hipotensão ortostática)",
+          "**Bromoprida 10mg** — 1 comprimido de 8/8h, VO, se náuseas (máx 3 doses/dia)"
+        ],
+        "orientacoes": [
+          "Hidratação abundante: mínimo 10 copos de água ao dia",
+          "Evitar: sal excessivo, carnes vermelhas, refrigerantes e alimentos ricos em oxalato (chocolate, espinafre)",
+          "Coletar urina peneirada se passar cálculo (guardar para análise)",
+          "Retornar ao PS se: febre, dor refratária à medicação, sangramento urinário intenso, náuseas persistentes, tontura ou desmaio",
+          "Buscar urologista/attention primária para investigação metabólica (24h urinária) e acompanhamento",
+          "Critérios de alta: dor controlada com analgésicos orais, ausência de náuseas/vômitos, tolerância oral, sem sinais de infecção urinária"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 89 (Cólica Nefrética)"
+    ],
+    "categoria": "Urológico"
+  },
+  {
+    "id": "asma-crise",
+    "titulo": "Asma — Crise Leve/Moderada",
+    "cid": "J45.9",
+    "cor": "#0891b2",
+    "icon": "fitness-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Salbutamol (Spray)** — 4 a 10 jatos a cada 20 min por 1 hora (ciclos), com espaçador. Máx 600 mcg/dia",
+          "**Prednisolona 40mg** — 1 comprimido ao dia, VO, por 5 a 7 dias (adulto). Criança: 1-2 mg/kg/dia (máx 40mg) por 5-7 dias",
+          "**Brometo de Ipratrópio (Spray)** — 2 jatos de 6/6h, VO, com espaçador, se crise moderada (adicionar ao salbutamol nos ciclos)"
+        ],
+        "orientacoes": [
+          "Manter uso do corticóide inalatório de manutenção (corticosteroide inalatório) se já em uso",
+          "Evitar desencadeantes: fumaça, poeira, frio intenso, exercício intenso sem aquecimento",
+          "Sinais de alarme (retornar ao PS): dificuldade para falar frases completas, lábios azuis, uso de musculatura acessória (intercostais), FR > 30, FC > 120, saturação < 92%, falta de ar piorando apesar do tratamento",
+          "Manter bombinha de resgate (salbutamol) sempre acessível",
+          "Encaminhar a pneumologista/clínico para reavaliação do plano de controle em até 7 dias",
+          "Critérios de alta: FR < 24, FC < 100, SpO2 ≥ 92%, sem uso de musculatura acessória, fala frases completas, melhora do pico expiratório"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 42 (Asma)",
+      "GINA 2025 — Strategy Report"
+    ],
+    "categoria": "Respiratório"
+  },
+  {
+    "id": "lombalgia-aguda",
+    "titulo": "Lombalgia Aguda",
+    "cid": "M54.5",
+    "cor": "#d97706",
+    "icon": "body-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Paracetamol 750mg** — 1 comprimido de 6/6h, VO, por 5 dias (máx 3g/dia)",
+          "**Diclofenaco 50mg** — 1 comprimido de 8/8h, VO, por 7 dias (após alimento; evitar se IRA, gastrite, asma)",
+          "**Ciclobenzaprina 5mg** — 1 comprimido de 8/8h, VO, por 5 a 7 dias (miorrelaxante; causar sonolência — usar à noite inicialmente)",
+          "**Dipirona 1g** — 1 comprimido de 6/6h, VO, se dor intensa (máx 4g/dia)"
+        ],
+        "orientacoes": [
+          "Manter atividade: evitar repouso absoluto; caminhar e manter movimentos leves orienta melhora",
+          "Calor local na região lombar pode aliviar o espasmo muscular",
+          "Evitar: flexão-tronco com peso, sentar por tempo prolongado, dormir de barriga para cima sem apoio",
+          "Retornar ao PS se: dor irradiando para pernas com perda de força, perda de controle da bexiga/bowel (incontinência), dormência na região perineal (síndrome da cauda equina — emergência), febre associada, histórico de neoplasia ou trauma recente",
+          "Encaminhar a clínico/médico da família para reavaliação em até 7 dias se dor persistir",
+          "Critérios de alta: dor EVA < 4 com analgésicos orais, deambulação autônoma, sem sinais de banderilha, sem déficit neurológico"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 29 (Lombalgia)"
+    ],
+    "categoria": "Musculoesquelético"
+  },
+  {
+    "id": "dengue",
+    "titulo": "Dengue — Grupos A e B",
+    "cid": "A90",
+    "cor": "#16a34a",
+    "icon": "bug-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Paracetamol 750mg** — 1 comprimido de 6/6h, VO (máx 3g/dia) — PRIMEIRA LINHA para febre e dor",
+          "**Dipirona 1g** — 1 comprimido de 6/6h, VO, SEPARADO do paracetamol, se febre persistente (máx 4g/dia)",
+          "**SRO (Soro de Reidratação Oral)** — 1 sachê em 1 litro de água;adulto: 60 mL/kg/dia; iniciar volume maior no início do dia",
+          "**NÃO usar:** AAS (ácido acetilsalicílico), AINEs (ibuprofeno, diclofenaco, nimesulida) — risco de hemorragia"
+        ],
+        "orientacoes": [
+          "Hidratação oral: beber SRO + líquidos caseiros (água, suco, soro caseiro, água de coco); evitar refrigerantes e álcool",
+          "Repouso domiciliar durante o período febril",
+          "Retornar ao PS IMEDIATAMENTE se aparecer: sangramento (gengiva, nariz, urina, fezes), dor abdominal intensa, vômitos persistentes, sonolência/excitabilidade, inchaço nas mãos/pés, pele fria e úmida, queda da pressão ao levantar (tontura)",
+          "Grupo A: retorno em 5º dia de doença ou 1º dia sem febre para reavaliação clínica",
+          "Grupo B (gestantes, >65 anos, comorbidades: HAS, DM, DPOC, asma, obesidade): retorno DIÁRIO até 48h após remissão da febre com hemograma + hematócrito",
+          "Medicamentos NÃO indicados para automedicação: Antibióticos (não eficazes contra vírus)",
+          "Critérios de alta: 48h sem febre, hematócrito estável ou em queda, plaquetas > 50.000, ausência de sinais de alarme, tolerância oral"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 51 (Dengue)"
+    ],
+    "categoria": "Infeccioso"
+  },
+  {
+    "id": "ivas-amigdalite",
+    "titulo": "IVAS / Amigdalite",
+    "cid": "J02/J03",
+    "cor": "#dc2626",
+    "icon": "medkit-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Faringoamigdalite Estreptocócica (sugestão clínica: exsudato + febre + adenomegalia + ausência de coriza)",
+        "itens": [
+          "**Amoxicilina 500mg** — 1 comprimido de 8/8h, VO, por 10 dias (primeira linha; 1ª escolha para SGA). Alternativa pediátrica: suspensão 50 mg/kg/dia (máx 2g/dia) dividido em 2-3 doses",
+          "**Azitromicina 500mg** — 1 comprimido ao dia, VO, por 5 dias (SE ALERGIA A PENICILINA; 2ª linha). Criança: 10 mg/kg 1º dia, depois 5 mg/kg por 4 dias",
+          "**Paracetamol 750mg** — 1 comprimido de 6/6h, VO, por 5 dias (antitérmico/analgésico)",
+          "**Dipirona 1g** — 1 comprimido de 6/6h, VO, se dor intensa (alternativa ao paracetamol)",
+          "**Benzenadamida 525mg** — 1 comprimido a cada 4h (máx 6 doses/dia), VO, se dor de garganta intensa (anestésico tópico)"
+        ],
+        "orientacoes": [
+          "IVAS viral: NÃO indicar antibioticoterapia; tratamento é sintomático (repouso, hidratação, analgésicos)",
+          "Amigdalite estreptocócica: antibioticoterapia obrigatória por 10 dias para prevenir febre reumática e glomerulonefrite pós-estreptocócica",
+          "Avaliar Critérios de Centor/Fever PAIN para decisão: febre, ausência de tosse, exsudato amigdaliano, adenomegalia cervical anterior, idade 3-14 anos",
+          "Sinais de alarme (retornar ao PS): dificuldade para engolir líquidos/travar saliva, abertura bucal limitada (< 2 cm), abcesso peritonsilar (desvio de úvula, trismo, \"voz de batata\"), dificuldade respiratória, desidratação",
+          "Amoxicilina: completar 10 dias mesmo com melhora; interrupção favorece resistência bacteriana",
+          "Retorno em 48-72h se não houver melhora com antibioticoterapia (reavaliar diagnóstico)",
+          "Critérios de alta: melhora da dor de garganta, retorno da deglutição normal, afebrilidade por > 24h, melhora do estado geral"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 48 (IVAS)"
+    ],
+    "categoria": "Infeccioso"
+  },
+  {
+    "id": "dpoc-exacerbacacao",
+    "titulo": "DPOC — Exacerbação Aguda",
+    "cid": "J44.1",
+    "cor": "#0891b2",
+    "icon": "fitness-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Salbutamol 2,5mg** — nebulização a cada 15-20 min nas primeiras 3 doses, depois a cada 4-6h (associar ipratrópio na fase aguda)",
+          "**Brometo de Ipratrópio 500mcg** — nebulização junto com salbutamol, a cada 6h (dual β2 + anticolinérgico; não usar isolado na crise)",
+          "**Prednisona 40mg** — 1 comprimido ao dia, VO, por 5 dias (se grave: Metilprednisolona 20-60mg IV a cada 6h)",
+          "**Amoxicilina-clavulânico 875/125mg** — 1 comprimido de 12/12h, VO, por 5 a 10 dias (SE expectoração purulenta OU 2+ sintomas cardinais: aumento de dispneia, aumento do volume de escarro, purulência do escarro)",
+          "**Azitromicina 500mg** — 1 comprimido ao dia, VO, no 1º dia, depois 250mg por 4 dias (alternativa se alergia a penicilina)",
+          "**Ciprofloxacino 500mg** — 1 comprimido de 12/12h, VO, por 5 a 10 dias (alternativa; preferir em pacientes com risco de Pseudomonas)",
+          "**Sulfato de Magnésio 2g** — IV em 20 minutos, se exacerbação grave sem resposta a broncodilatadores (broncodilatador adjuvante)",
+          "**Oxigênio** — cateter nasal 1-3 L/min, alvo SatO2 88-92% (NÃO saturação >95% — risco de hiperinsuflação e hipercapnia)"
+        ],
+        "orientacoes": [
+          "Oxigênio alvo: SatO2 88-92%. NUNCA saturação >95% em DPOC — pode causar hiperinsuflação dinâmica e piorar hipercapnia",
+          "Classificação GOLD: I (leve), II (moderado), III (grave), IV (muito grave) — orienta conduta e encaminhamento",
+          "Classificação de gravidade no PS: Leve (dispneia<5, FR<24, FC<95, SaO2≥92%, PCR<10). Moderada: 3+ critérios. Grave: acidose (pH<7,35) + hipercapnia (PaCO2>45)",
+          "VNI (CPAP/BIPAP): indicada se acidose respiratória (pH<7,35 e PaCO2>45) — reduz mortalidade e necessidade de intubação orotraqueal",
+          "Encaminhar à UTI se: acidose descompensada (pH<7,25), hipercapnia progressiva, alteração do nível de consciência, instabilidade hemodinâmica, falha da VNI",
+          "Sinais de alarme (retornar ao PS): piora da dispneia apesar do tratamento, cianose, confusão mental, edema de membros inferiores, inchaço abdominal com distensão venosa (cor pulmonale)",
+          "Diagnósticos diferenciais a considerar: Insuficiência Cardíaca Aguda, Tromboembolismo Pulmonar, Pneumonia",
+          "Retorno em 48-72h para reavaliação se piora ou ausência de melhora; retorno ao pneumologista/clínico em até 7 dias para reavaliação do plano de controle",
+          "Critérios de alta: FR<24, FC<100, SpO2≥92% com O2 suplementar (se necessário), melhora da dispneia, tolerância oral, sem acidose, sem sinais de insuficiência respiratória",
+          "Orientar cessação do tabagismo (principal fator de progressão); vacinação anual (influenza e pneumocócica); reabilitação pulmonar"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 43 (DPOC)",
+      "GOLD 2025 — Global Strategy Report"
+    ],
+    "categoria": "Respiratório"
+  },
+  {
+    "id": "hemorragia-digestiva-alta",
+    "titulo": "Hemorragia Digestiva Alta (HDA)",
+    "cid": "K92.2",
+    "cor": "#dc2626",
+    "icon": "medkit-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário",
+        "itens": [
+          "**Omeprazol 80mg** — bolus IV, seguido de 8mg/h infusão contínua por 72h (PPI endovenoso — FUNDAMENTAL; reduz ressangramento em úlcera péptica). Alternativa: Pantoprazol 80mg IV bolus → 8mg/h contínuo",
+          "**Terlipressina 2mg IV** — 1 bolus, repetir a cada 4h (primeira linha se suspeita de hemorragia por varizes esofágicas; reduz pressão portal). Alternativa: **Octreotida 50mcg IV bolus** → 50mcg/h infusão contínua",
+          "**Ceftriaxona 1g IV** — 1 dose ao dia (obrigatória se suspeita de varizes — antibioticoprofilaxia que reduz infecção e mortalidade; manter por 7 dias)",
+          "**Soro Fisiológico 0,9%** — reposição volêmica agressiva (bolus de 500mL em 15 min; repetir conforme resposta hemodinâmica). Se instabilidade: MTP (protocolo de transfusão maciça — hemácias:frescos:plasma 1:1:1)",
+          "**Hemácias Concentradas** — transfundir se Hb < 7 g/dL (alvo > 7; > 9 g/dL se IC ou IAM). Manter TP e TTPa guiados se coagulopatia",
+          "**Sonda Nasogástrica (SNG)** — passagem para orientação diagnóstica (lavado gástrico com SF — NÃO descarta HDA se negativo, pois 15% das HDA origina-se no duodeno). NÃO usar como tratamento",
+          "**Endoscopia Digestiva Alta** — programar em até 12h se instável/altorisco (Forrest IA/IB/IIA) ou até 24h se estável. Eletrocoagulação + clip endoscópico se lesão ativa (Forrest IA/IB/IIA)"
+        ],
+        "orientacoes": [
+          "Dieta: iniciar líquidos claros após estabilização hemodinâmica e controle do sangramento; avançar para pastosa conforme tolerância",
+          "Sinais de alarme (retornar ao PS IMEDIATAMENTE): hematêmesa (vômito com sangue vivo ou \"borra de café\"), melena (fezes negras e fétidas), tontura/desmaio, sudorese fria, palidez intensa, FC > 120, PA < 90/60, confusão mental",
+          "Suspender imediatamente: AINEs (ibuprofeno, diclofenaco, nimesulida, AAS), anticoagulantes (varfarina, rivaroxabana, apixabana — discutir com equipe antes de suspender), antiagregantes plaquetários se possível",
+          "Escore Glasgow Blatchford: prediz necessidade de endoscopia e internação (pontuação > 0 indica internação); Rockall: prediz risco de ressangramento e mortalidade pós-endoscopia",
+          "Retorno em 48-72h após alta para reavaliação clínica e controle laboratorial (hemograma, função hepática)",
+          "Se úlcera péptica: testar e tratar H. pylori (tripla terapia por 14 dias); evitar tabagismo e álcool; retorno ao gastroenterologista",
+          "Critérios de alta: sem sangramento ativo por > 24h, hemograma estável, hemodinâmica estável (PA e FC normais), tolerância oral, sem sinais de alarme"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 75 (HDA)"
+    ],
+    "categoria": "Gastrointestinal"
+  },
+  {
+    "id": "avc-isquemico",
+    "titulo": "Acidente Vascular Cerebral Isquêmico (AVCi)",
+    "cid": "I63.9",
+    "cor": "#ea580c",
+    "icon": "pulse-outline",
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — TEMPO É CÉREBRO: meta trombólise ≤60 min da admissão",
+        "itens": [
+          "**Alteplase (rt-PA) 0,9 mg/kg** — dose total máx 90 mg; 10% da dose em bolus IV em 1 min + 90% restante em infusão IV por 60 min. Janela terapêutica: até 4,5 h do início dos sintomas. ANTES: PA < 185/110 e glicemia 50-400 mg/dL",
+          "**AAS (ácido acetilsalicílico) 300 mg** — 1 comprimido VO, dose única (SE NÃO trombólise; iniciar após 24-48 h). Alternativa: Clopidogrel 300 mg VO dose única",
+          "**Enoxaparina 40 mg** — 1 ampola SC ao dia, se imobilizado e sem contraindicação (profilaxia de TVP). Alternativa: Heparina Fracionada 5000 UI SC a cada 8-12 h",
+          "**Manitol 20% 1,5-2 g/kg** — infusão IV em 20-30 min, se sinais de hipertensão intracraniana (edema cerebral). Repetir a cada 6-8 h conforme necessidade"
+        ],
+        "orientacoes": [
+          "ABC imediato: via aérea permeável, PA em ambos os membros, glicemia capilar, ECG 12 derivações. Registrar NIHSS (escala de AVC do NIH) ao admitir",
+          "TC de crânio em ≤20 min para excluir hemorragia e identificar sinais precoces de isquemia",
+          "PA: NÃO tratar se PA < 220/120 mmHg (exceto se trombólise — reduzir para < 185/110 antes e < 180/105 após). Se PA > 220/110, reduzir ~15% em 24 h",
+          "Glicemia: manter 140-180 mg/dL. Tratar hipoglicemia < 60 mg/dL imediatamente (glicose 50% IV)",
+          "Trombectomia mecânica: até 24 h se oclusão de grande vaso (ACM proximal); critérios NIHSS ≥ 6, ASPECTS ≥ 6 — encaminhar para centro de referência",
+          "NÃO usar anticoagulação agudamente (exceto FA documentada → Heparina após 24-48 h, após TC de controle)",
+          "Disfagia: avaliar fonoaudiólogo ou teste de deglutição antes de qualquer via oral. NPO até avaliação completa",
+          "Repouso: elevação da cabeceira a 30° se hipertensão intracraniana ou sinais de edema cerebral",
+          "Sinais de alarme (retornar ao PS IMEDIATAMENTE): piora súbita do déficit neurológico, cefaleia intensa nova, vômitos, convulsão, torpor/alteração do nível de consciência, sinais de herniação (anisocoria, bradicardia, hipertensão)",
+          "Reabilitação: iniciar fisioterapia e fonoaudiologia precocemente durante internação; encaminhar para reabilitação ambulatorial após alta",
+          "Prevenção secundária: controlar HAS, DM, dislipidemia; cessar tabagismo; adesão ao AAS 75 mg/dia contínuo (ou AAS + Clopidogrel por 21-30 dias) e estatina",
+          "Retorno: reavaliação clínica em até 7 dias com neurologista; TC de controle em 24-48 h se trombólise",
+          "Critérios de alta: estabilização do quadro neurológico, PA controlada, glicemia estável, sem sinais de complicações (hemorragia, edema), deglutição preservada, orientado para continuidade do tratamento ambulatorial"
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 54 (AVC Isquêmico)"
+    ],
+    "categoria": "Neurológico"
+  }
+]

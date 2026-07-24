@@ -1,0 +1,908 @@
+[
+  {
+    "id": "noradrenalina",
+    "titulo": "Noradrenalina",
+    "apresentacao": "Ampola 4 mg / 4 mL (1 mg/mL)",
+    "sinonimos": "Norepinefrina, Levophed",
+    "cor": "#dc2626",
+    "icon": "water-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Opção 1 (Padrão):** 4 mg (1 ampola) + SG 5% **250 mL** → **16.000 mcg/250 mL**",
+          "**Opção 2 (UTI/Volume):** 4 mg (1 ampola) + SG 5% **500 mL** → **16.000 mcg/500 mL**",
+          "Se volume restrito: 4 mg (1 ampola) + SF 0,9% **50 mL** (seringa) → **80.000 mcg/50 mL**"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**250 mL:** 1 mL/h = **64 mcg/min** (ou 1,07 mcg/kg/min para 60 kg)",
+          "**500 mL:** 1 mL/h = **32 mcg/min** (ou 0,53 mcg/kg/min para 60 kg)",
+          "**Seringa 50 mL:** 1 mL/h = **1.600 mcg/min** (usar microbomba — ⚠️ atenção à concentração)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 0,05 – 0,1 mcg/kg/min",
+          "**Titulação:** aumentar 0,02 – 0,05 mcg/kg/min a cada 5-10 min",
+          "**Meta:** PA sistólica ≥ 90 mmHg ou PAM ≥ 65 mmHg",
+          "**Dose máxima:** 1 – 3 mcg/kg/min (acima de 0,5 mcg/kg/min, considerar vasopressor adicional: vasopressina ou epinefrina)",
+          "**Manutenção:** quando hemodinamicamente estável, reduzir gradualmente (taxa de 0,02 mcg/kg/min a cada 30 min)"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Via exclusiva venosa central** (ou periférica temporariamente com controle rigoroso — risco de extravasamento e necrose)",
+          "Não administrar com bicarbonato de sódio (incompatível)",
+          "Monitorizar PA invasiva quando possível",
+          "Verificar permeabilidade do cateter antes de cada bolus",
+          "Evitar suspensão brusca — pode causar hipotensão de rebote",
+          "Observar sinais de extravasamento: palidez, dor local, frieza — infiltrar fentolamina 10 mg em 10 mL SF SC no local"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "4 mg + SG5% 250 mL",
+          "volume_ml": 250,
+          "concentracao": 64,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.05,
+              "dose_max": 0.1
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 1.0,
+              "dose_max": 3.0
+            }
+          ]
+        },
+        {
+          "rotulo": "4 mg + SG5% 500 mL",
+          "volume_ml": 500,
+          "concentracao": 32,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.05,
+              "dose_max": 0.1
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 1.0,
+              "dose_max": 3.0
+            }
+          ]
+        },
+        {
+          "rotulo": "4 mg + SF0.9% 50 mL",
+          "volume_ml": 50,
+          "concentracao": 320,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.05,
+              "dose_max": 0.1
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 1.0,
+              "dose_max": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)",
+      "Protocolo Sepse SES-DF 2025"
+    ],
+    "categoria": "Vasopressores"
+  },
+  {
+    "id": "nitroprussiato",
+    "titulo": "Nitroprussiato de Sódio (Nipride)",
+    "apresentacao": "Frasco 50 mg liofilizado (diluir antes de usar)",
+    "sinonimos": "Nipride, SNP, Nitropress",
+    "cor": "#7c3aed",
+    "icon": "flash-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Padrão:** 50 mg (1 frasco) + SG 5% **250 mL** → **200.000 mcg/250 mL**",
+          "**Alternativa:** 50 mg + SG 5% **500 mL** → **200.000 mcg/500 mL**",
+          "**⚠️ Proteger da luz:** envolver a bolsa/siringa com alumínio ou papel escuro (degradação fotossensível)"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**250 mL:** 1 mL/h = **13,3 mcg/min** (≈ 0,22 mcg/kg/min para 60 kg)",
+          "**500 mL:** 1 mL/h = **6,7 mcg/min** (≈ 0,11 mcg/kg/min para 60 kg)",
+          "Fórmula prática: mcg/min = (mL/h × concentração total em mcg) ÷ tempo total (min)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 0,25 – 0,5 mcg/kg/min",
+          "**Titulação:** aumentar 0,25 mcg/kg/min a cada 5 min até atingir PA desejada",
+          "**Meta:** redução de 10-20% da PAM basal ou PA sistólica ≥ 90 mmHg",
+          "**Dose máxima:** 8-10 mcg/kg/min (⚠️ toxicidade: cianeto, tiossianato — limitar uso a 48-72h)",
+          "**Conversão:** após estabilidade 24-48h, converter para anti-hipertensivo oral (captopril, labetalol)"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Proteger da luz obrigatoriamente** — usar capa de alumínio na bolsa e linhas",
+          "Monitorizar PA invasiva (preferencialmente) ou NIBP contínuo",
+          "Evitar uso > 72h (risco de toxicidade por cianeto — verificar níveis de tiossianato se uso prolongado)",
+          "Avaliar sinais de intoxicação: cefaleia, confusão mental, acidose metabólica, lactato elevado",
+          "Pacientes com insuficiência hepática ou renal: risco aumentado de toxicidade",
+          "Incompatível com muitos fármacos — usar linha dedicada ou flushar bem entre infusões",
+          "Suspensão gradual (não abrupta) — pode causar hipertensão de rebote"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "50 mg + SG5% 250 mL",
+          "volume_ml": 250,
+          "concentracao": 800,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.25,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 8.0,
+              "dose_max": 10.0
+            }
+          ]
+        },
+        {
+          "rotulo": "50 mg + SG5% 500 mL",
+          "volume_ml": 500,
+          "concentracao": 400,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.25,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 8.0,
+              "dose_max": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 36 (Emergência Hipertensiva)"
+    ],
+    "categoria": "Vasodilatadores"
+  },
+  {
+    "id": "fentanil",
+    "titulo": "Fentanil",
+    "apresentacao": "Ampola 50 mcg/mL (2 mL = 100 mcg)",
+    "sinonimos": "Sublimaze, Fentanyl",
+    "cor": "#0891b2",
+    "icon": "bed-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão (Infusão Contínua)",
+        "itens": [
+          "**Padrão:** 10 mcg/kg (ex: 500 mcg para 50 kg) + SF 0,9% ou SG 5% **50 mL** → concentração em mcg/mL = peso × 2",
+          "**Exemplo prático (paciente 70 kg):** 700 mcg (7 ampolas) + SF 0,9% **50 mL** → **14 mcg/mL**",
+          "**Para bolus (curto prazo):** pode usar ampola pura (50 mcg/mL) — diluir em SF 0,9% para volume adequado"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**Fórmula:** Concentração (mcg/mL) = (dose em mcg) ÷ 50 mL",
+          "**Exemplo 50 kg:** 500 mcg ÷ 50 mL = **10 mcg/mL** → 1 mL/h = 10 mcg/h (0,2 mcg/kg/min)",
+          "**Exemplo 70 kg:** 700 mcg ÷ 50 mL = **14 mcg/mL** → 1 mL/h = 14 mcg/h (0,2 mcg/kg/min)",
+          "Variação de 1 mL/h = equivalente a 0,2 mcg/kg/min"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 25-100 mcg/h (0,5-1,5 mcg/kg/h)",
+          "**Titulação:** aumentar 25 mcg/h a cada 5-10 min até adequação analgésica",
+          "**Meta:** Ramsay 3-4 (sedação leve-moderada) + dor EVA < 3",
+          "**Dose máxima:** 200-300 mcg/h (depende do contexto — sepse, pós-operatório, ventilação mecânica)",
+          "**Bolus para dor aguda:** 25-50 mcg IV, pode repetir a cada 3-5 min",
+          "**Conversão:** após estabilidade, transição para fentanil transdérmico ou oral"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Risco de depressão respiratória** — monitorizar FR e SpO2 continuamente",
+          "Induzir taquicardia e hipotensão em doses altas",
+          "Cuidado em idosos e ICC — reduzir dose em 50%",
+          "Rigidez torácica com bolus rápido (> 100 mcg) — tratar com naloxona 0,04-0,4 mg IV",
+          "Acúmulo em IRA — reduzir dose ou aumentar intervalo",
+          "Dependência física com uso > 5 dias — desmame gradual (reduzir 10-25% a cada 24h)",
+          "Incompatível com barbitúricos — não misturar na mesma linha",
+          "Verificar constipação intestinal (efeito colateral frequente em uso prolongado)"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/h",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "500 mcg + SF 50 mL",
+          "volume_ml": 50,
+          "concentracao": 10,
+          "doses": [
+            {
+              "rotulo": "Infusão contínua",
+              "dose_min": 25,
+              "dose_max": 100
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 200,
+              "dose_max": 300
+            }
+          ]
+        },
+        {
+          "rotulo": "700 mcg + SF 50 mL",
+          "volume_ml": 50,
+          "concentracao": 14,
+          "doses": [
+            {
+              "rotulo": "Infusão contínua",
+              "dose_min": 25,
+              "dose_max": 100
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 200,
+              "dose_max": 300
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)"
+    ],
+    "categoria": "Sedoanalgesia"
+  },
+  {
+    "id": "midazolam",
+    "titulo": "Midazolam",
+    "apresentacao": "Ampola 5 mg/mL (2 mL = 10 mg) ou 1 mg/mL (1 mL)",
+    "sinonimos": "Dormonid, Versed",
+    "cor": "#d97706",
+    "icon": "moon-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão (Infusão Contínua)",
+        "itens": [
+          "**Padrão:** 50 mg (5 ampolas de 10 mg) + SF 0,9% ou SG 5% **50 mL** → **10 mg/mL**",
+          "**Alternativa (menor concentração):** 30 mg + SG 5% **50 mL** → **6 mg/mL**",
+          "**Para bolus:** ampola pura 1 mg/mL — dose de 0,02-0,05 mg/kg IV"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**50 mL com 50 mg:** 1 mL/h = **1 mg/h** (≈ 0,015 mg/kg/h para 70 kg)",
+          "**50 mL com 30 mg:** 1 mL/h = **0,6 mg/h**",
+          "Variação de 0,5 mL/h ≈ equivalente a 0,01 mg/kg/h",
+          "**Fórmula:** mg/mL = (nº ampolas × 10 mg) ÷ 50 mL"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 0,02-0,1 mg/kg/h (1-7 mg/h para adulto de 70 kg)",
+          "**Titulação:** aumentar 1-2 mg/h a cada 5-10 min até Ramsay 3-4",
+          "**Bolus:** 0,02-0,05 mg/kg (1-3 mg) IV, pode repetir a cada 2-3 min",
+          "**Dose máxima:** 0,2 mg/kg/h (≈ 15 mg/h) — doses maiores aumentam delirium e tempo de MV",
+          "**Idosos/ICC:** iniciar com metade da dose (0,01-0,02 mg/kg/h)",
+          "**Desmame:** reduzir 25% a cada 12-24h ou converter para benzodiazepínico oral"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Risco de depressão respiratória** — monitorizar FR e SpO2",
+          "Hipotensão com bolus rápido — infundir lentamente (> 2 min para bolus)",
+          "Acúmulo significativo em IRA e IRC — reduzir dose ou aumentar intervalo",
+          "Associação com delirium em UTI (estudo MIDEX, PRODEX) — preferir propofol em MV prolongado",
+          "Anterograda amnésia — orientar paciente sobre efeito temporário",
+          "Dependência com uso > 48-72h — desmame gradual obrigatório",
+          "Incompatível com vancomicina e ceftriaxona — usar linha dedicada ou flushar",
+          "Redução de 50% na dose para idosos e pacientes hepaticamente comprometidos"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mg/h",
+      "concentracao_unidade": "mg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "50 mg + SF 50 mL",
+          "volume_ml": 50,
+          "concentracao": 1.0,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 1.0,
+              "dose_max": 7.0
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 10.0,
+              "dose_max": 15.0
+            }
+          ]
+        },
+        {
+          "rotulo": "30 mg + SG5% 50 mL",
+          "volume_ml": 50,
+          "concentracao": 0.6,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 1.0,
+              "dose_max": 7.0
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 10.0,
+              "dose_max": 15.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)"
+    ],
+    "categoria": "Sedoanalgesia"
+  },
+  {
+    "id": "propofol",
+    "titulo": "Propofol",
+    "apresentacao": "Frasco 10 mg/mL (20 mL = 200 mg ou 50 mL = 500 mg)",
+    "sinonimos": "Diprivan, Propofol",
+    "cor": "#16a34a",
+    "icon": "water-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão (Infusão Contínua)",
+        "itens": [
+          "**Padrão:** 200 mg (1 frasco 20 mL) + SF 0,9% ou SG 5% **30 mL** → **4 mg/mL**",
+          "**Alternativa:** 200 mg + SG 5% **50 mL** → **4 mg/mL**",
+          "**Bolus:** ampola pura 10 mg/mL — dose 0,5-1 mg/kg IV (indução) ou 10-20 mg IV (sedação)"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**4 mg/mL (padrão):** 1 mL/h = **4 mg/h** (≈ 0,057 mg/kg/h para 70 kg)",
+          "**2 mg/mL:** 1 mL/h = **2 mg/h** — útil em titulação fina",
+          "Variação de 0,5 mL/h ≈ equivalente a 0,007 mg/kg/h",
+          "**Fórmula:** mg/mL = 200 mg ÷ volume final em mL"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 5-20 mg/h (0,05-0,3 mg/kg/h) — titulação lenta (2-5 mg a cada 30s para bolus)",
+          "**Titulação:** aumentar 2-5 mg/h a cada 3-5 min até Ramsay 3-4",
+          "**Meta:** sedação leve (Ramsay 2-3) — evitar excesso (hipotensão, íleo paralítico)",
+          "**Dose máxima:** 5 mg/kg/h (⚠️ acima de 4 mg/kg/h por > 48h: risco de síndrome de infusão de propofol)",
+          "**Bolus para indução:** 1,5-2,5 mg/kg IV lento (20-40 mg a cada 10s)",
+          "**Desmame:** reduzir 2-5 mg/h a cada 2-4h — não interromper abruptamente"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ Síndrome de infusão de propofol:** uso > 48h + doses > 4 mg/kg/h → acidose metabólica, rabdomiólise, arritmia, óbito",
+          "Hipotensão dose-dependente — verificar PA antes de cada aumento de dose",
+          "Depressão respiratória significativa — monitorizar FR e SpO2 continuamente",
+          "**Controle rigoroso de lipídeos:** frasco contém lipídeos — monitorar triglicerídeos a cada 48-72h em uso prolongado",
+          "NÃO congelar — manter em temperatura ambiente (20-25°C); usar em até 12h após abertura",
+          "Pode causar dor no local da injeção — diluir com lidocaína 1% ou infundir em veia calibrosa",
+          "Cuidado em pacientes com epilepsia — pode reduzir o limiar convulsivo",
+          "Íleo paralítico e pancreatite em doses altas prolongadas"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mg/h",
+      "concentracao_unidade": "mg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "200 mg + SG5% 50 mL",
+          "volume_ml": 50,
+          "concentracao": 4.0,
+          "doses": [
+            {
+              "rotulo": "Sedação leve",
+              "dose_min": 5.0,
+              "dose_max": 20.0
+            },
+            {
+              "rotulo": "Dose máxima (48h)",
+              "dose_min": 40.0,
+              "dose_max": 50.0
+            }
+          ]
+        },
+        {
+          "rotulo": "200 mg + SG5% 30 mL",
+          "volume_ml": 30,
+          "concentracao": 6.67,
+          "doses": [
+            {
+              "rotulo": "Sedação leve",
+              "dose_min": 5.0,
+              "dose_max": 20.0
+            },
+            {
+              "rotulo": "Dose máxima (48h)",
+              "dose_min": 40.0,
+              "dose_max": 50.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)"
+    ],
+    "categoria": "Sedoanalgesia"
+  },
+  {
+    "id": "dopamina",
+    "titulo": "Dopamina",
+    "apresentacao": "40 mg/mL (10 mL), 80 mg/mL (10 mL), 160 mg/mL (10 mL)",
+    "sinonimos": "Intropin, Revimine",
+    "cor": "#d97706",
+    "icon": "pulse-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Opção 1 (Padrão):** 200 mg + SG 5% **250 mL** → **800 mcg/mL**",
+          "**Opção 2 (Alta concentração):** 400 mg + SG 5% **250 mL** → **1.600 mcg/mL**",
+          "Dose depende da apresentação e diluição utilizada — verificar sempre a concentração final"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**800 mcg/mL (250 mL):** 1 mL/h = **32 mcg/min** (≈ 0,53 mcg/kg/min para 60 kg)",
+          "**1.600 mcg/mL (250 mL):** 1 mL/h = **64 mcg/min** (≈ 1,07 mcg/kg/min para 60 kg)",
+          "Fórmula prática: mcg/min = (mL/h × concentração em mcg/mL) ÷ tempo total (min)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose beta (renal):** 2 – 5 mcg/kg/min — efeito renal e neuroendócrino",
+          "**Dose inotrópica (cardíaca):** 5 – 10 mcg/kg/min — efeito cronotrópico e inotrópico positivo",
+          "**Dose alfa (vasopressora):** > 10 mcg/kg/min — vasoconstricção e elevação da PA",
+          "**Titulação:** aumentar 2 – 5 mcg/kg/min a cada 10-15 min até meta hemodinâmica",
+          "**Dose máxima:** 20 mcg/kg/min — doses maiores sem benefício adicional significativo",
+          "**Desmame:** reduzir gradualmente (2 mcg/kg/min a cada 30 min) — não interromper abruptamente"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Via venosa central preferencial** — pode usar periférica temporariamente (extremidade calibrosa, com controle rigoroso)",
+          "**Extravasamento:** infiltrar fentolamina 10 mg em 10 mL SF SC no local (antagonista alfa)",
+          "Monitorizar FC continuamente — **arritmogênica** (taquicardia, fibrilação ventricular)",
+          "Evitar associação com alcalinizantes (bicarbonato de sódio) — inativação do fármaco",
+          "Suspensão gradual obrigatória — pode causar hipotensão de rebote",
+          "Verificar local de infusão a cada 30 min — sinais de flebite ou extravasamento",
+          "Não administrar com fontes de ferro (precipitação)"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "200 mg + SG5% 250 mL",
+          "volume_ml": 250,
+          "concentracao": 800,
+          "doses": [
+            {
+              "rotulo": "Beta (renal)",
+              "dose_min": 2.0,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Inotrópica",
+              "dose_min": 5.0,
+              "dose_max": 10.0
+            },
+            {
+              "rotulo": "Alfa (vasopressora)",
+              "dose_min": 10.0,
+              "dose_max": 20.0
+            }
+          ]
+        },
+        {
+          "rotulo": "400 mg + SG5% 250 mL",
+          "volume_ml": 250,
+          "concentracao": 1600,
+          "doses": [
+            {
+              "rotulo": "Beta (renal)",
+              "dose_min": 2.0,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Inotrópica",
+              "dose_min": 5.0,
+              "dose_max": 10.0
+            },
+            {
+              "rotulo": "Alfa (vasopressora)",
+              "dose_min": 10.0,
+              "dose_max": 20.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)",
+      "Protocolo Sepse SES-DF 2025"
+    ],
+    "categoria": "Vasopressores"
+  },
+  {
+    "id": "adrenalina",
+    "titulo": "Adrenalina / Epinefrina",
+    "apresentacao": "1 mg/mL (1 mL)",
+    "sinonimos": "Epinefrina, Suprarenina",
+    "cor": "#dc2626",
+    "icon": "flash-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Infusão contínua — Opção 1:** 1 mg + SF 0,9% **250 mL** → **4 mcg/mL**",
+          "**Infusão contínua — Opção 2:** 6 mg + SF 0,9% **250 mL** → **24 mcg/mL**",
+          "**Anafilaxia (bolus IM):** ampola pura 1 mg/mL — diluir em SF 0,9% para 1:1.000 se necessário"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**4 mcg/mL (250 mL):** 1 mL/h = **0,067 mcg/kg/min** para 60 kg",
+          "**24 mcg/mL (250 mL):** 1 mL/h = **0,4 mcg/kg/min** para 60 kg",
+          "Para bolus IM: usar concentração 1:1.000 (1 mg/mL)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Anafilaxia:** 0,3 – 0,5 mg IM coxa — repetir a cada 5-15 min conforme resposta",
+          "**PCR (parada cardiorrespiratória):** 1 mg IV a cada 3-5 minutos (ciclos de RCP)",
+          "**Choque (infusão contínua):** 0,01 – 0,5 mcg/kg/min IV — titular conforme PA e perfusão",
+          "**Titulação (infusão contínua):** aumentar 0,02 – 0,05 mcg/kg/min a cada 5-10 min",
+          "**Dose máxima (infusão contínua):** 1 mcg/kg/min — acima disso, considerar outro vasopressor"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ NUNCA administrar em bolus IV direto** — causa arritmias graves (taquicardia ventricular, fibrilação)",
+          "Para infusão contínua: usar bomba de infusão e via venosa central preferencial",
+          "Verificar extravasamento constantemente — infiltrar fentolamina 10 mg SC se necessário",
+          "Monitorar ECG continuamente — arritmogênica dose-dependente",
+          "Evitar associação com alcalinizantes — inativação do fármaco",
+          "Armazenar em geladeira (2-8°C); descartar se solução estiver turva ou com precipitado",
+          "Em anafilaxia: sempre via IM coxa — absorção mais rápida que via subcutânea"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "1 mg + SF 250 mL",
+          "volume_ml": 250,
+          "concentracao": 4,
+          "doses": [
+            {
+              "rotulo": "Choque",
+              "dose_min": 0.01,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.5,
+              "dose_max": 1.0
+            }
+          ]
+        },
+        {
+          "rotulo": "6 mg + SF 250 mL",
+          "volume_ml": 250,
+          "concentracao": 24,
+          "doses": [
+            {
+              "rotulo": "Choque",
+              "dose_min": 0.01,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.5,
+              "dose_max": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas) + Cap. 4 (SVA)",
+      "Protocolo Sepse SES-DF 2025"
+    ],
+    "categoria": "Vasopressores"
+  },
+  {
+    "id": "dobutamina",
+    "titulo": "Dobutamina",
+    "apresentacao": "250 mg/5 mL (50 mg/mL)",
+    "sinonimos": "Dobutrex, Inotrex",
+    "cor": "#2563eb",
+    "icon": "heart-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Padrão:** 250 mg (1 frasco) + SG 5% **250 mL** → **1.000 mcg/mL**",
+          "**Alternativa (volume reduzido):** 250 mg + SG 5% **100 mL** → **2.500 mcg/mL** (usar microbomba)",
+          "Diluir imediatamente antes do uso — solução instável em pH alcalino"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**1.000 mcg/mL (250 mL):** 1 mL/h = **16,7 mcg/min** (≈ 0,28 mcg/kg/min para 60 kg)",
+          "**2.500 mcg/mL (100 mL):** 1 mL/h = **41,7 mcg/min** (≈ 0,69 mcg/kg/min para 60 kg)",
+          "Fórmula prática: mcg/min = (mL/h × concentração em mcg/mL) ÷ tempo total (min)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 2,5 mcg/kg/min IV contínuo",
+          "**Titulação:** aumentar 2,5 mcg/kg/min a cada 10-15 min até resposta hemodinâmica",
+          "**Meta:** melhora do débito cardíaco (CI > 2,2 L/min/m²) e saturação venosa mista (SvO2 > 65%)",
+          "**Dose habitual:** 5 – 15 mcg/kg/min",
+          "**Dose máxima:** 20 mcg/kg/min — acima disso, efeito predominante de estimulação beta-2 (vasodilatação e hipotensão)",
+          "**Desmame:** reduzir gradualmente (2,5 mcg/kg/min a cada 30 min)"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Inotrópico puro (estimulação beta-1)** — NÃO é vasopressor; associar noradrenalina se hipotenso",
+          "Monitorar FC, PA e ECG continuamente — taquicardia e arritmias são dose-dependentes",
+          "**Taquifilaxia após 72h** — pode haver perda de eficácia; considerar troca inotrópica",
+          "Evitar suspensão abrupta — pode causar hipotensão e piora do débito cardíaco",
+          "Solução instável: preparar e usar em até 24h; não refrigerar",
+          "Não misturar com bicarbonato de sódio ou soluções alcalinas — precipitação",
+          "Verificar local de infusão a cada 30 min — flebite e extravasamento"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "250 mg + SG5% 250 mL",
+          "volume_ml": 250,
+          "concentracao": 1000,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 2.5,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 15.0,
+              "dose_max": 20.0
+            }
+          ]
+        },
+        {
+          "rotulo": "250 mg + SG5% 100 mL",
+          "volume_ml": 100,
+          "concentracao": 2500,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 2.5,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 15.0,
+              "dose_max": 20.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)",
+      "SBC ICC Crônica e Aguda 2018"
+    ],
+    "categoria": "Inotrópicos"
+  },
+  {
+    "id": "vasopressina",
+    "titulo": "Vasopressina",
+    "apresentacao": "20 UI/1 mL, 40 UI/mL",
+    "sinonimos": "Pitressin, ADH",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Padrão:** 20 UI (1 ampola) + SF 0,9% **100 mL** → **0,2 UI/mL**",
+          "**Alternativa:** 40 UI + SF 0,9% **100 mL** → **0,4 UI/mL**",
+          "Sempre diluir — nunca administrar bolus IV"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**0,2 UI/mL (100 mL):** 1 mL/h = **0,2 UI/h** (≈ 0,003 UI/min para 60 kg)",
+          "**0,4 UI/mL (100 mL):** 1 mL/h = **0,4 UI/h** (≈ 0,006 UI/min para 60 kg)",
+          "Dose fixa: 0,03 UI/min = 9 mL/h (concentração 0,2 UI/mL)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose fixa (choque séptico):** 0,03 UI/min IV contínuo — **NÃO titula**",
+          "**Indicação:** adjuvante à noradrenalina quando PA ≥ 65 mmHg não é atingida com NA > 0,5 mcg/kg/min",
+          "**Tempo de uso:** até 24-48h — reavaliar necessidade diariamente",
+          "**Não há dose máxima ou titulação** — dose fixa baseada em estudos de sepse (VASST trial)",
+          "**Desmame:** interromper quando noradrenalina for reduzida a < 0,2 mcg/kg/min"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**DOSE FIXA — NÃO TITULA** — administrar em bomba de infusão a 0,03 UI/min sem variação",
+          "Usar APENAS como adjuvante — NUNCA como primeiro vasopressor (nem como substituto de noradrenalina)",
+          "Monitorar sinais de isquemia: **digital, splanchnica e coronariana**",
+          "**NATRIVETE:** risco de hiponatremia e água livre — restringir H2O e monitorar natremia diariamente",
+          "Pode causar broncoespasmo — evitar em pacientes com asma",
+          "Evitar em pacientes com coronariopatia ativa — efeito vasoconstritor coronariano",
+          "Associação com noradrenalina pode permitir redução da dose de NA — monitorar sinergismo"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "UI/min",
+      "concentracao_unidade": "UI/mL",
+      "dose_fixa": true,
+      "diluicoes": [
+        {
+          "rotulo": "20 UI + SF 100 mL",
+          "volume_ml": 100,
+          "concentracao": 0.2,
+          "doses": [
+            {
+              "rotulo": "Dose fixa (choque séptico)",
+              "dose_min": 0.03,
+              "dose_max": 0.03
+            }
+          ]
+        },
+        {
+          "rotulo": "40 UI + SF 100 mL",
+          "volume_ml": 100,
+          "concentracao": 0.4,
+          "doses": [
+            {
+              "rotulo": "Dose fixa (choque séptico)",
+              "dose_min": 0.03,
+              "dose_max": 0.03
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)",
+      "Protocolo Sepse SES-DF 2025"
+    ],
+    "categoria": "Vasopressores"
+  }
+]

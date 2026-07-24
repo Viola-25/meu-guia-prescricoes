@@ -1,0 +1,2188 @@
+[
+  {
+    "id": "choque-septico",
+    "titulo": "Choque Séptico",
+    "cid": "A41.9",
+    "cor": "#dc2626",
+    "icon": "pulse-outline",
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — Primeiros 60 min (Bundle 1h SSC 2021)",
+        "itens": [
+          "**Avaliação imediata:** FC, PA, SpO2, Temperatura, FR, Nível de consciência. **qSOFA ≥ 2** = disfunção orgânica. Lactato sérico em até 30 min.",
+          "**Fluidoterapia:** 30 mL/kg de cristaloide (preferência RL) em até 3h. Reavaliar após 1ª hora: se hipotensão persistente → vasopressor.",
+          "**Culturas** ANTES do antibiótico (mínimo 2 pares de hemocultura). Cateter central se disponível.",
+          "**Antibioticoterapia em até 1 HORA:** Ceftriaxona 2g IV (comunitária) / Piperacilina-Tazobactam 4,5g IV (hospitalar/MDR) / Meropenem 1g IV (intra-abdominal/ESBL).",
+          "**Controle do foco:** Drenar abscessos, remover cateteres contaminados, debridar tecidos necróticos.",
+          "**Suporte hemodinâmico:** Se PA < 90 ou PAM < 65 após fluidos → Noradrenalina. Meta: PAM ≥ 65 mmHg."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Choque Séptico",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Noradrenalina",
+            "apresentacao": "4 mg/4 mL (1 mg/mL)",
+            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "dose": "0,1-0,5 mcg/kg/min → titular até PAM ≥65",
+            "sus": "basico"
+          },
+          {
+            "nome": "Vasopressina",
+            "apresentacao": "20 UI/100 mL (0,2 UI/mL)",
+            "diluicao": "Frasco 20 UI em 100 mL SF",
+            "dose": "0,03 UI/min (dose fixa)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Dobutamina",
+            "apresentacao": "250 mg/5 mL",
+            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "dose": "2,5-20 mcg/kg/min",
+            "sus": "basico"
+          },
+          {
+            "nome": "Hidrocortisona",
+            "apresentacao": "100 mg/2 mL",
+            "diluicao": "100 mg IV bolus",
+            "dose": "200 mg/dia (50 mg IV 6/6h ou contínuo) — refratariedade",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ceftriaxona",
+            "apresentacao": "1g e 2g frasco",
+            "diluicao": "Reconstituir c/ 10 mL SF 0,9%",
+            "dose": "2g IV em 30min (12/12h)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Piperacilina-Tazobactam",
+            "apresentacao": "4,5g frasco",
+            "diluicao": "Reconstituir c/ 10mL SF → 100mL SF",
+            "dose": "4,5g IV em 30min (8/8h)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Meropenem",
+            "apresentacao": "500mg e 1g frasco",
+            "diluicao": "Reconstituir c/ 10mL SF → 100mL SF",
+            "dose": "1g IV em 3h (8/8h) — ou 2g se meningite",
+            "sus": "ceaf"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escores e Alvos",
+        "escores": [
+          {
+            "nome": "qSOFA",
+            "descricao": "Triagem leito/infermeiro",
+            "colunas": [
+              "Critério",
+              "Pontuação"
+            ],
+            "dados": [
+              [
+                "FR ≥ 22 irpm",
+                "1"
+              ],
+              [
+                "Alteração consciência (GCS < 15)",
+                "1"
+              ],
+              [
+                "PA Sistólica ≤ 100 mmHg",
+                "1"
+              ],
+              [
+                "≥ 2 pontos = Alta prob. disfunção orgânica",
+                ""
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "PAM",
+            "≥ 65 mmHg"
+          ],
+          [
+            "Lactato",
+            "Clearança ≥ 20%/2h ou normalização"
+          ],
+          [
+            "Diurese",
+            "≥ 0,5 mL/kg/h"
+          ],
+          [
+            "SpO2",
+            "≥ 94% (92-96% em DPOC)"
+          ],
+          [
+            "Glicemia",
+            "140-180 mg/dL"
+          ],
+          [
+            "Temperatura",
+            "Não tratar febre < 39,5°C empiricamente"
+          ]
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 8 (Choque) + Cap. 9 (Sepse)",
+      "Sepsis in Emergency Medicine 2025",
+      "Protocolo Sepse SES-DF 2025"
+    ],
+    "categoria": "Cardiovascular"
+  },
+  {
+    "id": "choque-cardiogenico",
+    "titulo": "Choque Cardiogênico",
+    "cid": "I50.1",
+    "cor": "#2563eb",
+    "icon": "heart-outline",
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial",
+        "itens": [
+          "**Diagnóstico (Critérios SCAI):** PA < 90 mmHg >30min ou vasopressores, hipoperfusão (oligúria, ment alterada, extrem. frias), congestão pulmonar, Lactato > 2, CI < 2,2 L/min/m².",
+          "**IMEDIATO:** IOT se instável, CVC + arterial, Ecocardiograma bedside, Sonda vesical, ECG 12 derivações.",
+          "**Suporte hemodinâmico:** DOBUTAMINA = 1ª linha (FEVE < 40%). NORADRENALINA = se PAM < 65. MILRINONA = alternativa.",
+          "**Descompressão mecânica:** IABP (IAMCSST c/ complicação mecânica), ECMO VA (refratário), Impella (alto fluxo).",
+          "**Tratamento etiológico:** IAMCSST → ICP emergencial (porta-balão < 90min). IAMSSST → estratificar. Arritmia → cardioversão."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Choque Cardiogênico",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Dobutamina",
+            "apresentacao": "250 mg/5 mL",
+            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "dose": "2,5-20 mcg/kg/min — titular por inotrópico",
+            "sus": "basico"
+          },
+          {
+            "nome": "Noradrenalina",
+            "apresentacao": "4 mg/4 mL",
+            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "dose": "0,1-0,5 mcg/kg/min — PAM ≥65",
+            "sus": "basico"
+          },
+          {
+            "nome": "Milrinona",
+            "apresentacao": "10 mg/10 mL (1 mg/mL)",
+            "diluicao": "10 mg em 100 mL SF (100 mcg/mL)",
+            "dose": "Carga 50 mcg/kg 10min → 0,375-0,75 mcg/kg/min",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Furosemida",
+            "apresentacao": "10 mg/mL (ampola)",
+            "diluicao": "Pura ou diluir em SG5%",
+            "dose": "40-125 mg IV bolus → 5-20 mg/h contínuo",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nitroglicerina",
+            "apresentacao": "5 mg/mL (ampola)",
+            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "dose": "10-200 mcg/min — titular por congestão",
+            "sus": "basico"
+          },
+          {
+            "nome": "Heparina",
+            "apresentacao": "5.000 UI/mL",
+            "diluicao": "Frasco padrão",
+            "dose": "Bolus 70 UI/kg → 15 UI/kg/h (IAM/TEP)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escores e Alvos",
+        "escores": [
+          {
+            "nome": "Escore SCAI",
+            "descricao": "Estágios de Choque Cardiogênico",
+            "colunas": [
+              "Estágio",
+              "Descrição"
+            ],
+            "dados": [
+              [
+                "A",
+                "Risco de choque"
+              ],
+              [
+                "B",
+                "Início (hipotensão compensada)"
+              ],
+              [
+                "C",
+                "Início (hipotensão + hipoperfusão)"
+              ],
+              [
+                "D",
+                "Refratário"
+              ],
+              [
+                "E",
+                "Colapso/extreme"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "PAM",
+            "≥ 65 mmHg"
+          ],
+          [
+            "Cardiac Index",
+            "≥ 2,2 L/min/m²"
+          ],
+          [
+            "Diurese",
+            "≥ 0,5 mL/kg/h"
+          ],
+          [
+            "Lactato",
+            "Clearança ≥ 20%/2h"
+          ],
+          [
+            "PACP",
+            "< 18 mmHg (se possível)"
+          ],
+          [
+            "SvO2",
+            "≥ 65%"
+          ]
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 8 (Choque) + Cap. 35 (IC Aguda)"
+    ],
+    "categoria": "Cardiovascular"
+  },
+  {
+    "id": "sri-intubacao",
+    "titulo": "SRI — Intubação Orotraqueal",
+    "cid": "",
+    "cor": "#7c3aed",
+    "icon": "fitness-outline",
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Sequência Rápida de Intubação — Passo a Passo",
+        "itens": [
+          "**PRÉ-OXIGENAÇÃO (3-5 min):** NRB a 15 L/min O2. CPAP/BIPAP FiO2 100% se possível. SpO2 > 95% antes de iniciar.",
+          "**POSICIONAMENTO:** Posição 'sniffing'. Manobra deBURP se necessário. Eixo oral-faringe-laringe-alinhado.",
+          "**PREPARO DO MATERIAL:** Laringoscópio (MacIntosh 3-4) ou Videolaringoscópio. COT 7,0-8,0mm (mulher) / 7,5-8,5mm (homem). Bougie disponível.",
+          "**SRI — Opção 1 (Clássica):** ETO 3 mg/kg IV + Succinilcolina 1,5 mg/kg IV.",
+          "**SRI — Opção 2 (Sem depolarizantes):** ETO 3 mg/kg IV ou Ketamina 1-2 mg/kg IV + Rocurônio 1,2 mg/kg IV.",
+          "**SRI — Opção 3 (Instável):** Ketamina 1-2 mg/kg IV + Rocurônio 1,2 mg/kg IV.",
+          "**MAGEM e MANOBRA:** Manobra SELDIK (30-40N). Inserir COT → inflar balonete (10 mL). Confirmar com ETCO2 contínuo. Auscultar bilateral.",
+          "**PÓS-IOT:** Elevação bilateral tórax. Radiografia de tórax. Parâmetros: VC-AC, 6-8 mL/kg, FR 12-16, PEEP 5-8, FiO2 100% 2h → titular."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — SRI",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Etomidato",
+            "apresentacao": "2 mg/mL (10 mL)",
+            "diluicao": "Usar direto",
+            "dose": "0,3 mg/kg IV (max 30 mg) — hemodinamicamente neutro",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ketamina",
+            "apresentacao": "50 mg/mL ou 100 mg/mL",
+            "diluicao": "Usar direto",
+            "dose": "1-2 mg/kg IV — broncodilatador + preserva PA",
+            "sus": "rename"
+          },
+          {
+            "nome": "Propofol",
+            "apresentacao": "10 mg/mL (20 mL)",
+            "diluicao": "Usar direto",
+            "dose": "1,5-2,5 mg/kg IV — CONTRAINDICADO em choque",
+            "sus": "rename"
+          },
+          {
+            "nome": "Succinilcolina",
+            "apresentacao": "200 mg/10 mL (20 mg/mL)",
+            "diluicao": "Reconstituir conforme bula",
+            "dose": "1-1,5 mg/kg IV (ação em 45s)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Rocurônio",
+            "apresentacao": "10 mg/mL (5 mL)",
+            "diluicao": "Usar direto",
+            "dose": "1,2 mg/kg IV (SRI) ou 0,6 mg/kg (RSI modificada)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Atropina",
+            "apresentacao": "0,5 mg/mL (1 mL)",
+            "diluicao": "Usar direto",
+            "dose": "0,02 mg/kg IV (bradicardia durante SRI — crianças)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Critérios e Parâmetros Ventilatórios",
+        "escores": [
+          {
+            "nome": "Indicações de Intubação",
+            "descricao": "Obrigatório antes de iniciar SRI",
+            "colunas": [
+              "Critério",
+              "Valor"
+            ],
+            "dados": [
+              [
+                "GCS",
+                "≤ 8"
+              ],
+              [
+                "SpO2",
+                "< 90% com O2 suplementar"
+              ],
+              [
+                "FR",
+                "< 8 ou > 35 irpm"
+              ],
+              [
+                "PaCO2",
+                "> 50 mmHg"
+              ],
+              [
+                "Estado mental",
+                "Coma, agitação extrema, convulsão persistente"
+              ]
+            ]
+          },
+          {
+            "nome": "Pré-difícil via aérea",
+            "descricao": "Avaliar antes de SRI",
+            "colunas": [
+              "Critério",
+              "Limiar"
+            ],
+            "dados": [
+              [
+                "Mallampati",
+                "≥ III"
+              ],
+              [
+                "Distância Tiro-Menton",
+                "< 6 cm"
+              ],
+              [
+                "Abertura bucal",
+                "< 3 cm"
+              ],
+              [
+                "Mobilidade cervical",
+                "< 35°"
+              ],
+              [
+                "Barba densa / Obesidade / Edema",
+                "Presente"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Modo",
+            "VC-AC (Volume Control - Assist Control)"
+          ],
+          [
+            "Volume corrente",
+            "6-8 mL/kg de peso ideal"
+          ],
+          [
+            "Frequência",
+            "12-16 irpm"
+          ],
+          [
+            "PEEP",
+            "5-8 cmH2O"
+          ],
+          [
+            "FiO2",
+            "100% 2h → titular para SpO2 > 94%"
+          ],
+          [
+            "Relação I:E",
+            "1:2 a 1:3"
+          ],
+          [
+            "Meta",
+            "SpO2 > 94%, pH 7,35-7,45, PaCO2 35-45"
+          ]
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 2 (Via Aérea) + Cap. 4 (SVA)"
+    ],
+    "categoria": "Respiratório"
+  },
+  {
+    "id": "pcr",
+    "titulo": "Parada Cardiorrespiratória (PCR)",
+    "cid": "I46.9",
+    "cor": "#ea580c",
+    "icon": "electrocardiogram-outline",
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Algoritmo BLS/ACLS (AHA 2020 / SBC)",
+        "itens": [
+          "**SEGURANÇA:** Garantir segurança do resgatador e ambiente.",
+          "**AVALIAR RESPONSIVIDADE:** Sacudir ombros + gritar. Acionar suporte avançado.",
+          "**AVALIAR PULSO E RESPIRAÇÃO** (max 10s). Se ausente → INICIAR COMPRESSÕES IMEDIATAMENTE.",
+          "**COMPRESSÕES TORÁCICAS:** Local 1/3 inferior esterno, prof. 5-6cm, 100-120/min, recuo completo. Máscara: 30:2. Tubo: CONTÍNUA.",
+          "**RITMOS CHOCÁVEIS (FV/TVsp):** DESFIBRILHAÇÃO → RCP 2 min → reavaliar.",
+          "**RITMOS NÃO CHOCÁVEIS (Assistolia/AESP):** RCP → Adrenalina 1mg IV 3-5 min → tratar causa reversível (5H+5T).",
+          "**ACLS:** Adrenalina 1mg 3-5min (não chocável). Amiodarona 300mg → 150mg (FV/TVsp refratária). Metoprolol 5mg (FV/TVsp recorrente)."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — PCR",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Adrenalina (Epinefrina)",
+            "apresentacao": "1 mg/mL (1 mL)",
+            "diluicao": "Usar direto",
+            "dose": "1 mg IV a cada 3-5 min (ritmo não chocável)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Amiodarona",
+            "apresentacao": "150 mg/3 mL",
+            "diluicao": "Pode diluir em SG5% 20 mL",
+            "dose": "300 mg IV bolus → 2ª dose 150 mg (FV/TVsp refratária)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Sulfato de Magnésio",
+            "apresentacao": "500 mg/mL 10mL (10%)",
+            "diluicao": "Diluir em 10 mL SF (50 mg/mL)",
+            "dose": "1-2 g IV em 5 min (Torsades de Pointes)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Bicarbonato de Sódio",
+            "apresentacao": "8,4% (1 mEq/mL) 50 mL",
+            "diluicao": "Usar direto ou diluir",
+            "dose": "1 mEq/kg IV (apenas acidose severa documentada)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Cloreto de Cálcio",
+            "apresentacao": "10% (100 mg/mL) 10 mL",
+            "diluicao": "Usar direto",
+            "dose": "1-2 g IV em 5 min (hipercalemia)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Naloxona",
+            "apresentacao": "0,4 mg/mL (1 mL)",
+            "diluicao": "Usar direto",
+            "dose": "0,4-2 mg IV (suspeita de opioides)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Metoprolol",
+            "apresentacao": "5 mg/5 mL",
+            "diluicao": "Usar direto",
+            "dose": "5 mg IV a cada 5 min (máx 15 mg) — FV/TVsp recorrente",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "causas_reversiveis",
+        "titulo": "Causas Reversíveis — 5H + 5T",
+        "cinco_h": [
+          [
+            "Hipovolêmia",
+            "Expansão volêmica agressiva, transfusão"
+          ],
+          [
+            "Hipoxia",
+            "Otimizar ventilação, intubar"
+          ],
+          [
+            "Hidrogenionose (acidose)",
+            "Bicarbonato se pH < 7,1"
+          ],
+          [
+            "Hipo/Hipercalemia",
+            "KCl se K < 3,5; Cálcio + Insulina se K > 6,5"
+          ],
+          [
+            "Hipotermia",
+            "Rewarming ativo"
+          ]
+        ],
+        "cinco_t": [
+          [
+            "Trombose coronariana (IAM)",
+            "ICP emergencial"
+          ],
+          [
+            "Trombose pulmonar (TEP)",
+            "Fibrinólise ou trombectomia"
+          ],
+          [
+            "Tórax tenso (pneumotórax)",
+            "Descompressão agulha (2ª EIC esq.) ou drenagem"
+          ],
+          [
+            "Tamponamento cardíaco",
+            "Pericardiocentese"
+          ],
+          [
+            "Tóxicos/Intoxicação",
+            "Antídotos específicos"
+          ]
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Prognóstico e Alvos Pós-RCP",
+        "escores": [
+          {
+            "nome": "Fatores de mau prognóstico",
+            "descricao": "Após 20 min de RCP",
+            "colunas": [
+              "Critério",
+              "Significado"
+            ],
+            "dados": [
+              [
+                "Ausência pupilar à luz",
+                "Mau prognóstico"
+              ],
+              [
+                "Ausência reflexo corneano",
+                "Mau prognóstico"
+              ],
+              [
+                "Ausência movimentos motores",
+                "Mau prognóstico"
+              ],
+              [
+                "ETCO2 < 10 mmHg após 20 min",
+                "Prognóstico muito ruim"
+              ],
+              [
+                "Ausência VF/VT desde início",
+                "Mau prognóstico"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Temperatura",
+            "32-36°C por 24h (hipotermia terapêutica)"
+          ],
+          [
+            "Glicemia",
+            "140-180 mg/dL"
+          ],
+          [
+            "PAM",
+            "≥ 65 mmHg"
+          ],
+          [
+            "PaO2",
+            "75-100 mmHg (evitar hiperoxia)"
+          ],
+          [
+            "PaCO2",
+            "35-45 mmHg"
+          ],
+          [
+            "pH",
+            "7,35-7,45"
+          ],
+          [
+            "ETCO2",
+            "Monitorar continuamente"
+          ]
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 4 (Suporte Vital Avançado)"
+    ],
+    "categoria": "Neurológico"
+  },
+  {
+    "id": "emergencia-hipertensiva",
+    "titulo": "Emergência Hipertensiva",
+    "cid": "I11.0",
+    "cor": "#0891b2",
+    "icon": "speedometer-outline",
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — Emergência Hipertensiva",
+        "itens": [
+          "**Definição:** PA > 180/120 mmHg COM lesão aguda de órgão-alvo. Urgência: PA > 180/120 SEM lesão aguda.",
+          "**AVISO IMEDIATO:** Intensivista / Cardiologista.",
+          "**Monitorização:** Cateter arterial, CVC, sonda vesical, ECG 12 derivações.",
+          "**Labs:** Troponina, BNP/NT-proBNP, Creatinina, Gasometria, Hemograma, PCR.",
+          "**Imagem:** Ressonância/Tomografia se suspeita AVC/Hemorragia/Dissecção.",
+          "**Alvo 1ª hora:** Reduzir 25% da PA sistólica (ou até 110-120 mmHg). Estabilizar 160/100 em 6h. Normalizar em 24-48h.",
+          "**EXCEÇÕES:** Dissecção → PA < 120/80 em 20min (beta-bloqueador). Eclâmpsia → PA < 160/110 (sulfato Mg). HIC → PA < 140/90 (se PA > 220/110)."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Emergência Hipertensiva",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Nitroprussiato de Sódio",
+            "apresentacao": "50 mg/2 mL",
+            "diluicao": "50 mg em 250 mL SG5% (200 mcg/mL)",
+            "dose": "0,25-10 mcg/kg/min — titular c/ PA invasiva (1ª linha urgência)",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Nitroglicerina",
+            "apresentacao": "5 mg/mL (10 mL)",
+            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "dose": "5-200 mcg/min — 1ª linha se congestão/IC",
+            "sus": "basico"
+          },
+          {
+            "nome": "Labetalol",
+            "apresentacao": "100 mg/20 mL (5 mg/mL)",
+            "diluicao": "Usar direto",
+            "dose": "Bolus 20 mg 2min → 50-100 mg 10min (máx 300mg). Infusão 2-8 mg/min",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nicardipina",
+            "apresentacao": "50 mg/100 mL (0,5 mg/mL)",
+            "diluicao": "Usar direto",
+            "dose": "5-15 mg/h — titular a cada 5 min",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Fenoldopam",
+            "apresentacao": "10 mg/250 mL (40 mcg/mL)",
+            "diluicao": "Frasco padrão",
+            "dose": "0,1-0,3 mcg/kg/min — renalprotetor",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Hidralazina",
+            "apresentacao": "20 mg/mL (1 mL)",
+            "diluicao": "Usar direto ou diluir",
+            "dose": "10-20 mg IV 20-30min (pré-eclâmpsia)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Sulfato de Magnésio",
+            "apresentacao": "50% (500 mg/mL) 10 mL",
+            "diluicao": "Diluir em 100 mL SF (5 mg/mL)",
+            "dose": "4-6 g IV 20min → 1-2 g/h contínuo (eclâmpsia)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Esmolol",
+            "apresentacao": "10 mg/mL (10 mL)",
+            "diluicao": "2,5 g em 250 mL SG5% (10.000 mcg/mL)",
+            "dose": "Bolus 500 mcg/kg 1min → 50-200 mcg/kg/min (dissecção)",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Enalaprilat",
+            "apresentacao": "1,25 mg/mL (1 mL)",
+            "diluicao": "Usar direto",
+            "dose": "0,625-1,25 mg IV 6/6h (IC aguda)",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Lesão de Órgão-Alvo e Alvos por Condição",
+        "escores": [
+          {
+            "nome": "Lesão de órgão-alvo (Emergência)",
+            "descricao": "Critérios de lesão aguda",
+            "colunas": [
+              "Órgão",
+              "Sinais/Sintomas"
+            ],
+            "dados": [
+              [
+                "Cérebro",
+                "Cefaleia intensa, náusea/vômito, alteração visual, convulsão, coma"
+              ],
+              [
+                "Coração",
+                "Dor torácica, dispneia, estertores, elevação do segmento ST"
+              ],
+              [
+                "Rim",
+                "Proteinúria, hematúria, elevação de creatinina"
+              ],
+              [
+                "Olho",
+                "Hemorragias retinianas, papiledema"
+              ],
+              [
+                "Vasos",
+                "Dor torácica irradiada (dissecção), pulso assimétrico"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Emergência genérica",
+            "25% em 1ª hora → 160/100 em 6h"
+          ],
+          [
+            "Dissecção de aorta",
+            "< 120/80 em 20 min"
+          ],
+          [
+            "Eclâmpsia",
+            "< 160/110"
+          ],
+          [
+            "Hemorragia intracraniana",
+            "< 140/90 (se PA > 220/110)"
+          ],
+          [
+            "Edema pulmonar agudo",
+            "< 140/90 (Nitroglicerina + Furosemida)"
+          ],
+          [
+            "Encefalopatia hipertensiva",
+            "25% em 1ª hora (NÃO reduzir muito rápido)"
+          ],
+          [
+            "Pós-ICP cerebral",
+            "< 140/90"
+          ]
+        ]
+      },
+      {
+        "tipo": "urgencia",
+        "titulo": "Urgência Hipertensiva (sem lesão de órgão-alvo)",
+        "itens": [
+          "PA ≤ 140/90 em 24-48 horas.",
+          "Tratar com medicação oral: Clonidina, Captopril, Labetalol oral.",
+          "NÃO necessita internação em UTI.",
+          "Acompanhamento ambulatorial em 24-72h."
+        ]
+      }
+    ],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 36 (Emergência Hipertensiva)"
+    ],
+    "categoria": "Cardiovascular"
+  },
+  {
+    "id": "sca-sem-supradesnivelamento",
+    "titulo": "SCA sem Supradesnivelamento do ST (SCA sST)",
+    "cid": "I21.4",
+    "cor": "#dc2626",
+    "icon": "heart-circle-outline",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 30 (SCA sST)",
+      "SBC Frescorio FA 2025",
+      "PCDT SCA CONITEC 2023",
+      "SBC ICC Crônica e Aguda 2018"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — SCA sST (Angina Instável / IAM sem Supra)",
+        "itens": [
+          "**Definição:** Inclui angina instável e IAM sem supradesnivelamento do ST. IAM tipo 2: desequilíbrio oferta/demanda (sepse, IC descompensada, FA com FC alta, HAS severa, anemia, hipóxia).",
+          "**Avaliação imediata (MOVE):** Monitorização contínua, Oxigênio se SpO2 < 90%, Acesso venoso calibroso, ECG 12 derivações em até 10 min (repetir se dor persistente).",
+          "**Laboratório urgente:** Troponina adierada (0h e 3h com ensaio de alta sensibilidade), Hemograma, PCR, Ureia/Creatinina, Glicemia, Coagulograma, Perfil lipídico.",
+          "**Antiagregação plaquetária:** AAS 300mg VO mastigado (primeira dose) → 100mg/d. Segundo antiagregante: Prasugrel 60mg → 10mg/d OU Ticagrelor 180mg → 90mg 2x/d (após conhecimento anatômico coronariano). Clopidogrel 300-600mg → 75mg/d (alternativa).",
+          "**Anticoagulação:** HNF 60-70 U/kg bolus IV → 12-15 U/kg/h OU Enoxaparina 1 mg/kg SC 12/12h (ajustar se TFGe < 30). Manter até procedimento ou alta clínica.",
+          "**Terapia anti-isquêmica:** Nitratos — Dinitrato de isossorbida 5mg SL q5min (máx 15mg) OU Nitroglicerina IV 5-10 mcg/min (titular até alívio da dor). Betabloqueador — Metoprolol 5mg IV q5min (máx 3 doses) ou 25-100mg VO/d; meta FC ~60bpm. Estatina — Atorvastatina 40mg VO (iniciar precoce). IECA/IBRA — indicar se IC, DM ou HAS.",
+          "**Contraindicações nitratos:** IAM de VD, uso de inibidores de PDE5 (sildenafila/tadalafila) nas últimas 24-48h. Cautela com morfina (retarda absorção de antiagregantes orais).",
+          "**Estratificação invasiva — MUITO ALTO RISCO (< 2h):** Instabilidade hemodinâmica, choque cardiogênico, dor refratária ao tratamento, arritmias ventriculares malignas, elevação persistente do supra de aVR.",
+          "**Estratificação invasiva — ALTO RISCO (< 24h):** Troponina positiva compatível com infarto, alterações dinâmicas do segmento ST/T, GRACE > 140.",
+          "**Estratificação invasista — RISCO INTERMEDIÁRIO (< 72h):** Diabetes, TFGe < 60, FEVE < 40%, pós-CIE/ICP precoce, escore GRACE 109-140.",
+          "**Estratificação invasista — BAIXO RISCO:** Considerar teste não invasivo de ischemia antes de decidir cateterismo."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — SCA sem Supradesnivelamento",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "AAS (Ácido Acetilsalicílico)",
+            "apresentacao": "100mg e 500mg comp.",
+            "diluicao": "Uso oral direto",
+            "dose": "300mg VO mastigado (1ª dose) → 100mg/d manutenção",
+            "sus": "basico"
+          },
+          {
+            "nome": "Prasugrel",
+            "apresentacao": "10mg comp.",
+            "diluicao": "Uso oral direto",
+            "dose": "Carga 60mg VO → 10mg/d (após conhecimento anatômico)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Ticagrelor",
+            "apresentacao": "90mg comp.",
+            "diluicao": "Uso oral direto",
+            "dose": "Carga 180mg VO → 90mg 2x/d (após conhecimento anatômico)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Clopidogrel",
+            "apresentacao": "75mg comp.",
+            "diluicao": "Uso oral direto",
+            "dose": "Carga 300-600mg VO → 75mg/d (alternativa a Prasugrel/Ticagrelor)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Heparina de Baixo Peso Molecular (HNF)",
+            "apresentacao": "5.000 UI/mL (frasco)",
+            "diluicao": "Frasco padrão",
+            "dose": "Bolus 60-70 UI/kg IV → infusão 12-15 UI/kg/h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Enoxaparina",
+            "apresentacao": "40mg/0,4mL, 60mg/0,6mL, 80mg/0,8mL",
+            "diluicao": "SC direto",
+            "dose": "1 mg/kg SC 12/12h (ajustar se TFGe < 30 mL/min)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Nitroglicerina",
+            "apresentacao": "5 mg/mL (10 mL)",
+            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "dose": "5-10 mcg/min IV → titular até alívio da dor (máx 200 mcg/min)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Dinitrato de Isossorbida",
+            "apresentacao": "5mg comp. sublingual",
+            "diluicao": "Sublingual direto",
+            "dose": "5mg SL q5min (máx 3 doses em 15min)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Metoprolol",
+            "apresentacao": "5mg/5mL (IV) e 25-100mg comp.",
+            "diluicao": "IV: usar direto / VO: comp.",
+            "dose": "5mg IV q5min (máx 15mg) OU 25-100mg VO/d — meta FC ~60bpm",
+            "sus": "basico"
+          },
+          {
+            "nome": "Atorvastatina",
+            "apresentacao": "20mg e 40mg comp.",
+            "diluicao": "Uso oral direto",
+            "dose": "40mg VO (estatinas de alta potência, iniciar precoce)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escores de Risco e Estratificação Invasiva",
+        "escores": [
+          {
+            "nome": "Killip-Kimball (Classificação Clínica)",
+            "descricao": "Avaliação de gravidade clínica no IAM",
+            "colunas": [
+              "Classe",
+              "Descrição"
+            ],
+            "dados": [
+              [
+                "I",
+                "Sem sinais de IC"
+              ],
+              [
+                "II",
+                "Estertores basais, B3, JVP elevada, edema periférico leve"
+              ],
+              [
+                "III",
+                "Edema pulmonar franco"
+              ],
+              [
+                "IV",
+                "Choque cardiogênico"
+              ]
+            ]
+          },
+          {
+            "nome": "TIMI — NSTEMI/Angina Instável",
+            "descricao": "Escore de risco cardiovascular em 14 dias",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Idade ≥ 65 anos",
+                "1"
+              ],
+              [
+                "≥ 3 fatores de risco coronariano (DM, HAS, HAS familiar, dislipidemia, tabagismo)",
+                "1"
+              ],
+              [
+                "Estenose coronariana ≥ 50% em 2+ vasos",
+                "1"
+              ],
+              [
+                "Alteração do segmento ST",
+                "1"
+              ],
+              [
+                "Angina ≥ 2 episódios em 24h",
+                "1"
+              ],
+              [
+                "Uso de AAS nas últimas 72h",
+                "1"
+              ],
+              [
+                "Elevação de marcadores de necrose",
+                "1"
+              ],
+              [
+                "0-1 pt: Baixo risco | 2: Intermediário-baixo | 3-4: Intermediário-alto | 5-7: Alto risco",
+                ""
+              ]
+            ]
+          },
+          {
+            "nome": "GRACE 2.0",
+            "descricao": "Escore de risco hospitalar e pós-alta",
+            "colunas": [
+              "Variável",
+              "Faixas/Pontos"
+            ],
+            "dados": [
+              [
+                "Idade",
+                "≤ 30a (0) → ≥ 90a (100)"
+              ],
+              [
+                "FC",
+                "≤ 50 (0) → ≥ 110 (46)"
+              ],
+              [
+                "PA sistólica",
+                "≤ 80 (58) → ≥ 200 (0)"
+              ],
+              [
+                "Creatinina",
+                "≤ 0,39 (1) → ≥ 3,99 (28)"
+              ],
+              [
+                "Parada cardíaca",
+                "Sim (39) / Não (0)"
+              ],
+              [
+                "Elevação troponina",
+                "Sim (14) / Não (0)"
+              ],
+              [
+                "Alteração ST/T",
+                "Sim (12) / Não (0)"
+              ],
+              [
+                "GRACE > 140 = Alto risco (cateterismo < 24h)",
+                ""
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "PA sistólica",
+            "≥ 90 mmHg (evitar hipotensão)"
+          ],
+          [
+            "FC",
+            "~60 bpm (beta-bloqueador)"
+          ],
+          [
+            "SpO2",
+            "≥ 94%"
+          ],
+          [
+            "Glicemia",
+            "140-180 mg/dL"
+          ],
+          [
+            "Estratégia invasiva",
+            "Muito alto < 2h | Alto < 24h | Intermediário < 72h"
+          ],
+          [
+            "Dor torácica",
+            "Avaliar resposta a nitratos em 15min"
+          ],
+          [
+            "Diurese",
+            "≥ 0,5 mL/kg/h"
+          ]
+        ]
+      }
+    ],
+    "categoria": "Cardiovascular"
+  },
+  {
+    "id": "iamcsst",
+    "titulo": "IAM com Supradesnivelamento do ST",
+    "cid": "I21.0",
+    "cor": "#dc2626",
+    "icon": "heart-outline",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 31 (IAMCSST)",
+      "SBC Frescorio FA 2025",
+      "PCDT SCA CONITEC 2023"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — Janela de Tempo Crítico",
+        "itens": [
+          "**ECG em até 2 minutos** da chegada. **Interpretação em até 10 minutos:** supra de ST ≥ 1 mm em 2 derivações contíguas (≥ 2 mm em V1-V3) → diagnóstico de IAMCSST.",
+          "**Reperfusão MISSIONÁRIA — Porta-balão < 90 minutos:** ICP primária (angioplastia + stent) é O TRATAMENTO DE ESCOLHA. Activar cat lab imediatamente.",
+          "**Se transferência para SHCI em < 120 minutos:** transferir para ICP primária (porta-balão < 90 min a partir do primeiro contato médico). Transporte com equipe treinada.",
+          "**Se transferência > 120 minutos ou impossível:** Fibrinólise local. **Porta-agulha < 30 minutos.** Alteplase ou Tenecteplase conforme protocolo. Avaliar reperfúxia em 60-90 min.",
+          "**Antiagregação plaquetária IMEDIATA:** AAS 300 mg VO mastigado (exceto alergia verdadeira ao AAS ou suspeita de dissecção aorticor). Segundo antiagregante conforme estratégia:",
+          "**Se fibrinólise:** Clopidogrel 300 mg VO (< 75 anos) ou 75 mg VO (≥ 75 anos).",
+          "**Se ICP primária (após anatomia coronariana):** Prasugrel 60 mg VO ou Ticagrelor 180 mg VO (NÃO associar Prasugrel + Ticagrelor).",
+          "**Anticoagulação:** HNF (bolus 70 UI/kg → 15 UI/kg/h) OU Enoxaparina (se fibrinólise: 30 mg IV bolus + 1 mg/kg SC 12/12h, max 100 mg nas 2 primeiras doses).",
+          "**Suporte:** O2 se SaO2 < 90%. Nitrato SL/IV se dor ou congestão (CONTRA se PA < 90, VD, uso de PDE5). **Morfina NÃO de rotina** — retarda absorção do AAS. Reservar dor > 7/10.",
+          "**Após estabilidade hemodinâmica:** Betabloqueador VO (CONTRA se FC < 60, PA < 120, idade > 70, IC aguda). Estatina: Atorvastatina 40-80 mg.",
+          "**Avaliar complicações mecânicas:** Estalo + DR sistólica aguda = ruptura septal ou de músculo papilar. Piora súbita + CIVD = ruptura de parede livre. Eco bedside urgente."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — IAMCSST",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "AAS (Ácido Acetilsalicílico)",
+            "apresentacao": "100 mg e 500 mg comprimido",
+            "diluicao": "Mastigar — NÃO encapsular",
+            "dose": "300 mg VO mastigado (dose de carga). Manter 75-100 mg/dia",
+            "sus": "basico"
+          },
+          {
+            "nome": "Clopidogrel",
+            "apresentacao": "75 mg comprimido",
+            "diluicao": "VO direto",
+            "dose": "Carga: 300 mg VO (< 75a) ou 75 mg (≥ 75a). Manter 75 mg/dia. Usar se fibrinólise",
+            "sus": "basico"
+          },
+          {
+            "nome": "Prasugrel",
+            "apresentacao": "10 mg comprimido",
+            "diluicao": "VO direto",
+            "dose": "Carga 60 mg VO (após ICP + anatomia). Manter 10 mg/dia. CONTRA se ≥ 75a, ICC, AVC prévio, peso < 60 kg",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ticagrelor",
+            "apresentacao": "90 mg comprimido",
+            "diluicao": "VO direto",
+            "dose": "Carga 180 mg VO (após ICP + anatomia). Manter 90 mg 12/12h. CONTRA se uso de CYP3A4 potente",
+            "sus": "rename"
+          },
+          {
+            "nome": "Alteplase (rt-PA)",
+            "apresentacao": "50 mg e 100 mg frasco",
+            "diluicao": "Reconstituir com SF 0,9%",
+            "dose": "Se ≥ 65 kg: 15 mg bolus + 50 mg/30min + 35 mg/1h. Se < 65 kg: 15 mg bolus + 0,75 mg/kg/30min (max 50mg) + 0,50 mg/kg/1h (max 35mg)",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Tenecteplase",
+            "apresentacao": "50 mg frasco",
+            "diluicao": "Reconstituir conforme bula (10 mL SF)",
+            "dose": "Bolus IV único: < 60 kg = 30 mg; 60-69 kg = 35 mg; 70-79 kg = 40 mg; 80-89 kg = 45 mg; ≥ 90 kg = 50 mg. Se ≥ 75a: metade da dose",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "HNF (Heparina de Baixo Peso Molecular)",
+            "apresentacao": "5.000 UI/mL (frasco)",
+            "diluicao": "Frasco padrão",
+            "dose": "Bolus 70 UI/kg IV → 15 UI/kg/h. APTT meta 50-70s",
+            "sus": "basico"
+          },
+          {
+            "nome": "Enoxaparina",
+            "apresentacao": "40 mg/0,4 mL; 60 mg/0,6 mL; 80 mg/0,8 mL",
+            "diluicao": "SC direto",
+            "dose": "Se fibrinólise: 30 mg IV bolus + 1 mg/kg SC 12/12h (max 100 mg 1ª e 2ª doses). Sem fibrinólise: 1 mg/kg SC 12/12h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Nitroglicerina",
+            "apresentacao": "5 mg/mL (ampola)",
+            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "dose": "SL: 1-3 dose(s) a cada 5min. IV: 10-200 mcg/min. CONTRA se PA < 90, VD, uso de PDE5 (sildenafila/udenafila < 24h, tadalafila < 48h)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Metoprolol",
+            "apresentacao": "25 mg, 50 mg comprimido",
+            "diluicao": "VO direto",
+            "dose": "25-50 mg VO 6/6h após estabilidade. IV: 5 mg bolus a cada 5min (max 15mg). CONTRA se FC < 60, PA < 120, IC aguda, Bloco AV > I, idade > 70a",
+            "sus": "basico"
+          },
+          {
+            "nome": "Atorvastatina",
+            "apresentacao": "20 mg, 40 mg comprimido",
+            "diluicao": "VO direto",
+            "dose": "40-80 mg VO (dose alta na fase aguda)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Morfina",
+            "apresentacao": "10 mg/mL (ampola)",
+            "diluicao": "Diluir em SF 0,9% (10 mg em 10 mL)",
+            "dose": "2-4 mg IV a cada 15min PRN (dor > 7/10). NÃO usar de rotina — retarda absorção AAS e pode causar hipotensão",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Critérios de Reperfusão e Contraindicações",
+        "escores": [
+          {
+            "nome": "Critérios de Reperfusão — Decisão",
+            "descricao": "Qual estratégia de reperfusão?",
+            "colunas": [
+              "Cenário",
+              "Estratégia",
+              "Meta"
+            ],
+            "dados": [
+              [
+                "ICP possível em < 90 min",
+                "Angioplastia primária (ICP)",
+                "Porta-balão < 90 min"
+              ],
+              [
+                "Transferência para SHCI < 120 min",
+                "Transferir para ICP primária",
+                "Porta-balão < 90 min do 1º contato"
+              ],
+              [
+                "ICP > 120 min ou impossível",
+                "Fibrinólise local",
+                "Porta-agulha < 30 min"
+              ],
+              [
+                "Fibrinólise falhou (< 60-90 min)",
+                "Resgate mecânico (ICP de resgate)",
+                "Ativar cat lab imediatamente"
+              ]
+            ]
+          },
+          {
+            "nome": "Contraindicações Absolutas de Fibrinólise",
+            "descricao": "NÃO fibrinolizar se qualquer critério presente",
+            "colunas": [
+              "Critério",
+              "Observação"
+            ],
+            "dados": [
+              [
+                "Hemorragia intracraniana prévia",
+                "Qualquer idade"
+              ],
+              [
+                "AVC isquêmico < 3 meses",
+                "AVC hemorrágico = absoluto"
+              ],
+              [
+                "Neoplasia do SNC",
+                "Primária ou metastática"
+              ],
+              [
+                "Traumatismo craniano < 3 meses",
+                "Inclui politrauma"
+              ],
+              [
+                "Sangramento ativo (não menstrual)",
+                "Ativo clinicamente significativo"
+              ],
+              [
+                "Dissecção aorticor",
+                "Suspeita clínica + TC"
+              ],
+              [
+                "Trombose intracraniana conhecida",
+                ""
+              ]
+            ]
+          },
+          {
+            "nome": "Complicações Mecânicas do IAM",
+            "descricao": "Suspeitar em piora súbita + instabilidade",
+            "colunas": [
+              "Complicação",
+              "Sinal Clínico",
+              "Conduta"
+            ],
+            "dados": [
+              [
+                "Ruptura septal (CIV)",
+                "Estalo + DR holossistólica nova",
+                "IABP + cirurgia urgente"
+              ],
+              [
+                "Ruptura músculo papilar",
+                "MR aguda + edema pulmonar súbito",
+                "Cirurgia urgente"
+              ],
+              [
+                "Ruptura de parede livre",
+                "Tamponamento + Choque",
+                "Péricardiocenteze + cirurgia"
+              ],
+              [
+                "Aneurisma de VD",
+                "Distensão jugular + choque",
+                "Suporte + cirurgia"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Porta-balão (ICP primária)",
+            "< 90 min"
+          ],
+          [
+            "Porta-agulha (fibrinólise)",
+            "< 30 min"
+          ],
+          [
+            "Resolução do supra (fibrinólise)",
+            "> 50% em 60-90 min"
+          ],
+          [
+            "SaO2",
+            "≥ 90% (O2 suplementar apenas se necessário)"
+          ],
+          [
+            "Glicemia",
+            "140-180 mg/dL"
+          ],
+          [
+            "APTT (se HNF)",
+            "50-70 segundos"
+          ],
+          [
+            "PA alvo (pós-reperfusão)",
+            "Manter PA > 90 (evitar hipotensão)"
+          ]
+        ]
+      }
+    ],
+    "categoria": "Cardiovascular"
+  },
+  {
+    "id": "tromboembolismo-pulmonar",
+    "titulo": "Tromboembolismo Pulmonar (TEP)",
+    "cid": "I26.9",
+    "cor": "#7c3aed",
+    "icon": "ribbon-outline",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 46 (TEP)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — Tromboembolismo Pulmonar",
+        "itens": [
+          "**Classificação hemodinâmica:** MACIÇO — PA < 90 ou necessita vasopressor, hipoperfusão orgânica, parada. SUBMACIÇO — PA normal mas estresse cardiopulmonar (ECG: S1Q3, bloqueio RBBB, taquicardia; D-dímero > 10× ULN; TCPA > 60%). MENOR GRAVIDADE — hemodinamicamente estável, sem disfunção VD.",
+          "**Avaliação imediata:** ECG 12 derivações (S1Q3, desvio direita, T inv V1-V4), Raio-X tórax, SpO2, PAF, lactato, Troponina, BNP/NT-proBNP. Ecocardiograma bedside se instável (hipoecasia do VD, septo para-esquerda).",
+          "**Algoritmo diagnóstico:** Escala de Wells/Revised Geneva → probabilidade pré-teste. Baixa/intermediária → D-dímero (se negativo, TEP descartado). Alta → AngioTC de tórax direta. PERC: se todos 8 critérios negativos, TEP descartado (< 2%).",
+          "**Suporte hemodinâmico:** Cristaloide ≤ 500mL (bolus 100-250mL). EVITAR sobrecarga volêmica (piora disfunção VD). Vasopressor: Noradrenalina 0,2-1,0 mcg/kg/min — 1ª linha (melhora PA + ação inotrópica VD). Dobutamina 2-20 mcg/kg/min se índice cardíaco reduzido (associar a NA se hipotenso). Considerar ECMO VA se refratário.",
+          "**Trombólise (TEP maciço e submaciço com piora):** Alteplase 100mg IV em 2h OU 20mg bolus + 80mg em 2h. Tenecteplase: alternativa (peso-adjustada). Indicação: instabilidade hemodinâmica OU piora clínica apesar de suporte. Contraindicações: hemorragia ativa, AVC < 3 meses, neoplasia intracraniana, cirurgia grande < 3 semanas, trombocitopenia < 100.000.",
+          "**Anticoagulação (TODOS os pacientes, exceto contraindicação):** HNF bolus 80 U/kg → infusão 18 U/kg/h (ajustar por PTTa) OU Enoxaparina 1 mg/kg SC 12/12h (ajustar se TFGe < 30). Tromboprofilaxia: Enoxaparina 40mg SC/d se risco alto sem TEP estabelecido.",
+          "**Suporte respiratório:** O2 suplementar se SaO2 < 90%. VNI se necessário (COPD, sobrecarga VD). Ventilação protetora se IOT: VC 6 mL/kg, Pplat < 30 cmH2O, FR 12-16, FiO2 titulada. EVITAR hipotensão na indução.",
+          "**Estratificação de risco e destino:** PESI classe I-II = baixo risco → possível alta precoce/ambulatorial. HESTIA = critérios de alta hospitalar. Reavaliar 24-48h: melhoria clínica + PA normal + D-dímero em queda → considerar alta com anticoagulação oral."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Tromboembolismo Pulmonar",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Heparina de Baixo Peso Molecular (HNF)",
+            "apresentacao": "5.000 UI/mL (frasco)",
+            "diluicao": "Frasco padrão",
+            "dose": "Bolus 80 U/kg IV → infusão contínua 18 U/kg/h (ajustar por PTTa 1,5-2,5×)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Enoxaparina",
+            "apresentacao": "40mg/0,4mL, 60mg/0,6mL, 80mg/0,8mL",
+            "diluicao": "SC direto",
+            "dose": "1 mg/kg SC 12/12h (ajustar se TFGe < 30 mL/min: 1mg/kg SC 24h). Tromboprofilaxia: 40mg SC/d",
+            "sus": "basico"
+          },
+          {
+            "nome": "Alteplase (rt-PA)",
+            "apresentacao": "50mg e 100mg frasco",
+            "diluicao": "Reconstituir: 50mg c/ 50mL SF → 1mg/mL. Diluir em 100mL SF",
+            "dose": "100mg IV em 2h (dose fixa) OU 20mg bolus + 80mg em 2h. TEP maciço/submaciço com piora",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Tenecteplase",
+            "apresentacao": "50mg frasco",
+            "diluicao": "Reconstituir conforme bula (10mg/mL)",
+            "dose": "Peso-adjustada: <60kg→30mg; 60-69kg→40mg; 70-79kg→50mg; 80-89kg→60mg; ≥90kg→70mg. Bolus IV 5-10s. Alternativa ao Alteplase",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Noradrenalina",
+            "apresentacao": "4 mg/4 mL (1 mg/mL)",
+            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "dose": "0,2-1,0 mcg/kg/min → titular por PA (1ª linha vasopressor no TEP). Melhora PA + inotrópico VD",
+            "sus": "basico"
+          },
+          {
+            "nome": "Dobutamina",
+            "apresentacao": "250 mg/5 mL",
+            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "dose": "2-20 mcg/kg/min — inotrópico se IC reduzida/índice cardíaco baixo. Associar a NA se hipotenso",
+            "sus": "basico"
+          },
+          {
+            "nome": "Cristaloide (Ringer Lactato / SF 0,9%)",
+            "apresentacao": "500mL e 1000mL frasco",
+            "diluicao": "Frasco padrão",
+            "dose": "Bolus 100-250mL IV. MÁXIMO 500mL total. EVITAR sobrecarga volêmica (piora VD)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Classificação, Escores e Alvos",
+        "escores": [
+          {
+            "nome": "Classificação Hemodinâmica do TEP",
+            "descricao": "Estratificação de gravidade e conduta",
+            "colunas": [
+              "Classificação",
+              "Critérios",
+              "Conduta"
+            ],
+            "dados": [
+              [
+                "Maciço (alto risco)",
+                "PA < 90 mmHg ou necessita vasopressor; hipoperfusão (oligúria, confusão, lactato elevado); parada cardíaca",
+                "Trombólise Imediata (Alteplase 100mg/2h) + suporte hemodinâmico. Considerar ECMO VA se refratário"
+              ],
+              [
+                "Submaciço (intermediário)",
+                "PA normal, mas: ECG (S1Q3, bloqueio RBBB, T inv V1-V4); D-dímero > 10× ULN; TPA > 60%; Troponina/BNP elevados",
+                "Suporte hemodinâmico + anticoagulação. Reavaliar 1-4h: piora → trombólise. ECO bedside: disfunção VD"
+              ],
+              [
+                "Menor gravidade (baixo risco)",
+                "PA estável, sem disfunção VD, sem elevação de troponina/BNP",
+                "Anticoagulação. PESI I-II → considerar alta precoce/ambulatorial. HESTIA para critérios de alta hospitalar"
+              ]
+            ]
+          },
+          {
+            "nome": "Wells (Revised) — Probabilidade Pré-Teste",
+            "descricao": "Estratificação clínica para TEP",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Sinais/sintomas de TVP (edema, dor, veia palpável)",
+                "3"
+              ],
+              [
+                "TEP #1ª hipótese ou igual probabilidade",
+                "3"
+              ],
+              [
+                "FC > 100 bpm",
+                "1,5"
+              ],
+              [
+                "Imobilização/cirurgia ≥ 4 semanas",
+                "1,5"
+              ],
+              [
+                "Hemoptoico",
+                "1"
+              ],
+              [
+                "Câncer ativo (tratamento nos últimos 6 meses ou paliativo)",
+                "1"
+              ],
+              [
+                "TVP prévia comprovada",
+                "1"
+              ],
+              [
+                "≥ 4 pts = Provável ( AngioTC direta ) | < 4 pts = Improvável ( D-dímero )",
+                ""
+              ]
+            ]
+          },
+          {
+            "nome": "PESI (Simplified) — Mortalidade a 30 dias",
+            "descricao": "Escore de estratificação de risco para TEP",
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Idade > 80 anos",
+                "1"
+              ],
+              [
+                "Oncologia ativa",
+                "1"
+              ],
+              [
+                "Insuficiência cardíaca ou doença pulmonar crônica",
+                "1"
+              ],
+              [
+                "FC ≥ 110 bpm",
+                "1"
+              ],
+              [
+                "PA sistólica < 100 mmHg",
+                "1"
+              ],
+              [
+                "SatO2 < 90%",
+                "1"
+              ],
+              [
+                "Alteração do nível de consciência",
+                "1"
+              ],
+              [
+                "Creatinina > 2 mg/dL (176 µmol/L)",
+                "1"
+              ],
+              [
+                "0-1 pt = Classe I (mortalidade 1,5-3,2%) → considerar alta | ≥ 2 pt = Classe II-V (mortalidade 5,6-24,5%) → internar",
+                ""
+              ]
+            ]
+          },
+          {
+            "nome": "HESTIA — Critérios de Alta Ambulatorial",
+            "descricao": "Paciente pode receber alta se TODOS os critérios forem negativos",
+            "colunas": [
+              "Critério",
+              "Adequação"
+            ],
+            "dados": [
+              [
+                "PA sistólica ≥ 100 mmHg",
+                "Sim"
+              ],
+              [
+                "FC < 110 bpm",
+                "Sim"
+              ],
+              [
+                "SatO2 ≥ 90% ao ar",
+                "Sim"
+              ],
+              [
+                "Sem hemoptoico",
+                "Sim"
+              ],
+              [
+                "Sem necessidade de O2 suplementar",
+                "Sim"
+              ],
+              [
+                "Sem dor intensa (EVA < 4/10)",
+                "Sim"
+              ],
+              [
+                "Sem sangramento ativo ou alto risco de sangramento",
+                "Sim"
+              ],
+              [
+                "Sem necessidade de trombólise",
+                "Sim"
+              ],
+              [
+                "Sem cateter central (CVC)",
+                "Sim"
+              ],
+              [
+                "Sem neoplasia ativa",
+                "Sim"
+              ],
+              [
+                "Sem histórico de sangramento GI nos últimos 14 dias",
+                "Sim"
+              ],
+              [
+                "Sem insuficiência renal grave (TFGe < 30)",
+                "Sim"
+              ],
+              [
+                "Sem gravidez",
+                "Sim"
+              ],
+              [
+                "Sem trombocitopenia (< 100.000/mm³)",
+                "Sim"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "PA sistólica",
+            "≥ 90 mmHg (evitar hipotensão)"
+          ],
+          [
+            "PAM",
+            "≥ 65 mmHg (se vasopressor)"
+          ],
+          [
+            "SpO2",
+            "≥ 90% (92-96% em DPOC)"
+          ],
+          [
+            "FC",
+            "< 110 bpm"
+          ],
+          [
+            "Diurese",
+            "≥ 0,5 mL/kg/h"
+          ],
+          [
+            "Lactato",
+            "Clearança ≥ 20%/2h"
+          ],
+          [
+            "PTTa (HNF)",
+            "60-80s (1,5-2,5× controle)"
+          ],
+          [
+            "INR (warfarina)",
+            "2,0-3,0 (alvo anticoagulação oral)"
+          ],
+          [
+            "Ventilação (se IOT)",
+            "VC 6 mL/kg, Pplat < 30 cmH2O"
+          ]
+        ]
+      }
+    ],
+    "categoria": "Respiratório"
+  },
+  {
+    "id": "estado-mal-epiletico",
+    "titulo": "Estado de Mal Epiléptico (EME)",
+    "cid": "G41.9",
+    "cor": "#ea580c",
+    "icon": "flash-outline",
+    "fontes": [
+      "Medicina de Emergência 19ed — Comp. 18 (Mal Epiléptico) + Cap. 59 (Crise Epiléptica)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta — Algoritmo por Fases (T1 = 5min / T2 = 30min)",
+        "itens": [
+          "**Definição:** Crise convulsiva > 30min OU crises recorrentes sem recuperação entre elas. T1 = 5min (EMEC convulsivo clássico). T2 = 30min (EME estabelecido). EMENC = forma não convulsiva — diagnóstico por EEG contínuo.",
+          "**0 — ESTABILIZAÇÃO IMEDIATA (qualquer fase):** Monitorização contínua, via aérea permeável, O2 suplementar, glicemia capilar, acesso venoso calibroso. Tiamina 200mg IV se etilismo/desnutrição (ANTES da glicose). Corrigir hipoglicemia, hiponatremia, hipocalcemia, hipertermia.",
+          "**1ª LINHA — T1 (5min) — Benzodiazepínicos:** Lorazepam 0,1 mg/kg IV lento (até 4mg, repetir 1x). Diazepam 10mg IV (5 mg/min, até 2 doses). Midazolam 10mg IM — se SEM acesso venoso. Fenobarbital 15 mg/kg IV se nenhum BZD disponível.",
+          "**2ª LINHA — T2 (30min) — Anticonvulsivantes parenterais:** Fenitoína 20 mg/kg IV (máx 50 mg/min, monitorar ECG + PA). Fosfenitoína 20 mg PE/kg IV (máx 150 mg PE/min). Valproato 40 mg/kg IV em 10 min (máx 3000 mg). Levetiracetam 60 mg/kg IV em 15 min (máx 4500 mg).",
+          "**3ª LINHA — EME REFRATÁRIO (> 60min apesar de 2ª linha):** Intubar + sedação + EEG contínuo. Midazolam 0,2 mg/kg bolus → 0,1-2 mg/kg/h contínuo. Propofol 2 mg/kg bolus → 2-10 mg/kg/h contínuo. Pentobarbital 5-15 mg/kg bolus → 0,5-5 mg/kg/h contínuo. Meta: supressão ou resolução eletrográfica no EEG.",
+          "**MONITORIZAÇÃO PÓS-CONTROLE:** EEG contínuo 24-48h após resolução. Reiniciar anticonvulsivantes orais ao estabilizar. SEMPRE buscar e tratar causa subjacente. Mortalidade ~20% (até 50% se refratário)."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Estado de Mal Epiléptico",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Tiamina (Vitamina B1)",
+            "apresentacao": "500 mg/5 mL (ampola)",
+            "diluicao": "Usar direto ou diluir em SG5%",
+            "dose": "200 mg IV (ANTES da glicose — se etilismo/desnutrição)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Lorazepam",
+            "apresentacao": "2 mg/mL (1 mL) e 4 mg/mL",
+            "diluicao": "Usar direto",
+            "dose": "0,1 mg/kg IV lento (até 4 mg) — 1ª linha T1, repetir 1x após 5 min",
+            "sus": "basico"
+          },
+          {
+            "nome": "Diazepam",
+            "apresentacao": "5 mg/mL (2 mL)",
+            "diluicao": "Usar direto",
+            "dose": "10 mg IV em 5 min (5 mg/min) — até 2 doses, intervalo 5 min",
+            "sus": "basico"
+          },
+          {
+            "nome": "Midazolam",
+            "apresentacao": "5 mg/mL (3 mL) e 10 mg/mL (3 mL)",
+            "diluicao": "IM direto (sem acesso venoso) ou diluir em SG5% para infusão",
+            "dose": "IM: 10 mg (1ª linha sem acesso venoso). Contínuo: 0,2 mg/kg bolus → 0,1-2 mg/kg/h (3ª linha)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Fenobarbital",
+            "apresentacao": "200 mg/mL (1 mL)",
+            "diluicao": "Diluir em SF se irritação venosa",
+            "dose": "15 mg/kg IV (máx 100 mg/min) — alternativa se nenhum BZD disponível",
+            "sus": "basico"
+          },
+          {
+            "nome": "Fenitoína",
+            "apresentacao": "50 mg/mL (2 mL)",
+            "diluicao": "Diluir em 100 mL SF 0,9% (não SG5%)",
+            "dose": "20 mg/kg IV (máx 50 mg/min) — monitorar ECG/PA continuamente",
+            "sus": "rename"
+          },
+          {
+            "nome": "Fosfenitoína",
+            "apresentacao": "75 mg PE/mL (2 mL)",
+            "diluicao": "Diluir em SF 0,9%",
+            "dose": "20 mg PE/kg IV (máx 150 mg PE/min) — alternativa à fenitoína",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Valproato de Sódio",
+            "apresentacao": "400 mg/mL (5 mL)",
+            "diluicao": "Diluir em 100 mL SF",
+            "dose": "40 mg/kg IV em 10 min (máx 3000 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Levetiracetam",
+            "apresentacao": "100 mg/mL (5 mL)",
+            "diluicao": "Diluir em 100 mL SF",
+            "dose": "60 mg/kg IV em 15 min (máx 4500 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Propofol",
+            "apresentacao": "10 mg/mL (20 mL)",
+            "diluicao": "Usar direto",
+            "dose": "2 mg/kg bolus → 2-10 mg/kg/h contínuo (3ª linha — EME refratário)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Pentobarbital",
+            "apresentacao": "50 mg/mL (20 mL)",
+            "diluicao": "Diluir em 250 mL SF",
+            "dose": "5-15 mg/kg bolus → 0,5-5 mg/kg/h contínuo (3ª linha — EME refratário)",
+            "sus": "ceaf"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Classificação, Fases e Causas do EME",
+        "escores": [
+          {
+            "nome": "Classificação por Fases (ILAE)",
+            "descricao": "Fases do tratamento baseadas em tempo",
+            "colunas": [
+              "Fase",
+              "Tempo",
+              "Conduta"
+            ],
+            "dados": [
+              [
+                "T0 (0-5 min)",
+                "0 a 5 minutos",
+                "Estabilização: via aérea, O2, glicemia, acesso venoso, tiamina"
+              ],
+              [
+                "T1 — EMEC (5-30 min)",
+                "5 a 30 minutos",
+                "Benzodiazepínicos: Lorazepam/Diazepam IV, Midazolam IM"
+              ],
+              [
+                "T2 — EMEC (30-60 min)",
+                "30 a 60 minutos",
+                "Anticonvulsivantes parenterais: Fenitoína, Valproato, Levetiracetam"
+              ],
+              [
+                "T3 — EME refratário",
+                "> 60 minutos",
+                "Sedação + IOT + EEG contínuo: Midazolam/Propofol/Pentobarbital"
+              ]
+            ]
+          },
+          {
+            "nome": "EMEC vs EMENC — Critérios",
+            "descricao": "Classificação clínica do mal epiléptico",
+            "colunas": [
+              "Tipo",
+              "Critérios Diagnósticos"
+            ],
+            "dados": [
+              [
+                "EMEC (Convulsivo clássico)",
+                "Atividade convulsiva tônico-clônica bilateral + inconsciência + evidência clínica ou de EEG"
+              ],
+              [
+                "EMEC (Convulsivo focal)",
+                "Atividade convulsiva focal com alteração de consciência persistente"
+              ],
+              [
+                "EMENC (Não convulsivo)",
+                "Alteração de consciência/comportamento SEM atividade motora — diagnóstico por EEG contínuo"
+              ],
+              [
+                "EME super-refratário",
+                "EME que persiste ou recorre ≥ 24h após tratamento com anestésicos"
+              ]
+            ]
+          },
+          {
+            "nome": "Causas do EME",
+            "descricao": "Sempre buscar e tratar causa subjacente",
+            "colunas": [
+              "Causa",
+              "Conduta"
+            ],
+            "dados": [
+              [
+                "AVC / TCE",
+                "Neuroimagem urgente (TC/RM), neurocirurgia se hemorragia"
+              ],
+              [
+                "Infecções do SNC (meningite, encefalite)",
+                "Antibiótico empírico + aciclovir IV, LCR"
+              ],
+              [
+                "Descontinuação abrupta de anticonvulsivantes",
+                "Retomar fármaco via adequada (VO → IV)"
+              ],
+              [
+                "Distúrbios metabólicos (Na, Ca, glicose)",
+                "Corrigir eletrólitos + glicemia"
+              ],
+              [
+                "Intoxicação / drogas",
+                "Antídotos específicos, suporte"
+              ],
+              [
+                "Hipertermia / hipotermia",
+                "Controle térmico agressivo"
+              ],
+              [
+                "Tumores / malformações vasculares",
+                "Neuroimagem + neurocirurgia"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Tempo ao BZD IV",
+            "Em até 5 min do início da crise (T1)"
+          ],
+          [
+            "EEG contínuo",
+            "Iniciar 24-48h após controle da crise"
+          ],
+          [
+            "Glicemia",
+            "100-180 mg/dL (corrigir hipoglicemia)"
+          ],
+          [
+            "Na sérico",
+            "135-145 mEq/L (corrigir hiponatremia)"
+          ],
+          [
+            "Temperatura",
+            "< 37,5°C (tratar hipertermia)"
+          ],
+          [
+            "SpO2",
+            "≥ 94%"
+          ],
+          [
+            "PA sistólica",
+            "≥ 90 mmHg (evitar hipotensão — fenitoína)"
+          ],
+          [
+            "Mortalidade",
+            "~20% geral (até 50% se refratário)"
+          ]
+        ]
+      }
+    ],
+    "categoria": "Neurológico"
+  },
+  {
+    "id": "icad",
+    "titulo": "Insuficiência Cardíaca Aguda Descompensada (ICAD)",
+    "cid": "I50.9",
+    "cor": "#2563eb",
+    "icon": "water-outline",
+    "fontes": [
+      "Medicina de EmerGENCY 19ed — Cap. 35 (IC Aguda)",
+      "SBC ICC Crônica e Aguda 2018"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Inicial — Classificação Hemodinâmica e Tratamento",
+        "itens": [
+          "**Classificação hemodinâmica (perfis):** Perfil A (quente-seco) = sem congestão, sem hipoperfusão → vasodilatador ± diurético. Perfil B (quente-congesto) = congestão, sem hipoperfusão → vasodilatador + diurético. Perfil C (frio-congesto) = congestão + hipoperfusão → vasodilatador + diurético + inotrópico ± vasopressor. Perfil L (frio-seco) = sem congestão, com hipoperfusão → expansão cautelosa + inotrópico.",
+          "**Avaliação imediata:** ECG 12 derivações (normal tem alto VPN para IC), BNP/NT-proBNP, Troponina, Gasometria, Creatinina, Eletrólitos, Hemograma. Ecocardiograma bedside.",
+          "**Oxigênio:** NÃO administrar se SaO2 > 90% sem dispneia (causa vasoconstrição e piora hemodinâmica). Alvo SaO2 > 90%. Apenas se hipoxêmico.",
+          "**VNI (CPAP/BIPAP):** Indicada em ICAD com Insuficiência Respiratória (reduz mortalidade). Contraindicações: rebaixamento do nível de consciência, secreção excessiva, vômito ativo, trauma facial.",
+          "**Diurético de alça:** Furosemida 20-40 mg IV (ou 2,5x dose oral crônica). Avaliar resposta em 2h: DU ≥ 100-150 mL/h ou Na urinário ≥ 50-70 mEq/L. Se insuficiente → dobrar dose. Máx 400-600 mg (1000 mg se IR concomitante).",
+          "**Vasodilatadores IV (PAS ≥ 110):** Nitroglicerina 5-200 mcg/min (especialmente se dor/isquemia). Nitroprussiato 0,3-10 mcg/kg/min (HAS sem isquemia). NÃO se PAS < 110 mmHg. SCAPE: bolus NTG 2 mg pode ser seguro.",
+          "**Inotrópicos (baixo débito/hipoperfusão):** Dobutamina 2-20 mcg/kg/min (FEVE < 40%). Milrinone 25-75 mcg/kg carga → 0,375-0,75 mcg/kg/min (evitar em miocardiopatia isquêmica). Levosimendan 0,1 mcg/kg/min.",
+          "**Vasopressor:** Noradrenalina 0,2-1,0 mcg/kg/min se PAS < 75 mmHg.",
+          "**Digoxina:** 0,25-0,5 mg EV se IC + FA com FC > 150 bpm. Idosos ou IR: 0,0625-0,125 mg.",
+          "**Evitar:** AINEs (retêm Na+/H2O), betabloqueadores não β1-seletivos (pioram descompensação), antiarrítmicos (exceto amiodarona em taquiarritmias).",
+          "**Correção de distúrbios:** K+ ≥ 4,0 mEq/L antes de digitálicos. Mg2+ ≥ 2,0 mg/dL. Corrigir hipovolemia se presente.",
+          "**Gliflozinas (pós-compensação):** Empagliflozina 10 mg/dia — iniciar após estabilização hemodinâmica (estudo EMPULSE)."
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — ICAD",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose"
+        ],
+        "dados": [
+          {
+            "nome": "Furosemida",
+            "apresentacao": "10 mg/mL (ampola 2 mL)",
+            "diluicao": "Pura ou diluir em SG5%",
+            "dose": "20-40 mg IV bolus (ou 2,5x dose oral). Dobrar se DU < 100-150 mL/h em 2h. Máx 400-600 mg (1000 mg se IR)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nitroglicerina",
+            "apresentacao": "5 mg/mL (ampola 10 mL)",
+            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "dose": "5-200 mcg/min — titular por congestão/dor. SCAPE: bolus 2 mg pode ser seguro",
+            "sus": "basico"
+          },
+          {
+            "nome": "Nitroprussiato de Sódio",
+            "apresentacao": "50 mg/2 mL",
+            "diluicao": "50 mg em 250 mL SG5% (200 mcg/mL)",
+            "dose": "0,3-10 mcg/kg/min — HAS sem isquemia. NÃO se PAS < 110. Titular c/ PA invasiva",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Dobutamina",
+            "apresentacao": "250 mg/5 mL",
+            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "dose": "2-20 mcg/kg/min — FEVE < 40%, baixo débito. Titular por inotrópico",
+            "sus": "basico"
+          },
+          {
+            "nome": "Milrinona",
+            "apresentacao": "10 mg/10 mL (1 mg/mL)",
+            "diluicao": "10 mg em 100 mL SF (100 mcg/mL)",
+            "dose": "Carga 25-75 mcg/kg 10min → 0,375-0,75 mcg/kg/min. EVITAR em IC isquêmica",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Levosimendan",
+            "apresentacao": "12,5 mg/5 mL",
+            "diluicao": "12,5 mg em 250 mL SG5% (50 mcg/mL)",
+            "dose": "Carga 6-12 mcg/kg 10min (opcional) → 0,1 mcg/kg/min. Sem taquicardia",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Noradrenalina",
+            "apresentacao": "4 mg/4 mL (1 mg/mL)",
+            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "dose": "0,2-1,0 mcg/kg/min — apenas se PAS < 75 mmHg",
+            "sus": "basico"
+          },
+          {
+            "nome": "Digoxina",
+            "apresentacao": "0,25 mg/mL (2 mL)",
+            "diluicao": "Pura ou diluir em SF",
+            "dose": "0,25-0,5 mg EV. Idosos/IR: 0,0625-0,125 mg",
+            "sus": "rename"
+          },
+          {
+            "nome": "Enalaprilat",
+            "apresentacao": "1,25 mg/mL (1 mL)",
+            "diluicao": "Usar direto",
+            "dose": "0,625-1,25 mg IV 6/6h — IC aguda com HAS concomitante",
+            "sus": "rename"
+          },
+          {
+            "nome": "Espironolactona",
+            "apresentacao": "25 mg comprimido",
+            "diluicao": "VO",
+            "dose": "25-50 mg/dia VO — iniciar na estabilização. Evitar se K+ > 5,0 ou CrCl < 30",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Classificação Hemodinâmica, Diagnóstico e Alvos",
+        "escores": [
+          {
+            "nome": "Perfil Hemodinâmico de ICAD",
+            "descricao": "Classificação guia de conduta",
+            "colunas": [
+              "Perfil",
+              "Condição",
+              "Conduta"
+            ],
+            "dados": [
+              [
+                "A — Quente Seco",
+                "Sem congestão, sem hipoperfusão",
+                "Vasodilatador (NTG/Nitroprussiato) ± diurético leve"
+              ],
+              [
+                "B — Quente Congesto",
+                "Congestão, sem hipoperfusão",
+                "Vasodilatador + Diurético de alça (1ª linha)"
+              ],
+              [
+                "C — Frio Congesto",
+                "Congestão + hipoperfusão",
+                "Vasodilatador + Diurético + Inotrópico ± Vasopressor"
+              ],
+              [
+                "L — Frio Seco",
+                "Sem congestão, com hipoperfusão",
+                "Expansão volêmica cautelosa + Inotrópico"
+              ]
+            ]
+          },
+          {
+            "nome": "Critérios Diagnósticos — BNP e NT-proBNP",
+            "descricao": "Valores de exclusão (alto VPN)",
+            "colunas": [
+              "Faixa Etária",
+              "BNP (pg/mL)",
+              "NT-proBNP (pg/mL)"
+            ],
+            "dados": [
+              [
+                "Qualquer idade",
+                "< 100 exclui IC",
+                ""
+              ],
+              [
+                "< 50 anos",
+                "",
+                "< 450"
+              ],
+              [
+                "50-75 anos",
+                "",
+                "< 900"
+              ],
+              [
+                "> 75 anos",
+                "",
+                "< 1800"
+              ],
+              [
+                "IR (CrCl < 60)",
+                "< 400 exclui",
+                "Ajustar para função renal"
+              ]
+            ]
+          },
+          {
+            "nome": "ECG na Suspeita de ICAD",
+            "descricao": "Valor preditivo negativo alto",
+            "colunas": [
+              "Achado",
+              "Significado Clínico"
+            ],
+            "dados": [
+              [
+                "ECG normal",
+                "Alto VPN — praticamente exclui IC como causa da dispneia"
+              ],
+              [
+                "FA",
+                "Causa ou consequência — controlar FC < 110 bpm"
+              ],
+              [
+                "Bloco de ramo esquerdo",
+                "Sugere IC com FEVE reduzida"
+              ],
+              [
+                "Sobrecarga ventr. esquerda",
+                "IC crônica descompensada"
+              ],
+              [
+                "IAMCSST",
+                "Causa de choque cardiogênico — ICP emergencial"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "SaO2",
+            "> 90% (NÃO O2 se SaO2 > 90% sem dispneia)"
+          ],
+          [
+            "PA Sistólica",
+            "≥ 110 mmHg (para vasodilatadores IV)"
+          ],
+          [
+            "PAS",
+            "< 75 mmHg → Noradrenalina"
+          ],
+          [
+            "FC",
+            "< 110 bpm (controle de FA)"
+          ],
+          [
+            "Diurese",
+            "≥ 100-150 mL/h após Furosemida IV"
+          ],
+          [
+            "Na urinário",
+            "≥ 50-70 mEq/L em 2h"
+          ],
+          [
+            "K sérico",
+            "≥ 4,0 mEq/L (antes de digital e IECA)"
+          ],
+          [
+            "Mg sérico",
+            "≥ 2,0 mg/dL"
+          ],
+          [
+            "Peso",
+            "Perda 0,5-1,0 kg/dia (ICAD congestiva)"
+          ],
+          [
+            "Niveis BNP",
+            "Queda > 30% = resposta terapêutica adequada"
+          ]
+        ]
+      }
+    ],
+    "categoria": "Cardiovascular"
+  }
+]
