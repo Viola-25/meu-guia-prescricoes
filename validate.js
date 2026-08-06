@@ -31,6 +31,28 @@ function addError(file, msg) { errors.push(`❌ [${file}] ${msg}`); }
 function addWarn(file, msg) { warnings.push(`⚠️  [${file}] ${msg}`); }
 function addInfo(file, msg) { info.push(`ℹ️  [${file}] ${msg}`); }
 
+// Normaliza números para comparação (50.000 → 50000; 0,2 → 0.2; remove negrito/setas)
+function normalizeText(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/\*\*/g, '')
+    .replace(/(\d)\.(\d{3})/g, '$1$2')
+    .replace(/,/g, '.')
+    .replace(/≈|→|—|–|:|\|/g, ' ')
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+    .trim();
+}
+
+// Coleciona todas as strings de um objeto JSON (recursivo)
+function collectStrings(obj, out) {
+  if (typeof obj === 'string') { out.push(obj); return; }
+  if (Array.isArray(obj)) { obj.forEach(o => collectStrings(o, out)); return; }
+  if (obj && typeof obj === 'object') {
+    Object.values(obj).forEach(v => collectStrings(v, out));
+  }
+}
+
 // ─────────────────────────────────────────────
 // 1. Load and parse JSON
 // ─────────────────────────────────────────────
@@ -326,26 +348,45 @@ function checkCrossConsistency(allData) {
       });
     });
   });
-  
-  // Check for same drug, same condition, different doses (REAL errors)
+
+  // Considera duas strings de dose iguais se uma contém a outra (evita falso positivo por sufixo)
+  const dosesEquivalentes = (a, b) => a.includes(b) || b.includes(a);
+
+  // 7a. Mesma droga, MESMA condição, doses diferentes = erro de duplicação
   Object.entries(drugIndex).forEach(([drug, occurrences]) => {
     if (occurrences.length < 2) return;
     
-    // Group by condition
     const byCondition = {};
     occurrences.forEach(o => {
       if (!byCondition[o.condition]) byCondition[o.condition] = [];
       byCondition[o.condition].push(o);
     });
     
-    // Check within same condition
     Object.entries(byCondition).forEach(([condition, items]) => {
       if (items.length < 2) return;
-      const doses = [...new Set(items.map(i => i.dose))];
-      if (doses.length > 1) {
-        addWarn(`cross-consistency`, `Drogga "${drug}" na mesma condição "${condition}" tem doses diferentes:\n    ${items.map(i => `${i.file}: ${i.dose}`).join('\n    ')}`);
+      const distinct = [];
+      items.forEach(i => {
+        const d = String(i.dose).replace(/\s+/g, ' ').trim();
+        if (!distinct.some(e => dosesEquivalentes(e.dose, d))) distinct.push({ dose: d, file: i.file });
+      });
+      if (distinct.length > 1) {
+        addWarn('cross-consistency', `Droga "${drug}" na mesma condição "${condition}" tem doses diferentes:\n    ${distinct.map(i => `${i.file}: ${i.dose}`).join('\n    ')}`);
       }
     });
+  });
+
+  // 7b. Mesma droga em CONDIÇÕES diferentes com doses diferentes = lista de revisão
+  //     (diferenças legítimas por contexto: choque séptico vs cardiogênico, bolus vs infusão)
+  Object.entries(drugIndex).forEach(([drug, occurrences]) => {
+    if (occurrences.length < 2) return;
+    const distinct = [];
+    occurrences.forEach(o => {
+      const d = String(o.dose).replace(/\s+/g, ' ').trim();
+      if (!distinct.some(e => dosesEquivalentes(e.dose, d))) distinct.push({ dose: d, condition: o.condition, file: o.file });
+    });
+    if (distinct.length > 1) {
+      addInfo('cross-consistency', `Droga "${drug}" com doses entre condições (conferir se justificável):\n    ${distinct.map(i => `${i.file}:${i.condition}: ${i.dose}`).join('\n    ')}`);
+    }
   });
 }
 
@@ -375,32 +416,125 @@ function checkVasoativa(data) {
       }
     }
     
-    // Calculator concentration must match text (check if ANY number from calculator appears in text)
+    // Calculator concentration must match text (normalize numbers/markdown first)
     if (item.calculadora && item.secoes) {
-      const concSection = item.secoes.find(s => s.tipo === 'concentracao');
-      if (concSection && concSection.itens) {
+      const concSections = item.secoes.filter(s => s.tipo === 'diluicao' || s.tipo === 'concentracao');
+      const textPool = concSections
+        .flatMap(s => s.itens || [])
+        .map(normalizeText)
+        .join(' ');
+      if (textPool) {
         item.calculadora.diluicoes.forEach((dil, i) => {
-          // Check if calculator concentration OR derived values appear in text
           const conc = dil.concentracao;
           const vol = dil.volume_ml;
-          // Possible text representations: conc value, or conc*vol/1000 (for different unit), or total mcg
-          const totalMcg = conc * vol;
           const possibleValues = [
             conc.toString(),
             (conc * vol).toFixed(0),           // total mcg
             (conc * vol / 1000).toFixed(1),    // total mg
-            (conc / 60).toFixed(2),            // mcg/min if text uses that
+            (conc / 60).toFixed(2),            // mcg/min se texto usar isso
             (conc * 1000 / vol).toFixed(0),    // reverse calc
           ];
-          const found = concSection.itens.some(t => 
-            possibleValues.some(v => v.length > 1 && t.includes(v))
-          );
+          const found = possibleValues.some(v => v.length > 1 && textPool.includes(v));
           if (!found) {
-            addWarn(ctx, `Calculadora diluicoes[${i}] concentração ${conc} pode não corresponder ao texto`);
+            addWarn(ctx, `Calculadora diluicoes[${i}] concentração ${conc} pode não corresponder ao texto (diluicao/concentracao)`);
           }
         });
       }
     }
+  });
+}
+
+// ─────────────────────────────────────────────
+// 8. Source files guard (0-byte / missing extractions)
+// ─────────────────────────────────────────────
+function checkSourceFiles() {
+  const dirs = [
+    ['livro-extracoes', LIVRO_DIR, '.txt'],
+    ['guias-extracoes', GUIAS_DIR, '.txt']
+  ];
+  dirs.forEach(([label, dir, ext]) => {
+    if (!fs.existsSync(dir)) { addWarn('fontes', `Diretório ausente: ${dir}`); return; }
+    const files = fs.readdirSync(dir).filter(f => f.endsWith(ext));
+    files.forEach(f => {
+      const p = path.join(dir, f);
+      const stat = fs.statSync(p);
+      if (stat.size === 0) {
+        addWarn('fontes', `Arquivo-fonte VAZIO (0 bytes): ${label}/${f} — sem fonte disponível`);
+      }
+    });
+  });
+  const sanford = path.join(DATA_DIR, 'sanford-guide-2022-extracted.txt');
+  if (fs.existsSync(sanford) && fs.statSync(sanford).size === 0) {
+    addWarn('fontes', 'Arquivo-fonte VAZIO (0 bytes): data/sanford-guide-2022-extracted.txt');
+  }
+}
+
+// ─────────────────────────────────────────────
+// 9. Visual conventions (AGENTS.md: paleta por categoria)
+// ─────────────────────────────────────────────
+function checkConventions(allData) {
+  // Regras fortes — vasoativa/sedoanalgesia
+  const strongRules = [
+    { categoria: 'Vasopressores', cor: '#dc2626', label: 'vasopressor → vermelho' },
+    { categoria: 'Inotrópicos', cor: '#2563eb', label: 'inotrópico → azul' },
+    { categoria: 'Sedoanalgesia', cor: '#d97706', label: 'sedoanalgesia → amarelo' }
+  ];
+  Object.entries(allData).forEach(([filename, data]) => {
+    if (!Array.isArray(data)) return;
+    data.forEach(item => {
+      const ctx = `${filename} → ${item.id}`;
+      if (!item.categoria) addError(ctx, `Campo obrigatório ausente: categoria (agrupamento da sidebar)`);
+      const rule = strongRules.find(r => r.categoria === item.categoria);
+      if (rule && item.cor && item.cor.toLowerCase() !== rule.cor) {
+        addWarn(ctx, `Convenção visual: categoria "${item.categoria}" espera ${rule.label} (cor ${rule.cor}), tem ${item.cor}`);
+      }
+      if (item.icon && !item.icon.endsWith('-outline')) {
+        addWarn(ctx, `Ícone deve usar sufixo -outline (ionicons): "${item.icon}"`);
+      }
+    });
+  });
+}
+
+// ─────────────────────────────────────────────
+// 10. pt-BR lint (typos conhecidos + scripts não-latinos)
+// ─────────────────────────────────────────────
+const TYPOS = [
+  ['NATRIVETE', 'água livre/natriurese'],
+  ['Frescorio', 'Fibrilação Atrial'],
+  ['MISSIONÁRIA', 'PRIMÁRIA'],
+  ['reperfúxia', 'reperfusão'],
+  ['aorticor', 'aórtica'],
+  ['invasista', 'invasiva'],
+  ['depolarizantes', 'despolarizantes'],
+  ['splanchnica', 'esplâncnica'],
+  ['semen graves', 'casos graves'],
+  ['refluso', 'refluxo'],
+  ['hemácias:frescos', 'hemácias:plasma fresco'],
+  ['Drogga', 'Droga'],
+  ['SELDIK', 'Sellick'],
+  ['PTV', 'sigla ambígua — verificar'],
+  ['MAGEM', 'termo inválido']
+];
+const NON_LATIN = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\u0400-\u04ff\u0600-\u06ff]/;
+
+function checkPTBR(allData) {
+  Object.entries(allData).forEach(([filename, data]) => {
+    if (!Array.isArray(data)) return;
+    data.forEach(item => {
+      const ctx = `${filename} → ${item.id}`;
+      const strings = [];
+      collectStrings(item, strings);
+      strings.forEach(s => {
+        if (NON_LATIN.test(s)) {
+          addError(ctx, `Caracteres não-latinos (dados corrompidos): "${s.substring(0, 60)}..."`);
+        }
+        TYPOS.forEach(([bad, good]) => {
+          if (s.includes(bad)) {
+            addWarn(ctx, `Typo/termo suspeito "${bad}" (→ ${good}): "${s.substring(0, 90)}..."`);
+          }
+        });
+      });
+    });
   });
 }
 
@@ -446,6 +580,23 @@ checkVasoativa(vasoativa);
 
 console.log('\n─── 7. CONSISTÊNCIA CRUZADA ───');
 checkCrossConsistency({
+  'guia-sala-vermelha.json': salaVermelha,
+  'condutas-porta.json': condutasPorta,
+  'vasoativa-sedacao.json': vasoativa
+});
+
+console.log('\n─── 8. FONTES (guard de extração) ───');
+checkSourceFiles();
+
+console.log('\n─── 9. CONVENÇÕES VISUAIS ───');
+checkConventions({
+  'guia-sala-vermelha.json': salaVermelha,
+  'condutas-porta.json': condutasPorta,
+  'vasoativa-sedacao.json': vasoativa
+});
+
+console.log('\n─── 10. PT-BR LINT ───');
+checkPTBR({
   'guia-sala-vermelha.json': salaVermelha,
   'condutas-porta.json': condutasPorta,
   'vasoativa-sedacao.json': vasoativa

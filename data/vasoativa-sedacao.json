@@ -33,7 +33,7 @@
           "**Dose inicial:** 0,05 – 0,1 mcg/kg/min",
           "**Titulação:** aumentar 0,02 – 0,05 mcg/kg/min a cada 5-10 min",
           "**Meta:** PA sistólica ≥ 90 mmHg ou PAM ≥ 65 mmHg",
-          "**Dose máxima:** 1 – 3 mcg/kg/min (acima de 0,5 mcg/kg/min, considerar vasopressor adicional: vasopressina ou epinefrina)",
+          "**Dose máxima:** 0,5 mcg/kg/min — acima disso, adicionar vasopressor de segunda linha (vasopressina 0,03 UI/min ou epinefrina)",
           "**Manutenção:** quando hemodinamicamente estável, reduzir gradualmente (taxa de 0,02 mcg/kg/min a cada 30 min)"
         ]
       },
@@ -66,8 +66,8 @@
             },
             {
               "rotulo": "Dose máxima",
-              "dose_min": 1.0,
-              "dose_max": 3.0
+              "dose_min": 0.3,
+              "dose_max": 0.5
             }
           ]
         },
@@ -83,8 +83,8 @@
             },
             {
               "rotulo": "Dose máxima",
-              "dose_min": 1.0,
-              "dose_max": 3.0
+              "dose_min": 0.3,
+              "dose_max": 0.5
             }
           ]
         },
@@ -100,8 +100,8 @@
             },
             {
               "rotulo": "Dose máxima",
-              "dose_min": 1.0,
-              "dose_max": 3.0
+              "dose_min": 0.3,
+              "dose_max": 0.5
             }
           ]
         }
@@ -126,8 +126,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 50 mg (1 frasco) + SG 5% **250 mL** → **50.000 mcg/250 mL**",
-          "**Alternativa:** 50 mg + SG 5% **500 mL** → **50.000 mcg/500 mL**",
+          "**Padrão:** 50 mg (1 frasco = 2 mL) + SG 5% **248 mL** → **200 mcg/mL** (proteger da luz)",
+          "**Alternativa:** 50 mg + SG 5% **498 mL** → **100 mcg/mL** (volume final 500 mL)",
           "**⚠️ Proteger da luz:** envolver a bolsa/siringa com alumínio ou papel escuro (degradação fotossensível)"
         ]
       },
@@ -156,6 +156,7 @@
         "titulo": "Orientações de Enfermagem",
         "itens": [
           "**Proteger da luz obrigatoriamente** — usar capa de alumínio na bolsa e linhas",
+          "**Contraindicação:** IAM (roubo de fluxo coronariano) e gestação",
           "Monitorizar PA invasiva (preferencialmente) ou NIBP contínuo",
           "Evitar uso > 72h (risco de toxicidade por cianeto — verificar níveis de tiossianato se uso prolongado)",
           "Avaliar sinais de intoxicação: cefaleia, confusão mental, acidose metabólica, lactato elevado",
@@ -214,8 +215,8 @@
     "id": "fentanil",
     "titulo": "Fentanil",
     "apresentacao": "Ampola 50 mcg/mL (2 mL = 100 mcg)",
-    "sinonimos": "Sublimaze, Fentanyl",
-    "cor": "#0891b2",
+    "sinonimos": "Fentanila, Fentanest, Citrato de fentanila",
+    "cor": "#d97706",
     "icon": "bed-outline",
     "tipo": "sedoanalgesia",
     "secoes": [
@@ -415,7 +416,7 @@
     "titulo": "Propofol",
     "apresentacao": "Frasco 10 mg/mL (20 mL = 200 mg ou 50 mL = 500 mg)",
     "sinonimos": "Diprivan, Propofol",
-    "cor": "#16a34a",
+    "cor": "#d97706",
     "icon": "water-outline",
     "tipo": "sedoanalgesia",
     "secoes": [
@@ -515,7 +516,7 @@
     "titulo": "Dopamina",
     "apresentacao": "40 mg/mL (10 mL), 80 mg/mL (10 mL), 160 mg/mL (10 mL)",
     "sinonimos": "Intropin, Revimine",
-    "cor": "#d97706",
+    "cor": "#dc2626",
     "icon": "pulse-outline",
     "tipo": "vasoativa",
     "secoes": [
@@ -541,8 +542,8 @@
         "tipo": "dose",
         "titulo": "Dose e Titulação",
         "itens": [
-          "**Dose beta (renal):** 2 – 5 mcg/kg/min — efeito renal e neuroendócrino",
-          "**Dose inotrópica (cardíaca):** 5 – 10 mcg/kg/min — efeito cronotrópico e inotrópico positivo",
+          "**Dose dopa (renal):** 2 – 5 mcg/kg/min — efeito em receptores dopaminérgicos (renal e esplâncnico)",
+          "**Dose beta (inotrópica):** 5 – 10 mcg/kg/min — efeito cronotrópico e inotrópico positivo",
           "**Dose alfa (vasopressora):** > 10 mcg/kg/min — vasoconstricção e elevação da PA",
           "**Titulação:** aumentar 2 – 5 mcg/kg/min a cada 10-15 min até meta hemodinâmica",
           "**Dose máxima:** 20 mcg/kg/min — doses maiores sem benefício adicional significativo",
@@ -573,12 +574,12 @@
           "concentracao": 800,
           "doses": [
             {
-              "rotulo": "Beta (renal)",
+              "rotulo": "Dopa (renal)",
               "dose_min": 2.0,
               "dose_max": 5.0
             },
             {
-              "rotulo": "Inotrópica",
+              "rotulo": "Beta (inotrópica)",
               "dose_min": 5.0,
               "dose_max": 10.0
             },
@@ -595,12 +596,12 @@
           "concentracao": 1600,
           "doses": [
             {
-              "rotulo": "Beta (renal)",
+              "rotulo": "Dopa (renal)",
               "dose_min": 2.0,
               "dose_max": 5.0
             },
             {
-              "rotulo": "Inotrópica",
+              "rotulo": "Beta (inotrópica)",
               "dose_min": 5.0,
               "dose_max": 10.0
             },
@@ -748,8 +749,8 @@
         "tipo": "dose",
         "titulo": "Dose e Titulação",
         "itens": [
-          "**Dose inicial:** 2,5 mcg/kg/min IV contínuo",
-          "**Titulação:** aumentar 2,5 mcg/kg/min a cada 10-15 min até resposta hemodinâmica",
+          "**Dose inicial:** 2 mcg/kg/min IV contínuo",
+          "**Titulação:** aumentar 2 mcg/kg/min a cada 10-15 min até resposta hemodinâmica",
           "**Meta:** melhora do débito cardíaco (CI > 2,2 L/min/m²) e saturação venosa mista (SvO2 > 65%)",
           "**Dose habitual:** 5 – 15 mcg/kg/min",
           "**Dose máxima:** 20 mcg/kg/min — acima disso, efeito predominante de estimulação beta-2 (vasodilatação e hipotensão)",
@@ -781,7 +782,7 @@
           "doses": [
             {
               "rotulo": "Dose inicial",
-              "dose_min": 2.5,
+              "dose_min": 2.0,
               "dose_max": 5.0
             },
             {
@@ -798,7 +799,7 @@
           "doses": [
             {
               "rotulo": "Dose inicial",
-              "dose_min": 2.5,
+              "dose_min": 2.0,
               "dose_max": 5.0
             },
             {
@@ -812,16 +813,16 @@
     },
     "fontes": [
       "Medicina de Emergência 19ed — Cap. 14 (Sedação e Drogas Vasoativas)",
-      "SBC ICC Crônica e Aguda 2018"
+      "SBC IC 2018 (Crônica e Aguda)"
     ],
     "categoria": "Inotrópicos"
   },
   {
     "id": "vasopressina",
     "titulo": "Vasopressina",
-    "apresentacao": "20 UI/1 mL, 40 UI/mL",
+    "apresentacao": "Ampola 20 UI / 1 mL",
     "sinonimos": "Pitressin, ADH",
-    "cor": "#0891b2",
+    "cor": "#dc2626",
     "icon": "water-outline",
     "tipo": "vasoativa",
     "secoes": [
@@ -848,7 +849,7 @@
         "titulo": "Dose e Titulação",
         "itens": [
           "**Dose fixa (choque séptico):** 0,03 UI/min IV contínuo — **NÃO titula**",
-          "**Indicação:** adjuvante à noradrenalina quando PA ≥ 65 mmHg não é atingida com NA > 0,5 mcg/kg/min",
+          "**Indicação:** adjuvante à noradrenalina quando PA ≥ 65 mmHg não é atingida com NA na faixa de 0,25-0,5 mcg/kg/min",
           "**Tempo de uso:** até 24-48h — reavaliar necessidade diariamente",
           "**Não há dose máxima ou titulação** — dose fixa baseada em estudos de sepse (VASST trial)",
           "**Desmame:** interromper quando noradrenalina for reduzida a < 0,2 mcg/kg/min"
@@ -860,8 +861,8 @@
         "itens": [
           "**DOSE FIXA — NÃO TITULA** — administrar em bomba de infusão a 0,03 UI/min sem variação",
           "Usar APENAS como adjuvante — NUNCA como primeiro vasopressor (nem como substituto de noradrenalina)",
-          "Monitorar sinais de isquemia: **digital, splanchnica e coronariana**",
-          "**NATRIVETE:** risco de hiponatremia e água livre — restringir H2O e monitorar natremia diariamente",
+          "Monitorar sinais de isquemia: **digital, esplâncnica e coronariana**",
+          "**Água livre:** risco de hiponatremia — restringir H2O e monitorar natremia diariamente",
           "Pode causar broncoespasmo — evitar em pacientes com asma",
           "Evitar em pacientes com coronariopatia ativa — efeito vasoconstritor coronariano",
           "Associação com noradrenalina pode permitir redução da dose de NA — monitorar sinergismo"

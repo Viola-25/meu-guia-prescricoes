@@ -368,7 +368,7 @@
           "**Omeprazol 80mg** — bolus IV, seguido de 8mg/h infusão contínua por 72h (PPI endovenoso — FUNDAMENTAL; reduz ressangramento em úlcera péptica). Alternativa: Pantoprazol 80mg IV bolus → 8mg/h contínuo",
           "**Terlipressina 2mg IV** — 1 bolus, repetir a cada 4h (primeira linha se suspeita de hemorragia por varizes esofágicas; reduz pressão portal). Alternativa: **Octreotida 50mcg IV bolus** → 50mcg/h infusão contínua",
           "**Ceftriaxona 1g IV** — 1 dose ao dia (obrigatória se suspeita de varizes — antibioticoprofilaxia que reduz infecção e mortalidade; manter por 7 dias)",
-          "**Soro Fisiológico 0,9%** — reposição volêmica agressiva (bolus de 500mL em 15 min; repetir conforme resposta hemodinâmica). Se instabilidade: MTP (protocolo de transfusão maciça — hemácias:frescos:plasma 1:1:1)",
+          "**Soro Fisiológico 0,9%** — reposição volêmica agressiva (bolus de 500mL em 15 min; repetir conforme resposta hemodinâmica). Se instabilidade: MTP (protocolo de transfusão maciça — hemácias:plasma fresco:plaquetas 1:1:1)",
           "**Hemácias Concentradas** — transfundir se Hb < 7 g/dL (alvo > 7; > 9 g/dL se IC ou IAM). Manter TP e TTPa guiados se coagulopatia",
           "**Sonda Nasogástrica (SNG)** — passagem para orientação diagnóstica (lavado gástrico com SF — NÃO descarta HDA se negativo, pois 15% das HDA origina-se no duodeno). NÃO usar como tratamento",
           "**Endoscopia Digestiva Alta** — programar em até 12h se instável/altorisco (Forrest IA/IB/IIA) ou até 24h se estável. Eletrocoagulação + clip endoscópico se lesão ativa (Forrest IA/IB/IIA)"
@@ -449,10 +449,8 @@
     "icon": "medkit-outline",
     "categoria": "Respiratório",
     "fontes": [
-      "Medicina de Emergência 19ed — Cap. 42 (Pneumonias)",
-      "Sanford Guide 2022 — Empiric Therapy CAP",
-      "ATS/IDSA Guidelines 2019 — CAP",
-      "BTS Guidelines 2015 — Pneumonia"
+      "Medicina de Emergência 19ed — Cap. 44 (Pneumonia Comunitária)",
+      "Sanford Guide 2022 — Empiric Therapy CAP"
     ],
     "secoes": [
       {
@@ -701,7 +699,7 @@
           "≥48h após intubação orotraqueal. Mesmos patógenos da HAP",
           "",
           "**Aspiração**",
-          "Risco: disfagia, alteração consciência, refluso. Anaeróbios + Gram-negativos"
+          "Risco: disfagia, alteração consciência, refluxo. Anaeróbios + Gram-negativos"
         ]
       },
       {
@@ -718,7 +716,7 @@
             "nome": "Amoxicilina (primeira escolha)",
             "apresentacao": "500mg, 875mg",
             "diluicao": "VO",
-            "dose": "1g VO 8/8h x 5-7 dias (semen graves)",
+            "dose": "1g VO 8/8h x 5-7 dias (casos graves)",
             "sus": "basico"
           },
           {
@@ -753,7 +751,7 @@
             "nome": "Vancomicina (se suspeita MRSA)",
             "apresentacao": "1g",
             "diluicao": "1g + SF 250mL",
-            "dose": "15-20mg/kg IV q8-12h. Meta AUC/MIC 400-600. Monitorar PTV",
+            "dose": "15-20mg/kg IV q8-12h. Meta AUC/MIC 400-600. Monitorar nível sérico (vale)",
             "sus": "basico"
           },
           {
@@ -843,9 +841,7 @@
     "icon": "body-outline",
     "categoria": "Respiratório",
     "fontes": [
-      "Medicina de Emergência 19ed — Cap. 47 (Pneumotórax)",
-      "BTS Pleural Disease Guideline 2023",
-      "ACCP Delphi Consensus Statement"
+      "Medicina de Emergência 19ed — Cap. 47 (Pneumotórax)"
     ],
     "secoes": [
       {
@@ -914,6 +910,451 @@
           "**Hemotórax associado:** Hemorragia ativa → toracostomia com dreno calibroso",
           "",
           "**Referência cruzada:** Pneumotórax Hipertensivo (protocolo emergencial no SV)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hipoglicemia",
+    "titulo": "Hipoglicemia",
+    "cid": "E16.2",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "categoria": "Metabólico/Endócrino",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 90 (Hipoglicemia)"],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta — Hipoglicemia Sintomática",
+        "itens": [
+          "**Confirmar:** glicemia capilar < 45 mg/dL; em diabéticos sintomáticos em uso de insulina/sulfonilureia, valores < 70 mg/dL já causam sintomas",
+          "**Paciente consciente:** **15-20 g de carboidratos VO** (suco, açúcar, glicose) — reavaliar em 15 min",
+          "**Paciente inconsciente / sem via oral:** **glicose 50% EV 20 g** (40 mL), podendo-se infundir até **50 g**; se sem acesso venoso: **glucagon IM 1-2 mg** (efeito fugaz — não repetir)",
+          "**Prevenção de Wernicke-Korsakoff:** tiamina **100-300 mg IV/IM** junto com a glicose em desnutridos, hepatopatas ou etilistas",
+          "**Pós-tratamento:** reavaliar glicemia em 15 min; identificar e corrigir a causa"
+        ],
+        "orientacoes": [
+          "**Observação de 12-24 h com glicemia capilar de 1/1 h** em pacientes com hipoglicemia prolongada, refratária ou em uso de hipoglicemiantes de ação longa",
+          "**Internar** pacientes com hipoglicemia aparentemente doentes (sepse, insuficiência hepática/renal) ou sintomas persistentes",
+          "**UTI raramente necessária** — exceto rebaixamento persistente do nível de consciência",
+          "**Drogas que causam hipoglicemia:** sulfonilureias (glibenclamida, glimepirida, glipizida), insulina, etanol, salicilatos, betabloqueadores (propranolol, metoprolol, pindolol), haloperidol, clorpromazina, cimetidina",
+          "**Outras causas:** sepse, disfunção hepática/renal, jejum prolongado, insulinoma, feocromocitoma, hipocortisolismo",
+          "**Critérios de alta:** glicemia normalizada e estável, dieta estabelecida, causa identificada/corrigida"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lesao-renal-aguda",
+    "titulo": "Lesão Renal Aguda (LRA)",
+    "cid": "N17.9",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "categoria": "Metabólico/Endócrino",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 80 (Lesão Renal Aguda)"],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Diagnóstico (Critérios KDIGO)",
+        "escores": [
+          {
+            "nome": "KDIGO",
+            "descricao": "Diagnóstico de LRA — presença de 1 dos 3 critérios",
+            "colunas": ["Critério", "Definição"],
+            "dados": [
+              ["**Aumento da creatinina**", "≥ 0,3 mg/dL em 48 h"],
+              ["**Creatinina relativa**", "≥ 1,5x o valor basal (conhecido ou presumido na última semana)"],
+              ["**Débito urinário**", "< 0,5 mL/kg/h por 6 h"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta na Emergência",
+        "itens": [
+          "**1. Excluir obstrução (pós-renal):** sondagem vesical + USG de vias urinárias se anúria/oligúria",
+          "**2. Distinguir pré-renal × renal (NTA):** FENa < 1% ou FEUr ≤ 35% sugere pré-renal; FENa > 2% sugere NTA",
+          "**3. Suspender nefrotóxicos:** AINEs, contraste iodado, aminoglicosídeos, vancomicina",
+          "**4. Hidratação apenas se depleção volêmica confirmada** — cristaloides, reavaliar",
+          "**5. Diurético de alça se sobrecarga de volume:** **furosemida 80 mg IV** (teste) — sucesso se diurese ≥ 200 mL nas primeiras 2 h",
+          "**6. Indicações de diálise:** hipercalemia refratária, acidose refratária, sobrecarga de volume refratária, uremia, intoxicação"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Medicações",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Furosemida",
+            "apresentacao": "Ampola 20 mg/2 mL (10 mg/mL)",
+            "diluicao": "Bolus lento IV",
+            "dose": "80 mg IV em dose única (teste de diurese)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Quando Escalar",
+        "itens": [
+          "**Nefrologia:** LRA estágio 2-3, oligúria prolongada, hipercalemia, necessidade de diálise",
+          "**Profilaxia de nefropatia por contraste:** SF 0,9% 1 mL/kg/h por 12 h antes e após o exame (quando aplicável)",
+          "**Meta:** evitar progressão da injúria, correção de eletrólitos e do estado volêmico"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "disturbios-acidobasicos",
+    "titulo": "Distúrbios Ácido-Básicos",
+    "cid": "E87.2",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "categoria": "Metabólico/Endócrino",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 82 (Distúrbios Ácido-Básicos)"],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Compensações Esperadas",
+        "escores": [
+          {
+            "nome": "Tabela de Compensação",
+            "descricao": "Confirmar se a compensação está adequada ao distúrbio primário",
+            "colunas": ["Distúrbio", "Compensação esperada"],
+            "dados": [
+              ["**Acidose metabólica**", "PaCO2 = 1,5 × HCO3 + 8 ± 2 (fórmula de Winter)"],
+              ["**Alcalose metabólica**", "PaCO2 = 0,7 × HCO3 + 20"],
+              ["**Acidose respiratória aguda**", "HCO3 = 24 + 1"],
+              ["**Acidose respiratória crônica**", "HCO3 = 24 + 4"],
+              ["**Alcalose respiratória aguda**", "HCO3 = 24 − 2"],
+              ["**Alcalose respiratória crônica**", "HCO3 = 24 − 5"]
+            ]
+          },
+          {
+            "nome": "Ânion-Gap",
+            "descricao": "AG = Na − (Cl + HCO3). Valor normal 10 ± 2 mEq/L. Corrigir pela albumina: +2,5 mEq/L por 1 g/dL abaixo de 4,5",
+            "colunas": ["Parâmetro", "Valor"],
+            "dados": [
+              ["**Ânion-gap > 12**", "Acidose metabólica com ânion-gap elevado (láctica, cetoacidose, uremia, tóxicos)"],
+              ["**Gap osmolar**", "Osmolaridade medida − calculada; normal < 10 — sugere etanol, metanol, etilenoglicol"],
+              ["**Delta AG / delta HCO3**", "> 2 = alcalose metabólica associada; < 1 = acidose não-ânion-gap associada; 1-2 = acidose com ânion-gap pura"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Passos da Análise",
+        "itens": [
+          "**1.** Histórico + gasometria arterial simultânea",
+          "**2.** Confirmar distúrbio primário pelo pH e HCO3",
+          "**3.** Calcular o ânion-gap (AG > 12 = acidose com ânion-gap)",
+          "**4.** Se AG elevado, calcular delta AG/delta HCO3 para avaliar distúrbio misto",
+          "**5.** Corrigir o AG pela albumina em hipoalbuminemia",
+          "**6.** Tratar a causa subjacente"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Tratamento",
+        "itens": [
+          "**Acidose metabólica com ânion-gap:** tratar a causa (cetoacidose, láctica, uremia, intoxicações)",
+          "**Acidose metabólica hiperclorêmica:** diarreia, fístulas de alto débito, acidose tubular renal",
+          "**Bicarbonato (NaHCO3 8,4%):** indicado na acidose hiperclorêmica com pH < 7,2 — **50 mL + 950 mL SG 5%** em infusão lenta (100-200 mL/h), meta de elevar HCO3 em ~10 mEq/L e/ou pH ~7,2; considerar se pH < 6,9 nas demais acidoses graves",
+          "**Alcalose metabólica:** repor potássio e cloro; se pós-hipercápnica com hipercalemia e sobrecarga volêmica, **acetazolamida 250-500 mg** dose única (repetir se necessário) — atenção à piora da hipocalemia",
+          "**Distúrbios respiratórios:** tratar a causa pulmonar e dar suporte ventilatório"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pancreatite-aguda",
+    "titulo": "Pancreatite Aguda",
+    "cid": "K85.9",
+    "cor": "#d97706",
+    "icon": "nutritional-outline",
+    "categoria": "Gastrointestinal",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 77 (Pancreatite)"],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Estratificação de Risco",
+        "escores": [
+          {
+            "nome": "BISAP",
+            "descricao": "Mortalidade: 0 critério ~0,1%; ≥ 3 critérios > 3,5%; 5 critérios ~10%",
+            "colunas": ["Critério", "Pontos"],
+            "dados": [
+              ["**Ureia > 30 mg/dL**", "1"],
+              ["**Confusão mental ou rebaixamento da consciência**", "1"],
+              ["**SIRS (≥ 2 critérios)**", "1"],
+              ["**Idade > 60 anos**", "1"],
+              ["**Derrame pleural**", "1"]
+            ]
+          },
+          {
+            "nome": "Ranson",
+            "descricao": "Pontuar na admissão e às 48 h. < 3 pontos: mortalidade < 1%; 3-4: ~15%; > 6: ~100%",
+            "colunas": ["Critério", "Valor"],
+            "dados": [
+              ["**Idade > 55 anos**", "1"],
+              ["**Leucocitose > 16.000/mm³**", "1"],
+              ["**Glicose > 200 mg/dL**", "1"],
+              ["**LDH (DHL) > 350 UI/L**", "1"],
+              ["**TGO (AST) > 250 UI/dL**", "1"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta — Pancreatite Aguda",
+        "itens": [
+          "**1. Hidratação:** cristaloide (preferir **Ringer lactato**) **5-10 mL/kg/h**, meta de diurese 0,5-1 mL/kg/h (evitar hidratação agressiva de 12-15 mL/kg/h)",
+          "**2. Analgesia:** opioides — **meperidina NÃO indicada** (não usar)",
+          "**3. Dieta:** realimentação oral precoce (24-48 h) **se tolerada**, pobre em gorduras; via parenteral apenas se não tolerar VO/enteral",
+          "**4. Monitorizar:** sinais vitais, oximetria e estado volêmico nas primeiras horas; hipoxemia → oxigenioterapia",
+          "**5. Antibiótico profilático NÃO é recomendado** — reservado para suspeita de infecção de necrose"
+        ],
+        "orientacoes": [
+          "**Sinais de alarme:** dor persistente > 48 h, febre, SIRS persistente (> 48 h → mortalidade > 25%), insuficiência orgânica (renal, respiratória, cardiovascular), hipoxemia",
+          "**Gravidade:** considerar grave se hipocalcemia (Ca < 7,5 mg/dL), ≥ 3 critérios de Ranson ou necrose/coleções na imagem",
+          "**TC de abdome com contraste:** mandatória se dúvida diagnóstica, suspeita de necrose ou deterioração clínica — não usada de rotina para diagnóstico",
+          "**Necrose:** mortalidade ~10% se estéril e > 20% se infectada; abordar cirurgicamente em casos de infecção e piora clínica inexplicada",
+          "**Etiologia a investigar:** litíase biliar (USG), álcool, drogas, hipertrigliceridemia, hipercalcemia, pós-CPRE",
+          "**Critérios de alta:** dieta tolerada, dor controlada sem opioide parenteral, sem sinais de gravidade"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "intoxicacoes-agudas",
+    "titulo": "Intoxicações Agudas (Abordagem Geral)",
+    "cid": "T65.9",
+    "cor": "#be123c",
+    "icon": "skull-outline",
+    "categoria": "Toxicologia",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 102 (Intoxicações)"],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Abordagem Inicial",
+        "itens": [
+          "**1. Estabilizar:** via aérea, respiração e circulação (ABCDE)",
+          "**2. Anamnese dirigida + exames:** gasometria, eletrólitos, glicemia, ECG, função renal/hepática",
+          "**3. Identificar toxíndrome:** anticolinérgica, colinérgica, opioide, simpatomimética, sedativa, serotoninérgica",
+          "**4. Glicemia capilar** em toda alteração do nível de consciência",
+          "**5. Antídotos específicos** conforme a toxina (ver tabela)",
+          "**6. Descontaminação:** carvão ativado **1 g/kg (máx. 50 g)** se ingesta < 1-2 h e via aérea protegida",
+          "**7. Aumento da eliminação:** alcalinização urinária, hemodiálise ou emulsão lipídica conforme a toxina",
+          "**8. Observação:** pacientes com manifestações graves — mínimo **6 horas** de observação"
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Antídotos Específicos (Toxina × Antídoto)",
+        "escores": [
+          {
+            "nome": "Tabela de Antídotos",
+            "descricao": "Associação toxina-antídoto. Doses e indicações específicas no capítulo correspondente",
+            "colunas": ["Toxina", "Antídoto"],
+            "dados": [
+              ["Opioides", "**Naloxona**"],
+              ["Benzodiazepínicos", "**Flumazenil** (uso seletivo)"],
+              ["Paracetamol", "**N-acetilcisteína (NAC)**"],
+              ["Metanol / etilenoglicol", "**Fomepizol** ou **etanol**"],
+              ["Sulfonilureias", "**Octreotide** + glicose"],
+              ["Betabloqueadores", "**Glucagon**"],
+              ["BCC / hipercalemia", "**Cálcio** (gluconato ou cloreto)"],
+              ["Cianeto", "**Hidroxicobalamina** / **tiosulfato**"],
+              ["Organofosforados / carbamatos", "**Atropina** + **pralidoxima**"],
+              ["Anticolinérgicos", "**Fisostigmina** (uso seletivo)"],
+              ["Salicilatos", "**Alcalinização urinária** (bicarbonato)"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Aumento da Eliminação",
+        "itens": [
+          "**Alcalinização urinária (salicilatos, etc.):** bolus de **bicarbonato de sódio 8,4% 1-2 mEq/kg** + infusão de **150 mEq em 1.000 mL SG 5% a 200-250 mL/h** — meta: pH urinário > 7,5 e pH sérico 7,55-7,6",
+          "**Emulsão lipídica 20% (anestésicos locais e fármacos lipofílicos):** bolus de **1,5 mL/kg** em 2-3 min + infusão de **0,25 mL/kg/min**",
+          "**Hemodiálise:** metanol, etilenoglicol, salicilatos graves, lítio, teofilina, metformina",
+          "**Naloxona:** ausência de resposta a doses cumulativas de **15 mg** sugere diagnóstico alternativo para a depressão respiratória"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "intoxicacoes-por-farmacos",
+    "titulo": "Intoxicação por Fármacos (Antídotos e Suporte)",
+    "cid": "T50.9",
+    "cor": "#be123c",
+    "icon": "skull-outline",
+    "categoria": "Toxicologia",
+    "fontes": ["Medicina de Emergência 19ed — Cap. 104 (Intoxicações Medicamentosas)"],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Condutas por Grupo",
+        "itens": [
+          "**Antidepressivos tricíclicos (ADT):** ECG com QRS alargado → **bicarbonato de sódio** IV; torsades → sulfato de magnésio; **fisostigmina CONTRAINDICADA**",
+          "**Síndrome serotoninérgica / ISRS:** suporte; **ciproeptadina 12 mg VO/SNE** se refratário",
+          "**Paracetamol:** NAC se dose > 150 mg/kg ou > 10 g em 24 h (ou níveis séricos) — EV 150 mg/kg em 1 h + 12,5 mg/kg/h × 4 h + 6,25 mg/kg/h × 16 h",
+          "**Lítio:** hidratação; diálise se nível > 5 mEq/L (independente dos sintomas)",
+          "**Benzodiazepínicos:** flumazenil apenas com critério — evita-se em uso crônico/convulsões",
+          "**Opioides:** naloxona 0,4 mg EV, repetir até 15 mg; monitorar re-sedação",
+          "**Salicilatos:** alcalinização urinária (meta pH urinário 7,5-8,0); hemodiálise se grave",
+          "**Betabloqueadores:** **glucagon 2-5 mg bolus lento** + infusão **1-5 mg/h**; glicose + insulina",
+          "**BCC:** **gluconato de cálcio 3-6 g** IV; glicoinsulinoterapia (insulina 1 UI/kg + 0,5 UI/kg/h)",
+          "**Digoxina:** K+ > 5 mEq/L inexplicado é pista diagnóstica; **FAB** 10-20 frascos (aguda) / 3-6 frascos (crônica); atropina de eficácia limitada",
+          "**Valproato:** **L-carnitina 100 mg/kg IV em 15-30 min** + 50 mg/kg de manutenção (hiperamonemia)",
+          "**Anticolinérgicos:** **fisostigmina 1-2 mg EV em 2-5 min** (quadros graves); benztropina 1-2 mg EV"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Antídotos e Medicações de Suporte",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Carvão ativado",
+            "apresentacao": "Suspensão 50 g/200 mL",
+            "diluicao": "VO/SNE",
+            "dose": "1 g/kg (máx. 50 g) se < 1-2 h; doses múltiplas: 50-100 g + 12,5-25 g 4/4h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Naloxona",
+            "apresentacao": "Ampola 0,4 mg/1 mL",
+            "diluicao": "EV direto",
+            "dose": "0,4 mg EV, repetir a cada 2-3 min até 15 mg",
+            "sus": "basico"
+          },
+          {
+            "nome": "Flumazenil",
+            "apresentacao": "Ampola 0,5 mg/5 mL",
+            "diluicao": "EV lento",
+            "dose": "0,1-0,2 mg EV, repetir até 1 mg (crianças 0,01 mg/kg)",
+            "sus": "basico"
+          },
+          {
+            "nome": "N-acetilcisteína (NAC)",
+            "apresentacao": "Frasco-ampola para EV",
+            "diluicao": "VO ou EV em SF/SG 5%",
+            "dose": "VO: 140 mg/kg + 70 mg/kg 4/4h × 72h; EV: 150 mg/kg em 1 h + 12,5 mg/kg/h × 4 h + 6,25 mg/kg/h × 16 h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Glucagon",
+            "apresentacao": "Pó 1 mg (reconstituir)",
+            "diluicao": "EV lento",
+            "dose": "2-5 mg bolus lento + infusão 1-5 mg/h",
+            "sus": "comercial"
+          },
+          {
+            "nome": "Gluconato de cálcio 10%",
+            "apresentacao": "Ampola 10 mL (1 g = 4,3 mEq Ca)",
+            "diluicao": "EV lento",
+            "dose": "3-6 g IV em 3-5 min",
+            "sus": "basico"
+          },
+          {
+            "nome": "Cloreto de cálcio 10%",
+            "apresentacao": "Ampola 10 mL (1 g = 13,4 mEq Ca)",
+            "diluicao": "EV lento",
+            "dose": "1-2 g IV em 3-5 min",
+            "sus": "basico"
+          },
+          {
+            "nome": "Sulfato de magnésio 10%",
+            "apresentacao": "Ampola 10 mL (1 g)",
+            "diluicao": "EV lento",
+            "dose": "1-2 g EV em 2 min (torsades / QTc > 560 ms)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Bicarbonato de sódio 8,4%",
+            "apresentacao": "Frasco 250 mL",
+            "diluicao": "EV em SG 5%",
+            "dose": "Bolus 1-2 mEq/kg; infusão 150 mEq em 1.000 mL SG 5% a 200-250 mL/h",
+            "sus": "basico"
+          },
+          {
+            "nome": "Glicose 50%",
+            "apresentacao": "Ampola 20 mL (10 g)",
+            "diluicao": "EV",
+            "dose": "50 mL se glicemia < 200 mg/dL (com insulina em glicoinsulinoterapia)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Insulina regular",
+            "apresentacao": "Frasco 100 UI/mL",
+            "diluicao": "BIC",
+            "dose": "1 UI/kg bolus + 0,5 UI/kg/h em infusão",
+            "sus": "basico"
+          },
+          {
+            "nome": "Diazepam",
+            "apresentacao": "Ampola 10 mg/2 mL",
+            "diluicao": "EV lento",
+            "dose": "5 mg EV, repetir até controle das crises",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ciproeptadina",
+            "apresentacao": "Comp. 4 mg",
+            "diluicao": "VO/SNE",
+            "dose": "12 mg VO/SNE (serotoninérgica refratária)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Benztropina",
+            "apresentacao": "Ampola 2 mg/2 mL",
+            "diluicao": "EV",
+            "dose": "1-2 mg EV (anticolinérgicos)",
+            "sus": "basico"
+          },
+          {
+            "nome": "L-carnitina",
+            "apresentacao": "Frasco-ampola 1 g/5 mL",
+            "diluicao": "EV",
+            "dose": "100 mg/kg IV em 15-30 min + 50 mg/kg de manutenção",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Emulsão lipídica 20%",
+            "apresentacao": "Frasco 500 mL",
+            "diluicao": "EV",
+            "dose": "1,5 mL/kg em 2-3 min + 0,25 mL/kg/min",
+            "sus": "comercial"
+          },
+          {
+            "nome": "Fab (antídoto digoxina)",
+            "apresentacao": "Frasco 40 mg",
+            "diluicao": "EV",
+            "dose": "10-20 frascos (aguda) / 3-6 frascos (crônica); cada frasco neutraliza 0,5 mg",
+            "sus": "comercial"
+          },
+          {
+            "nome": "Fisostigmina",
+            "apresentacao": "Ampola 1 mg",
+            "diluicao": "EV",
+            "dose": "1-2 mg EV em 2-5 min (anticolinérgicos graves; NÃO em ADT)",
+            "sus": "comercial"
+          }
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Quando Escalar",
+        "itens": [
+          "**UTI/Toxicologia:** instabilidade hemodinâmica, rebaixamento persistente, arritmias, necessidade de hemodiálise",
+          "**Níveis séricos com indicação de diálise:** lítio > 5 mEq/L; salicilatos graves; metanol/etilenoglicol; teofilina; metformina",
+          "**Observação:** pacientes com manifestações graves — mínimo 6 horas"
         ]
       }
     ]
