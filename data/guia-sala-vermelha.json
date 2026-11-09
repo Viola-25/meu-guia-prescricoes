@@ -577,8 +577,8 @@
     "id": "pcr",
     "titulo": "Parada Cardiorrespiratória (PCR)",
     "cid": "I46.9",
-    "cor": "#ea580c",
-    "icon": "electrocardiogram-outline",
+    "cor": "#dc2626",
+    "icon": "pulse-outline",
     "secoes": [
       {
         "tipo": "conduta",
@@ -779,7 +779,7 @@
     "fontes": [
       "Medicina de Emergência 19ed — Cap. 4 (Suporte Vital Avançado)"
     ],
-    "categoria": "Neurológico"
+    "categoria": "Cardiovascular"
   },
   {
     "id": "emergencia-hipertensiva",
@@ -3114,6 +3114,1037 @@
           "**UTI obrigatória** para todo paciente com crise tireotóxica",
           "**Plasmaférese:** considerar em pacientes sem melhora após **24-48 h** de tratamento apropriado da crise e do fator precipitante",
           "**Cautela com betabloqueador** em insuficiência cardíaca descompensada — colapso cardiovascular já descrito"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "avc-isquemico-trombolise",
+    "titulo": "AVC Isquêmico Hiperagudo / Trombólise",
+    "cid": "I63.9",
+    "cor": "#7c3aed",
+    "icon": "bulb-outline",
+    "categoria": "Neurológico",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 54 (Abordagem do Paciente com AVC Isquêmico Agudo)",
+      "PCDT Acidente Vascular Cerebral Isquêmico Agudo — CONITEC / MS (Portaria Conjunta nº 29/2023)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Atendimento Hiperagudo e Janela Terapêutica (Tempo é Cérebro)",
+        "itens": [
+          "**1. Metas de Tempo (Porta-Agulha):** avaliação médica ≤ **10 min**; TC de crânio sem contraste realizada ≤ **20 min** e interpretada ≤ **45 min**; infusão do trombolítico (porta-agulha) ≤ **60 min** (ideal ≤ 45 min)",
+          "**2. Estabilização e Avaliação Inicial:** ABC (IOT se Glasgow ≤ 8), O2 suplementar apenas se SpO2 < 94%, aferir PA nos dois membros superiores (excluir dissecção de aorta), **glicemia capilar imediata** (único exame laboratorial obrigatório antes do trombolítico em todos os casos; corrigir se < 60 mg/dL) e aplicar escala **NIHSS**",
+          "**3. Janela de Trombólise Endovenosa (ΔT ≤ 4,5 h):** idade ≥ 18 anos, tempo desde o último momento sabidamente assintomático **≤ 4,5 horas**, TC de crânio sem sangramento ou hipodensidade franca > 1/3 do território da ACM, e déficit neurológico incapacitante",
+          "**4. Wake-up Stroke / Ictus Desconhecido:** quando o último momento assintomático é > 4,5 h, mas o déficit foi reconhecido há **< 4,5 h**, indicar trombólise se RM de encéfalo demonstrar **mismatch DWI-FLAIR** (lesão aguda na difusão < 1/3 da ACM sem hipersinal correspondente no FLAIR)",
+          "**5. Controle Pressórico Estrito para Reperfusão:** reduzir PA para **< 185 × 110 mmHg ANTES** do bolus de trombolítico e manter **≤ 180 × 105 mmHg durante e pelas primeiras 24 h** (aferir PA a cada 15 min nas primeiras 2h, a cada 30 min por 6h e a cada 1h até 24h). Em pacientes **sem** indicação de trombólise/trombectomia, manter hipertensão permissiva e só reduzir PA (em 15% nas 24h) se **≥ 220 × 110 mmHg**",
+          "**6. Trombectomia Mecânica (Oclusão de Grande Vaso — ACI ou M1-ACM):** indicar em **< 6 h** (ou até **8 h** pelo PCDT MS / estudo RESILIENT) se **NIHSS ≥ 6** e **ASPECTS ≥ 6** (mRS prévio 0–1). Entre **6 e 24 h**: indicar se preencher critérios de mismatch clínico-radiológico (DAWN / DEFUSE-3). **Nunca atrasar a Alteplase** aguardando angiotomografia ou trombectomia"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Contraindicações Absolutas e Manejo de Complicações Pós-Trombólise",
+        "itens": [
+          "**Contraindicações Absolutas à Trombólise:** hemorragia intracraniana na TC/RM; antecedente de hemorragia intracraniana; AVCi, TCE grave ou neurocirurgia nos últimos **3 meses**; cirurgia de grande porte nos últimos **14 dias**; sangramento GI ou geniturinário nos últimos **21 dias**; plaquetas **< 100.000/mm³**, RNI **> 1,7**, TTPa **> 40 s**; HBPM em dose plena nas últimas **24 h** ou DOAC nas últimas **48 h**; suspeita de HSA, endocardite bacteriana ou dissecção aórtica; NIHSS ≤ 5 com déficit não incapacitante",
+          "**Cuidados nas Primeiras 24h Pós-Trombólise:** manter dieta zero até triagem formal de disfagia; **PROIBIDO administrar antiagregantes (AAS/clopidogrel) ou anticoagulantes nas primeiras 24h** (repetir TC de crânio em 24h antes de iniciar); evitar passagem de SNE, sonda vesical de demora e punções arteriais/venosas não compressíveis",
+          "**Protocolo de Sangramento Intracraniano Pós-Trombólise (suspeitar se deterioração neurológica, cefaleia intensa súbita, náuseas/vômitos ou elevação abrupta da PA):** **1)** Interromper imediatamente a infusão de Alteplase; **2)** TC de crânio de emergência + hemograma, TP/RNI, TTPa, fibrinogênio e tipagem sanguínea; **3)** **Crioprecipitado 10 UI IV** em 10–30 min (repetir se fibrinogênio < 150 mg/dL); **4)** **Ácido Tranexâmico 1.000 mg (1 g) IV** em 10 min; **5)** Acionar Neurocirurgia e Hematologia em caráter de urgência",
+          "**Protocolo de Angioedema Orolingual Pós-rtPA (1,3–5,1% dos casos, maior risco em usuários de IECA):** interromper Alteplase e IECA; administrar **Metilprednisolona 125 mg IV** + **Difenidramina 50 mg IV**; se progressão para laringe/orofaringe, aplicar **Adrenalina 0,3 mg IM/SC** (ou nebulizada) e assegurar via aérea definitiva precoce"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Trombólise, Controle Pressórico e Reversão",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Alteplase (rt-PA)",
+            "apresentacao": "Frasco-ampola 50 mg / 50 mL (1 mg/mL)",
+            "diluicao": "Reconstituir com diluente próprio (concentração 1 mg/mL)",
+            "dose": "0,9 mg/kg IV (máx 90 mg): 10% em bolus IV em 1 min + 90% em BIC ao longo de 60 min",
+            "sus": "rename"
+          },
+          {
+            "nome": "Tenecteplase",
+            "apresentacao": "Frasco-ampola 40 mg ou 50 mg",
+            "diluicao": "Reconstituir com água para injeção (5 mg/mL)",
+            "dose": "0,25 mg/kg IV em bolus único de 5-10s (máx 25 mg) — alternativa em oclusão de grande vaso elegível à trombectomia",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nitroprussiato de Sódio",
+            "apresentacao": "Frasco-ampola 50 mg",
+            "diluicao": "50 mg (2 mL) + 248 mL SG 5% (200 mcg/mL) — proteger da luz",
+            "dose": "0,3-0,5 mcg/kg/min IV → titular a cada 5 min até PA < 185×110 (pré-rtPA) e ≤ 180×105 mmHg (máx 10 mcg/kg/min)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Esmolol",
+            "apresentacao": "Ampola 100 mg/10 mL (10 mg/mL)",
+            "diluicao": "Usar puro (10 mg/mL) ou diluir em SF 0,9%",
+            "dose": "Ataque 500 mcg/kg (0,5 mg/kg) IV em 1 min → manutenção 50-200 mcg/kg/min",
+            "sus": "ceaf"
+          },
+          {
+            "nome": "Metoprolol",
+            "apresentacao": "Ampola 5 mg / 5 mL (1 mg/mL)",
+            "diluicao": "Usar direto (sem diluir)",
+            "dose": "5 mg IV lento a cada 5-10 min (máx 15 mg) para controle pressórico pré/pós-trombólise",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ácido Tranexâmico",
+            "apresentacao": "Ampola 250 mg / 5 mL (50 mg/mL)",
+            "diluicao": "1 g (4 ampolas = 20 mL) + 100 mL SF 0,9%",
+            "dose": "1.000 mg (1 g) IV em 10 min (reversão de sangramento intracraniano pós-trombólise)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Crioprecipitado",
+            "apresentacao": "Bolsa 10-15 mL (~150 mg fibrinogênio/U)",
+            "diluicao": "Infundir puro com equipo de transfusão",
+            "dose": "10 unidades IV em 10-30 min (repetir se fibrinogênio persistir < 150 mg/dL)",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Estratificação NIHSS e Metas Terapêuticas",
+        "escores": [
+          {
+            "nome": "Interpretação da Escala NIHSS (0 a 42 pontos)",
+            "descricao": "Quantifica o déficit neurológico em 11 domínios (consciência, olhar, campos visuais, paresia facial, força motora MS/MI, ataxia, sensibilidade, linguagem, disartria e extinção/negligência)",
+            "colunas": ["Pontuação NIHSS", "Gravidade e Implicação Clínica"],
+            "dados": [
+              ["0 pontos", "Sem déficit neurológico mensurável"],
+              ["1 – 4 pontos", "AVCi leve — indicar trombólise apenas se déficit incapacitante (ex: afasia, hemianopsia, incapacidade de marcha)"],
+              ["5 – 15 pontos", "AVCi moderado — principal faixa de benefício de trombólise; se NIHSS ≥ 6, investigar oclusão de grande vaso (angio-TC)"],
+              ["16 – 20 pontos", "AVCi moderado a grave — alta probabilidade de oclusão proximal (ACI / M1)"],
+              ["21 – 42 pontos", "AVCi grave — alto risco de transformação hemorrágica e edema maligno"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["Tempo Porta-TC / Porta-Agulha", "≤ 20 min (TC) / ≤ 60 min (Alteplase)"],
+          ["PA pré-trombólise / pré-trombectomia", "< 185 × 110 mmHg"],
+          ["PA durante e 24h pós-trombólise", "≤ 180 × 105 mmHg"],
+          ["PA sem terapia de reperfusão", "Reduzir 15% apenas se PA ≥ 220 × 110 mmHg"],
+          ["Glicemia capilar", "60 – 180 mg/dL (tratar imediatamente se < 60 mg/dL)"],
+          ["SpO2 e Temperatura", "SpO2 > 94% | Temperatura axilar < 37,5 °C"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "choque-anafilatico",
+    "titulo": "Choque Anafilático e Anafilaxia Grave",
+    "cid": "T78.2",
+    "cor": "#dc2626",
+    "icon": "water-outline",
+    "categoria": "Cardiovascular",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 12 (Anafilaxia e Outras Alergias) + Cap. 8 (Choque)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Imediata (Ação em Minutos)",
+        "itens": [
+          "**1. Interromper exposição e posicionar:** suspender imediatamente fármaco/contraste suspeito; posicionar em **decúbito dorsal com elevação de MMII** (evitar ortostase pelo risco de PCR por síndrome da veia cava vazia; sentar apenas se desconforto respiratório grave; decúbito lateral esquerdo em gestantes)",
+          "**2. ADRENALINA IM IMEDIATA (1ª linha absoluta — nunca atrasar):** administrar **0,5 mg IM** (0,5 mL da ampola pura **1 mg/mL [1:1.000]**) na face anterolateral da coxa (**músculo vasto lateral**). Crianças: **0,01 mg/kg IM** (0,15 mg de 6 meses a 6 anos; 0,3 mg de 6 a 12 anos). **Repetir a cada 5 a 15 minutos** caso não haja reversão clínica",
+          "**3. Proteção Precoce de Via Aérea (Baixo Limiar para IOT):** ofertar O2 alto fluxo (8–15 L/min) para **SpO2 > 92–94%**. Diante de **rouquidão, disfonia, estridor laríngeo ou edema progressivo de língua/orofaringe**, realizar **SRI imediata** com tubo endotraqueal com cuff (preferir **Cetamina 1,5 mg/kg** na indução; não usar máscara laríngea) e deixar material de **cricotireoidostomia** pronto",
+          "**4. Expansão Volêmica Agressiva:** puncionar 2 acessos venosos periféricos calibrosos (14G–16G) e infundir **SF 0,9% ou Ringer Lactato 1.000 a 2.000 mL IV** rápido na 1ª hora (**20 mL/kg** em bolus; o aumento maciço da permeabilidade capilar pode demandar 4 a 8 L)",
+          "**5. Choque Anafilático Refratário à Adrenalina IM:** após 2–3 doses IM sem resposta hemodinâmica, iniciar **Adrenalina IV contínua em BIC (0,01 – 0,5 mcg/kg/min)** e associar **Noradrenalina** (0,05 – 0,5 mcg/kg/min) ou **Vasopressina** (0,03 UI/min) se vasodilatação refratária",
+          "**6. Refratariedade por Uso Prévio de Betabloqueador:** administrar **Glucagon 1 a 5 mg IV lento** em 5 minutos (pode repetir após 5 min e manter infusão contínua de **5 – 15 mcg/min** — exerce efeito inotrópico/cronotrópico via adenilciclase independente do receptor beta)",
+          "**7. Terapias de 2ª Linha (Adjuvantes — não tratam o choque isoladamente):** **Corticosteroide IV** (Hidrocortisona 200–300 mg ou Metilprednisolona 40–125 mg IV), **Anti-histamínico** (Difenidramina 25–50 mg IV lento para sintomas cutâneos), **Broncodilatador inalatório** (Salbutamol/Fenoterol + Ipratrópio) e **Sulfato de Magnésio 2 g IV** em 20–30 min se broncoespasmo refratário",
+          "**8. Vigilância de Reação Bifásica (ocorre em ~5% dos casos em até 8–24h):** manter observação mínima de **4 a 8 horas** após resolução completa; **internar em UTI** pacientes com hipotensão/choque, comprometimento de via aérea ou necessidade de ≥ 2 doses de adrenalina"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Choque Anafilático e Anafilaxia",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Adrenalina (Epinefrina) IM",
+            "apresentacao": "Ampola 1 mg/mL (1 mL) — 1:1.000",
+            "diluicao": "Usar pura (NÃO diluir para via IM)",
+            "dose": "0,5 mg (0,5 mL) IM no vasto lateral da coxa a cada 5-15 min (crianças: 0,01 mg/kg, máx 0,3-0,5 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Adrenalina (Infusão IV)",
+            "apresentacao": "Ampola 1 mg/mL (1 mL)",
+            "diluicao": "6 mg (6 mL) + 244 mL SF 0,9% (24 mcg/mL) ou 1 mg + 249 mL SF (4 mcg/mL)",
+            "dose": "0,01-0,5 mcg/kg/min IV em BIC (choque refratário a doses IM)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Hidrocortisona",
+            "apresentacao": "Frasco-ampola 100 mg ou 500 mg",
+            "diluicao": "Reconstituir em 5-10 mL AD ou SF 0,9%",
+            "dose": "200-300 mg IV (crianças: 5-10 mg/kg, máx 300 mg)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Metilprednisolona",
+            "apresentacao": "Frasco-ampola 125 mg ou 500 mg",
+            "diluicao": "Reconstituir com diluente próprio",
+            "dose": "40-125 mg IV (1-2 mg/kg, máx 125 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Difenidramina",
+            "apresentacao": "Ampola 50 mg/mL (1 mL)",
+            "diluicao": "Diluir em 10-20 mL SF 0,9%",
+            "dose": "25-50 mg IV lento em 5 min (crianças: 1 mg/kg, máx 50 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Sulfato de Magnésio",
+            "apresentacao": "Ampola 50% (500 mg/mL — 10 mL)",
+            "diluicao": "2 g (4 mL) + 100 mL SF 0,9%",
+            "dose": "2 g IV em 20-30 min (broncoespasmo grave refratário)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Glucagon",
+            "apresentacao": "Frasco-ampola 1 mg (1 UI)",
+            "diluicao": "Reconstituir em 1 mL de diluente",
+            "dose": "1-5 mg IV lento em 5 min (repetir em 5 min) → infusão 5-15 mcg/min (uso de betabloqueador)",
+            "sus": "ceaf"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Critérios Diagnósticos de Anafilaxia e Alvos",
+        "escores": [
+          {
+            "nome": "Critérios Clínicos de Anafilaxia (OMS / WAO)",
+            "descricao": "O diagnóstico é altamente provável quando QUALQUER UM dos 3 critérios abaixo é preenchido (nota: 10–15% dos casos graves podem cursar sem lesões cutâneas iniciais)",
+            "colunas": ["Critério", "Definição Clínica"],
+            "dados": [
+              ["Critério 1 (Pele/Mucosa + Respiratório ou Choque)", "Início agudo (minutos a horas) com acometimento de pele/mucosa (urticária generalizada, prurido/rubor, edema de lábios-língua-úvula) E pelo menos um: 1) Comprometimento respiratório (dispneia, broncoespasmo, estridor, hipoxemia); OU 2) Queda da PA / hipoperfusão (síncope, colapso, hipotonia)"],
+              ["Critério 2 (≥ 2 Sistemas após Alérgeno Provável)", "Dois ou mais sistemas acometidos rapidamente após exposição a alérgeno provável: 1) Pele/mucosa; 2) Respiratório; 3) Hipotensão/hipoperfusão; 4) Sintomas gastrointestinais persistentes (cólicas intensas, vômitos)"],
+              ["Critério 3 (Hipotensão isolada após Alérgeno Conhecido)", "Redução aguda da PA minutos a horas após exposição a alérgeno sabidamente conhecido para o paciente: PAS < 90 mmHg em adultos ou queda > 30% da PAS basal"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["1ª Dose de Adrenalina IM", "Imediata no vasto lateral (0,5 mg puro 1:1.000)"],
+          ["PAM e PAS", "PAM ≥ 65 mmHg | PAS ≥ 90 mmHg"],
+          ["SpO2", "≥ 94% (> 92% mínimo)"],
+          ["Via Aérea se Estridor/Edema", "IOT precoce com tubo com cuff (evitar dispositivos supraglóticos)"],
+          ["Tempo de Observação Pós-Resolução", "Mínimo 4 a 8 horas (internar em UTI se choque ou ≥ 2 doses de adrenalina)"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "politrauma-choque-hemorragico",
+    "titulo": "Politrauma e Choque Hemorrágico",
+    "cid": "T79.4",
+    "cor": "#9333ea",
+    "icon": "bandage-outline",
+    "categoria": "Trauma",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 63 (Atendimento Inicial ao Politraumatizado) + Cap. 68 (Choque Hemorrágico)",
+      "Guia para Uso de Hemocomponentes — Ministério da Saúde"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Abordagem XABCDE e Ressuscitação de Controle de Danos",
+        "itens": [
+          "**1. <X> Exsanguinação (Controle de Hemorragia Externa):** compressão direta imediata, empacotamento de ferida (*wound packing*) ou **torniquete arterial** proximal em sangramentos exsanguinantes/amputações traumáticas de extremidades (registrar horário exato de colocação)",
+          "**2. <A/B> Via Aérea, Coluna Cervical e Descompressão Torácica:** estabilização manual da coluna cervical; O2 em máscara não reinalante 12–15 L/min para **SpO2 ≥ 94%** (**≥ 98% no TCE grave**); **SRI precoce** se Glasgow ≤ 8 (indução com **Cetamina 1–2 mg/kg** ou Etomidato 0,3 mg/kg). Tratar prontamente: **Pneumotórax hipertensivo** (descompressão imediata com jelco 14G–16G no 5º EIC na linha axilar média ou toracostomia digital + drenagem torácica) e **Hemotórax maciço** (> 1.500 mL imediatos ou > 200 mL/h por 2–4h)",
+          "**3. <C> Investigação dos 5 Compartimentos de Sangramento Oculto:** **Tórax** (RX/e-FAST), **Cavidade peritoneal** (e-FAST à beira-leito), **Pelve** (estabilização imediata com cinta pélvica ou lençol ao nível dos trocânteres maiores — evitar mobilizações repetidas), **Retroperitônio** e **Ossos longos** (redução e imobilização de fraturas de fêmur)",
+          "**4. Acessos Vasculares e Restrição de Cristaloides:** obter 2 acessos venosos periféricos curtos e calibrosos (14G–18G) ou acesso intraósseo (IO); coletar tipagem sanguínea, prova cruzada, gasometria arterial (lactato e *base excess*), coagulograma, fibrinogênio, cálcio iônico e β-hCG (mulheres em idade fértil). **Evitar infundir > 1.000 mL de cristaloide** (agrava coagulopatia dilucional, hipotermia e acidose)",
+          "**5. Hipotensão Permissiva:** antes do controle cirúrgico da hemorragia, manter **PAS 80 – 90 mmHg** (PAM 50–60 mmHg) para evitar deslocamento do coágulo. **EXCEÇÃO — TCE grave associado (GCS ≤ 8):** proibida hipotensão permissiva; manter **PAS ≥ 100–110 mmHg** (PAM ≥ 80 mmHg)",
+          "**6. Ácido Tranexâmico Precoce (Estudo CRASH-2):** administrar **1 g IV em 10 minutos** seguido de **1 g IV ao longo de 8 horas** em todo paciente traumatizado com sangramento significativo ou risco de choque hemorrágico **dentro de 3 horas da lesão** (não iniciar após 3h do trauma)",
+          "**7. Protocolo de Transfusão Maciça (PTM — Proporção 1:1:1):** acionar imediatamente se **Escore ABC ≥ 2**, **Shock Index (FC/PAS) ≥ 1,4** ou Choque Classes III–IV. Transfundir **Concentrado de Hemácias : Plasma Fresco Congelado : Plaquetas na proporção 1:1:1** sem aguardar provas cruzadas (usar CH tipo O Rh negativo em mulheres em idade fértil ou O Rh positivo)",
+          "**8. Prevenção da Tríade Letal e Hipocalcemia (Diamante Letal):** aquecimento corporal ativo (retirar roupas úmidas, manta térmica e infundir fluidos/sangue aquecidos — **nunca aquecer plaquetas**), controle da acidose (pH > 7,20) e **reposição sistemática de Cálcio** (quelado pelo citrato dos hemocomponentes: **Cloreto de Cálcio 10% 10 mL [1 g]** ou Gluconato de Cálcio 10% 30 mL [3 g] IV lento para manter Ca²⁺ iônico ≥ 1,1–1,2 mmol/L)"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos e Hemocomponentes — Trauma e Choque Hemorrágico",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Ácido Tranexâmico",
+            "apresentacao": "Ampola 250 mg / 5 mL (50 mg/mL)",
+            "diluicao": "1 g (4 ampolas = 20 mL) + 100 mL SF 0,9%",
+            "dose": "Ataque: 1 g IV em 10 min (em até 3h do trauma) → Manutenção: 1 g IV em 8h (125 mg/h)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Concentrado de Hemácias (CH)",
+            "apresentacao": "Bolsa ~250-300 mL",
+            "diluicao": "Infundir puro em equipo de transfusão com aquecedor",
+            "dose": "Iniciar com CH O Rh(-) ou O Rh(+) sem prova cruzada; manter proporção 1:1:1 no PTM (meta Hb 7-9 g/dL após hemostasia)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Plasma Fresco Congelado (PFC)",
+            "apresentacao": "Bolsa ~200-250 mL",
+            "diluicao": "Infundir descongelado",
+            "dose": "Proporção 1:1 com CH no PTM (ou 10-15 mL/kg se RNI ou TTPa > 1,5× o controle)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Concentrado de Plaquetas (CP)",
+            "apresentacao": "1 pool / aférese (equivale a 6 U randômicas)",
+            "diluicao": "Infundir puro (NUNCA aquecer em aquecedor de fluidos)",
+            "dose": "1 pool (6 U) para cada 6 U de CH (proporção 1:1:1); manter plaquetas > 50.000/mm³ (> 100.000/mm³ se TCE grave)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Crioprecipitado",
+            "apresentacao": "Bolsa 10-15 mL (~150 mg de fibrinogênio/U)",
+            "diluicao": "Infundir puro em até 4h após descongelamento",
+            "dose": "10 unidades IV (ou 1-2 U/10 kg) se fibrinogênio < 150-200 mg/dL",
+            "sus": "rename"
+          },
+          {
+            "nome": "Cloreto de Cálcio",
+            "apresentacao": "10% (100 mg/mL) 10 mL",
+            "diluicao": "Usar direto ou diluir em 20 mL SF 0,9%",
+            "dose": "1 g (10 mL) IV lento em 5-10 min (ou Gluconato de Cálcio 10% 30 mL = 3 g IV) a cada 4 bolsas transfundidas ou se Ca iônico < 1,1 mmol/L",
+            "sus": "basico"
+          },
+          {
+            "nome": "Ceftriaxona",
+            "apresentacao": "Frasco-ampola 1 g",
+            "diluicao": "2 g em 100 mL SF 0,9%",
+            "dose": "2 g IV dose única nas primeiras 12h após intubação em pacientes com TCE grave em VM (prevenção de PAV precoce)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escore ABC (Transfusão Maciça) e Classificação ATLS",
+        "escores": [
+          {
+            "nome": "Escore ABC (Assessment of Blood Consumption)",
+            "descricao": "Preditor rápido à beira-leito para acionamento do Protocolo de Transfusão Maciça (≥ 2 pontos: sensibilidade 76–90%, especificidade 67–87%)",
+            "colunas": ["Critério na Admissão", "Pontos"],
+            "dados": [
+              ["Mecanismo de trauma penetrante", "1"],
+              ["Exame FAST positivo para líquido livre", "1"],
+              ["Pressão arterial sistólica (PAS) ≤ 90 mmHg", "1"],
+              ["Frequência cardíaca (FC) ≥ 120 bpm", "1"]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "abc-penetrante",
+                  "label": "Mecanismo de trauma penetrante",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "abc-fast",
+                  "label": "Exame FAST positivo para líquido livre",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "abc-pas",
+                  "label": "PAS ≤ 90 mmHg na chegada",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "abc-fc",
+                  "label": "FC ≥ 120 bpm na chegada",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore ABC",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 1,
+                    "label": "0-1 pt: Baixa probabilidade de transfusão maciça — monitorar Shock Index e reavaliar",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 2,
+                    "max": 4,
+                    "label": "≥ 2 pts: Alto risco — ACIONAR PROTOCOLO DE TRANSFUSÃO MACIÇA (1:1:1)",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "nome": "Classificação do Choque Hemorrágico no Trauma (ATLS 10ª ed.)",
+            "descricao": "Estimativa de perda volêmica, déficit de base e necessidade transfusional",
+            "colunas": ["Parâmetro", "Classe I (< 15%)", "Classe II (15–30%)", "Classe III (31–40%)", "Classe IV (> 40%)"],
+            "dados": [
+              ["Frequência Cardíaca", "Normal (< 100)", "Normal / ↑ (> 100)", "↑ (> 120)", "↑↑ (> 140)"],
+              ["Pressão Arterial Sistólica", "Normal", "Normal (pressão de pulso ↓)", "↓", "↓↓"],
+              ["Escala de Coma de Glasgow", "Normal", "Normal", "↓", "↓↓"],
+              ["Déficit de Base (Base Excess)", "0 a -2 mEq/L", "-2 a -6 mEq/L", "-6 a -10 mEq/L", "≤ -10 mEq/L"],
+              ["Necessidade de Sangue", "Monitorar", "Possível", "Sim (hemocomponentes)", "Protocolo de Transfusão Maciça"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["PAS sem TCE (Hipotensão Permissiva)", "80 – 90 mmHg até hemostasia cirúrgica"],
+          ["PAS com TCE Grave (GCS ≤ 8)", "≥ 100–110 mmHg (PAM ≥ 80 mmHg)"],
+          ["Shock Index (FC / PAS)", "Normal: 0,5–0,7 | Alerta: > 0,9 | PTM: ≥ 1,4"],
+          ["Hemoglobina e Plaquetas", "Hb 7–9 g/dL | Plaquetas > 50.000/mm³ (> 100.000 se TCE)"],
+          ["Fibrinogênio e Cálcio Iônico", "Fibrinogênio ≥ 150–200 mg/dL | Ca²⁺ ≥ 1,1–1,2 mmol/L"],
+          ["Temperatura, pH e Lactato", "Temperatura > 36 °C | pH > 7,20 | Clearance de lactato ≥ 10–20%"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "avc-hemorragico-hsa",
+    "titulo": "AVC Hemorrágico (HIP) e Hemorragia Subaracnóidea (HSA)",
+    "cid": "I61.9",
+    "cor": "#7c3aed",
+    "icon": "bulb-outline",
+    "categoria": "Neurológico",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 55 (Hemorragia Subaracnóidea) + Cap. 56 (Hemorragia Intraparenquimatosa)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Hemorragia Intraparenquimatosa (HIP) — Manejo Hiperagudo",
+        "itens": [
+          "**1. Estabilização e Neuroimagem Imediata:** ABC (IOT se Glasgow ≤ 8), cabeceira elevada a 30°, glicemia capilar imediata (manter **140–180 mg/dL**; corrigir < 60 mg/dL), **TC de crânio sem contraste** urgente (cálculo do volume do hematoma pela fórmula **ABC/2**) e **Angio-TC intracraniana** se suspeita de malformação vascular ou presença de *spot sign*",
+          "**2. Controle Pressórico Intensivo Precoce (Estudos INTERACT2 / ATACH2 / INTERACT3):** na HIP espontânea aguda (< 6h do ictus) com **PAS entre 150 e 220 mmHg**, reduzir rapidamente para **meta de PAS 130 – 140 mmHg** na 1ª hora e manter por 7 dias (evitar quedas abruptas > 60–70 mmHg em 1h e **evitar PAS < 120–130 mmHg** pelo risco de lesão renal aguda). Se **PAS > 220 mmHg**, reduzir inicialmente em ~15% na 1ª hora com anti-hipertensivo IV titulável (**Nitroprussiato de sódio** 0,3–10 mcg/kg/min, Metoprolol ou Esmolol)",
+          "**3. Reversão Imediata de Anticoagulação (Emergência Médica — Suspender Anticoagulante/Antiagregante):**\n• **Varfarina (AVK):** **Vitamina K 5–10 mg IV lento** (em 10–30 min) + **Complexo Protrombínico de 4 fatores (CCP) 25–50 UI/kg IV** (ou Plasma Fresco Congelado 15–20 mL/kg se CCP indisponível) — meta **RNI < 1,4**\n• **Heparina Não Fracionada (HNF):** **Sulfato de Protamina 1 mg para cada 100 UI de HNF** infundidas nas últimas 2–3 h (máx. 50 mg IV lento em 10 min)\n• **Enoxaparina (HBPM):** **Protamina 1 mg por 1 mg de enoxaparina** se administrada há < 8 h (ou 0,5 mg por 1 mg se entre 8–12 h)\n• **Dabigatrana:** **Idarucizumabe 5 g IV** (2 frascos de 2,5 g) ou CCP 50 UI/kg\n• **Rivaroxabana / Apixabana / Edoxabana:** **Complexo Protrombínico (CCP 4 fatores) 50 UI/kg IV** (ou Andexanet alfa)\n• **Antiagregantes plaquetários:** **NÃO transfundir plaquetas profilaticamente** (estudo PATCH mostrou aumento de mortalidade), exceto se o paciente for submetido a procedimento neurocirúrgico",
+          "**4. Indicações de Avaliação Neurocirúrgica de Urgência na HIP:** **Hemorragia cerebelar > 3 cm de diâmetro (ou volume ≥ 15 mL)**, deterioração neurológica, compressão de tronco encefálico ou **hidrocefalia aguda obstrutiva** (indicação de derivação ventricular externa — DVE); hematomas lobares superficiais volumosos (≤ 1 cm da superfície cortical) com hipertensão intracraniana refratária"
+        ]
+      },
+      {
+        "tipo": "conduta",
+        "titulo": "Hemorragia Subaracnóidea Aneurismática (HSA) — Conduta na Emergência",
+        "itens": [
+          "**1. Quadro Clínico e Diagnóstico (Cefaleia em Trovoada / Thunderclap):** cefaleia súbita que atinge intensidade máxima em segundos a ≤ 1 hora (\"a pior dor da vida\"), associada a náuseas/vômitos, síncope, rigidez de nuca ou alteração do nível de consciência. Realizar **TC de crânio sem contraste** (sensibilidade de **98,7% nas primeiras 6 horas**; se TC normal e suspeita clínica persistente ou > 6h do ictus, **punção lombar com coleta em 4 tubos e pesquisa de xantocromia é obrigatória**). Confirmada HSA, realizar **Angio-TC arterial intracraniana** ou **Arteriografia cerebral digital (padrão-ouro)**",
+          "**2. Controle Pressórico Pré-Oclusão do Aneurisma:** manter repouso absoluto no leito, analgesia escalonada e controle rigoroso da pressão arterial com **meta de PAS < 160 mmHg** (e PAM < 110 mmHg, evitando hipotensão arterial) até a clipagem cirúrgica ou embolização endovascular precoce do aneurisma (idealmente nas primeiras 24–72 h)",
+          "**3. Prevenção de Vasoespasmo e Isquemia Cerebral Tardia (DCI):** iniciar **Nimodipino 60 mg (2 comprimidos de 30 mg) VO ou por SNE a cada 4 horas por 21 dias** em TODOS os pacientes com HSA aneurismática (reduz isquemia cerebral tardia e melhora desfecho neurológico; se causar hipotensão arterial, fracionar para 30 mg a cada 2h). Manter **euvolemia estrita** com cristaloide isotônico (SF 0,9%) e corrigir hiponatremia (síndrome perdedora de sal cerebral vs. SIADH). **Não utilizar ácido tranexâmico de rotina** (estudo ULTRA)"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Controle Pressórico, Neuroproteção e Reversão",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Nimodipino",
+            "apresentacao": "Comprimido 30 mg",
+            "diluicao": "VO ou triturado por SNE com SF 0,9%",
+            "dose": "60 mg (2 comp.) VO/SNE a cada 4 horas por 21 dias (iniciar imediatamente na HSA aneurismática)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nitroprussiato de Sódio",
+            "apresentacao": "Frasco-ampola 50 mg",
+            "diluicao": "50 mg (2 mL) + 248 mL SG 5% (200 mcg/mL) — proteger da luz",
+            "dose": "0,3-10 mcg/kg/min IV em BIC — titular para PAS 130-140 mmHg na HIP ou PAS < 160 mmHg na HSA (cautela com PIC)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Complexo Protrombínico (CCP 4 fatores)",
+            "apresentacao": "Frasco-ampola 500 UI",
+            "diluicao": "Reconstituir com diluente próprio (20 mL)",
+            "dose": "25-50 UI/kg IV conforme RNI (reversão imediata de Varfarina) ou 50 UI/kg IV (reversão de Rivaroxabana/Apixabana)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Vitamina K (Fitomenadiona)",
+            "apresentacao": "Ampola 10 mg/mL (1 mL)",
+            "diluicao": "Diluir em 50 mL SF 0,9% ou SG 5%",
+            "dose": "5-10 mg IV lento em 10-30 min (associar sempre ao CCP/PFC na reversão de Varfarina para manter RNI < 1,4)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Sulfato de Protamina",
+            "apresentacao": "Ampola 10 mg/mL (5 mL = 50 mg)",
+            "diluicao": "Diluir em 20-50 mL SF 0,9%",
+            "dose": "1 mg para cada 100 UI de HNF (nas últimas 2-3h) ou 1 mg por 1 mg de Enoxaparina IV lento em 10 min (máx 50 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Idarucizumabe",
+            "apresentacao": "Frasco 2,5 g / 50 mL (kit com 2 frascos = 5 g)",
+            "diluicao": "Pronto para uso (infundir os 2 frascos consecutivamente)",
+            "dose": "5 g IV (2 × 2,5 g em bolus ou infusão de 5-10 min) — reversor específico da Dabigatrana",
+            "sus": "comercial"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escores Prognósticos (ICH Score, Hunt-Hess e Fisher Modificada)",
+        "escores": [
+          {
+            "nome": "Escore ICH (Hemorragia Intraparenquimatosa)",
+            "descricao": "Preditor de mortalidade em 30 dias na HIP espontânea (volume calculado na TC por A × B × C / 2)",
+            "colunas": ["Componente", "Critério", "Pontos"],
+            "dados": [
+              ["Escala de Coma de Glasgow", "3–4 (2 pts) | 5–12 (1 pt) | 13–15 (0 pt)", "0 a 2"],
+              ["Volume do Hematoma (ABC/2)", "≥ 30 mL (1 pt) | < 30 mL (0 pt)", "0 ou 1"],
+              ["Inundação Ventricular (Hemoventrículo)", "Presente (1 pt) | Ausente (0 pt)", "0 ou 1"],
+              ["Origem Infratentorial (Cerebelo/Tronco)", "Sim (1 pt) | Não (0 pt)", "0 ou 1"],
+              ["Idade", "≥ 80 anos (1 pt) | < 80 anos (0 pt)", "0 ou 1"]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "ich-gcs-leve",
+                  "grupo": "ich-gcs",
+                  "label": "Glasgow 13 a 15 na admissão (0 pt)",
+                  "pontos": 0,
+                  "tipo": "radio",
+                  "padrao": true
+                },
+                {
+                  "id": "ich-gcs-mod",
+                  "grupo": "ich-gcs",
+                  "label": "Glasgow 5 a 12 na admissão (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "ich-gcs-grave",
+                  "grupo": "ich-gcs",
+                  "label": "Glasgow 3 a 4 na admissão (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "ich-vol",
+                  "label": "Volume do hematoma ≥ 30 mL (fórmula ABC/2)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "ich-ivh",
+                  "label": "Presença de hemoventrículo (hemorragia intraventricular)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "ich-infra",
+                  "label": "Origem infratentorial (cerebelar ou tronco encefálico)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "ich-idade",
+                  "label": "Idade ≥ 80 anos",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "ICH Score",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 1,
+                    "label": "0-1 pt: Mortalidade em 30 dias baixa (0% a 13%) — internar em UTI/Unidade de AVC",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 2,
+                    "max": 2,
+                    "label": "2 pts: Mortalidade em 30 dias moderada (~26%) — vigilância neurointensiva estrita",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 3,
+                    "max": 6,
+                    "label": "3-6 pts: Alta gravidade (mortalidade 72% a > 95%) — avaliar neurocirurgia/DVE e suporte intensivo",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "nome": "Escalas de Hunt-Hess e Fisher Modificada (HSA)",
+            "descricao": "Classificação clínica e tomográfica de gravidade e risco de vasoespasmo na HSA",
+            "colunas": ["Grau", "Escala Clínica de Hunt-Hess", "Escala Tomográfica de Fisher Modificada"],
+            "dados": [
+              ["Grau 1", "Cefaleia leve ou rigidez de nuca discreta (assintomático)", "Sem sangue cisternal (0% vasoespasmo sintomático ou c/ HIV: 24–27%)"],
+              ["Grau 2", "Cefaleia moderada a intensa, rigidez de nuca, sem déficit focal (exceto paralisia de nervo craniano)", "HSA fina (< 1 mm) com hemoventrículo nos dois ventrículos laterais (risco 33%)"],
+              ["Grau 3", "Sonolência, confusão mental ou déficit focal leve", "HSA espessa (≥ 1 mm) sem hemoventrículo bilateral (risco 33%)"],
+              ["Grau 4", "Torpor, hemiparesia moderada a grave", "HSA espessa (≥ 1 mm) COM hemoventrículo bilateral (maior risco de vasoespasmo: 40%)"],
+              ["Grau 5", "Coma profundo, postura de descerebração", "—"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["PAS na HIP espontânea (< 6h)", "130 – 140 mmHg (evitar PAS < 120–130 mmHg)"],
+          ["PAS na HSA pré-tratamento do aneurisma", "< 160 mmHg (PAM < 110 mmHg)"],
+          ["RNI em HIP associada a Varfarina", "< 1,4 (reverter imediatamente com CCP + Vitamina K)"],
+          ["Prevenção de Vasoespasmo na HSA", "Nimodipino 60 mg VO/SNE de 4/4h por 21 dias + Euvolemia"],
+          ["Glicemia e Temperatura", "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "meningite-encefalite",
+    "titulo": "Meningite Bacteriana Aguda e Encefalite Herpética",
+    "cid": "G00.9",
+    "cor": "#059669",
+    "icon": "medkit-outline",
+    "categoria": "Infeccioso",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 57 (Infecções no Sistema Nervoso Central)",
+      "Guia de Terapia Antimicrobiana Sanford"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Imediata — Antibiótico na 1ª Hora e Punção Lombar Segura",
+        "itens": [
+          "**1. Emergência Infectoneurológica (Não atrasar Antimicrobiano):** o atraso na antibioticoterapia aumenta a mortalidade em ~15% a cada hora. **Colher 2 pares de hemoculturas e administrar Dexametasona + Antibiótico Empírico IMEDIATAMENTE** caso a punção lombar atrase ou haja indicação de TC de crânio prévia",
+          "**2. Indicações de TC de Crânio ANTES da Punção Lombar (Risco de Herniação):** **1)** Imunossupressão grave (HIV/AIDS, terapia imunossupressora, pós-transplante); **2)** História de lesão estrutural conhecida no SNC (neoplasia, AVC, infecção focal); **3)** Crise epiléptica recente (< 1 semana); **4)** Papiledema ao fundo de olho; **5)** Rebaixamento do nível de consciência (**Glasgow < 11–13**); **6)** Déficit neurológico focal ou **idade > 60 anos**. Na ausência desses critérios, realizar punção lombar imediata sem aguardar TC",
+          "**3. Antibioticoterapia Empírica na Meningite Comunitária:**\n• **Adultos (18 a 50 anos):** **Ceftriaxona 2 g IV de 12/12 h** + **Vancomicina 15–20 mg/kg IV de 8/8 h ou 12/12 h** (associar vancomicina em locais com resistência pneumocócica às cefalosporinas > 1%; dados brasileiros apontam ~20% de resistência)\n• **> 50 anos, Gestantes, Etilistas ou Imunossuprimidos (cobertura para Listeria monocytogenes):** **Ceftriaxona 2 g IV 12/12 h + Vancomicina 15–20 mg/kg IV 12/12 h + Ampicilina 2 g IV de 4/4 h**\n• **Pós-TCE Penetrante, Pós-Neurocirurgia ou Derivação Ventricular:** **Vancomicina 15–20 mg/kg IV 12/12 h + Cefepima 2 g IV de 8/8 h** (ou Ceftazidima 2 g IV 8/8 h ou Meropenem 2 g IV 8/8 h)",
+          "**4. Corticosteroide Adjuvante (Dexametasona):** administrar **Dexametasona 0,15 mg/kg (10 mg em adultos) IV de 6/6 h por 4 dias**, iniciada **15–20 min ANTES ou junto à 1ª dose do antibiótico** (reduz perda auditiva, sequelas neurológicas e mortalidade na meningite por *S. pneumoniae*; suspender se identificado agente não pneumocócico/não *Haemophilus*, e **não administrar** após > 12h de antibiótico já iniciado)",
+          "**5. Suspeita de Meningoencefalite Herpética (HSV-1 / HSV-2 / VZV):** diante de confusão mental, alteração comportamental/psiquiátrica aguda, afasia, crises focais, pleocitose linfomononuclear ou alteração temporal na TC/RM/EEG, associar imediatamente **Aciclovir 10 mg/kg IV de 8/8 h por 14 a 21 dias** (infundir em 1 h com hidratação venosa vigorosa para prevenir nefropatia cristalina)",
+          "**6. Isolamento e Quimioprofilaxia de Contactantes:** manter **precaução para gotículas nas primeiras 24 horas** de antibioticoterapia eficaz se suspeita de *Neisseria meningitidis* ou *Haemophilus influenzae*. Notificar imediatamente e prescrever quimioprofilaxia para contactantes íntimos e profissionais expostos à via aérea sem máscara: **Rifampicina 600 mg VO de 12/12 h por 2 dias** (meningococo) ou **Ceftriaxona 250 mg IM dose única** (gestantes) ou **Ciprofloxacino 500 mg VO dose única**"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Meningite Bacteriana e Encefalite Viral",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Ceftriaxona",
+            "apresentacao": "Frasco-ampola 1 g",
+            "diluicao": "2 g em 100 mL SF 0,9% ou SG 5%",
+            "dose": "2 g IV de 12/12 h (dose meníngea: 4 g/dia) por 7 dias (meningococo) a 10-14 dias (pneumococo)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Vancomicina",
+            "apresentacao": "Frasco-ampola 500 mg",
+            "diluicao": "1 g em 200 mL SF 0,9% (infundir em ≥ 60 min)",
+            "dose": "Ataque 25-30 mg/kg IV → manutenção 15-20 mg/kg IV de 8/8 h ou 12/12 h (vancocinemia vale 15-20 mcg/mL)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Ampicilina",
+            "apresentacao": "Frasco-ampola 1 g",
+            "diluicao": "2 g em 100 mL SF 0,9%",
+            "dose": "2 g IV de 4/4 h (12 g/dia — cobertura para Listeria em > 50 anos, gestantes e imunossuprimidos; mínimo 21 dias)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Dexametasona",
+            "apresentacao": "Ampola 4 mg/mL (2,5 mL = 10 mg)",
+            "diluicao": "Diluir em 20 mL SF 0,9% ou direto lento",
+            "dose": "0,15 mg/kg (10 mg em adultos) IV de 6/6 h por 4 dias (administrar 15-20 min antes ou junto à 1ª dose do ATB)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Aciclovir IV",
+            "apresentacao": "Frasco-ampola 250 mg",
+            "diluicao": "Diluir em 100 mL SF 0,9% (concentração máx 7 mg/mL)",
+            "dose": "10 mg/kg IV de 8/8 h (infundir em 60 min com hidratação venosa; ajustar pela função renal) por 14-21 dias",
+            "sus": "rename"
+          },
+          {
+            "nome": "Meropenem",
+            "apresentacao": "Frasco-ampola 1 g",
+            "diluicao": "2 g em 100 mL SF 0,9%",
+            "dose": "2 g IV de 8/8 h (dose meníngea para meningite nosocomial / pós-neurocirurgia)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Rifampicina",
+            "apresentacao": "Cápsula 300 mg",
+            "diluicao": "VO direto",
+            "dose": "600 mg VO de 12/12 h por 2 dias (quimioprofilaxia de contactantes de meningococo)",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Interpretação do Líquor (LCR) e Metas Assistenciais",
+        "escores": [
+          {
+            "nome": "Diagnóstico Diferencial do Líquor (Punção Lombar)",
+            "descricao": "Valores de referência no adulto: celularidade ≤ 4 células/mm³, glicorraquia > 2/3 da glicemia (> 45 mg/dL), proteínas ≤ 40 mg/dL, lactato < 35 mg/dL",
+            "colunas": ["Parâmetro no LCR", "Meningite Bacteriana", "Meningite Viral", "Meningite Tuberculosa", "Meningite Fúngica"],
+            "dados": [
+              ["Pressão de Abertura", "Elevada (> 20–25 cmH2O)", "Normal ou levemente ↑", "Elevada", "Elevada a muito elevada (Criptococo)"],
+              ["Celularidade (/mm³)", "1.000 a 10.000 (> 100)", "10 a 500 (< 1.000)", "50 a 500", "20 a 500"],
+              ["Predomínio Celular", "Neutrófilos (PMN > 80%)", "Linfomononuclear (PMN possível nas primeiras 24–48h)", "Linfomononuclear", "Linfomononuclear"],
+              ["Glicorraquia", "Baixa (< 40 mg/dL; razão LCR/soro < 0,4)", "Normal (> 45 mg/dL)", "Baixa (< 45 mg/dL)", "Baixa a normal"],
+              ["Proteínas (mg/dL)", "Muito elevada (100–500)", "Normal a levemente ↑ (< 100)", "Elevada (100–500)", "Elevada"],
+              ["Exames Específicos", "Gram (60–90%), Cultura, Látex/PCR multiplex, Lactato > 35 mg/dL", "PCR para HSV-1/2, VZV, Enterovírus", "BAAR, GeneXpert MTB/RIF, ADA elevada, Cultura", "Tinta da China, Antígeno Criptocócico (CrAg)"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["Tempo Porta-Antibiótico", "≤ 60 minutos (nunca atrasar por TC de crânio ou punção lombar)"],
+          ["Dexametasona 10 mg IV", "15–20 min antes ou concomitante à 1ª dose do antibiótico"],
+          ["Precaução de Gotículas", "Primeiras 24 horas de antibioticoterapia eficaz (Meningococo / Haemophilus)"],
+          ["Vancocinemia (Vale)", "15 – 20 mcg/mL"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tce-hipertensao-intracraniana",
+    "titulo": "Traumatismo Cranioencefálico (TCE) e Hipertensão Intracraniana",
+    "cid": "S06.9",
+    "cor": "#9333ea",
+    "icon": "bandage-outline",
+    "categoria": "Trauma",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 64 (Traumatismo Cranioencefálico) + Cap. 63 (Atendimento Inicial ao Politraumatizado)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Prevenção de Lesão Cerebral Secundária e Manejo da HIC",
+        "itens": [
+          "**1. Prioridade Absoluta — Evitar Hipotensão e Hipoxemia:** um único episódio de hipotensão dobra a mortalidade no TCE grave. Manter **SpO2 ≥ 94–98% (PaO2 > 60–100 mmHg)** e **PAS ≥ 100 mmHg** (pacientes de 50–69 anos) ou **PAS ≥ 110 mmHg** (15–49 anos ou > 70 anos). Ressuscitar com **SF 0,9%** (evitar soluções hipotônicas como Ringer Lactato; **Albumina é contraindicada no TCE** — estudo SAFE)",
+          "**2. Via Aérea Definitiva e Ventilação Protetora Cerebral:** realizar **Intubação Orotraqueal em Sequência Rápida (SRI)** se **Glasgow ≤ 8**, incapacidade de proteger via aérea, hipoxemia ou agitação grave que impeça TC (preferir **Cetamina 1,5 mg/kg** ou **Etomidato 0,3 mg/kg** + **Fentanil 2–3 mcg/kg** + **Rocurônio 1–1,2 mg/kg**). Manter **normocapnia estrita (PaCO2 35–45 mmHg / EtCO2 35–40 mmHg)** — hiperventilação profilática causa vasoconstrição e isquemia cerebral",
+          "**3. Ácido Tranexâmico no TCE (Estudo CRASH-3):** administrar **1 g IV em 10 min + 1 g IV em 8 horas** dentro de **3 horas do trauma** em pacientes com **TCE moderado (Glasgow 9–12)** ou qualquer sangramento intracraniano evidenciado na TC de crânio (sem benefício se Glasgow 3 com pupilas médio-fixas bilaterais)",
+          "**4. Medidas Gerais de Neuroproteção e Controle de Crises:** cabeceira elevada a **30° com cabeça centrada em posição neutra** (afrouxar colar cervical se comprimir jugulares), sedoanalgesia contínua (Propofol/Midazolam + Fentanil), **normotermia (< 37,5 °C)**, **glicemia 140–180 mg/dL** e **sódio sérico 140–150 mEq/L**. Indicar **profilaxia anticonvulsivante por 7 dias (Fenitoína)** no TCE grave, hematoma subdural/epidural/intraparenquimatoso, fratura de crânio com afundamento ou ferimento penetrante",
+          "**5. Manejo de Herniação Cerebral Iminente (Anisocoria Aguda, Tríade de Cushing — Hipertensão + Bradicardia + Bradipneia, ou Queda de ≥ 2 pts no Glasgow):**\n• **Terapia Hiperosmolar Imediata:** **Salina Hipertônica (NaCl 3% 150–250 mL IV em 10–20 min**, ou NaCl 20% 20–40 mL em acesso central; **preferida se houver hipotensão arterial**, meta Na⁺ 145–155 mEq/L) OU **Manitol 20% 0,25 a 1 g/kg (1,25 a 5 mL/kg) IV em bolus de 10–15 min** (contraindicado se hipotensão arterial)\n• **Hiperventilação Transitória de Resgate:** PaCO2 **30–35 mmHg** apenas como ponte imediata até a intervenção neurocirúrgica descompressiva"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos — Terapia Hiperosmolar, Hemostasia e Profilaxia no TCE",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Salina Hipertônica (NaCl 3%)",
+            "apresentacao": "Preparo extemporâneo (ou bolsa 3%)",
+            "diluicao": "445 mL SF 0,9% + 55 mL NaCl 20% = 500 mL de NaCl 3% (513 mEq/L)",
+            "dose": "150-250 mL (2-5 mL/kg) IV em 10-20 min na herniação/HIC aguda (meta Na 145-155 mEq/L; escolha se hipotensão)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Manitol 20%",
+            "apresentacao": "Frasco 250 mL (200 mg/mL)",
+            "diluicao": "Infundir puro com filtro de linha (verificar ausência de cristais)",
+            "dose": "0,25 a 1 g/kg (1,25 a 5 mL/kg; ~150-350 mL em 70 kg) IV em 10-15 min (EVITAR se PAS < 100 mmHg ou hipovolemia)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Ácido Tranexâmico",
+            "apresentacao": "Ampola 250 mg / 5 mL (50 mg/mL)",
+            "diluicao": "1 g (4 ampolas) + 100 mL SF 0,9%",
+            "dose": "1 g IV em 10 min (em até 3h do trauma) + 1 g IV em 8h (TCE moderado GCS 9-12 ou sangramento na TC — CRASH-3)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Fenitoína",
+            "apresentacao": "Ampola 250 mg / 5 mL (50 mg/mL)",
+            "diluicao": "Diluir em 100 mL SF 0,9% (incompatível com SG 5%)",
+            "dose": "Ataque: 15-20 mg/kg IV (máx 50 mg/min) → Manutenção: 100 mg IV de 8/8 h por 7 dias (profilaxia de crise precoce)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Ceftriaxona",
+            "apresentacao": "Frasco-ampola 1 g",
+            "diluicao": "2 g em 100 mL SF 0,9%",
+            "dose": "2 g IV dose única nas primeiras 12h após IOT no TCE grave (reduz pneumonia associada à ventilação mecânica)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Escala de Coma de Glasgow, Lesões Focais e Indicações Cirúrgicas",
+        "escores": [
+          {
+            "nome": "Escala de Coma de Glasgow (GCS) e Estratificação do TCE",
+            "descricao": "Classificação de gravidade: TCE Leve (13–15 pts) | TCE Moderado (9–12 pts) | TCE Grave (3–8 pts → indicação de IOT)",
+            "colunas": ["Parâmetro", "Resposta Avaliada", "Pontuação"],
+            "dados": [
+              ["Abertura Ocular (O)", "Espontânea (4) | Ao estímulo verbal (3) | À pressão/dor (2) | Ausente (1)", "1 a 4"],
+              ["Resposta Verbal (V)", "Orientada (5) | Confusa (4) | Palavras inapropriadas (3) | Sons incompreensíveis (2) | Ausente (1)", "1 a 5"],
+              ["Resposta Motora (M)", "Obedece a comandos (6) | Localiza estímulo (5) | Flexão normal/retirada (4) | Flexão anormal/decorticação (3) | Extensão/descerebração (2) | Ausente (1)", "1 a 6"]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "gcs-o4",
+                  "grupo": "ocular",
+                  "label": "Abertura Ocular (O4): Espontânea (4 pts)",
+                  "pontos": 4,
+                  "tipo": "radio",
+                  "padrao": true
+                },
+                {
+                  "id": "gcs-o3",
+                  "grupo": "ocular",
+                  "label": "Abertura Ocular (O3): Ao estímulo verbal (3 pts)",
+                  "pontos": 3,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-o2",
+                  "grupo": "ocular",
+                  "label": "Abertura Ocular (O2): À pressão / dor (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-o1",
+                  "grupo": "ocular",
+                  "label": "Abertura Ocular (O1): Ausente (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-v5",
+                  "grupo": "verbal",
+                  "label": "Resposta Verbal (V5): Orientada (5 pts)",
+                  "pontos": 5,
+                  "tipo": "radio",
+                  "padrao": true
+                },
+                {
+                  "id": "gcs-v4",
+                  "grupo": "verbal",
+                  "label": "Resposta Verbal (V4): Confusa (4 pts)",
+                  "pontos": 4,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-v3",
+                  "grupo": "verbal",
+                  "label": "Resposta Verbal (V3): Palavras inapropriadas (3 pts)",
+                  "pontos": 3,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-v2",
+                  "grupo": "verbal",
+                  "label": "Resposta Verbal (V2): Sons incompreensíveis (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-v1",
+                  "grupo": "verbal",
+                  "label": "Resposta Verbal (V1): Ausente (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-m6",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M6): Obedece a comandos (6 pts)",
+                  "pontos": 6,
+                  "tipo": "radio",
+                  "padrao": true
+                },
+                {
+                  "id": "gcs-m5",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M5): Localiza estímulo doloroso (5 pts)",
+                  "pontos": 5,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-m4",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M4): Flexão normal / retirada (4 pts)",
+                  "pontos": 4,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-m3",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M3): Flexão anormal / decorticação (3 pts)",
+                  "pontos": 3,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-m2",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M2): Extensão / descerebração (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "gcs-m1",
+                  "grupo": "motora",
+                  "label": "Resposta Motora (M1): Ausente (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escala de Coma de Glasgow",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 8,
+                    "label": "≤ 8 pts: TCE GRAVE — Intubação Orotraqueal (SRI), TC imediata, Neurocirurgia e UTI",
+                    "cor": "#dc2626"
+                  },
+                  {
+                    "min": 9,
+                    "max": 12,
+                    "label": "9-12 pts: TCE MODERADO — TC de crânio imediata, Ácido Tranexâmico (< 3h) e observação rigorosa",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 13,
+                    "max": 15,
+                    "label": "13-15 pts: TCE LEVE — Aplicar Canadian CT Head Rule para indicar TC de crânio",
+                    "cor": "#16a34a"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "nome": "Hematoma Epidural vs. Hematoma Subdural Agudo e Indicações Cirúrgicas",
+            "descricao": "Diferenciação anatomoclínica e critérios neurocirúrgicos de evacuação",
+            "colunas": ["Característica", "Hematoma Epidural (Extradural)", "Hematoma Subdural Agudo"],
+            "dados": [
+              ["Vaso Sangrante", "Artéria meníngea média (associado a fratura temporal/parietal)", "Veias-ponte cortico-durais (aceleração/desaceleração; idosos, etilistas, anticoagulados)"],
+              ["Formato na TC de Crânio", "Lente biconvexa (não cruza suturas cranianas)", "Formato em crescente / foice (cruza suturas cranianas)"],
+              ["Apresentação Clínica", "Pode apresentar intervalo lúcido seguido de deterioração rápida e anisocoria ipsilateral", "Rebaixamento neurológico desde o trauma ou piora progressiva"],
+              ["Indicação Cirúrgica", "Volume > 30 mL (independente do GCS) OU espessura > 15 mm OU desvio de linha média > 5 mm OU coma/déficit focal", "Espessura > 10 mm OU desvio de linha média > 5 mm (independente do GCS) OU queda de ≥ 2 pts no GCS / anisocoria / PIC > 20 mmHg"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["PAS Alvo no TCE", "≥ 100 mmHg (50–69 anos) | ≥ 110 mmHg (15–49 ou > 70 anos)"],
+          ["SpO2 e PaCO2", "SpO2 ≥ 94–98% | PaCO2 35–45 mmHg (normocapnia)"],
+          ["PIC e PPC (se monitorizado)", "PIC < 22 mmHg | PPC 60–70 mmHg"],
+          ["Sódio Sérico e Plaquetas", "Na⁺ 140–150 mEq/L (145–155 se HIC) | Plaquetas > 100.000/mm³"],
+          ["Glicemia e Temperatura", "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grande-queimado",
+    "titulo": "Grande Queimado e Lesão Inalatória",
+    "cid": "T30.0",
+    "cor": "#9333ea",
+    "icon": "flame-outline",
+    "categoria": "Trauma",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 70 (Queimaduras)"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Atendimento Inicial, Via Aérea Precoce e Ressuscitação Volêmica",
+        "itens": [
+          "**1. Interrupção do Processo de Queimadura e Prevenção de Hipotermia:** remover vestimentas não aderidas, joias, anéis e próteses imediatamente (antes do edema); irrigar com água corrente em temperatura ambiente (até 15 min nas queimaduras térmicas agudas; **nunca usar gelo**) e cobrir com campos secos e limpos mantendo aquecimento ambiental",
+          "**2. Via Aérea Precoce na Lesão Inalatória (Não aguardar obstrução):** indicar **Intubação Orotraqueal imediata** (com tubo de grosso calibre **≥ 7,5 a 8,0** para permitir broncoscopia e higiene brônquica; **evitar Succinilcolina após 24–48 h** da queimadura pelo risco de hipercalemia letal — usar **Rocurônio 1,2 mg/kg**) diante de: **estridor, rouquidão/disfonia, escarro carbonáceo, queimadura facial extensa/circular, queimadura em ambiente fechado com sinais inflamatórios em orofaringe, SCQ > 40–50%** ou rebaixamento de consciência",
+          "**3. Intoxicações Associadas a Incêndios (Monóxido de Carbono e Cianeto):**\n• **Monóxido de Carbono (CO):** a oximetria de pulso convencional não diferencia oxi-hemoglobina de carboxi-hemoglobina (SpO2 falsamente normal). Solicitar **carboxi-hemoglobina (COHb) na gasometria** e administrar **O2 a 100% em máscara não reinalante ou TOT** (reduz meia-vida da COHb de 4h para ~40–60 min)\n• **Intoxicação por Cianeto:** suspeitar em vítima de incêndio em recinto fechado com **coma, choque/instabilidade hemodinâmica e acidose láctica grave (lactato > 8–10 mmol/L)**. Administrar imediatamente **Hidroxicobalamina 5 g IV em 15 minutos**",
+          "**4. Cálculo da Superfície Corporal Queimada (SCQ) e Ressuscitação com Ringer Lactato (24 horas contadas a partir da HORA DO TRAUMA):**\n• **Contabilizar apenas queimaduras de 2º e 3º graus** (eritema simples de 1º grau não entra no cálculo). Passar sonda vesical de demora se SCQ > 15–20%\n• **Fórmula de Brooke Modificada / ATLS 10ª ed. (Adultos — Queimadura Térmica):** **2 mL × Peso (kg) × %SCQ** de **Ringer Lactato**\n• **Crianças (< 14 anos / ≤ 30 kg):** **3 mL × Peso (kg) × %SCQ** de Ringer Lactato (+ soro glicosado de manutenção)\n• **Queimadura Elétrica de Alta Voltagem (todas as idades):** **4 mL × Peso (kg) × %SCQ** de Ringer Lactato\n• **Velocidade de Infusão:** infundir **50% do volume calculado nas primeiras 8 horas** (contadas a partir do momento do acidente) e os **50% restantes nas 16 horas seguintes**, titulando hora a hora pela **meta de diurese**",
+          "**5. Metas de Diurese, Rabdomiólise e Escarotomia de Urgência:** ajustar a infusão de Ringer Lactato para manter **diurese de 0,5 mL/kg/h em adultos (30–50 mL/h)**, **1 mL/kg/h em crianças (< 30 kg)** e **1 a 1,5 mL/kg/h (75–100 mL/h) no trauma elétrico / pigmentúria**. Realizar **escarotomia de urgência** nas queimaduras circunferenciais de tórax (restrição ventilatória) ou extremidades (síndrome compartimental). **Não prescrever antibiótico profilático sistêmico**; atualizar profilaxia antitetânica e realizar analgesia venosa potente (Fentanil/Morfina ± Cetamina)"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos e Soluções — Grande Queimado",
+        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "dados": [
+          {
+            "nome": "Ringer Lactato",
+            "apresentacao": "Bolsa 500 mL ou 1.000 mL",
+            "diluicao": "Infundir aquecido",
+            "dose": "Adulto térmico: 2 mL × kg × %SCQ | Criança: 3 mL × kg × %SCQ | Elétrico: 4 mL × kg × %SCQ (50% nas 1ªs 8h do trauma + 50% em 16h)",
+            "sus": "basico"
+          },
+          {
+            "nome": "Hidroxicobalamina",
+            "apresentacao": "Frasco-ampola 5 g (ou 2 × 2,5 g)",
+            "diluicao": "Reconstituir em 200 mL SF 0,9%",
+            "dose": "5 g IV em 15 min (antídoto de 1ª linha para intoxicação por Cianeto na inalação de fumaça; pode repetir mais 5 g se refratário)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Morfina",
+            "apresentacao": "Ampola 10 mg/mL (1 mL)",
+            "diluicao": "1 ampola (1 mL) + 9 mL AD/SF (1 mg/mL)",
+            "dose": "2 a 5 mg (0,05-0,1 mg/kg) IV a cada 15-30 min titulada conforme dor (associar Cetamina 0,1-0,3 mg/kg IV durante balneoterapia/curativo)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Fentanil",
+            "apresentacao": "Ampola 50 mcg/mL (2 mL ou 10 mL)",
+            "diluicao": "Usar puro ou diluído em SF 0,9%",
+            "dose": "50-100 mcg (1-2 mcg/kg) IV lento para analgesia imediata sem liberação histamínica",
+            "sus": "rename"
+          },
+          {
+            "nome": "Sulfadiazina de Prata 1%",
+            "apresentacao": "Creme dermatológico 10 mg/g",
+            "diluicao": "Uso tópico com curativo oclusivo estéril",
+            "dose": "Camada de 3-5 mm sobre áreas desbridadas 1 a 2×/dia (evitar na face e em gestantes/RN)",
+            "sus": "basico"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Regra dos Nove de Wallace e Critérios de Centro de Queimados",
+        "escores": [
+          {
+            "nome": "Regra dos Nove de Wallace (Estimativa da %SCQ — 2º e 3º Graus)",
+            "descricao": "Para queimaduras esparsas, a superfície palmar do paciente (incluindo os dedos) equivale a ~1% da SCQ",
+            "colunas": ["Segmento Corporal", "Adulto (% SCQ)", "Criança / Lactente (% SCQ)"],
+            "dados": [
+              ["Cabeça e Pescoço", "9% (4,5% anterior + 4,5% posterior)", "18% (9% anterior + 9% posterior)"],
+              ["Tronco Anterior (Tórax + Abdome)", "18%", "18%"],
+              ["Tronco Posterior (Dorso + Nádegas)", "18%", "18%"],
+              ["Membro Superior Direito (todo)", "9% (4,5% anterior + 4,5% posterior)", "9%"],
+              ["Membro Superior Esquerdo (todo)", "9% (4,5% anterior + 4,5% posterior)", "9%"],
+              ["Membro Inferior Direito (todo)", "18% (9% anterior + 9% posterior)", "13,5% a 14%"],
+              ["Membro Inferior Esquerdo (todo)", "18% (9% anterior + 9% posterior)", "13,5% a 14%"],
+              ["Períneo / Genitália", "1%", "1%"]
+            ]
+          },
+          {
+            "nome": "Critérios de Transferência para Centro de Tratamento de Queimados (ABA / MS)",
+            "descricao": "Estabilizar via aérea e hemodinâmica antes do transporte",
+            "colunas": ["Critério", "Indicação"],
+            "dados": [
+              ["Extensão e Profundidade", "Queimadura de 2º grau > 10–20% SCQ ou qualquer queimadura de 3º grau (> 5–10% SCQ)"],
+              ["Áreas Nobres / Funcionais", "Face, pescoço, mãos, pés, genitália, períneo ou grandes articulações"],
+              ["Etiologia Especial", "Queimaduras elétricas (incluindo raios), químicas ou circunferenciais de tórax/membros"],
+              ["Via Aérea e Comorbidades", "Lesão inalatória associada, politrauma concomitante, extremos de idade ou comorbidades graves"]
+            ]
+          }
+        ],
+        "alvos": [
+          ["Diurese Adulto (Queimadura Térmica)", "0,5 mL/kg/h (30 – 50 mL/h)"],
+          ["Diurese Criança (< 30 kg)", "1,0 mL/kg/h"],
+          ["Diurese Queimadura Elétrica / Rabdomiólise", "1,0 – 1,5 mL/kg/h (75 – 100 mL/h)"],
+          ["Carboxi-hemoglobina (COHb)", "< 5% (manter O2 a 100% até resolução da intoxicação por CO)"],
+          ["Temperatura Corporal", "Normotermia (> 36,5 °C — evitar hipotermia)"]
         ]
       }
     ]

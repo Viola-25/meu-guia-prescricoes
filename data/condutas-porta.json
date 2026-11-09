@@ -136,7 +136,7 @@
   {
     "id": "ivas-amigdalite",
     "titulo": "IVAS / Amigdalite",
-    "cid": "J02/J03",
+    "cid": "J02.9",
     "cor": "#dc2626",
     "icon": "medkit-outline",
     "secoes": [
@@ -1355,6 +1355,479 @@
           "**UTI/Toxicologia:** instabilidade hemodinâmica, rebaixamento persistente, arritmias, necessidade de hemodiálise",
           "**Níveis séricos com indicação de diálise:** lítio > 5 mEq/L; salicilatos graves; metanol/etilenoglicol; teofilina; metformina",
           "**Observação:** pacientes com manifestações graves — mínimo 6 horas"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "infeccao-trato-urinario",
+    "titulo": "Infecção do Trato Urinário (Cistite e Pielonefrite)",
+    "cid": "N39.0",
+    "cor": "#059669",
+    "icon": "medkit-outline",
+    "categoria": "Infeccioso",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 50 (Infecção do Trato Urinário)",
+      "Sanford Guide 2022 — Acute Uncomplicated Cystitis & Pyelonephritis"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Cistite Aguda Não Complicada (Mulher)",
+        "itens": [
+          "**Nitrofurantoína 100 mg** — tomar 1 cápsula VO de 6/6 h por **5 dias** (1ª escolha; contraindicada se suspeita de pielonefrite, ClCr < 30 mL/min ou gestação no 3º trimestre)",
+          "**Fosfomicina trometamol 3 g** — dissolver 1 envelope (8 g de granulado = 3 g de fosfomicina) em meio copo de água e tomar VO em **dose única**, preferencialmente à noite após esvaziar a bexiga (evitar na suspeita de pielonefrite)",
+          "**Sulfametoxazol + Trimetoprima (SMX-TMP) 800/160 mg** — tomar 1 comprimido VO de 12/12 h por **3 dias** (opção de 1ª linha se resistência local de *E. coli* < 20%)",
+          "**2ª linha / Gestantes:** **Cefalexina 500 mg** VO de 6/6 h por **5 a 7 dias**, **Cefadroxila 500 mg** VO de 12/12 h por **3 a 7 dias**, ou **Amoxicilina + Clavulanato 500/125 mg** VO de 8/8 h (ou **875/125 mg** de 12/12 h) por **5 a 7 dias** (em gestantes, colher urocultura antes de iniciar; **Fosfomicina 3 g** VO dose única também é opção segura na gestação; quinolonas são contraindicadas)",
+          "**Analgesia urinária / Sintomático:** **Dipirona 1 g** VO de 6/6 h se dor suprapúbica ou disúria intensa"
+        ],
+        "orientacoes": [
+          "**Diagnóstico clínico na mulher jovem sem comorbidades:** disúria, polaciúria, urgência miccional e dor suprapúbica, na ausência de corrimento ou prurido vaginal, autorizam tratamento empírico sem necessidade de exames complementares",
+          "**Quando solicitar Urina tipo 1 e Urocultura com antibiograma:** suspeita de pielonefrite, gestantes, homens (ITU no homem é sempre considerada complicada — tratar por no mínimo **7 dias**, ou **14 a 28 dias** se prostatite), diabetes mellitus, imunossuprimidos, sintomas > 7 dias, falha terapêutica recente ou uso de sonda vesical",
+          "**Bacteriúria assintomática:** **NÃO tratar**, exceto em **gestantes**, **neutropênicos** e em **pré-operatório de cirurgias urológicas** (ou implante de próteses). Piúria isolada sem sintomas não indica antibiótico"
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Pielonefrite Aguda Não Complicada (Leve / Moderada)",
+        "itens": [
+          "**1ª Dose Parenteral no Pronto-Socorro (recomendada antes da alta):** **Ceftriaxona 1 a 2 g IV ou IM** em dose única no PS + hidratação venosa com **SF 0,9% ou Ringer Lactato 10 a 30 mL/kg** + **Ondansetrona 4 a 8 mg IV** se náuseas/vômitos",
+          "**Ciprofloxacino 500 mg** — tomar 1 comprimido VO de 12/12 h por **7 dias** (ou **400 mg IV de 12/12 h** se internado) — 1ª escolha ambulatorial",
+          "**Levofloxacino 750 mg** — tomar 1 comprimido VO (ou IV) 1x/dia por **5 a 7 dias**",
+          "**Ceftriaxona 1 a 2 g IV ou IM** 1x/dia por **7 a 14 dias** — opção para tratamento hospitalar ou ambulatorial parenteral, podendo realizar transição para via oral guiada pelo antibiograma",
+          "**Analgesia e Antitérmico:** **Dipirona 1 g** VO/IV de 6/6 h (evitar AINEs pelo risco de injúria renal aguda)"
+        ],
+        "orientacoes": [
+          "**Coleta obrigatória antes do antibiótico:** Urina tipo 1 e **Urocultura com antibiograma** em todos os casos suspeitos de pielonefrite (febre, calafrios, dor lombar/flanco, sinal de Giordano positivo, náuseas/vômitos)",
+          "**Indicações de exame de imagem (USG ou TC de vias urinárias):** choque séptico, persistência de **febre após 72 horas** de antibioticoterapia adequada (pesquisar abscesso renal/perinefrético ou pionefrose), suspeita de **obstrução urinária / cálculo obstrutivo** (emergência urológica para desobstrução via duplo J ou nefrostomia), pH urinário > 7,0 ou queda da TFG < 40 mL/min",
+          "**Sinais de alarme (retorno imediato ao PS / critérios de internação):** sepse ou instabilidade hemodinâmica, vômitos incoercíveis ou intolerância à via oral, ausência de melhora clínica em 48–72 h, obstrução urinária associada, gestantes (internar toda pielonefrite na gestação) ou comorbidades graves descompensadas",
+          "**Critérios de alta para tratamento ambulatorial:** estabilidade hemodinâmica, boa tolerância à hidratação e medicação por via oral após observação inicial no PS, dor controlada e ausência de sinais de obstrução urinária ou sepse"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cefaleia-enxaqueca",
+    "titulo": "Cefaleia Aguda e Enxaqueca (Migrânea)",
+    "cid": "G43.9",
+    "cor": "#7c3aed",
+    "icon": "bulb-outline",
+    "categoria": "Neurológico",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 27 (Cefaleia)",
+      "Guia de Bolso Plantão 2026 — Neurologia"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta no PS e Receituário de Alta — Crise de Enxaqueca e Cefaleia Primária",
+        "itens": [
+          "**Hidratação Endovenosa (passo fundamental no PS):** **SF 0,9% 500 a 1.000 mL IV** aberto — corrige a depleção volêmica secundária à gastroparesia, vômitos e poliúria prodrômica da migrânea, além de prevenir hipotensão postural por clorpromazina",
+          "**Analgésicos e AINEs (Crise leve a intensa):** **Dipirona 1 a 2 g IV** (ou **500 a 1.000 mg VO** de 6/6 h) + **Cetoprofeno 100 mg IV** diluído em 100 mL de SF 0,9% em 20 min (ou **Naproxeno 500 mg VO** de 12/12 h / **Ibuprofeno 400 a 600 mg VO** de 8/8 h por até 3 a 5 dias na alta)",
+          "**Antieméticos e Antagonistas Dopaminérgicos (ação antiemética e antimigranosa central):** **Metoclopramida 10 mg IV lento** (infundir em 15 min para evitar acatisia/reação extrapiramidal) ou VO de 8/8 h; OU **Clorpromazina 10 a 25 mg IV lento** diluída em SF 0,9% (monitorizar PA e intervalo QT) ou VO",
+          "**Triptanos (Crise moderada a grave específica de enxaqueca):** **Sumatriptana 6 mg SC** (repetir após 2 h se necessário, máx. 12 mg/24 h) ou **50 a 100 mg VO** (máx. 200 mg/24 h); alternativas VO: **Rizatriptana 5 a 10 mg VO** ou **Naratriptana 2,5 mg VO**. *Contraindicados em doença coronariana, AVC prévio, HAS não controlada ou enxaqueca hemiplégica/basilar*",
+          "**Prevenção de Recorrência Precoce (Crise prolongada ou Estado Enxaquecoso > 72 h):** **Dexametasona 4 mg IV** em dose única no PS (eficácia equivalente a 10 mg IV na redução de recidiva em 24–72 h)",
+          "**Opções de 2ª Linha para Crise Refratária no PS:** **Valproato de sódio 1.000 mg IV** ou **Sulfato de magnésio 2 g IV** diluído em 100 mL SF 0,9% em 20 min (maior eficácia na enxaqueca com aura)",
+          "**Cefaleia em Salvas (Trigêmino-Autonômica):** **Oxigênio a 100% 10 a 12 L/min em máscara não reinalante por 15 a 20 min** (paciente sentado) + **Sumatriptana 6 mg SC** (via oral é ineficaz pelo início lento)"
+        ],
+        "orientacoes": [
+          "**Ambiente terapêutico:** manter o paciente em repouso em local calmo, silencioso e com baixa luminosidade durante a infusão venosa",
+          "**Rastreio obrigatório de Sinais de Alarme (Mnemônico SNOOP) — indicam TC de crânio sem contraste e/ou Punção Lombar:**",
+          "**• S (Sistêmicos):** febre, toxemia, rigidez de nuca, exantema, perda ponderal, neoplasia, infecção por HIV/imunossupressão, **gestação ou puerpério** (alto risco de Trombose Venosa Cerebral — TVC)",
+          "**• N (Neurológicos):** déficit focal, alteração do nível de consciência, crise epiléptica, diplopia ou **papiledema no fundo de olho** (oftalmoscopia direta obrigatória na avaliação inicial)",
+          "**• O (Onset — Início súbito):** cefaleia explosiva com pico máximo em segundos a minutos (*cefaleia em trovoada / thunderclap*) — investigar **Hemorragia Subaracnóidea (HSA)** com TC sem contraste imediata; se TC normal e suspeita clínica persistente, a **punção lombar é obrigatória**",
+          "**• O (Older — Idade > 40–50 anos):** início de cefaleia nova após os 40–50 anos — investigar arterite de células gigantes (solicitar VHS), neoplasias ou hematoma subdural crônico",
+          "**• P (Padrão / Postural / Precipitada):** mudança nítida do padrão habitual, piora progressiva ao longo de dias/semanas, piora em decúbito/manhã (hipertensão intracraniana), piora em ortostase (hipotensão liquórica) ou desencadeada por esforço físico, tosse ou atividade sexual",
+          "**Atenção clínica:** a intensidade isolada da dor e a resposta inicial a analgésicos comuns **não excluem** causas secundárias graves (como HSA ou dissecção arterial cervical)",
+          "**Critérios de alta e prevenção:** melhora importante ou resolução da dor, exame neurológico normal e ausência de sinais de alarme. Orientar sobre o risco de **cefaleia por uso excessivo de analgésicos/triptanos** e encaminhar para neurologia/atenção primária para **tratamento profilático** (ex.: propranolol, amitriptilina, topiramato) se > 3 dias de dor/mês ou crises incapacitantes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gastroenterite-aguda",
+    "titulo": "Gastroenterite Aguda (GECA) e Desidratação",
+    "cid": "A09",
+    "cor": "#d97706",
+    "icon": "water-outline",
+    "categoria": "Gastrointestinal",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 24 (Diarreia Aguda)",
+      "Guia de Bolso Plantão 2026 — Diarreia Aguda (Planos A, B e C MS)"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Planos de Reidratação (A, B e C) e Receituário Sintomático",
+        "itens": [
+          "**Plano A — Sem Desidratação (Manejo Domiciliar):** paciente alerta, olhos normais, mucosas úmidas, sinal da prega rápido e pulso cheio. Prescrever **Sais de Reidratação Oral (SRO)** após cada evacuação líquida ou vômito (**adultos e > 10 anos:** livre demanda, mínimo 200 mL por perda; **1 a 10 anos:** 100 a 200 mL; **< 1 ano:** 50 a 100 mL). Em crianças (< 5 anos), associar **Zinco VO** por 10 a 14 dias (10 mg/dia se < 6 meses; 20 mg/dia se ≥ 6 meses)",
+          "**Plano B — Desidratação Leve a Moderada (Terapia de Reidratação Oral na Observação do PS):** paciente irritado, olhos fundos, sedento, mucosas secas, prega cutânea lenta (< 2 s). Administrar **SRO 50 a 100 mL/kg VO em 4 a 6 horas** fracionado no PS; se vômitos, administrar **Ondansetrona** antes. Reavaliar: se reidratou → alta com **Plano A**; se mantiver desidratação → gastróclise por SNG; se piorar → **Plano C**",
+          "**Plano C — Desidratação Grave / Hipovolemia (Hidratação Endovenosa Imediata):** letargia, olhos muito fundos, incapaz de beber, prega muito lenta (> 2 s), enchimento capilar > 5 s, taquicardia ou hipotensão. Em **adultos**: expansão rápida com **SF 0,9% ou Ringer Lactato 15 a 20 mL/kg IV**, repetindo conforme resposta hemodinâmica. Pelo protocolo MS (**> 1 ano, em 3 h**): **30 mL/kg IV em 30 min** seguido de **70 mL/kg IV em 2h30** (em **< 1 ano, em 6 h**: 30 mL/kg em 1 h + 70 mL/kg em 5 h)",
+          "**Antiemético:** **Ondansetrona 4 a 8 mg VO/SL ou IV** de 8/8 h se náuseas ou vômitos (alternativa em adultos: **Metoclopramida 10 mg IV/IM**)",
+          "**Analgesia / Antiespasmódico:** **Dipirona 1 g + Butilbrometo de escopolamina (Hioscina) 20 mg IV ou VO** de 6/6 h ou 8/8 h se dor abdominal em cólica",
+          "**Antidiarreico (APENAS em diarreia aquosa não inflamatória no adulto):** **Loperamida 2 mg** — tomar 2 comprimidos (4 mg) VO de ataque + 1 comprimido (2 mg) após cada evacuação líquida (máx. **16 mg/dia**). **CONTRAINDICADA** na diarreia inflamatória/disenteria (febre, sangue, muco ou tenesmo)",
+          "**Antibioticoterapia Empírica (RESERVADA para disenteria/diarreia inflamatória febril, sepse ou imunossuprimidos):** **Ciprofloxacino 500 mg VO de 12/12 h por 3 a 5 dias** (ou 200–400 mg IV 12/12 h) OU **Azitromicina 500 mg VO 1x/dia por 3 dias** (ou 1 g VO em dose única)"
+        ],
+        "orientacoes": [
+          "**Quando NÃO prescrever antibióticos (Regra de Ouro):** mais de 80% das diarreias agudas são autolimitadas (etiologia viral como Norovírus/Rotavírus ou toxinas alimentares). **Não usar antibiótico de rotina** em imunocompetentes sem sinais invasivos; na suspeita de *E. coli* entero-hemorrágica (STEC — diarreia sanguinolenta **sem febre**), antibióticos e loperamida aumentam o risco de **Síndrome Hemolítico-Urêmica (SHU) e PTT**",
+          "**Nota sobre adjuvantes:** **Racecadotrila** e **Probióticos** (*Saccharomyces boulardii*) não demonstraram benefício consistente em estudos controlados e não são recomendados de rotina na emergência",
+          "**Orientação alimentar:** manter dieta habitual fracionada e hidratação abundante; evitar laticínios por até 2 semanas apenas se surgirem sintomas de intolerância transitória à lactose",
+          "**Quando colher exames (hemograma, Na, K, função renal, coprocultura/pesquisa de leucócitos fecais):** hipovolemia/desidratação importante, > 6 evacuações líquidas/24 h com toxemia, febre > 38,5°C, disenteria (sangue/pus), idosos, imunossuprimidos, duração > 7 dias ou uso recente de antibióticos/hospitalização (pesquisar toxinas A e B de *Clostridioides difficile* — tratar com **Vancomicina 125 mg VO 6/6 h por 10 dias** ou **Metronidazol 500 mg VO 8/8 h por 10 dias**)",
+          "**Sinais de alarme (retorno imediato ao PS):** sinais de desidratação (sede intensa, boca seca, oligúria, tontura postural), vômitos incoercíveis que impeçam a TRO, sangue ou pus nas fezes, febre alta (> 38,5°C), dor abdominal contínua/defesa peritoneal ou alteração do nível de consciência",
+          "**Critérios de alta:** paciente normohidratado (ou reidratado após Plano B/C), tolerando líquidos por via oral sem vômitos, hemodinamicamente estável e sem sinais de abdome agudo cirúrgico ou sepse"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celulite-erisipela",
+    "titulo": "Celulite e Erisipela (Infecções de Pele e Partes Moles)",
+    "cid": "L03.9",
+    "cor": "#059669",
+    "icon": "medkit-outline",
+    "categoria": "Infeccioso",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 53 (Infecções Cutâneas)",
+      "Sanford Guide 2022 — Cellulitis & Erysipelas",
+      "Guia de Bolso Plantão 2026 — Infecto / Antibióticos"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Tratamento Ambulatorial (Casos Leves / Eron Classe I) e Parenteral",
+        "itens": [
+          "**Cefalexina 500 mg (1ª escolha para Erisipela e Celulite não purulenta):** tomar 1 comprimido VO de 6/6 h por **5 a 7 dias** (estender até 10 dias se resposta clínica lenta)",
+          "**Amoxicilina + Clavulanato 875/125 mg:** tomar 1 comprimido VO de 12/12 h por **5 a 7 dias** — 1ª escolha em **mordeduras de cães/gatos** (cobertura para *Pasteurella multocida* e anaeróbios) ou pé diabético leve",
+          "**Clindamicina 300 mg (Alérgicos a betalactâmicos ou suspeita de MRSA comunitário):** tomar 1 a 2 cápsulas (300 a 600 mg) VO de 8/8 h (ou 6/6 h) por **5 a 7 dias**",
+          "**Sulfametoxazol + Trimetoprima (SMX-TMP) 800/160 mg (Celulite purulenta / MRSA comunitário):** tomar 1 comprimido VO de 12/12 h por **5 a 7 dias**",
+          "**Esquema Parenteral / Hospitalar (Eron Classes II–III: sintomas sistêmicos, comorbidades descompensadas ou falha oral):** **Cefazolina 1 g IV de 8/8 h**, **Ceftriaxona 1 a 2 g IV 1x/dia (ou 1 g 12/12 h)** ou **Oxacilina 2 g IV de 4/4 h** (preferida na celulite extensa por *S. aureus*). Se alto risco de MRSA: **Vancomicina 15 a 20 mg/kg IV de 12/12 h**",
+          "**Analgesia:** **Dipirona 1 g VO de 6/6 h** (evitar uso prolongado de AINEs, que pode mascarar progressão para infecção necrosante)"
+        ],
+        "orientacoes": [
+          "**Diferenciação clínica:** a **erisipela** acomete a derme superficial e linfáticos, apresentando placa eritematosa bem delimitada com bordas elevadas e febre/calafrios de início agudo (*Streptococcus pyogenes*); a **celulite** acomete derme profunda e subcutâneo, com bordas imprecisas e curso mais indolente (*S. aureus* e *Streptococcus*)",
+          "**Demarcação com caneta (obrigatória):** contornar os limites do eritema com caneta esferográfica no atendimento inicial para acompanhar objetivamente a regressão ou progressão em 24 a 48 h (uma discreta exacerbação inflamatória nas primeiras 24 h pode ocorrer por lise bacteriana)",
+          "**Medidas gerais indispensáveis:** manter **elevação do membro afetado** acima do nível do coração durante o repouso (fundamental para reduzir o edema e acelerar a resolução) e **tratar a porta de entrada**, especialmente **tinea pedis** interdigital (aplicar antifúngico tópico como cetoconazol ou miconazol creme 2x/dia por 2 a 4 semanas)",
+          "**Abscesso cutâneo associado:** na presença de área flutuante ou coleção purulenta, a conduta primária é **incisão e drenagem** sob anestesia local (a ultrassonografia à beira do leito auxilia quando há dúvida entre celulite extensa e abscesso profundo)",
+          "**Sinais de Alarme para Fasceíte Necrosante (Emergência Cirúrgica):** **dor intensa desproporcional** aos achados cutâneos, edema tenso além da área de eritema, **bolhas hemorrágicas/violáceas**, necrose cutânea, **crepitação**, hipoestesia/anestesia local, toxemia/choque séptico ou Escore LRINEC ≥ 6 → indicar **desbridamento cirúrgico imediato** + **Piperacilina-Tazobactam 4,5 g IV 6/6 h** (ou **Meropenem 1–2 g IV 8/8 h**) + **Vancomicina 15–20 mg/kg IV 12/12 h** + **Clindamicina 600–900 mg IV 8/8 h**",
+          "**Critérios de internação hospitalar:** sinais de resposta inflamatória sistêmica/sepse (febre alta persistente, taquicardia, hipotensão, confusão mental), rápida progressão do eritema após 24–48 h de antibiótico oral, acometimento de face/região periorbitária (risco de trombose de seio cavernoso), imunossupressão ou insuficiência vascular/linfedema grave",
+          "**Critérios de alta:** ausência de sinais sistêmicos de gravidade (Eron Classe I) ou, nos internados, paciente afebril há ≥ 48 h com regressão documentada do eritema em relação à linha demarcada e queda de PCR"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "disturbios-potassio",
+    "titulo": "Distúrbios do Potássio (Hipocalemia e Hipercalemia)",
+    "cid": "E87.5",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "categoria": "Metabólico/Endócrino",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 85 (Hipocalemia) + Cap. 86 (Hipercalemia)"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta e Receituário — Hipercalemia (K⁺ > 5,0–5,5 mEq/L)",
+        "itens": [
+          "**1. Estabilização de Membrana Miocárdica (IMEDIATA se alteração no ECG ou K⁺ ≥ 6,5 mEq/L — não reduz o K⁺ sérico):** **Gluconato de Cálcio 10% 10 mL (1 g = 1 ampola) + 100 mL SG 5% (ou SF 0,9%) IV em 3 a 5 minutos** com monitorização cardíaca contínua (início em < 3 min, duração 30–60 min; repetir após 5 min se persistirem alterações no ECG como onda T apiculada, achatamento de P ou alargamento de QRS)",
+          "**2. Solução Polarizante — Translocação Celular (1ª Linha para reduzir K⁺ em 0,6–1,2 mEq/L em 1h):** **Insulina Regular 10 UI IV + Glicose 25 g IV** (**50 mL de Glicose 50%** ou **250 mL de SG 10%** ou **500 mL de SG 5%**) infundidos em 15–30 min. *Atenção:* se glicemia capilar inicial **> 200–250 mg/dL**, administrar apenas **Insulina Regular 10 UI IV** sem glicose; se glicemia **< 100 mg/dL**, infundir **50 g de glicose** (100 mL de G50%). **Monitorizar glicemia capilar de 1/1 h por 6 horas**",
+          "**3. Beta-2 Agonista Inalatório (Translocação Adjuvante — reduz ~0,5–1,0 mEq/L):** **Salbutamol 10 a 20 mg** (2 a 4 mL da solução 5 mg/mL, ou 20 a 40 gotas de Fenoterol) + **5 mL de SF 0,9% em nebulização** durante 10 min (dose 4 a 8× maior que a broncodilatadora; evitar em coronariopatas instáveis)",
+          "**4. Bicarbonato de Sódio (APENAS se Acidose Metabólica associada com pH < 7,20):** **Bicarbonato de Sódio 8,4% 50 a 150 mL IV** (puro lento ou diluído em 1.000 mL de SG 5%) ao longo de 1 a 2 horas (nunca infundir na mesma via do cálcio pelo risco de precipitação)",
+          "**5. Eliminação Corporal de Potássio:**\n• **Diurético de alça (se função renal preservada/hipervolemia):** **Furosemida 40 a 80 mg IV**\n• **Trocadores Intestinais de Cátions (uso não emergencial):** **Ciclossilicato de Zircônio Sódico 10 g VO de 8/8 h** por 48 h (ou **Patiromer 8,4 g VO**; **Poliestirenossulfonato de cálcio [Sorcal®] 15 a 30 g VO** diluído em água de 8/8 h — evitar associação com manitol/sorbitol e contraindicar em íleo ou pós-operatório abdominal pelo risco de necrose colônica)\n• **Hemodiálise de Urgência:** hipercalemia grave/refratária, anúria/DRC dialítica ou lise celular maciça (rabdomiólise, síndrome de lise tumoral)"
+        ],
+        "orientacoes": [
+          "**Excluir Pseudo-hipercalemia:** em paciente assintomático, sem DRC/medicações hipercalemiantes e com **ECG normal**, repetir coleta sem garroteamento prolongado (excluir hemólise da amostra, leucocitose > 100.000 ou trombocitose > 1.000.000)",
+          "**Suspender fármacos hipercalemiantes:** interromper imediatamente IECA, BRA, espironolactona, amilorida, AINEs, betabloqueadores não seletivos, trimetoprima e heparina"
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta e Receituário — Hipocalemia (K⁺ < 3,5 mEq/L)",
+        "itens": [
+          "**1. Hipocalemia Leve a Moderada Assintomática (K⁺ 3,0 – 3,4 mEq/L, via oral tolerada):**\n• **Cloreto de Potássio (KCl) Xarope 6% (15 mL = 12 mEq de K⁺):** tomar **15 a 30 mL VO após as refeições de 8/8 h ou 6/6 h** (40 a 100 mEq/dia), OU\n• **Cloreto de Potássio Drágeas 600 mg (Slow-K® = 8 mEq/drágea):** tomar **2 a 3 drágeas VO após as refeições de 8/8 h** (48 a 72 mEq/dia)",
+          "**2. Hipocalemia Moderada a Grave (K⁺ < 3,0 mEq/L), Sintomática (arritmias, fraqueza muscular) ou Intolerância Oral — Reposição Endovenosa:**\n• **Apresentações IV:** **KCl 19,1% (1 ampola de 10 mL = 25 mEq de K⁺)** ou **KCl 10% (1 ampola de 10 mL = 13,4 mEq de K⁺)**\n• **Diluição Padrão em Veia Periférica (concentração máx. 40 a 60 mEq/L; limite estrito 80 mEq/L):** diluir **1 ampola (10 mL) de KCl 19,1% (25 mEq) + 490 mL de SF 0,9%** (= 50 mEq/L) e infundir em **2 a 3 horas** (velocidade **10 mEq/h**; máx. **20 mEq/h**)\n• **Diluição em Acesso Venoso Central (UTI / Emergência com monitorização contínua):** diluir **2 ampolas (20 mL) de KCl 19,1% (50 mEq) + 480 mL de SF 0,9%** (= 100 mEq/L) a **10–20 mEq/h** em BIC",
+          "**3. Correção Obrigatória de Hipomagnesemia Associada (Hipocalemia Refratária):** sempre dosar e repor magnésio concomitantemente — **Sulfato de Magnésio 50% 4 mL (2 g) ou 10% 20 mL (2 g) + 100 mL de SF 0,9% IV em 30 a 60 minutos**"
+        ],
+        "orientacoes": [
+          "**Regra de Ouro na Diluição do KCl:** **SEMPRE diluir em SF 0,9%** (nunca em Soro Glicosado 5%, pois a glicose estimula a liberação endógena de insulina, promovendo influxo celular de potássio e **piora aguda da hipocalemia**) e **NUNCA administrar KCl em bolus/direto na veia** (risco imediato de PCR em assistolia/FV)",
+          "**Alterações no ECG da Hipocalemia:** achatamento/inversão da onda T, infradesnivelamento de ST, **onda U proeminente** (V2–V4), prolongamento do intervalo QU/QT e risco de *Torsades de Pointes*",
+          "**Sinais de alarme e critérios de internação:** K⁺ < 3,0 mEq/L ou > 6,0 mEq/L, qualquer alteração eletrocardiográfica, fraqueza muscular ascendente/tetania, cardiopatia estrutural/uso de digoxina (manter K⁺ ≥ 4,0 mEq/L) ou disfunção renal aguda",
+          "**Critérios de alta:** K⁺ sérico estabilizado entre **3,5 e 5,0 mEq/L**, ECG sem alterações da condução ou repolarização, causa precipitante identificada/corrigida e tolerância à reposição oral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "disturbios-sodio-calcio",
+    "titulo": "Distúrbios do Sódio e do Cálcio (Na⁺ e Ca²⁺)",
+    "cid": "E87.1",
+    "cor": "#0891b2",
+    "icon": "water-outline",
+    "categoria": "Metabólico/Endócrino",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 83 (Hiponatremia), Cap. 84 (Hipernatremia), Cap. 87 (Hipocalcemia) e Cap. 88 (Hipercalcemia)"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta — Hiponatremia (< 135 mEq/L) e Hipernatremia (> 145 mEq/L)",
+        "itens": [
+          "**1. Hiponatremia Verdadeira vs. Pseudo-hiponatremia:** corrigir o sódio pela glicemia (**somar 1,6 mEq/L ao Na⁺ medido para cada 100 mg/dL de glicemia acima de 100 mg/dL**). Calcular osmolaridade efetiva = **2 × Na⁺ + Glicemia/18** (normal 275–295 mOsm/kg)",
+          "**2. Preparo da Salina Hipertônica a 3% (NaCl 3% = 513 mEq/L):** diluir **55 mL de NaCl 20% + 445 mL de SF 0,9%** (= 500 mL de solução a 3%; regra prática: **1 mL/kg de NaCl 3% eleva o Na⁺ sérico em ~1 mEq/L**)",
+          "**3. Hiponatremia com Sintomas Graves (Convulsões, Coma, Torpor, Vômitos incoercíveis — Emergência):** administrar **bolus de 100 a 150 mL de NaCl 3% IV em 10 a 20 minutos**; repetir sódio e avaliar clínica a cada 20 min (pode repetir até 2× se persistirem sintomas graves, visando **elevar o Na⁺ em 4 a 6 mEq/L nas primeiras 1–2 horas**)",
+          "**4. Limite Estrito de Correção (Prevenção da Síndrome de Desmielinização Osmótica / Mielinólise Pontina):** **NUNCA ultrapassar 8 a 10 mEq/L de elevação em 24 horas** (ou **≤ 6–8 mEq/L/24 h** em alto risco: etilistas, desnutridos, hepatopatas, hipocalemia associada ou Na⁺ inicial < 105 mEq/L). Na hiponatremia crônica assintomática: **Hipovolêmica** → SF 0,9%; **Euvolêmica (SIADH)** → restrição hídrica (< 800–1.000 mL/dia) ± Furosemida 20–40 mg + sal VO; **Hipervolêmica (IC/Cirrose)** → restrição hídrica + Furosemida IV",
+          "**5. Hipernatremia (Na⁺ > 145 mEq/L):** se houver **instabilidade hemodinâmica/hipovolemia**, expandir primeiro com **SF 0,9%** até estabilizar sinais vitais. Após estabilização, repor o déficit de água livre com **Água potável por VO/SNE** (preferencial), **SG 5% IV** ou **NaCl 0,45% IV** (fórmula de Adrogué-Madias: variação do Na⁺ por 1 L = **[Na⁺ da solução − Na⁺ sérico] ÷ [Água Corporal Total + 1]**). **Meta de redução:** máximo de **0,5 mEq/L/h** ou **8 a 10 mEq/L em 24 h** (evitar edema cerebral)"
+        ],
+        "orientacoes": [
+          "**Conduta na Hipercorreção Acidental da Hiponatremia (> 8–10 mEq/L em 24h):** suspender imediatamente NaCl 3%, infundir **SG 5% 6 a 10 mL/kg IV em 1–2 h** e associar **Desmopressina (DDAVP) 2 mcg IV/SC a cada 6–8 h** monitorando Na⁺ a cada 2 h"
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta — Hipocalcemia (< 8,5 mg/dL) e Hipercalcemia (> 10,5 mg/dL)",
+        "itens": [
+          "**1. Correção do Cálcio Total pela Albumina:** **Ca corrigido = Ca total medido + [0,8 × (4,0 − Albumina)]** (ou dosar **Cálcio Iônico**: normal 1,10–1,30 mmol/L ou 4,4–5,3 mg/dL)",
+          "**2. Hipocalcemia Aguda Sintomática (Tetania, Espasmo Carpopedal, Sinais de Trousseau/Chvostek, Laringoespasmo, Convulsões, QT Longo ou Ca corrigido < 7,0–7,5 mg/dL):**\n• **Ataque IV:** **Gluconato de Cálcio 10% 10 a 20 mL (1 a 2 g = 90 a 180 mg de Ca elementar) + 100 mL de SG 5% ou SF 0,9% IV em 10 a 20 minutos** (infusão rápida causa bradicardia/arritmia, especialmente em usuários de digoxina)\n• **Manutenção IV (se sintomas recorrentes):** diluir **10 ampolas (100 mL) de Gluconato de Cálcio 10% (900 mg Ca elementar) + 900 mL de SG 5% ou SF 0,9%** (~1 mg/mL de Ca elementar) e infundir a **0,5 a 1,5 mg/kg/h** (35 a 100 mL/h em 70 kg)\n• **Associar sempre:** corrigir **Hipomagnesemia** (**Sulfato de Magnésio 2 g IV** em 100 mL SF em 20 min) e iniciar **Carbonato de Cálcio 1 a 3 g/dia VO** + **Calcitriol 0,25 a 0,5 mcg VO de 12/12 h**",
+          "**3. Hipercalcemia Sintomática ou Grave (Crise Hipercalcêmica: Ca corrigido > 14 mg/dL ou Ca iônico > 3,5 mmol/L — Comum na Malignidade):**\n• **1º Passo — Hidratação Venosa Vigorosa (medida inicial mais importante):** **SF 0,9% 1.000 a 2.000 mL IV em bolus** seguido de **200 a 300 mL/h** (4 a 6 L/dia) para manter **diurese de 100 a 150 mL/h** (*só administrar Furosemida 20–40 mg IV se o paciente evoluir com congestão/hipervolemia após estar reidratado*)\n• **2º Passo — Inibição da Reabsorção Óssea (Bisfosfonato IV):** **Ácido Zoledrônico 4 mg IV diluído em 100 mL SF 0,9% em 15 minutos** (1ª escolha na hipercalcemia da malignidade; evitar se ClCr < 30 mL/min) OU **Pamidronato 60 a 90 mg IV diluído em 250–500 mL SF 0,9% em 2 a 4 horas** (início de efeito em 24–72 h)\n• **3º Passo — Redução Rápida Adjuvante (Primeiras 48h se Ca > 14 mg/dL):** **Calcitonina 4 a 8 UI/kg SC ou IM a cada 12 horas** por 24 a 48 h (início em 4–6 h) + **Hidrocortisona 100 mg IV de 8/8 h** ou **Prednisona 40 a 60 mg/dia VO** (especialmente eficaz em linfomas, mieloma múltiplo, intoxicação por vitamina D e doenças granulomatosas)"
+        ],
+        "orientacoes": [
+          "**Sinais de alarme e internação:** Na⁺ < 125 mEq/L ou > 155 mEq/L, Ca corrigido < 7,5 mg/dL ou > 12–14 mg/dL, qualquer sintoma neurológico (confusão mental, letargia, tetania, convulsões) ou alteração de intervalo QT no ECG",
+          "**Critérios de alta:** distúrbio eletrolítico leve/assintomático ou corrigido com estabilidade clínica, ausência de sintomas neuromusculares/cognitivos, função renal estável e seguimento ambulatorial estruturado"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "abdome-agudo-inflamatorio",
+    "titulo": "Dor Abdominal e Abdome Agudo (Apendicite, Colecistite, Colangite e Diverticulite)",
+    "cid": "R10.0",
+    "cor": "#d97706",
+    "icon": "nutritional-outline",
+    "categoria": "Gastrointestinal",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 26 (Dor Abdominal)",
+      "Guia de Terapia Antimicrobiana Sanford",
+      "Guia de Bolso Plantão 2026 — Cirurgia Geral e Abdome Agudo"
+    ],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Estratificação Diagnóstica — Escore de Alvarado, Critérios de Tokyo e Hinchey",
+        "escores": [
+          {
+            "nome": "Escore de Alvarado — Probabilidade de Apendicite Aguda (MANTRELS)",
+            "descricao": "Estratifica o risco clínico de apendicite aguda na dor em fossa ilíaca direita (total: 0 a 10 pontos)",
+            "colunas": ["Critério Clínico / Laboratorial", "Pontos"],
+            "dados": [
+              ["Migração da dor (periumbilical → fossa ilíaca direita)", "1"],
+              ["Anorexia ou cetonúria", "1"],
+              ["Náuseas ou vômitos", "1"],
+              ["Defesa / dor à palpação na fossa ilíaca direita (FID)", "2"],
+              ["Descompressão brusca dolorosa (Sinal de Blumberg +)", "1"],
+              ["Elevação da temperatura (≥ 37,3 °C)", "1"],
+              ["Leucocitose (> 10.000/mm³)", "2"],
+              ["Desvio à esquerda (> 75% de neutrófilos ou bastonetes)", "1"]
+            ],
+            "calculadora_escore": {
+              "tipo": "contagem",
+              "inputs": [
+                {
+                  "id": "alv-migracao",
+                  "label": "Migração da dor periumbilical para fossa ilíaca direita",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-anorexia",
+                  "label": "Anorexia / hiporexia",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-nausea",
+                  "label": "Náuseas ou vômitos",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-fid",
+                  "label": "Dor à palpação em fossa ilíaca direita (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-blumberg",
+                  "label": "Descompressão brusca dolorosa (Sinal de Blumberg +)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-febre",
+                  "label": "Temperatura axilar ≥ 37,3 °C",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-leuco",
+                  "label": "Leucocitose > 10.000/mm³ (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "alv-desvio",
+                  "label": "Desvio à esquerda (neutrófilos > 75%)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore de Alvarado",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 4,
+                    "label": "0-4 pts: Baixa probabilidade de apendicite — investigar diagnósticos diferenciais",
+                    "cor": "#16a34a"
+                  },
+                  {
+                    "min": 5,
+                    "max": 6,
+                    "label": "5-6 pts: Probabilidade intermediária — solicitar USG de abdome ou TC com contraste IV",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 7,
+                    "max": 10,
+                    "label": "7-10 pts: Alta probabilidade de apendicite aguda — acionar Cirurgia Geral + antibioticoterapia",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "nome": "Resumo de Condutas — Síndromes de Abdome Agudo Inflamatório",
+            "descricao": "Cobertura antimicrobiana obrigatória para Gram-negativos entéricos e anaeróbios (*Bacteroides fragilis*)",
+            "colunas": ["Condição", "Diagnóstico Clínico e de Imagem", "Conduta e Antibioticoterapia Empírica"],
+            "dados": [
+              ["Apendicite Aguda", "Dor periumbilical → FID, Blumberg/Rovsing/Psoas +. TC com contraste ou USG (apêndice > 6 mm não compressível)", "Jejum + Hidratação + Apendicectomia. ATB: Ceftriaxona 2 g IV 24/24h + Metronidazol 500 mg IV 8/8h (ou Cefoxitina 2 g IV 6/6h)"],
+              ["Colecistite Aguda Calculosa (Tokyo)", "Dor em HCD > 6h, Sinal de Murphy +, febre/leucocitose + USG (cálculo impactado, parede ≥ 4 mm, líquido pericolecístico)", "Jejum + Analgesia + Colecistectomia videolaparoscópica precoce (< 72h). ATB: Ceftriaxona 2 g IV/dia + Metronidazol 500 mg IV 8/8h (ou Pip-Tazo 4,5 g IV 6/6h se grave/Grau III)"],
+              ["Colangite Aguda (Charcot / Reynolds)", "Tríade de Charcot (Febre + Icterícia + Dor em HCD) ± Pêntade de Reynolds (+ Hipotensão + Confusão mental)", "Emergência: Ressuscitação volêmica + Pip-Tazo 4,5 g IV 6/6h (ou Meropenem 1 g IV 8/8h) + Descompressão biliar urgente por CPRE"],
+              ["Diverticulite Aguda (Hinchey)", "Dor em FIE, febre, alteração do hábito intestinal. Padrão-ouro: TC de abdome e pelve com contraste IV", "Não complicada (Hinchey 0/Ia): Ciprofloxacino 500 mg VO 12/12h + Metronidazol 500 mg VO 8/8h (ou Amoxicilina-Clavulanato 875/125 mg VO 12/12h) por 7 dias. Complicada (abscesso ≥ 4 cm / peritonite): internação + ATB IV + drenagem/cirurgia"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta Inicial no PS e Prescrição — Dor Abdominal Aguda",
+        "itens": [
+          "**1. Analgesia Precoce e Eficaz (Não mascarar exame físico é mito superado):** administrar **Dipirona 1 a 2 g IV** + **Butilbrometo de escopolamina (Hioscina) 20 mg IV**; na dor moderada a intensa, titular **Morfina 2 a 4 mg (0,05 mg/kg) IV a cada 20 min** (na cólica biliar ou nefrética, associar **Cetoprofeno 100 mg IV diluído em 100 mL SF 0,9% em 20 min**, salvo contraindicação renal) + **Ondansetrona 4 a 8 mg IV**",
+          "**2. Propedêutica Direcionada:** solicitar **β-hCG obrigatório em toda mulher em idade fértil** (excluir gravidez ectópica rota), **ECG em toda dor epigástrica/andar superior** (excluir IAM inferior), hemograma, PCR, amilase/lipase, bilirrubinas, TGO/TGP, FA/GGT, ureia/creatinina, eletrólitos, urina tipo 1 e lactato arterial (se suspeita de isquemia mesentérica)",
+          "**3. Antibioticoterapia Empírica Intra-Abdominal (Iniciar na 1ª hora se sepse/peritonite):**\n• **Infecção Comunitária Leve a Moderada:** **Ceftriaxona 2 g IV 1×/dia + Metronidazol 500 mg IV de 8/8 h** (ou Ciprofloxacino 400 mg IV 12/12 h + Metronidazol 500 mg IV 8/8 h)\n• **Infecção Grave, Colangite, Perfuração ou Nosocomial:** **Piperacilina + Tazobactam 4,5 g IV de 6/6 h** OU **Meropenem 1 g IV de 8/8 h**",
+          "**4. Receituário Ambulatorial (Exclusivo para Diverticulite Aguda Não Complicada — Hinchey 0/Ia em imunocompetente estável):** **Amoxicilina + Clavulanato 875/125 mg VO de 12/12 h por 7 dias** (ou **Ciprofloxacino 500 mg VO 12/12 h + Metronidazol 500 mg VO 8/8 h por 7 dias**) + dieta líquida sem resíduos nos primeiros 2–3 dias + reavaliação em 48–72 h"
+        ],
+        "orientacoes": [
+          "**Sinais de Alarme para Catástrofes Abdominais (Sala Vermelha / Cirurgia Imediata):**\n• **Abdome Agudo Perfurativo (úlcera péptica/divertículo perfurado):** dor súbita lancinante, abdome em tábua, perda da macicez hepática (Sinal de Jobert) e **pneumoperitônio** no RX de tórax em pé/cúpulas\n• **Abdome Agudo Vascular (Isquemia Mesentérica Aguda):** **dor abdominal intensa desproporcional ao exame físico** inocente em idoso com fibrilação atrial/aterosclerose + acidose metabólica e elevação de lactato → realizar **Angio-TC de abdome** imediata\n• **Aneurisma de Aorta Abdominal Roto:** dor abdominal/lombar súbita + hipotensão/síncope + massa abdominal pulsátil → **POCUS de aorta** à beira-leito e centro cirúrgico imediato",
+          "**Critérios de alta:** dor controlada, tolerância à via oral sem vômitos, ausência de irritação peritoneal ou sinais de sepse, gravidez ectópica e causas cirúrgicas descartadas, e retorno orientado em 48 h"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agitacao-abstinencia-alcoolica",
+    "titulo": "Agitação Psicomotora e Síndrome de Abstinência Alcoólica",
+    "cid": "R45.1",
+    "cor": "#7c3aed",
+    "icon": "bulb-outline",
+    "categoria": "Neurológico",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 16 (Agitação Psicomotora) + Cap. 108 (Síndrome de Abstinência Alcoólica)"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta — Agitação Psicomotora (Descalonamento e Tranquilização Rápida)",
+        "itens": [
+          "**1. Segurança da Cena e Exclusão dos 4 Hs no 1º Minuto:** garantir segurança da equipe, aplicar abordagem verbal não coercitiva (**mnemônico SAVE**: Suporte, Validação e Emoção) e descartar imediatamente causas orgânicas ameaçadoras à vida: **Hipoxemia (SpO2), Hipoglicemia (dextro imediato), Hipertermia e Hipovolemia/Choque**",
+          "**2. Agitação Leve a Moderada (Paciente aceita medicação por Via Oral — sempre preferencial):**\n• **Risperidona 1 a 2 mg VO** OU **Olanzapina 5 a 10 mg VO** OU **Haloperidol 2,5 a 5 mg VO** (preferidos se causa psicótica/psiquiátrica ou delirium)\n• **Lorazepam 1 a 2 mg VO** OU **Diazepam 5 a 10 mg VO** (preferidos se abstinência alcoólica ou intoxicação por simpatomiméticos/cocaína)",
+          "**3. Agitação Moderada a Grave (Recusa oral / Risco iminente de auto ou heteroagressividade — Via Intramuscular):**\n• **Esquema Padrão Combinado:** **Haloperidol 5 mg (1 ampola de 1 mL) IM + Prometazina 25 a 50 mg (1 ampola de 2 mL) IM** (a associação com prometazina acelera a tranquilização e reduz drasticamente o risco de **distonia aguda**; se ocorrer distonia aguda/crise oculógira, administrar **Biperideno 5 mg IM ou IV lento**)\n• **Alternativa de Ação Rápida (Agitação indiferenciada/intoxicação):** **Midazolam 5 mg IM** (ou **2,5 mg IM** em idosos) ou **Olanzapina 10 mg IM** (*nunca associar Olanzapina IM com benzodiazepínico parenteral pelo risco de depressão respiratória grave*)\n• **Agitação Extrema / Combativa Refratária:** **Cetamina 4 a 5 mg/kg IM** (ou 1 a 2 mg/kg IV lento sob monitorização intensiva de via aérea)"
+        ],
+        "orientacoes": [
+          "**Cuidados em Populações Especiais:** em **idosos com delirium**, gestantes e hepatopatas graves, evitar benzodiazepínicos (exceto abstinência alcoólica/BZD) e dar preferência a antipsicóticos em doses baixas (**Haloperidol 0,5 a 2,5 mg VO/IM** ou **Quetiapina / Risperidona VO**). Avaliar intervalo QTc no ECG (evitar haloperidol/clorpromazina se **QTc ≥ 500 ms**)",
+          "**Contenção Mecânica:** utilizar **apenas como último recurso e pelo menor tempo possível** como ponte até a contenção química, realizada por equipe de 5 profissionais, mantendo cabeceira a 30° e vigilância contínua de sinais vitais, perfusão periférica e rabdomiólise (CPK)"
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta e Receituário — Síndrome de Abstinência Alcoólica (SAA) e Delirium Tremens",
+        "itens": [
+          "**1. Profilaxia e Tratamento Obrigatório da Encefalopatia de Wernicke (SEMPRE antes ou junto à glicose):**\n• **Profilaxia em todo etilista no PS:** **Tiamina (Vitamina B1) 100 a 200 mg IM ou IV** 1×/dia por 3 a 5 dias, seguido de **Tiamina 300 mg/dia VO**\n• **Suspeita de Encefalopatia de Wernicke estabelecida (Critérios de Caine: confusão mental, ataxia, oftalmoplegia/nistagmo ou desnutrição):** **Tiamina 200 a 500 mg IV diluída em 100 mL de SF 0,9% infundida em 30 min de 8/8 h**",
+          "**2. Benzodiazepínicos Guiados por Sintomas (Escala CIWA-Ar — Pilar do Tratamento da SAA):**\n• **Abstinência Leve a Moderada (CIWA-Ar 8 a 19 pts — Via Oral):** **Diazepam 10 a 20 mg VO** a cada 1–2 h até controle dos tremores/taquicardia, ou prescrição ambulatorial de desmame: **D1:** Diazepam 10–20 mg VO de 6/6 h; **D2:** 10 mg VO de 6/6 h; **D3:** 10 mg VO de 12/12 h; **D4:** 10 mg VO à noite (*em hepatopatas/cirróticos ou idosos, preferir **Lorazepam 2 a 4 mg VO** de 6/6 h por não possuir metabólitos ativos hepáticos*)\n• **Abstinência Grave (CIWA-Ar ≥ 20 pts), Crises Convulsivas ou Delirium Tremens (48–96 h após cessação):** **Diazepam 5 a 10 mg IV lento a cada 5 a 15 minutos** (*front-loading*) ou **Lorazepam 2 a 4 mg IV a cada 15–20 min** até paciente calmo e levemente sonolento (RASS 0 a -1)",
+          "**3. Delirium Tremens Refratário a Altas Doses de Benzodiazepínicos:** associar **Fenobarbital 10 mg/kg IV diluído em 100 mL de SF 0,9%** em 30 min (ou bolos de 130–260 mg IV a cada 15–20 min, monitorando via aérea) ou **Propofol em BIC** sob intubação orotraqueal. *Nota: Fenitoína é ineficaz para convulsões por abstinência alcoólica*",
+          "**4. Suporte Hidroeletrolítico:** hidratação venosa com **SF 0,9% ou Ringer Lactato 1.000 a 2.000 mL IV** e correção sistemática de **Hipocalemia, Hipomagnesemia (Sulfato de Magnésio 1 a 2 g IV)** e **Hipofosfatemia**"
+        ],
+        "orientacoes": [
+          "**Sinais de alarme e indicações de internação:** escore **CIWA-Ar ≥ 15**, crise convulsiva, confusão mental/alucinações (*Delirium tremens*), febre, instabilidade autonômica (FC > 120 bpm, crise hipertensiva), comorbidade clínica/cirúrgica aguda (TCE, infecção, pancreatite, HDA) ou falha do controle oral",
+          "**Critérios de alta:** CIWA-Ar < 8 persistente sem tremores/agitação ou taquicardia, paciente orientado no tempo e espaço, eletrólitos corrigidos, tiamina administrada e encaminhamento à rede de apoio (CAPS-AD / ambulatório)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "animais-peconhentos",
+    "titulo": "Acidentes por Animais Peçonhentos (Ofidismo, Escorpionismo e Araneísmo)",
+    "cid": "T63.9",
+    "cor": "#be123c",
+    "icon": "skull-outline",
+    "categoria": "Toxicologia",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 107 (Acidentes Relacionados a Animais Peçonhentos)"
+    ],
+    "secoes": [
+      {
+        "tipo": "escores",
+        "titulo": "Classificação Clínica e Número de Ampolas de Soro Antiveneno (MS / Butantan)",
+        "escores": [
+          {
+            "nome": "Acidentes Ofídicos (Serpentes) — Diagnóstico Sindrômico e Soroterapia IV",
+            "descricao": "O número de ampolas é igual para adultos e crianças (calculado para neutralizar a quantidade de veneno inoculado). Infundir IV em 10 a 30 min sob monitorização",
+            "colunas": ["Acidente / Gênero", "Ações do Veneno e Quadro Clínico", "Leve", "Moderado", "Grave"],
+            "dados": [
+              ["Botrópico — Jararaca (Bothrops — 80% dos casos)", "Proteolítica, Coagulante e Hemorrágica: dor, edema progressivo (1, 2 ou ≥ 3 segmentos), equimose, bolhas, sangramentos e alargamento de TP/TTPa", "3 ampolas SAB (edema ≤ 1 segmento, sem sangramento)", "6 ampolas SAB (edema 2 segmentos, sem choque/hemorragia grave)", "12 ampolas SAB (edema ≥ 3 segmentos, bolhas/necrose, hemorragia grave, choque ou anúria)"],
+              ["Crotálico — Cascavel (Crotalus — ~10% dos casos)", "Neurotóxica, Miotóxica (rabdomiólise) e Coagulante: pouca reação local + fácies miastênica (ptose palpebral, diplopia), mialgia e urina escura (mioglobinúria / LRA)", "5 ampolas SAC (fácies miastênica ausente/tardia, sem mialgia ou colúria)", "10 ampolas SAC (fácies miastênica discreta/evidente, mialgia leve)", "20 ampolas SAC (fácies miastênica evidente/ptose completa, mialgia intensa, urina cor de coca-cola, oligúria)"],
+              ["Laquético — Surucucu (Lachesis — Amazônia / Mata Atlântica)", "Proteolítica, Coagulante, Hemorrágica + Vagomimética (síndrome colinérgica: bradicardia, hipotensão, cólicas, diarreia e vômitos)", "—", "10 ampolas SABL", "20 ampolas SABL (todo acidente com manifestação vagal/sistêmica é grave)"],
+              ["Elapídico — Coral-verdadeira (Micrurus)", "Neurotóxica pura (pré e pós-sináptica): discreta parestesia local + fácies miastênica precoce, disfagia e risco de insuficiência respiratória aguda", "—", "—", "10 ampolas SAE em todo caso com empeçonhamento (associar Atropina + Neostigmina se insuficiência respiratória e SAE indisponível)"]
+            ]
+          },
+          {
+            "nome": "Escorpionismo (Tityus serrulatus) e Araneísmo (Phoneutria, Loxosceles e Latrodectus)",
+            "descricao": "Estratificação de gravidade e indicação de soro antiescorpiônico (SAEEs) ou antiaracnídico (SAA / SALox)",
+            "colunas": ["Agente", "Quadro Leve (Manejo Local)", "Quadro Moderado", "Quadro Grave"],
+            "dados": [
+              ["Escorpião (Tityus serrulatus)", "Dor local intensa imediata e parestesia (95% dos adultos) → Observação 4–6h + infiltração de Lidocaína 2% sem vasoconstritor (sem soro)", "Dor local + manifestações sistêmicas discretas (sudorese, náuseas, vômitos ocasionais, taquicardia, agitação) → 3 ampolas SAEEs (ou SAA)", "Vômitos profusos/incoercíveis, sudorese profusa, sialorreia, priapismo, bradicardia, IC aguda / Edema Agudo de Pulmão / Choque → 6 ampolas SAEEs + UTI (Dobutamina se choque cardiogênico)"],
+              ["Aranha-armadeira (Phoneutria)", "Dor local imediata irradiada e edema discreto → Infiltração de Lidocaína 2% + compressa morna + analgesia (sem soro)", "Dor intensa + sudorese, vômitos, taquicardia, hipertensão/agitação → 2 a 4 ampolas SAA (especialmente em crianças)", "Sudorese profusa, vômitos incoercíveis, priapismo, bradicardia, choque ou edema pulmonar → 5 a 10 ampolas SAA"],
+              ["Aranha-marrom (Loxosceles)", "Picada pouco dolorosa; lesão incaracterística sem comprometimento sistêmico → Observação e reavaliação", "Lesão cutânea característica (placa marmórea isquêmica/equimótica/necrótica > 3 cm nas primeiras 36–48h) sem hemólise → 5 ampolas SALox/SAA + Prednisona 40–80 mg/dia por 5 dias", "Forma Cutâneo-Visceral (Hemolítica): lesão necrótica + febre, anemia hemolítica intravascular aguda, icterícia, hemoglobinúria e LRA → 10 ampolas SALox/SAA + Prednisona + hidratação"]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "receituario",
+        "titulo": "Conduta Prática no PS, Adjuvantes e Reação ao Soro",
+        "itens": [
+          "**1. Cuidados Locais e Proscrições Absolutas:** lavar o local com água e sabão, retirar anéis/pulseiras, manter membro elevado (no acidente botrópico) e atualizar **profilaxia antitetânica**. **PROIBIDO realizar torniquete/garrote, incisão, sucção ou aplicação de gelo/substâncias no local**. **CONTRAINDICADO o uso de AINEs** em acidentes ofídicos/loxoscélicos pelo alto risco de **Lesão Renal Aguda**",
+          "**2. Analgesia e Bloqueio Anestésico no Escorpionismo / Phoneutria:** infiltrar **Lidocaína 2% SEM vasoconstritor 2 a 4 mL** (adultos) ou **0,5 a 1 mL** (crianças) ao redor do ponto da picada (repetir até 3× em intervalos de 1h se necessário) + **Dipirona 1 g IV** ± **Morfina 2–4 mg IV** ou **Tramadol 50–100 mg IV**",
+          "**3. Prevenção de Nefrotoxicidade por Rabdomiólise (Acidente Crotálico):** iniciar **hiperidratação venosa precoce com SF 0,9%** visando manter **débito urinário de 2 a 3 mL/kg/h** (monitorar CPK, K⁺, creatinina e pH urinário)",
+          "**4. Preparo e Administração do Soro Antiveneno:** pode ser precedido (15–20 min antes) por **Hidrocortisona 500 mg IV (10 mg/kg em crianças)** + **Difenidramina 25–50 mg IV** (ou Prometazina 25 mg IM) + **Cimetidina 300 mg IV**, mantendo **Adrenalina e material de intubação à beira-leito**. Infundir o total de ampolas por via **IV em 10 a 30 minutos** (puro ou diluído 1:2 a 1:5 em SF 0,9%). *No acidente botrópico, se o coagulograma permanecer incoagulável após 24 h da soroterapia inicial, administrar dose adicional de **2 ampolas de SAB***",
+          "**5. Teste Terapêutico com Anticolinesterásico no Acidente Elapídico (Coral) com Insuficiência Respiratória:** administrar **Atropina 0,5 mg IV** (0,01–0,02 mg/kg em crianças) para obter elevação de ≥ 20 bpm na FC, seguida de **Neostigmina 0,5 a 2,5 mg IV** (0,05 mg/kg em crianças), podendo repetir a cada 4 h como ponte para o soro antielapídico"
+        ],
+        "orientacoes": [
+          "**Notificação Compulsória:** todo acidente por animal peçonhento é de **notificação obrigatória no SINAN** (acionar CIATox — **0800 722 6001** em caso de dúvida diagnóstica ou remanejamento de ampolas)",
+          "**Manejo de Reação Anafilática ao Soro Heterólogo:** interromper temporariamente a infusão do soro, administrar **Adrenalina 0,3 a 0,5 mg IM no vasto lateral** (0,01 mg/kg em crianças), expansão com SF 0,9% e O2; após estabilização hemodinâmica, retomar a infusão do soro em velocidade mais lenta",
+          "**Sinais de alarme e critérios de internação:** todos os acidentes ofídicos com empeçonhamento (observação mínima de 24–72 h), todas as **crianças < 7–10 anos picadas por escorpião** (observação rigorosa por no mínimo 6–12 h pelo risco de choque cardiogênico/EAP), síndrome compartimental no membro picado, sangramento sistêmico, ptose palpebral ou colúria",
+          "**Critérios de alta:** nos acidentes escorpiônicos/aracnídicos leves em adultos, alta após **4 a 6 horas** de observação assintomático e com dor controlada; nos acidentes ofídicos, alta após **48 a 72 horas** com coagulograma normalizado, função renal preservada, CK em queda e ausência de necrose/abscesso local"
         ]
       }
     ]

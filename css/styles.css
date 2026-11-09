@@ -1458,6 +1458,7 @@ input:focus-visible {
   .menu-btn,
   .search-container,
   .btn-ghost,
+  .back-to-top,
   .section-card--calculadora,
   .section-card--fontes,
   .section-card--escore-calc {
@@ -1552,6 +1553,91 @@ input:focus-visible {
   }
 }
 
+/* --- ULTRA-NARROW MOBILE (< 360px) --- */
+@media (max-width: 360px) {
+  .main-content {
+    padding: 12px;
+  }
+
+  .section-card {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-tab {
+    padding: 8px 6px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+
+  .condition-title {
+    font-size: 1.2rem;
+  }
+
+  .drug-table-wrapper {
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+
+  .drug-name {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .badge {
+    padding: 2px 6px;
+    font-size: 0.625rem;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .calc-input-row {
+    padding: 8px 10px;
+  }
+
+  .calc-select {
+    font-size: 0.8125rem;
+    padding: 6px 8px;
+  }
+
+  .calc-readout-inner {
+    padding: 10px 12px;
+  }
+
+  .calc-readout-value {
+    font-size: 1.25rem;
+  }
+
+  .calc-table {
+    font-size: 0.75rem;
+    table-layout: fixed;
+  }
+
+  .calc-table th,
+  .calc-table td {
+    padding: 6px 8px;
+    word-break: break-word;
+  }
+
+  .calc-dose-label,
+  .calc-mlh {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .actions-bar {
+    flex-wrap: wrap;
+  }
+
+  .back-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* --- TABLET --- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .sidebar {
@@ -1601,6 +1687,54 @@ input:focus-visible {
   .conduta-step {
     border-left: 4px solid;
   }
+
+  .back-to-top {
+    border: 2px solid;
+  }
+}
+
+/* --- BACK TO TOP FAB --- */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease;
+}
+
+.back-to-top[hidden] {
+  display: none !important;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--brand-dark);
+}
+
+.back-to-top:active {
+  transform: scale(0.95);
 }
 
 /* --- SCROLLBAR --- */

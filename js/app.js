@@ -41,6 +41,7 @@
   const tabBtnSala = document.getElementById('tab-btn-sala');
   const tabBtnPorta = document.getElementById('tab-btn-porta');
   const tabBtnVaso = document.getElementById('tab-btn-vaso');
+  const backToTopBtn = document.getElementById('back-to-top');
 
   // =============================================
   // UTILS
@@ -682,10 +683,13 @@
 
       const inputEl = document.createElement('input');
       inputEl.type = input.tipo;
-      inputEl.name = `escore-${escore.nome.replace(/\s/g, '-')}`;
+      inputEl.name = input.grupo
+        ? `escore-${escore.nome.replace(/\s/g, '-')}-${input.grupo}`
+        : `escore-${escore.nome.replace(/\s/g, '-')}`;
       inputEl.value = input.pontos;
       inputEl.className = 'escore-calc-input';
       inputEl.dataset.inputId = input.id;
+      if (input.padrao) inputEl.checked = true;
 
       const text = document.createElement('span');
       text.className = 'escore-calc-label';
@@ -814,6 +818,8 @@
     switch (unidade) {
       case 'mcg/kg/min': return (dose * peso * 60) / conc;
       case 'mcg/kg/h': return (dose * peso) / conc;
+      case 'mg/kg/h': return (dose * peso) / conc;
+      case 'mcg/min': return (dose * 60) / conc;
       case 'mcg/h': return dose / conc;
       case 'mg/h': return dose / conc;
       case 'UI/min': return (dose * 60) / conc;
@@ -825,6 +831,8 @@
     switch (unidade) {
       case 'mcg/kg/min': return (mlh * conc) / (peso * 60);
       case 'mcg/kg/h': return (mlh * conc) / peso;
+      case 'mg/kg/h': return (mlh * conc) / peso;
+      case 'mcg/min': return (mlh * conc) / 60;
       case 'mcg/h': return mlh * conc;
       case 'mg/h': return mlh * conc;
       case 'UI/min': return (mlh * conc) / 60;
@@ -836,6 +844,7 @@
     switch (unidade) {
       case 'mcg/kg/min': return dose * peso;
       case 'mcg/kg/h': return dose * peso;
+      case 'mg/kg/h': return dose * peso;
       default: return dose;
     }
   };
@@ -844,6 +853,7 @@
     switch (unidade) {
       case 'mcg/kg/min': return 'mcg/min';
       case 'mcg/kg/h': return 'mcg/h';
+      case 'mg/kg/h': return 'mg/h';
       default: return unidade;
     }
   };
@@ -981,7 +991,10 @@
         const doseBig = document.createElement('div');
         doseBig.className = 'calc-readout-dose';
         if (calc.dose_fixa) {
-          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(calc.dose_fixa)}</span> <span class="calc-readout-unit">${calc.unidade} (fixo)</span>`;
+          const valorFixo = typeof calc.dose_fixa === 'number'
+            ? calc.dose_fixa
+            : (dil.doses && dil.doses[0] ? dil.doses[0].dose_min : doseAtual);
+          doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(valorFixo)}</span> <span class="calc-readout-unit">${calc.unidade} (fixo)</span>`;
         } else {
           doseBig.innerHTML = `<span class="calc-readout-value">${fmtNum(doseAtual)}</span> <span class="calc-readout-unit">${calc.unidade}</span>`;
         }
@@ -1426,6 +1439,25 @@
   tabBtnPorta.addEventListener('click', () => switchSection('condutas-porta'));
   tabBtnVaso.addEventListener('click', () => switchSection('vasoativa-sedacao'));
 
+  // Back to top button
+  if (backToTopBtn) {
+    const updateBackToTop = () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.hidden = false;
+        requestAnimationFrame(() => backToTopBtn.classList.add('visible'));
+      } else {
+        backToTopBtn.classList.remove('visible');
+        backToTopBtn.hidden = true;
+      }
+    };
+
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    backToTopBtn.addEventListener('click', () => {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && !e.ctrlKey && !e.metaKey && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
@@ -1447,6 +1479,7 @@
 
     if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && e.target.tagName !== 'INPUT') {
       e.preventDefault();
+      if (!condicoes || condicoes.length === 0) return;
       const currentIdx = condicaoAtual
         ? condicoes.findIndex((c) => c.id === condicaoAtual.id)
         : -1;

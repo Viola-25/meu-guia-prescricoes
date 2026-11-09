@@ -905,5 +905,592 @@
       "Protocolo Sepse SES-DF 2025"
     ],
     "categoria": "Vasopressores"
+  },
+  {
+    "id": "nitroglicerina",
+    "titulo": "Nitroglicerina (Tridil)",
+    "apresentacao": "Ampola 5 mg/mL (5 mL = 25 mg ou 10 mL = 50 mg)",
+    "sinonimos": "Tridil, NTG, Trinitrato de glicerila",
+    "cor": "#7c3aed",
+    "icon": "water-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Opção 1 (Padrão):** 50 mg (1 ampola de 10 mL ou 2 de 5 mL = 10 mL) + SG 5% ou SF 0,9% **240 mL** (volume final 250 mL) → **200 mcg/mL**",
+          "**Opção 2 (Concentrada / Restrição hídrica):** 50 mg (10 mL) + SG 5% ou SF 0,9% **90 mL** (volume final 100 mL) → **500 mcg/mL**",
+          "**⚠️ Frasco e equipo livres de PVC:** usar frasco de vidro/polietileno (Ecoflac) e equipo específico sem PVC (evita adsorção de até 50% do fármaco)"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**200 mcg/mL (250 mL com 50 mg):** 1 mL/h = **200 mcg/h** (≈ **3,33 mcg/min**)",
+          "**500 mcg/mL (100 mL com 50 mg):** 1 mL/h = **500 mcg/h** (≈ **8,33 mcg/min**)",
+          "**Referência rápida (200 mcg/mL):** 5 mcg/min = **1,5 mL/h** | 10 mcg/min = **3 mL/h** | 50 mcg/min = **15 mL/h** | 200 mcg/min = **60 mL/h**"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** 5 – 10 mcg/min IV contínuo (não depende do peso)",
+          "**Titulação:** aumentar 5 – 10 mcg/min a cada 3 – 5 minutos (ou 10 – 20 mcg/min a cada 15 min) até alívio da angina, melhora da congestão pulmonar ou controle pressórico",
+          "**Dose máxima:** 200 mcg/min (em doses baixas predomina venodilatação/redução de pré-carga; em doses altas promove vasodilatação arterial e coronariana)",
+          "**SCAPE (Edema Agudo de Pulmão Hipertensivo):** pode-se considerar bolus inicial de **2 mg IV lento** seguido de infusão contínua titulada",
+          "**Taquifilaxia:** perda progressiva de efeito após 24 – 48 horas de infusão ininterrupta"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ CONTRAINDICAÇÕES ABSOLUTAS:** uso recente de inibidores da PDE-5 (**sildenafila/vardenafila < 24h, tadalafila < 48h** — risco de hipotensão refratária e óbito), infarto de ventrículo direito, PAS < 90–110 mmHg e estenose aórtica/mitral grave",
+          "**Sistema isento de PVC obrigatório:** a nitroglicerina adere ao PVC comum (perda de 30% em 6h e 50% em 24h) e extrai plastificante DEHP",
+          "**Estabilidade pós-diluição:** até 48 horas em temperatura ambiente em sistema livre de PVC",
+          "Monitorizar PA e FC antes e 5–15 min após cada titulação de dose",
+          "**Cefaleia** é evento adverso muito frequente (pode ser manejada com dipirona/paracetamol sem suspender a infusão se hemodinâmica estável)",
+          "Suspensão deve ser gradual para evitar angina ou hipertensão de rebote"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "50 mg (10 mL) + SG5% 240 mL",
+          "volume_ml": 250,
+          "concentracao": 200,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 5,
+              "dose_max": 20
+            },
+            {
+              "rotulo": "Manutenção / Congestão",
+              "dose_min": 20,
+              "dose_max": 100
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 100,
+              "dose_max": 200
+            }
+          ]
+        },
+        {
+          "rotulo": "50 mg (10 mL) + SG5% 90 mL",
+          "volume_ml": 100,
+          "concentracao": 500,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 5,
+              "dose_max": 20
+            },
+            {
+              "rotulo": "Manutenção / Congestão",
+              "dose_min": 20,
+              "dose_max": 100
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 100,
+              "dose_max": 200
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 35 (IC Aguda) + Cap. 36 (Emergência Hipertensiva)",
+      "Manual de Injetáveis HUPE-UERJ 2025",
+      "SBC Diretriz de Insuficiência Cardíaca Crônica e Aguda 2018"
+    ],
+    "categoria": "Vasodilatadores"
+  },
+  {
+    "id": "cetamina",
+    "titulo": "Cetamina (Ketamina)",
+    "apresentacao": "Frasco-ampola 50 mg/mL (2 mL = 100 mg ou 10 mL = 500 mg)",
+    "sinonimos": "Ketalar, Cloridrato de cetamina, Dextrocetamina, Ketamina",
+    "cor": "#d97706",
+    "icon": "moon-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Infusão contínua (Padrão 2 mg/mL):** 500 mg (1 frasco-ampola = 10 mL) + SF 0,9% ou SG 5% **240 mL** (volume final 250 mL) → **2 mg/mL**",
+          "**Infusão contínua (Alternativa 1 mg/mL):** 500 mg (10 mL) + SF 0,9% ou SG 5% **490 mL** (volume final 500 mL) → **1 mg/mL**",
+          "**Bolus para procedimento / SRI:** diluir 100 mg (2 mL) + SF 0,9% ou AD **8 mL** → **10 mg/mL** (ou aspirar puro e administrar lentamente em 1 a 2 minutos)",
+          "**Ketofol (proporção 1:1):** 100 mg de Cetamina (2 mL) + 100 mg de Propofol (10 mL) + SF 0,9% **8 mL** (volume final 20 mL) → **5 mg/mL de cada fármaco**"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**2 mg/mL (250 mL com 500 mg):** 1 mL/h = **2 mg/h** (≈ 0,029 mg/kg/h para 70 kg)",
+          "**1 mg/mL (500 mL com 500 mg):** 1 mL/h = **1 mg/h** (≈ 0,014 mg/kg/h para 70 kg)",
+          "**Concentração máxima em infusão contínua:** 2 mg/mL (estabilidade de 24 horas em temperatura ambiente)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Indução na SRI (Intubação Orotraqueal):** **1,5 – 2,0 mg/kg IV** em bolus (agente de escolha no choque/hipotensão e no broncoespasmo grave; início em 45–60s, duração 10–20 min)",
+          "**Sedação dissociativa para procedimentos:** **0,5 – 1,0 mg/kg IV** lento em 1 a 2 min (repetir 0,25 – 0,5 mg/kg a cada 5–10 min se necessário). Via IM: **3 – 4 mg/kg**",
+          "**Analgesia subdissociativa (dor refratária):** **0,1 – 0,35 mg/kg IV** em bolus lento, ou infusão contínua de **0,1 – 0,5 mg/kg/h**",
+          "**Sedoanalgesia contínua em BIC:** **0,5 – 1,0 mg/kg/h IV** (poupador de opioides e catecolaminas em ventilação mecânica)"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**Infundir bolus lentamente (em 1 a 2 minutos):** administração rápida (< 1 min) aumenta risco de **apneia transitória** e laringoespasmo",
+          "**Reações neuropsiquiátricas no despertar (até 20%):** alucinações, sonhos vívidos ou agitação — prevenir e tratar com **Midazolam 0,05 mg/kg (2 a 4 mg) IV** e ambiente silencioso",
+          "**Perfil hemodinâmico e respiratório único:** preserva os reflexos protetores de via aérea, promove broncodilatação e mantém PA/FC por estímulo simpático (cautela em depleção grave de catecolaminas, coronariopatia descompensada ou crise hipertensiva)",
+          "**Incompatibilidade química:** incompatível com **barbitúricos** e **diazepam** na mesma linha/seringa (formação de precipitado)",
+          "Pode provocar sialorreia importante e náuseas/vômitos (~4% — responde a ondansetrona)"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mg/kg/h",
+      "concentracao_unidade": "mg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "500 mg (10 mL) + SF 240 mL",
+          "volume_ml": 250,
+          "concentracao": 2,
+          "doses": [
+            {
+              "rotulo": "Analgesia contínua",
+              "dose_min": 0.1,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Sedoanalgesia em BIC",
+              "dose_min": 0.5,
+              "dose_max": 1.0
+            }
+          ]
+        },
+        {
+          "rotulo": "500 mg (10 mL) + SF 490 mL",
+          "volume_ml": 500,
+          "concentracao": 1,
+          "doses": [
+            {
+              "rotulo": "Analgesia contínua",
+              "dose_min": 0.1,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Sedoanalgesia em BIC",
+              "dose_min": 0.5,
+              "dose_max": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 2 (Via Aérea) + Cap. 14 (Sedação e Analgesia)",
+      "Manual de Injetáveis HUPE-UERJ 2025",
+      "Protocolo de Diluição de Injetáveis PrefSP 2025"
+    ],
+    "categoria": "Sedoanalgesia"
+  },
+  {
+    "id": "dexmedetomidina",
+    "titulo": "Dexmedetomidina (Precedex)",
+    "apresentacao": "Frasco-ampola 100 mcg/mL (2 mL = 200 mcg)",
+    "sinonimos": "Precedex, Cloridrato de dexmedetomidina",
+    "cor": "#d97706",
+    "icon": "moon-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Opção 1 (Padrão 50 mL):** 200 mcg (1 ampola = 2 mL) + SF 0,9% ou SG 5% **48 mL** (volume final 50 mL) → **4 mcg/mL**",
+          "**Opção 2 (Padrão 100 mL):** 400 mcg (2 ampolas = 4 mL) + SF 0,9% ou SG 5% **96 mL** (volume final 100 mL) → **4 mcg/mL**",
+          "**Sempre administrar diluído em bomba de infusão contínua (BIC)**"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**4 mcg/mL (50 mL ou 100 mL):** 1 mL/h = **4 mcg/h** (≈ 0,057 mcg/kg/h para 70 kg)",
+          "**Referência rápida (paciente 70 kg, 4 mcg/mL):** 0,2 mcg/kg/h = **3,5 mL/h** | 0,7 mcg/kg/h = **12,3 mL/h** | 1,4 mcg/kg/h = **24,5 mL/h**"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Dose inicial:** **0,2 mcg/kg/h** IV contínuo",
+          "**Titulação:** ajustar gradualmente entre **0,2 – 0,7 mcg/kg/h** para sedação leve a moderada (RASS 0 a -2), até o limite máximo de **1,4 mcg/kg/h**",
+          "**⚠️ Dose de ataque (bolus):** **NÃO deve ser realizada** no departamento de emergência/UTI devido ao alto risco de bradicardia grave, hipotensão ou hipertensão paradoxal",
+          "**Início e duração:** início de ação em ~5 minutos (pico em 15 min) e duração de ~2 horas após término da infusão",
+          "**Principais indicações:** sedação sem depressão do drive ventilatório, controle de delirium hiperativo/agitação, desmame de VM e facilitação da tolerância à **ventilação não invasiva (VNI)**"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ NUNCA administrar em bolus rápido** — risco de bradicardia grave, bloqueio atrioventricular e parada sinusal",
+          "**Monitorização contínua de ECG, FC e PA:** bradicardia e hipotensão (por simpatólise alfa-2 central) são os eventos adversos mais frequentes",
+          "**Ausência de depressão respiratória:** mantém drive ventilatório espontâneo e permite despertar cooperativo ao estímulo verbal",
+          "**Cautela especial:** cardiopatas, portadores de bloqueio AV (2º ou 3º grau sem marca-passo), hipovolêmicos, idosos e hepatopatas (reduzir dose)",
+          "**Estabilidade pós-diluição:** 24 horas sob refrigeração (uso imediato após abertura da ampola)"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/h",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "200 mcg (2 mL) + SF 48 mL",
+          "volume_ml": 50,
+          "concentracao": 4,
+          "doses": [
+            {
+              "rotulo": "Sedação habitual",
+              "dose_min": 0.2,
+              "dose_max": 0.7
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.7,
+              "dose_max": 1.4
+            }
+          ]
+        },
+        {
+          "rotulo": "400 mcg (4 mL) + SF 96 mL",
+          "volume_ml": 100,
+          "concentracao": 4,
+          "doses": [
+            {
+              "rotulo": "Sedação habitual",
+              "dose_min": 0.2,
+              "dose_max": 0.7
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.7,
+              "dose_max": 1.4
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 14 (Sedação e Analgesia)",
+      "Manual de Injetáveis HUPE-UERJ 2025",
+      "Protocolo de Diluição de Injetáveis PrefSP 2025"
+    ],
+    "categoria": "Sedoanalgesia"
+  },
+  {
+    "id": "milrinona",
+    "titulo": "Milrinona (Primacor)",
+    "apresentacao": "Ampola / Frasco-ampola 1 mg/mL (10 mL = 10 mg ou 20 mL = 20 mg)",
+    "sinonimos": "Primacor, Lactato de milrinona",
+    "cor": "#2563eb",
+    "icon": "heart-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Opção 1 (Padrão 200 mcg/mL):** 20 mg (20 mL) + SG 5% ou SF 0,9% **80 mL** (volume final 100 mL) → **200 mcg/mL**",
+          "**Opção 2 (Alternativa 100 mcg/mL):** 10 mg (10 mL) + SG 5% ou SF 0,9% **90 mL** (volume final 100 mL) → **100 mcg/mL**",
+          "**Concentração máxima recomendada:** 200 mcg/mL"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**200 mcg/mL (100 mL com 20 mg):** 1 mL/h = **200 mcg/h** (≈ **3,33 mcg/min**; ≈ 0,048 mcg/kg/min para 70 kg)",
+          "**100 mcg/mL (100 mL com 10 mg):** 1 mL/h = **100 mcg/h** (≈ **1,67 mcg/min**; ≈ 0,024 mcg/kg/min para 70 kg)",
+          "**Referência rápida (70 kg, 200 mcg/mL):** 0,375 mcg/kg/min = **7,9 mL/h** | 0,5 mcg/kg/min = **10,5 mL/h** | 0,75 mcg/kg/min = **15,8 mL/h**"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Infusão contínua de manutenção:** **0,375 – 0,75 mcg/kg/min** IV em BIC",
+          "**Dose de ataque (opcional):** 25 – 75 mcg/kg IV lento em 10 a 20 minutos — **omitir se PAS < 90–100 mmHg** pelo alto risco de hipotensão",
+          "**Indicação clínica:** inodilatador (inibidor da fosfodiesterase-3); aumenta o inotropismo e reduz a resistência vascular pulmonar e sistêmica. **Preferencial em pacientes em uso crônico de betabloqueadores** ou com hipertensão pulmonar / disfunção de VD",
+          "**Ajuste na insuficiência renal:** excreção predominantemente renal — reduzir dose inicial (0,2 – 0,375 mcg/kg/min) se ClCr < 50 mL/min"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ INCOMPATIBILIDADE CRÍTICA:** **NÃO administrar na mesma linha venosa que Furosemida** ou **Bicarbonato de sódio** (ocorre precipitação imediata)",
+          "**Risco de hipotensão e arritmias:** potente efeito vasodilatador ('inodilatador') e potencial arritmogênico ventricular/atrial (evitar em IC de etiologia isquêmica aguda); associar Noradrenalina se PAM < 65 mmHg",
+          "**Meia-vida prolongada (2 a 4 horas):** os efeitos hemodinâmicos e a hipotensão demoram horas para reverter após a suspensão da bomba",
+          "**Estabilidade pós-diluição:** 24 horas em temperatura ambiente; **não refrigerar**"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mcg/kg/min",
+      "concentracao_unidade": "mcg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "20 mg (20 mL) + SG5% 80 mL",
+          "volume_ml": 100,
+          "concentracao": 200,
+          "doses": [
+            {
+              "rotulo": "Dose inicial / baixa",
+              "dose_min": 0.375,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.5,
+              "dose_max": 0.75
+            }
+          ]
+        },
+        {
+          "rotulo": "10 mg (10 mL) + SG5% 90 mL",
+          "volume_ml": 100,
+          "concentracao": 100,
+          "doses": [
+            {
+              "rotulo": "Dose inicial / baixa",
+              "dose_min": 0.375,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.5,
+              "dose_max": 0.75
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 35 (IC Aguda)",
+      "SBC Diretriz de Insuficiência Cardíaca Crônica e Aguda 2018",
+      "Manual de Injetáveis HUPE-UERJ 2025"
+    ],
+    "categoria": "Inotrópicos"
+  },
+  {
+    "id": "amiodarona",
+    "titulo": "Amiodarona (Ancoron)",
+    "apresentacao": "Ampola 150 mg/3 mL (50 mg/mL)",
+    "sinonimos": "Ancoron, Atlansil, Cloridrato de amiodarona",
+    "cor": "#dc2626",
+    "icon": "pulse-outline",
+    "tipo": "vasoativa",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**⚠️ Diluente exclusivo: SG 5%** (incompatível com SF 0,9% — risco de precipitação). Em infusões > 2 horas, utilizar frasco isento de PVC (polietileno/Ecoflac ou vidro)",
+          "**Ataque (TV com pulso / FA estável):** **150 mg (1 ampola = 3 mL) + SG 5% 100 mL** → infundir em **10 minutos** (15 mg/min; nunca exceder 30 mg/min)",
+          "**Manutenção Padrão (Acesso Central — 3,6 mg/mL):** **900 mg (6 ampolas = 18 mL) + SG 5% 232 mL** (volume final 250 mL) → **3,6 mg/mL**",
+          "**Manutenção Diluída (Acesso Periférico ≤ 2 mg/mL — 1,8 mg/mL):** **900 mg (6 ampolas = 18 mL) + SG 5% 482 mL** (volume final 500 mL) → **1,8 mg/mL**"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**3,6 mg/mL (250 mL com 900 mg):** 1 mL/h = **3,6 mg/h** → **1 mg/min (60 mg/h) = 16,7 mL/h** | **0,5 mg/min (30 mg/h) = 8,3 mL/h**",
+          "**1,8 mg/mL (500 mL com 900 mg):** 1 mL/h = **1,8 mg/h** → **1 mg/min (60 mg/h) = 33,3 mL/h** | **0,5 mg/min (30 mg/h) = 16,7 mL/h**",
+          "**Limite para acesso venoso periférico:** concentrações **> 2 mg/mL** exigem cateter venoso central pelo alto risco de flebite química"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Ataque (Taquiarritmias estáveis):** **150 mg IV em 10 minutos** (pode ser repetido a cada 10–15 min se recorrência). Na **PCR (FV/TV sem pulso refratária):** **300 mg IV/IO em bolus rápido**, podendo repetir **150 mg IV/IO**",
+          "**Manutenção — Fase rápida (primeiras 6 horas):** **1 mg/min (60 mg/h)** em BIC = **16,7 mL/h** (na diluição 900 mg/250 mL) ou **33,3 mL/h** (na diluição 900 mg/500 mL)",
+          "**Manutenção — Fase lenta (18 horas seguintes):** **0,5 mg/min (30 mg/h)** em BIC = **8,3 mL/h** (na diluição 900 mg/250 mL) ou **16,7 mL/h** (na diluição 900 mg/500 mL)",
+          "**Dose máxima cumulativa:** **2,2 g IV em 24 horas**"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ Fármaco irritante/vesicante:** concentrações > 2 mg/mL (ex.: 900 mg em 250 mL = 3,6 mg/mL) devem ser infundidas em **acesso venoso central**; se acesso periférico exclusivo, utilizar a diluição em 500 mL (**1,8 mg/mL**)",
+          "**Diluir exclusivamente em SG 5%** e utilizar frasco livre de PVC (Ecoflac/vidro) e filtro de linha em infusões contínuas > 2 horas",
+          "**Monitorização rigorosa:** hipotensão arterial (causada pela velocidade de infusão e pelo solvente polissorbato 80 — reduzir vazão se ocorrer), bradicardia sinusal, BAV e **prolongamento do intervalo QTc**",
+          "**Contraindicações críticas na emergência:** **FA pré-excitada (Síndrome de Wolff-Parkinson-White)** — risco de degeneração para FV —, *Torsades de Pointes*, bradicardia sinusal grave ou BAV de 2º/3º grau sem marca-passo",
+          "**Incompatibilidades na via:** incompatível em Y com bicarbonato de sódio, heparina, furosemida, aminofilina e ceftazidima"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mg/h",
+      "concentracao_unidade": "mg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "900 mg (18 mL) + SG5% 232 mL",
+          "volume_ml": 250,
+          "concentracao": 3.6,
+          "doses": [
+            {
+              "rotulo": "Fase lenta — 18h (0,5 mg/min)",
+              "dose_min": 30,
+              "dose_max": 30
+            },
+            {
+              "rotulo": "Fase rápida — 6h (1 mg/min)",
+              "dose_min": 60,
+              "dose_max": 60
+            },
+            {
+              "rotulo": "Faixa manutenção (0,5–1 mg/min)",
+              "dose_min": 30,
+              "dose_max": 60
+            }
+          ]
+        },
+        {
+          "rotulo": "900 mg (18 mL) + SG5% 482 mL",
+          "volume_ml": 500,
+          "concentracao": 1.8,
+          "doses": [
+            {
+              "rotulo": "Fase lenta — 18h (0,5 mg/min)",
+              "dose_min": 30,
+              "dose_max": 30
+            },
+            {
+              "rotulo": "Fase rápida — 6h (1 mg/min)",
+              "dose_min": 60,
+              "dose_max": 60
+            },
+            {
+              "rotulo": "Faixa manutenção (0,5–1 mg/min)",
+              "dose_min": 30,
+              "dose_max": 60
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 32 (Fibrilação Atrial) + Cap. 33 (Taquiarritmias)",
+      "SBC Diretriz de Fibrilação Atrial 2025",
+      "Manual de Injetáveis HUPE-UERJ 2025"
+    ],
+    "categoria": "Antiarrítmicos"
+  },
+  {
+    "id": "rocuronio",
+    "titulo": "Rocurônio (Esmeron)",
+    "apresentacao": "Frasco-ampola 50 mg/5 mL (10 mg/mL)",
+    "sinonimos": "Esmeron, Brometo de rocurônio",
+    "cor": "#d97706",
+    "icon": "moon-outline",
+    "tipo": "sedoanalgesia",
+    "secoes": [
+      {
+        "tipo": "diluicao",
+        "titulo": "Diluição Padrão",
+        "itens": [
+          "**Bolus na Intubação (SRI):** administrar **puro (10 mg/mL)** em bolus IV rápido",
+          "**Infusão Contínua Padrão (1 mg/mL):** **250 mg (5 frascos-ampola = 25 mL) + SF 0,9% ou SG 5% 225 mL** (volume final 250 mL) → **1 mg/mL**",
+          "**Infusão Contínua Concentrada (2 mg/mL):** **500 mg (10 frascos-ampola = 50 mL) + SF 0,9% ou SG 5% 200 mL** (volume final 250 mL) → **2 mg/mL**"
+        ]
+      },
+      {
+        "tipo": "concentracao",
+        "titulo": "Concentração Final",
+        "itens": [
+          "**1 mg/mL (250 mL com 250 mg):** 1 mL/h = **1 mg/h** (para 70 kg: 0,3 mg/kg/h = **21 mL/h** | 0,6 mg/kg/h = **42 mL/h**)",
+          "**2 mg/mL (250 mL com 500 mg):** 1 mL/h = **2 mg/h** (para 70 kg: 0,3 mg/kg/h = **10,5 mL/h** | 0,6 mg/kg/h = **21 mL/h**)",
+          "**Concentração máxima para infusão contínua:** **2 mg/mL** (estabilidade de 24 horas após diluição em temperatura ambiente)"
+        ]
+      },
+      {
+        "tipo": "dose",
+        "titulo": "Dose e Titulação",
+        "itens": [
+          "**Bloqueio neuromuscular na SRI (Intubação Orotraqueal):** **1,0 a 1,2 mg/kg IV** em bolus rápido (início de ação em 45–60 segundos; duração de 45–60 minutos)",
+          "**Indicação preferencial na SRI:** bloqueador neuromuscular de escolha quando a Succinilcolina é contraindicada (**hipercalemia, grande queimado > 24–48h, politrauma/esmagamento > 48h, rabdomiólise, doenças neuromusculares/denervação e história de hipertermia maligna**)",
+          "**Infusão contínua em BIC (VM / SDRA grave / adaptação ventilatória):** **0,3 a 0,6 mg/kg/h** (5 a 10 mcg/kg/min) IV contínuo",
+          "**Antídoto / Reversor específico:** **Sugamadex 2 a 4 mg/kg IV** (bloqueio moderado a profundo) ou **16 mg/kg IV** para reversão imediata após dose de intubação"
+        ]
+      },
+      {
+        "tipo": "orientacoes",
+        "titulo": "Orientações de Enfermagem",
+        "itens": [
+          "**⚠️ SEGURANÇA MÁXIMA — MEDICAÇÃO POTENCIALMENTE PERIGOSA:** **NUNCA administrar bloqueador neuromuscular sem sedoanalgesia profunda prévia (meta RASS -5)**. O rocurônio provoca paralisia muscular completa (inclusive diafragmática/apneia), mas **NÃO possui efeito sedativo, analgésico ou amnésico**",
+          "**Cuidados obrigatórios sob bloqueio contínuo:** lubrificação e oclusão ocular bilateral (prevenção de úlcera de córnea), mudança de decúbito, profilaxia de TVP e alarmes do ventilador mecânico rigorosamente ajustados",
+          "**Duração prolongada na SRI:** como o bloqueio dura 45–60 minutos após o bolus de intubação, **iniciar sedoanalgesia contínua imediatamente após a IOT** para evitar despertar paralisado",
+          "**Conservação:** frascos fechados sob refrigeração (2°C a 8°C); após diluição em SF 0,9% ou SG 5%, estável por 24 horas em temperatura ambiente"
+        ]
+      }
+    ],
+    "calculadora": {
+      "unidade": "mg/kg/h",
+      "concentracao_unidade": "mg/mL",
+      "diluicoes": [
+        {
+          "rotulo": "250 mg (25 mL) + SF 225 mL",
+          "volume_ml": 250,
+          "concentracao": 1,
+          "doses": [
+            {
+              "rotulo": "Manutenção em BIC",
+              "dose_min": 0.3,
+              "dose_max": 0.6
+            }
+          ]
+        },
+        {
+          "rotulo": "500 mg (50 mL) + SF 200 mL",
+          "volume_ml": 250,
+          "concentracao": 2,
+          "doses": [
+            {
+              "rotulo": "Manutenção em BIC",
+              "dose_min": 0.3,
+              "dose_max": 0.6
+            }
+          ]
+        }
+      ]
+    },
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 2 (Manejo da Via Aérea)",
+      "Manual de Injetáveis HUPE-UERJ 2025"
+    ],
+    "categoria": "Sedoanalgesia"
   }
 ]
