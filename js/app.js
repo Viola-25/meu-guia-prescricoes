@@ -15,6 +15,13 @@
   let buscaTermo = '';
   let secaoAtual = 'sala-vermelha';
   let dadosPorSecao = {};
+  let pesoCompartilhado = 70;
+  const collapsedCategories = new Set();
+
+  try {
+    const savedPeso = parseFloat(localStorage.getItem('guia-peso'));
+    if (savedPeso >= 20 && savedPeso <= 300) pesoCompartilhado = savedPeso;
+  } catch (e) { /* noop */ }
 
   // =============================================
   // DOM ELEMENTS
@@ -28,6 +35,7 @@
   const contentDisplay = document.getElementById('content-display');
   const conditionTitle = document.getElementById('condition-title');
   const conditionCid = document.getElementById('condition-cid');
+  const sectionJumpBar = document.getElementById('section-jump-bar');
   const conditionSections = document.getElementById('condition-sections');
   const copyBtn = document.getElementById('copy-btn');
   const exportBtn = document.getElementById('export-btn');
@@ -41,6 +49,9 @@
   const tabBtnSala = document.getElementById('tab-btn-sala');
   const tabBtnPorta = document.getElementById('tab-btn-porta');
   const tabBtnVaso = document.getElementById('tab-btn-vaso');
+  const tabCountSala = document.getElementById('tab-count-sala');
+  const tabCountPorta = document.getElementById('tab-count-porta');
+  const tabCountVaso = document.getElementById('tab-count-vaso');
   const backToTopBtn = document.getElementById('back-to-top');
 
   // =============================================
@@ -184,12 +195,40 @@
     const hasCategories = groups.size > 1 || (groups.size === 1 && groups.keys().next().value !== '');
 
     groups.forEach((catItems, catName) => {
+      const catKey = `${secaoAtual}:${catName}`;
+      const isCollapsed = !showSectionBadge && collapsedCategories.has(catKey);
+
       // Category header (only if there are multiple categories or a named one)
       if (hasCategories && catName) {
         const header = document.createElement('li');
-        header.className = 'nav-category';
-        header.setAttribute('role', 'presentation');
-        header.textContent = catName;
+        header.className = `nav-category${isCollapsed ? ' collapsed' : ''}`;
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', String(!isCollapsed));
+        header.dataset.catKey = catKey;
+        header.innerHTML = `<span class="nav-category-label">${catName}</span><span class="nav-category-right"><span class="nav-category-count">${catItems.length}</span><ion-icon name="chevron-down-outline" class="nav-category-chevron" aria-hidden="true"></ion-icon></span>`;
+
+        const toggleCat = () => {
+          if (buscaTermo.trim().length > 0) return;
+          const nowCollapsed = !collapsedCategories.has(catKey);
+          if (nowCollapsed) collapsedCategories.add(catKey);
+          else collapsedCategories.delete(catKey);
+          header.classList.toggle('collapsed', nowCollapsed);
+          header.setAttribute('aria-expanded', String(!nowCollapsed));
+          let next = header.nextElementSibling;
+          while (next && !next.classList.contains('nav-category')) {
+            next.style.display = nowCollapsed ? 'none' : '';
+            next = next.nextElementSibling;
+          }
+        };
+
+        header.addEventListener('click', toggleCat);
+        header.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            toggleCat();
+          }
+        });
         fragment.appendChild(header);
       }
 
@@ -197,6 +236,7 @@
         const li = document.createElement('li');
         li.className = 'nav-item';
         li.setAttribute('role', 'listitem');
+        if (isCollapsed) li.style.display = 'none';
 
         const btn = document.createElement('button');
         btn.className = 'nav-btn';
@@ -364,14 +404,58 @@
     return card;
   };
 
+  const copyTextWithFeedback = async (text, btnEl, defaultLabel) => {
+    const spanEl = btnEl.querySelector('span');
+    const iconEl = btnEl.querySelector('ion-icon');
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+    btnEl.classList.add('copied');
+    if (spanEl) spanEl.textContent = 'Copiado!';
+    if (iconEl) iconEl.setAttribute('name', 'checkmark-outline');
+    setTimeout(() => {
+      btnEl.classList.remove('copied');
+      if (spanEl && defaultLabel) spanEl.textContent = defaultLabel;
+      if (iconEl) iconEl.setAttribute('name', 'copy-outline');
+    }, 1800);
+  };
+
   const renderReceituario = (secao) => {
     const card = document.createElement('div');
     card.className = 'section-card';
 
+    const headerRow = document.createElement('div');
+    headerRow.className = 'section-header-row';
+
     const title = document.createElement('h2');
     title.className = 'section-title';
+    title.style.marginBottom = '0';
     title.innerHTML = `<ion-icon name="medical-outline" aria-hidden="true"></ion-icon> ${secao.titulo}`;
-    card.appendChild(title);
+    headerRow.appendChild(title);
+
+    const copyRecBtn = document.createElement('button');
+    copyRecBtn.type = 'button';
+    copyRecBtn.className = 'btn btn-ghost btn-sm btn-copy-receita';
+    copyRecBtn.setAttribute('aria-label', 'Copiar receituário completo');
+    copyRecBtn.innerHTML = `<ion-icon name="copy-outline" aria-hidden="true"></ion-icon> <span>Copiar Receita</span>`;
+    copyRecBtn.addEventListener('click', () => {
+      const lines = secao.itens.map((it, idx) => `${idx + 1}. ${it.replace(/\*\*/g, '')}`);
+      if (secao.orientacoes && secao.orientacoes.length > 0) {
+        lines.push('');
+        lines.push('Orientações:');
+        secao.orientacoes.forEach((o) => lines.push(`- ${o.replace(/\*\*/g, '')}`));
+      }
+      copyTextWithFeedback(lines.join('\n'), copyRecBtn, 'Copiar Receita');
+    });
+    headerRow.appendChild(copyRecBtn);
+    card.appendChild(headerRow);
 
     const ol = document.createElement('ol');
     ol.className = 'conduta-steps';
@@ -379,8 +463,24 @@
 
     secao.itens.forEach((item) => {
       const li = document.createElement('li');
-      li.className = 'conduta-step';
-      li.innerHTML = renderMarkdownInline(item);
+      li.className = 'conduta-step conduta-step--copyable';
+
+      const contentSpan = document.createElement('div');
+      contentSpan.className = 'conduta-step-text';
+      contentSpan.innerHTML = renderMarkdownInline(item);
+      li.appendChild(contentSpan);
+
+      const itemCopyBtn = document.createElement('button');
+      itemCopyBtn.type = 'button';
+      itemCopyBtn.className = 'step-copy-btn';
+      itemCopyBtn.title = 'Copiar este item';
+      itemCopyBtn.setAttribute('aria-label', 'Copiar este item da prescrição');
+      itemCopyBtn.innerHTML = `<ion-icon name="copy-outline" aria-hidden="true"></ion-icon>`;
+      itemCopyBtn.addEventListener('click', () => {
+        copyTextWithFeedback(item.replace(/\*\*/g, ''), itemCopyBtn, '');
+      });
+      li.appendChild(itemCopyBtn);
+
       ol.appendChild(li);
     });
 
@@ -568,6 +668,9 @@
       div.appendChild(desc);
     }
 
+    const tableWrapper = document.createElement('div');
+    tableWrapper.className = 'score-table-wrapper';
+
     const table = document.createElement('table');
     table.className = 'score-table';
     table.setAttribute('role', 'table');
@@ -595,7 +698,8 @@
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
-    div.appendChild(table);
+    tableWrapper.appendChild(table);
+    div.appendChild(tableWrapper);
     return div;
   };
 
@@ -669,15 +773,36 @@
     card.setAttribute('role', 'region');
     card.setAttribute('aria-label', `Calculadora: ${escore.nome}`);
 
+    const headerRow = document.createElement('div');
+    headerRow.className = 'section-header-row';
+
     const title = document.createElement('h3');
     title.className = 'section-title section-title--escore-calc';
+    title.style.marginBottom = '0';
     title.innerHTML = `<ion-icon name="calculator-outline" aria-hidden="true"></ion-icon> Calculadora: ${escore.nome}`;
-    card.appendChild(title);
+    headerRow.appendChild(title);
+
+    const resetBtn = document.createElement('button');
+    resetBtn.type = 'button';
+    resetBtn.className = 'btn btn-ghost btn-sm escore-reset-btn';
+    resetBtn.setAttribute('aria-label', `Limpar calculadora ${escore.nome}`);
+    resetBtn.innerHTML = `<ion-icon name="refresh-outline" aria-hidden="true"></ion-icon> <span>Limpar</span>`;
+    headerRow.appendChild(resetBtn);
+    card.appendChild(headerRow);
 
     const form = document.createElement('div');
     form.className = 'escore-calc-form';
 
+    let lastGrupo = null;
     calc.inputs.forEach((input) => {
+      if (input.grupo && input.grupo !== lastGrupo) {
+        lastGrupo = input.grupo;
+        const grpTitle = document.createElement('div');
+        grpTitle.className = 'escore-calc-group-title';
+        grpTitle.textContent = input.grupo;
+        form.appendChild(grpTitle);
+      }
+
       const opt = document.createElement('label');
       opt.className = 'escore-calc-option';
 
@@ -685,10 +810,11 @@
       inputEl.type = input.tipo;
       inputEl.name = input.grupo
         ? `escore-${escore.nome.replace(/\s/g, '-')}-${input.grupo}`
-        : `escore-${escore.nome.replace(/\s/g, '-')}`;
+        : `escore-${escore.nome.replace(/\s/g, '-')}-${input.id}`;
       inputEl.value = input.pontos;
       inputEl.className = 'escore-calc-input';
       inputEl.dataset.inputId = input.id;
+      inputEl.dataset.padrao = input.padrao ? 'true' : 'false';
       if (input.padrao) inputEl.checked = true;
 
       const text = document.createElement('span');
@@ -717,28 +843,30 @@
 
     const calculate = () => {
       let total = 0;
+      let checkedCount = 0;
       const inputs = form.querySelectorAll('.escore-calc-input');
 
-      if (calc.tipo === 'contagem') {
-        inputs.forEach((inp) => {
-          if (inp.checked) total += parseFloat(inp.value);
-        });
-      } else {
-        inputs.forEach((inp) => {
-          if (inp.checked) total = parseFloat(inp.value);
-        });
-      }
+      inputs.forEach((inp) => {
+        if (inp.checked) {
+          total += parseFloat(inp.value);
+          checkedCount++;
+        }
+      });
+
+      const hasRadioWithoutSelection = calc.tipo === 'selecao' && checkedCount === 0 && !calc.inputs.some(i => i.tipo === 'checkbox');
 
       let interp = null;
-      for (const i of calc.resultado.interpretacoes) {
-        if (total >= i.min && total <= i.max) {
-          interp = i;
-          break;
+      if (!hasRadioWithoutSelection) {
+        for (const i of calc.resultado.interpretacoes) {
+          if (total >= i.min && total <= i.max) {
+            interp = i;
+            break;
+          }
         }
       }
 
       resultBox.innerHTML = '';
-      if (calc.tipo === 'contagem' || inputs.length > 0) {
+      if (!hasRadioWithoutSelection) {
         const valueEl = document.createElement('div');
         valueEl.className = 'escore-calc-value';
         valueEl.innerHTML = `<span class="escore-calc-number">${total}</span> <span class="escore-calc-score-name">${calc.resultado.titulo}</span>`;
@@ -754,10 +882,17 @@
       } else {
         const emptyEl = document.createElement('div');
         emptyEl.className = 'escore-calc-interpretation escore-calc-empty';
-        emptyEl.textContent = 'Selecione os critérios';
+        emptyEl.textContent = 'Selecione os critérios acima para calcular';
         resultBox.appendChild(emptyEl);
       }
     };
+
+    resetBtn.addEventListener('click', () => {
+      form.querySelectorAll('.escore-calc-input').forEach((inp) => {
+        inp.checked = inp.dataset.padrao === 'true';
+      });
+      calculate();
+    });
 
     form.addEventListener('change', calculate);
     calculate();
@@ -879,9 +1014,11 @@
     title.innerHTML = `<ion-icon name="calculator-outline" aria-hidden="true"></ion-icon> Calculadora de Doses`;
     card.appendChild(title);
 
-    // --- Row 1: Peso ---
+    // --- Row 1: Peso + Preset Pills ---
     const pesoRow = document.createElement('div');
-    pesoRow.className = 'calc-input-row';
+    pesoRow.className = 'calc-input-row calc-input-row--peso';
+    const pesoTop = document.createElement('div');
+    pesoTop.className = 'calc-peso-top';
     const pesoLabel = document.createElement('label');
     pesoLabel.className = 'calc-label';
     pesoLabel.setAttribute('for', 'calc-peso');
@@ -895,15 +1032,39 @@
     pesoInput.min = '20';
     pesoInput.max = '300';
     pesoInput.step = '1';
-    pesoInput.value = '70';
+    pesoInput.value = String(pesoCompartilhado);
     pesoInput.setAttribute('aria-label', 'Peso do paciente em quilogramas');
     const pesoUnit = document.createElement('span');
     pesoUnit.className = 'calc-unit';
     pesoUnit.textContent = 'kg';
     pesoWrap.appendChild(pesoInput);
     pesoWrap.appendChild(pesoUnit);
-    pesoRow.appendChild(pesoLabel);
-    pesoRow.appendChild(pesoWrap);
+    pesoTop.appendChild(pesoLabel);
+    pesoTop.appendChild(pesoWrap);
+    pesoRow.appendChild(pesoTop);
+
+    const presetsWrap = document.createElement('div');
+    presetsWrap.className = 'calc-weight-presets';
+    presetsWrap.setAttribute('role', 'group');
+    presetsWrap.setAttribute('aria-label', 'Pesos rápidos');
+    const presetWeights = [50, 60, 70, 80, 90, 100];
+    const presetBtns = [];
+    presetWeights.forEach((w) => {
+      const pBtn = document.createElement('button');
+      pBtn.type = 'button';
+      pBtn.className = `calc-preset-btn${w === pesoCompartilhado ? ' active' : ''}`;
+      pBtn.textContent = `${w} kg`;
+      pBtn.addEventListener('click', () => {
+        pesoInput.value = String(w);
+        pesoCompartilhado = w;
+        try { localStorage.setItem('guia-peso', String(w)); } catch (e) { /* noop */ }
+        presetBtns.forEach((b) => b.classList.toggle('active', b === pBtn));
+        renderAll();
+      });
+      presetBtns.push(pBtn);
+      presetsWrap.appendChild(pBtn);
+    });
+    pesoRow.appendChild(presetsWrap);
     card.appendChild(pesoRow);
 
     // --- Row 2: Diluição (select) ---
@@ -1037,6 +1198,8 @@
         const mlhMax = calcMLH(dose.dose_max, peso, dil.concentracao, calc.unidade);
 
         const tr = document.createElement('tr');
+        tr.className = 'calc-table-row--clickable';
+        tr.title = 'Clique para aplicar a vazão inicial na bomba';
 
         const tdLabel = document.createElement('td');
         tdLabel.className = 'calc-dose-label';
@@ -1061,13 +1224,27 @@
         }
         tr.appendChild(tdMlh);
 
+        tr.addEventListener('click', () => {
+          const targetMlh = Math.round(mlhMin * 10) / 10;
+          velInput.value = String(targetMlh);
+          renderAll();
+        });
+
         tbody.appendChild(tr);
       });
       table.appendChild(tbody);
       refContainer.appendChild(table);
     };
 
-    pesoInput.addEventListener('input', renderAll);
+    pesoInput.addEventListener('input', () => {
+      const val = parseFloat(pesoInput.value);
+      if (val >= 20 && val <= 300) {
+        pesoCompartilhado = val;
+        try { localStorage.setItem('guia-peso', String(val)); } catch (e) { /* noop */ }
+      }
+      presetBtns.forEach((b) => b.classList.toggle('active', b.textContent === `${val} kg`));
+      renderAll();
+    });
     velInput.addEventListener('input', renderAll);
     dilSelect.addEventListener('change', renderAll);
     renderAll();
@@ -1121,12 +1298,41 @@
     return card;
   };
 
+  const jumpPillMeta = {
+    calculadora: { label: 'Calculadora', icon: 'calculator-outline' },
+    conduta: { label: 'Conduta', icon: 'list-outline' },
+    receituario: { label: 'Receituário', icon: 'medical-outline' },
+    diluicao: { label: 'Diluição', icon: 'flask-outline' },
+    concentracao: { label: 'Concentração', icon: 'analytics-outline' },
+    dose: { label: 'Dose e Titulação', icon: 'speedometer-outline' },
+    tabela_farmacos: { label: 'Fármacos e Doses', icon: 'medkit-outline' },
+    escores: { label: 'Escores e Tabelas', icon: 'analytics-outline' },
+    causas_reversiveis: { label: 'Causas Reversíveis (5H/5T)', icon: 'warning-outline' },
+    orientacoes: { label: 'Enfermagem', icon: 'alert-circle-outline' },
+    urgencia: { label: 'Urgência', icon: 'information-circle-outline' },
+    fontes: { label: 'Fontes', icon: 'book-outline' }
+  };
+
+  const scrollToSectionCard = (targetId) => {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    const offset = 128; // header + sticky tabs + breathing room
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  };
+
   const renderCondition = (cond) => {
     conditionTitle.textContent = cond.titulo;
     conditionCid.textContent = cond.cid ? `CID-10: ${cond.cid}` : '';
     conditionCid.style.display = cond.cid ? '' : 'none';
 
     conditionSections.innerHTML = '';
+    if (sectionJumpBar) {
+      sectionJumpBar.innerHTML = '';
+      sectionJumpBar.hidden = true;
+    }
+
+    const jumpTargets = [];
 
     // Drug header card for vasoativa section
     if (secaoAtual === 'vasoativa-sedacao' && (cond.apresentacao || cond.sinonimos)) {
@@ -1158,10 +1364,14 @@
 
       // Add dose calculator
       const calcEl = renderCalculadora(cond);
-      if (calcEl) conditionSections.appendChild(calcEl);
+      if (calcEl) {
+        calcEl.id = 'sec-jump-calculadora';
+        conditionSections.appendChild(calcEl);
+        jumpTargets.push({ id: calcEl.id, meta: jumpPillMeta.calculadora });
+      }
     }
 
-    cond.secoes.forEach((secao) => {
+    cond.secoes.forEach((secao, idx) => {
       let el;
       switch (secao.tipo) {
         case 'conduta':
@@ -1198,13 +1408,20 @@
           console.warn('Tipo de seção desconhecido:', secao.tipo);
           return;
       }
-      if (el) conditionSections.appendChild(el);
+      if (el) {
+        const secId = `sec-jump-${idx}`;
+        el.id = secId;
+        conditionSections.appendChild(el);
+        const meta = jumpPillMeta[secao.tipo] || { label: secao.titulo, icon: 'bookmark-outline' };
+        jumpTargets.push({ id: secId, meta });
+      }
     });
 
     // Render fontes (source citations)
     if (cond.fontes && cond.fontes.length > 0) {
       const fontesCard = document.createElement('div');
       fontesCard.className = 'section-card section-card--fontes';
+      fontesCard.id = 'sec-jump-fontes';
 
       const fontesTitle = document.createElement('h2');
       fontesTitle.className = 'section-title section-title--fontes';
@@ -1225,6 +1442,19 @@
 
       fontesCard.appendChild(fontesList);
       conditionSections.appendChild(fontesCard);
+      jumpTargets.push({ id: 'sec-jump-fontes', meta: jumpPillMeta.fontes });
+    }
+
+    if (sectionJumpBar && jumpTargets.length > 1) {
+      jumpTargets.forEach((t) => {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'jump-pill';
+        pill.innerHTML = `<ion-icon name="${t.meta.icon}" aria-hidden="true"></ion-icon><span>${t.meta.label}</span>`;
+        pill.addEventListener('click', () => scrollToSectionCard(t.id));
+        sectionJumpBar.appendChild(pill);
+      });
+      sectionJumpBar.hidden = false;
     }
 
     contentPlaceholder.hidden = true;
@@ -1533,6 +1763,10 @@
       } else {
         dadosPorSecao['vasoativa-sedacao'] = [];
       }
+
+      if (tabCountSala) tabCountSala.textContent = String(dadosPorSecao['sala-vermelha'].length);
+      if (tabCountPorta) tabCountPorta.textContent = String(dadosPorSecao['condutas-porta'].length);
+      if (tabCountVaso) tabCountVaso.textContent = String(dadosPorSecao['vasoativa-sedacao'].length);
 
       // Restore section from localStorage or default to sala-vermelha
       let savedSection = 'sala-vermelha';

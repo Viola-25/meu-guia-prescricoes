@@ -689,42 +689,45 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Infusão contínua — Opção 1:** 1 mg + SF 0,9% **249 mL** → **4 mcg/mL**",
-          "**Infusão contínua — Opção 2:** 6 mg + SF 0,9% **244 mL** → **24 mcg/mL**",
-          "**Anafilaxia (bolus IM):** ampola pura 1 mg/mL — diluir em SF 0,9% para 1:1.000 se necessário"
+          "**Infusão contínua — Opção 1 (24 mcg/mL):** 6 mg (6 ampolas = **6 mL**) + SF 0,9% ou SG 5% **244 mL** (volume final 250 mL) → **24 mcg/mL**",
+          "**Infusão contínua — Opção 2 (Padrão HC — 60 mcg/mL):** 6 mg (6 ampolas = **6 mL**) + SF 0,9% **94 mL** (volume final 100 mL) → **60 mcg/mL** (1 mL/h = 1 mcg/min)",
+          "**Infusão contínua — Opção 3 (4 mcg/mL):** 1 mg (1 ampola = **1 mL**) + SF 0,9% **249 mL** (volume final 250 mL) → **4 mcg/mL**",
+          "**Push-Dose Pressor (10 mcg/mL — hipotensão pós-IOT):** 1 mg (1 mL) + SF 0,9% **99 mL** → **10 mcg/mL** (ou aspirar 1 mL + 9 mL SF [= 100 mcg/mL], descartar 9 mL e completar com + 9 mL SF = **10 mcg/mL**)",
+          "**Anafilaxia (bolus IM):** ampola pura **1 mg/mL (1:1.000)** no vasto lateral da coxa"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**4 mcg/mL (250 mL):** 1 mL/h = **0,067 mcg/kg/h** para 60 kg",
-          "**24 mcg/mL (250 mL):** 1 mL/h = **0,4 mcg/kg/h** para 60 kg",
-          "Para bolus IM: usar concentração 1:1.000 (1 mg/mL)"
+          "**24 mcg/mL (6 mL + 244 mL = 250 mL):** 1 mL/h = **0,4 mcg/min** (≈ 0,0067 mcg/kg/min para 60 kg)",
+          "**60 mcg/mL (6 mL + 94 mL = 100 mL):** 1 mL/h = **1 mcg/min** (≈ 0,0167 mcg/kg/min para 60 kg)",
+          "**4 mcg/mL (1 mL + 249 mL = 250 mL):** 1 mL/h = **0,067 mcg/min**",
+          "**Push-Dose (10 mcg/mL):** cada **1 mL = 10 mcg** de adrenalina"
         ]
       },
       {
         "tipo": "dose",
         "titulo": "Dose e Titulação",
         "itens": [
-          "**Anafilaxia:** 0,3 – 0,5 mg IM coxa — repetir a cada 5-15 min conforme resposta",
-          "**PCR (parada cardiorrespiratória):** 1 mg IV a cada 3-5 minutos (ciclos de RCP)",
-          "**Choque (infusão contínua):** 0,01 – 0,5 mcg/kg/min IV — titular conforme PA e perfusão",
-          "**Titulação (infusão contínua):** aumentar 0,02 – 0,05 mcg/kg/min a cada 5-10 min",
-          "**Dose máxima (infusão contínua):** 1 mcg/kg/min — acima disso, considerar outro vasopressor"
+          "**Anafilaxia:** **0,3 a 0,5 mg IM** (0,3 a 0,5 mL da ampola pura 1 mg/mL) no vasto lateral da coxa — repetir a cada 5-15 min conforme resposta",
+          "**PCR (parada cardiorrespiratória):** **1 mg IV/IO** (1 ampola pura + flush 20 mL SF) a cada 3-5 minutos",
+          "**Push-Dose Pressor (hipotensão transitória pós-intubação):** bolus IV de **0,5 a 2 mL (5 a 20 mcg)** da solução de **10 mcg/mL** a cada 2 a 5 min até estabilizar PAM ou iniciar noradrenalina",
+          "**Choque / Broncoespasmo grave / Bradicardia instável (infusão contínua):** **0,01 a 0,5 mcg/kg/min IV** (ou 1 a 20 mcg/min) — titular conforme PA e perfusão",
+          "**Dose máxima (infusão contínua):** 1 mcg/kg/min — associar ou transicionar conforme perfil hemodinâmico"
         ]
       },
       {
         "tipo": "orientacoes",
         "titulo": "Orientações de Enfermagem",
         "itens": [
-          "**⚠️ NUNCA administrar em bolus IV direto** — causa arritmias graves (taquicardia ventricular, fibrilação)",
+          "**⚠️ NUNCA administrar ampola pura (1 mg) em bolus IV em paciente COM pulso** — risco de crise hipertensiva, hemorragia cerebral e FV/TV (uso de 1 mg IV puro é exclusivo da PCR)",
+          "Para **Push-Dose IV**, conferir rigorosamente a diluição para **10 mcg/mL** (1 mL + 99 mL SF) antes de administrar 0,5–2 mL",
           "Para infusão contínua: usar bomba de infusão e via venosa central preferencial",
-          "Verificar extravasamento constantemente — infiltrar fentolamina 10 mg SC se necessário",
-          "Monitorar ECG continuamente — arritmogênica dose-dependente",
-          "Evitar associação com alcalinizantes — inativação do fármaco",
-          "Armazenar em geladeira (2-8°C); descartar se solução estiver turva ou com precipitado",
-          "Em anafilaxia: sempre via IM coxa — absorção mais rápida que via subcutânea"
+          "Verificar extravasamento constantemente — infiltrar fentolamina se disponível",
+          "Monitorar ECG continuamente e lactato (adrenalina pode elevar lactato por efeito beta-2 glicogenolítico)",
+          "Evitar associação na mesma via com bicarbonato de sódio — inativação do fármaco",
+          "Em anafilaxia: sempre via **IM no vasto lateral da coxa** (nunca subcutânea)"
         ]
       }
     ],
@@ -736,6 +739,23 @@
           "rotulo": "6 mg (6 mL) + SF 244 mL",
           "volume_ml": 250,
           "concentracao": 24,
+          "doses": [
+            {
+              "rotulo": "Choque",
+              "dose_min": 0.01,
+              "dose_max": 0.5
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.5,
+              "dose_max": 1.0
+            }
+          ]
+        },
+        {
+          "rotulo": "6 mg (6 mL) + SF 94 mL",
+          "volume_ml": 100,
+          "concentracao": 60,
           "doses": [
             {
               "rotulo": "Choque",

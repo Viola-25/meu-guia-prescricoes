@@ -49,14 +49,17 @@
     <button class="section-tab active" role="tab" aria-selected="true" aria-controls="tab-sala-vermelha" id="tab-btn-sala" data-section="sala-vermelha">
       <ion-icon name="pulse-outline" aria-hidden="true"></ion-icon>
       <span>Sala Vermelha</span>
+      <span class="tab-count" id="tab-count-sala" aria-hidden="true"></span>
     </button>
     <button class="section-tab" role="tab" aria-selected="false" aria-controls="tab-condutas-porta" id="tab-btn-porta" data-section="condutas-porta">
       <ion-icon name="medkit-outline" aria-hidden="true"></ion-icon>
       <span>Condutas de Porta</span>
+      <span class="tab-count" id="tab-count-porta" aria-hidden="true"></span>
     </button>
     <button class="section-tab" role="tab" aria-selected="false" aria-controls="tab-vasoativa" id="tab-btn-vaso" data-section="vasoativa-sedacao">
       <ion-icon name="water-outline" aria-hidden="true"></ion-icon>
       <span>Vasoativa / Sedação</span>
+      <span class="tab-count" id="tab-count-vaso" aria-hidden="true"></span>
     </button>
   </nav>
 
@@ -105,8 +108,11 @@
       <!-- Content Display -->
       <div id="content-display" hidden>
         <div class="condition-header">
-          <h1 class="condition-title" id="condition-title"></h1>
-          <span class="condition-cid" id="condition-cid"></span>
+          <div class="condition-header-top">
+            <h1 class="condition-title" id="condition-title"></h1>
+            <span class="condition-cid" id="condition-cid"></span>
+          </div>
+          <nav class="section-jump-bar" id="section-jump-bar" aria-label="Atalhos das seções da condição" hidden></nav>
         </div>
 
         <div id="condition-sections">

@@ -148,6 +148,68 @@
                 ]
               }
             }
+          },
+          {
+            "nome": "Escore SOFA (Avaliação Sequencial de Disfunção Orgânica)",
+            "descricao": "Variação aguda >= 2 pontos define disfunção orgânica (Sepse = Infecção suspeita/documentada + variação SOFA >= 2)",
+            "colunas": [
+              "Sistema / Parâmetro",
+              "0 pts",
+              "1 pt",
+              "2 pts",
+              "3 pts",
+              "4 pts"
+            ],
+            "dados": [
+              [
+                "Respiratório: PaO2/FiO2 (mmHg)",
+                ">= 400",
+                "< 400",
+                "< 300",
+                "< 200 (com suporte ventilatório)",
+                "< 100 (com suporte ventilatório)"
+              ],
+              [
+                "Coagulação: Plaquetas (x10³/mm³)",
+                ">= 150",
+                "< 150",
+                "< 100",
+                "< 50",
+                "< 20"
+              ],
+              [
+                "Hepático: Bilirrubina total (mg/dL)",
+                "< 1,2",
+                "1,2 - 1,9",
+                "2,0 - 5,9",
+                "6,0 - 11,9",
+                ">= 12,0"
+              ],
+              [
+                "Cardiovascular: PAM ou DVA (mcg/kg/min)",
+                "PAM >= 70 mmHg",
+                "PAM < 70 mmHg",
+                "Dopamina <= 5 ou Dobutamina",
+                "Dopamina > 5 ou Nora/Adrena <= 0,1",
+                "Dopamina > 15 ou Nora/Adrena > 0,1"
+              ],
+              [
+                "SNC: Escala de Coma de Glasgow",
+                "15",
+                "13 - 14",
+                "10 - 12",
+                "6 - 9",
+                "< 6"
+              ],
+              [
+                "Renal: Creatinina (mg/dL) ou Diurese",
+                "< 1,2",
+                "1,2 - 1,9",
+                "2,0 - 3,4",
+                "3,5 - 4,9 ou < 500 mL/dia",
+                ">= 5,0 ou < 200 mL/dia"
+              ]
+            ]
           }
         ],
         "alvos": [
@@ -1083,6 +1145,181 @@
         "titulo": "Escores de Risco e Estratificação Invasiva",
         "escores": [
           {
+            "nome": "Escore HEART (Dor Torácica Aguda no Pronto-Socorro)",
+            "descricao": "Estratificação de risco de eventos cardiovasculares adversos maiores (MACE) em 6 semanas",
+            "colunas": [
+              "Variável",
+              "0 pontos",
+              "1 ponto",
+              "2 pontos"
+            ],
+            "dados": [
+              [
+                "H — História clínica",
+                "Pouco suspeita (atípica)",
+                "Moderadamente suspeita",
+                "Altamente suspeita (típica)"
+              ],
+              [
+                "E — ECG",
+                "Normal",
+                "Alteração inespecífica da repolarização / BRE / HVE",
+                "Infradesnivelamento de ST significativo novo/dinâmico"
+              ],
+              [
+                "A — Idade",
+                "< 45 anos",
+                "45 a 64 anos",
+                ">= 65 anos"
+              ],
+              [
+                "R — Fatores de risco (HAS, DM, DLP, tabagismo, obesidade, HF+)",
+                "Nenhum fator de risco",
+                "1 ou 2 fatores de risco",
+                ">= 3 fatores ou doença aterosclerótica prévia (IAM, DAC, AVC, DAP)"
+              ],
+              [
+                "T — Troponina",
+                "<= Limite superior da normalidade (LSN)",
+                "1 a 3x o LSN",
+                "> 3x o LSN"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "heart_h_0",
+                  "grupo": "História Clínica (H)",
+                  "label": "História: Pouco suspeita / dor atípica (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_h_1",
+                  "grupo": "História Clínica (H)",
+                  "label": "História: Moderadamente suspeita (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_h_2",
+                  "grupo": "História Clínica (H)",
+                  "label": "História: Altamente suspeita / dor típica (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_e_0",
+                  "grupo": "Eletrocardiograma (E)",
+                  "label": "ECG: Normal (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_e_1",
+                  "grupo": "Eletrocardiograma (E)",
+                  "label": "ECG: Repolarização inespecífica / BRE / marca-passo (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_e_2",
+                  "grupo": "Eletrocardiograma (E)",
+                  "label": "ECG: Infradesnivelamento de ST significativo (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_a_0",
+                  "grupo": "Idade (A)",
+                  "label": "Idade: < 45 anos (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_a_1",
+                  "grupo": "Idade (A)",
+                  "label": "Idade: 45 a 64 anos (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_a_2",
+                  "grupo": "Idade (A)",
+                  "label": "Idade: >= 65 anos (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_r_0",
+                  "grupo": "Fatores de Risco (R)",
+                  "label": "Fatores de risco: Nenhum conhecido (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_r_1",
+                  "grupo": "Fatores de Risco (R)",
+                  "label": "Fatores de risco: 1 ou 2 fatores (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_r_2",
+                  "grupo": "Fatores de Risco (R)",
+                  "label": "Fatores de risco: >= 3 fatores ou DAC/IAM/AVC/DAP prévio (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_t_0",
+                  "grupo": "Troponina (T)",
+                  "label": "Troponina: Normal / <= 1x LSN (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_t_1",
+                  "grupo": "Troponina (T)",
+                  "label": "Troponina: 1 a 3x o LSN (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "heart_t_2",
+                  "grupo": "Troponina (T)",
+                  "label": "Troponina: > 3x o LSN (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore HEART",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 3,
+                    "label": "0-3 pts (Baixo Risco — MACE 0,9-1,7%): Considerar alta precoce com acompanhamento se troponina seriada negativa e sem recorrência de dor",
+                    "cor": "#059669"
+                  },
+                  {
+                    "min": 4,
+                    "max": 6,
+                    "label": "4-6 pts (Risco Moderado — MACE 12-16,6%): Internar em unidade de dor torácica, seriar ECG/troponina e estratificar isquemia",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 7,
+                    "max": 10,
+                    "label": "7-10 pts (Alto Risco — MACE 50-65%): Internação em UCO/UTI, dupla antiagregação + anticoagulação e estratégia invasiva precoce (cate)",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          },
+          {
             "nome": "Killip-Kimball (Classificação Clínica)",
             "descricao": "Avaliação de gravidade clínica no IAM",
             "colunas": [
@@ -1580,6 +1817,80 @@
                 "Aneurisma de VD",
                 "Distensão jugular + choque",
                 "Suporte + cirurgia"
+              ]
+            ]
+          },
+          {
+            "nome": "Critérios de Sgarbossa Modificados por Smith (IAM na presença de BRE ou Marca-Passo)",
+            "descricao": "Pontuação >= 3 pontos (ou razão ST/S <= -0,25) confirma oclusão coronariana aguda na vigência de BRE",
+            "colunas": [
+              "Critério Eletrocardiográfico",
+              "Pontuação / Corte",
+              "Interpretação Clínica"
+            ],
+            "dados": [
+              [
+                "Supradesnivelamento de ST >= 1 mm CONCORDANTE com o complexo QRS (QRS positivo)",
+                "5 pontos",
+                "Altamente específico — confirma IAM equivalente (ativar hemodinâmica/trombólise)"
+              ],
+              [
+                "Infradesnivelamento de ST >= 1 mm CONCORDANTE em V1, V2 ou V3",
+                "3 pontos",
+                "Confirma IAM (lesão subepicárdica da parede posterior/dorsal)"
+              ],
+              [
+                "Supradesnivelamento de ST >= 5 mm DISCORDANTE do QRS (ou razão ST/S <= -0,25 pelo critério de Smith)",
+                "2 pontos (Smith: positivo isolado se ST/S <= -0,25)",
+                "Critério modificado de Smith (supra discordante >= 25% da amplitude da onda S) eleva a sensibilidade para > 90%"
+              ]
+            ]
+          },
+          {
+            "nome": "Localização Anatômica do IAM pelo ECG e Artéria Culpada",
+            "descricao": "Em todo IAM inferior (DII, DIII, aVF), registrar obrigatoriamente V3R-V4R (VD) e V7-V8-V9 (dorsal)",
+            "colunas": [
+              "Parede",
+              "Derivações com Supra de ST",
+              "Artéria Culpada Provável",
+              "Cuidados Específicos"
+            ],
+            "dados": [
+              [
+                "Septal / Anterior",
+                "V1-V2 (septal) / V1-V4 (anterior)",
+                "Descendente Anterior (DA)",
+                "Vigiar disfunção de VE / Killip e bloqueios de ramo novos"
+              ],
+              [
+                "Anterior Extenso",
+                "V1 a V6 + DI e aVL",
+                "Tronco de CE ou DA proximal",
+                "Alto risco de choque cardiogênico e falência de bomba"
+              ],
+              [
+                "Lateral",
+                "DI e aVL (alta) / V5-V6 (baixa)",
+                "Circunflexa (CX) ou ramo Diagonal",
+                "Pode cursar com supra discreto"
+              ],
+              [
+                "Inferior",
+                "DII, DIII e aVF",
+                "Coronária Direita (CD — 80%) ou CX (20%)",
+                "Rodar V3R e V4R! CD: supra DIII > DII + infra de DI e aVL"
+              ],
+              [
+                "Ventrículo Direito (VD)",
+                "V1 e V3R-V4R (>= 0,5 mm; >= 1 mm em homens < 30 anos)",
+                "Coronária Direita proximal",
+                "PROIBIDO nitrato, morfina e diurético! Manter pré-carga com expansão volêmica cautelosa (SF 0,9%)"
+              ],
+              [
+                "Posterior / Dorsal",
+                "V7-V9 (>= 0,5 mm) + imagem em espelho em V1-V3 (infra ST + onda R ampla)",
+                "Circunflexa ou CD",
+                "Solicitar derivações posteriores V7-V9 na suspeita clínica"
               ]
             ]
           }
@@ -2933,7 +3244,9 @@
     "cor": "#0891b2",
     "icon": "water-outline",
     "categoria": "Metabólico/Endócrino",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 91 (Hiperglicemia)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 91 (Hiperglicemia)"
+    ],
     "secoes": [
       {
         "tipo": "conduta",
@@ -2960,7 +3273,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Preparo da Insulina para Bomba de Infusão",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Insulina regular",
@@ -2990,7 +3309,9 @@
     "cor": "#dc2626",
     "icon": "pulse-outline",
     "categoria": "Metabólico/Endócrino",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 92 (Crise Tireotóxica)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 92 (Crise Tireotóxica)"
+    ],
     "secoes": [
       {
         "tipo": "conduta",
@@ -3026,7 +3347,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Medicações",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Metimazol",
@@ -3155,7 +3482,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos — Trombólise, Controle Pressórico e Reversão",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Alteplase (rt-PA)",
@@ -3215,23 +3548,59 @@
           {
             "nome": "Interpretação da Escala NIHSS (0 a 42 pontos)",
             "descricao": "Quantifica o déficit neurológico em 11 domínios (consciência, olhar, campos visuais, paresia facial, força motora MS/MI, ataxia, sensibilidade, linguagem, disartria e extinção/negligência)",
-            "colunas": ["Pontuação NIHSS", "Gravidade e Implicação Clínica"],
+            "colunas": [
+              "Pontuação NIHSS",
+              "Gravidade e Implicação Clínica"
+            ],
             "dados": [
-              ["0 pontos", "Sem déficit neurológico mensurável"],
-              ["1 – 4 pontos", "AVCi leve — indicar trombólise apenas se déficit incapacitante (ex: afasia, hemianopsia, incapacidade de marcha)"],
-              ["5 – 15 pontos", "AVCi moderado — principal faixa de benefício de trombólise; se NIHSS ≥ 6, investigar oclusão de grande vaso (angio-TC)"],
-              ["16 – 20 pontos", "AVCi moderado a grave — alta probabilidade de oclusão proximal (ACI / M1)"],
-              ["21 – 42 pontos", "AVCi grave — alto risco de transformação hemorrágica e edema maligno"]
+              [
+                "0 pontos",
+                "Sem déficit neurológico mensurável"
+              ],
+              [
+                "1 – 4 pontos",
+                "AVCi leve — indicar trombólise apenas se déficit incapacitante (ex: afasia, hemianopsia, incapacidade de marcha)"
+              ],
+              [
+                "5 – 15 pontos",
+                "AVCi moderado — principal faixa de benefício de trombólise; se NIHSS ≥ 6, investigar oclusão de grande vaso (angio-TC)"
+              ],
+              [
+                "16 – 20 pontos",
+                "AVCi moderado a grave — alta probabilidade de oclusão proximal (ACI / M1)"
+              ],
+              [
+                "21 – 42 pontos",
+                "AVCi grave — alto risco de transformação hemorrágica e edema maligno"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["Tempo Porta-TC / Porta-Agulha", "≤ 20 min (TC) / ≤ 60 min (Alteplase)"],
-          ["PA pré-trombólise / pré-trombectomia", "< 185 × 110 mmHg"],
-          ["PA durante e 24h pós-trombólise", "≤ 180 × 105 mmHg"],
-          ["PA sem terapia de reperfusão", "Reduzir 15% apenas se PA ≥ 220 × 110 mmHg"],
-          ["Glicemia capilar", "60 – 180 mg/dL (tratar imediatamente se < 60 mg/dL)"],
-          ["SpO2 e Temperatura", "SpO2 > 94% | Temperatura axilar < 37,5 °C"]
+          [
+            "Tempo Porta-TC / Porta-Agulha",
+            "≤ 20 min (TC) / ≤ 60 min (Alteplase)"
+          ],
+          [
+            "PA pré-trombólise / pré-trombectomia",
+            "< 185 × 110 mmHg"
+          ],
+          [
+            "PA durante e 24h pós-trombólise",
+            "≤ 180 × 105 mmHg"
+          ],
+          [
+            "PA sem terapia de reperfusão",
+            "Reduzir 15% apenas se PA ≥ 220 × 110 mmHg"
+          ],
+          [
+            "Glicemia capilar",
+            "60 – 180 mg/dL (tratar imediatamente se < 60 mg/dL)"
+          ],
+          [
+            "SpO2 e Temperatura",
+            "SpO2 > 94% | Temperatura axilar < 37,5 °C"
+          ]
         ]
       }
     ]
@@ -3264,7 +3633,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos — Choque Anafilático e Anafilaxia",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Adrenalina (Epinefrina) IM",
@@ -3324,20 +3699,47 @@
           {
             "nome": "Critérios Clínicos de Anafilaxia (OMS / WAO)",
             "descricao": "O diagnóstico é altamente provável quando QUALQUER UM dos 3 critérios abaixo é preenchido (nota: 10–15% dos casos graves podem cursar sem lesões cutâneas iniciais)",
-            "colunas": ["Critério", "Definição Clínica"],
+            "colunas": [
+              "Critério",
+              "Definição Clínica"
+            ],
             "dados": [
-              ["Critério 1 (Pele/Mucosa + Respiratório ou Choque)", "Início agudo (minutos a horas) com acometimento de pele/mucosa (urticária generalizada, prurido/rubor, edema de lábios-língua-úvula) E pelo menos um: 1) Comprometimento respiratório (dispneia, broncoespasmo, estridor, hipoxemia); OU 2) Queda da PA / hipoperfusão (síncope, colapso, hipotonia)"],
-              ["Critério 2 (≥ 2 Sistemas após Alérgeno Provável)", "Dois ou mais sistemas acometidos rapidamente após exposição a alérgeno provável: 1) Pele/mucosa; 2) Respiratório; 3) Hipotensão/hipoperfusão; 4) Sintomas gastrointestinais persistentes (cólicas intensas, vômitos)"],
-              ["Critério 3 (Hipotensão isolada após Alérgeno Conhecido)", "Redução aguda da PA minutos a horas após exposição a alérgeno sabidamente conhecido para o paciente: PAS < 90 mmHg em adultos ou queda > 30% da PAS basal"]
+              [
+                "Critério 1 (Pele/Mucosa + Respiratório ou Choque)",
+                "Início agudo (minutos a horas) com acometimento de pele/mucosa (urticária generalizada, prurido/rubor, edema de lábios-língua-úvula) E pelo menos um: 1) Comprometimento respiratório (dispneia, broncoespasmo, estridor, hipoxemia); OU 2) Queda da PA / hipoperfusão (síncope, colapso, hipotonia)"
+              ],
+              [
+                "Critério 2 (≥ 2 Sistemas após Alérgeno Provável)",
+                "Dois ou mais sistemas acometidos rapidamente após exposição a alérgeno provável: 1) Pele/mucosa; 2) Respiratório; 3) Hipotensão/hipoperfusão; 4) Sintomas gastrointestinais persistentes (cólicas intensas, vômitos)"
+              ],
+              [
+                "Critério 3 (Hipotensão isolada após Alérgeno Conhecido)",
+                "Redução aguda da PA minutos a horas após exposição a alérgeno sabidamente conhecido para o paciente: PAS < 90 mmHg em adultos ou queda > 30% da PAS basal"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["1ª Dose de Adrenalina IM", "Imediata no vasto lateral (0,5 mg puro 1:1.000)"],
-          ["PAM e PAS", "PAM ≥ 65 mmHg | PAS ≥ 90 mmHg"],
-          ["SpO2", "≥ 94% (> 92% mínimo)"],
-          ["Via Aérea se Estridor/Edema", "IOT precoce com tubo com cuff (evitar dispositivos supraglóticos)"],
-          ["Tempo de Observação Pós-Resolução", "Mínimo 4 a 8 horas (internar em UTI se choque ou ≥ 2 doses de adrenalina)"]
+          [
+            "1ª Dose de Adrenalina IM",
+            "Imediata no vasto lateral (0,5 mg puro 1:1.000)"
+          ],
+          [
+            "PAM e PAS",
+            "PAM ≥ 65 mmHg | PAS ≥ 90 mmHg"
+          ],
+          [
+            "SpO2",
+            "≥ 94% (> 92% mínimo)"
+          ],
+          [
+            "Via Aérea se Estridor/Edema",
+            "IOT precoce com tubo com cuff (evitar dispositivos supraglóticos)"
+          ],
+          [
+            "Tempo de Observação Pós-Resolução",
+            "Mínimo 4 a 8 horas (internar em UTI se choque ou ≥ 2 doses de adrenalina)"
+          ]
         ]
       }
     ]
@@ -3371,7 +3773,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos e Hemocomponentes — Trauma e Choque Hemorrágico",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Ácido Tranexâmico",
@@ -3431,12 +3839,27 @@
           {
             "nome": "Escore ABC (Assessment of Blood Consumption)",
             "descricao": "Preditor rápido à beira-leito para acionamento do Protocolo de Transfusão Maciça (≥ 2 pontos: sensibilidade 76–90%, especificidade 67–87%)",
-            "colunas": ["Critério na Admissão", "Pontos"],
+            "colunas": [
+              "Critério na Admissão",
+              "Pontos"
+            ],
             "dados": [
-              ["Mecanismo de trauma penetrante", "1"],
-              ["Exame FAST positivo para líquido livre", "1"],
-              ["Pressão arterial sistólica (PAS) ≤ 90 mmHg", "1"],
-              ["Frequência cardíaca (FC) ≥ 120 bpm", "1"]
+              [
+                "Mecanismo de trauma penetrante",
+                "1"
+              ],
+              [
+                "Exame FAST positivo para líquido livre",
+                "1"
+              ],
+              [
+                "Pressão arterial sistólica (PAS) ≤ 90 mmHg",
+                "1"
+              ],
+              [
+                "Frequência cardíaca (FC) ≥ 120 bpm",
+                "1"
+              ]
             ],
             "calculadora_escore": {
               "tipo": "contagem",
@@ -3488,23 +3911,148 @@
           {
             "nome": "Classificação do Choque Hemorrágico no Trauma (ATLS 10ª ed.)",
             "descricao": "Estimativa de perda volêmica, déficit de base e necessidade transfusional",
-            "colunas": ["Parâmetro", "Classe I (< 15%)", "Classe II (15–30%)", "Classe III (31–40%)", "Classe IV (> 40%)"],
+            "colunas": [
+              "Parâmetro",
+              "Classe I (< 15%)",
+              "Classe II (15–30%)",
+              "Classe III (31–40%)",
+              "Classe IV (> 40%)"
+            ],
             "dados": [
-              ["Frequência Cardíaca", "Normal (< 100)", "Normal / ↑ (> 100)", "↑ (> 120)", "↑↑ (> 140)"],
-              ["Pressão Arterial Sistólica", "Normal", "Normal (pressão de pulso ↓)", "↓", "↓↓"],
-              ["Escala de Coma de Glasgow", "Normal", "Normal", "↓", "↓↓"],
-              ["Déficit de Base (Base Excess)", "0 a -2 mEq/L", "-2 a -6 mEq/L", "-6 a -10 mEq/L", "≤ -10 mEq/L"],
-              ["Necessidade de Sangue", "Monitorar", "Possível", "Sim (hemocomponentes)", "Protocolo de Transfusão Maciça"]
+              [
+                "Frequência Cardíaca",
+                "Normal (< 100)",
+                "Normal / ↑ (> 100)",
+                "↑ (> 120)",
+                "↑↑ (> 140)"
+              ],
+              [
+                "Pressão Arterial Sistólica",
+                "Normal",
+                "Normal (pressão de pulso ↓)",
+                "↓",
+                "↓↓"
+              ],
+              [
+                "Escala de Coma de Glasgow",
+                "Normal",
+                "Normal",
+                "↓",
+                "↓↓"
+              ],
+              [
+                "Déficit de Base (Base Excess)",
+                "0 a -2 mEq/L",
+                "-2 a -6 mEq/L",
+                "-6 a -10 mEq/L",
+                "≤ -10 mEq/L"
+              ],
+              [
+                "Necessidade de Sangue",
+                "Monitorar",
+                "Possível",
+                "Sim (hemocomponentes)",
+                "Protocolo de Transfusão Maciça"
+              ]
+            ]
+          },
+          {
+            "nome": "Critérios NEXUS — Retirada Segura do Colar Cervical sem Imagem",
+            "descricao": "Todos os 5 critérios devem estar presentes para retirar o colar clinicamente (Sensibilidade > 99%)",
+            "colunas": [
+              "Critério NEXUS",
+              "Condição Necessária"
+            ],
+            "dados": [
+              [
+                "1. Ausência de dor cervical na linha média posterior",
+                "Sem dor à palpação das apófises espinhosas cervicais"
+              ],
+              [
+                "2. Ausência de déficit neurológico focal",
+                "Exame motor e sensitivo normal nos 4 membros"
+              ],
+              [
+                "3. Nível de alerta normal (Glasgow 15)",
+                "Orientado no tempo, espaço e pessoa, sem amnésia"
+              ],
+              [
+                "4. Ausência de intoxicação exógena",
+                "Sem hálito etílico, embriaguez ou uso de drogas depressoras"
+              ],
+              [
+                "5. Ausência de lesão distrativa dolorosa",
+                "Sem fratura de ossos longos, trauma visceral grave ou queimadura extensa"
+              ]
+            ]
+          },
+          {
+            "nome": "Lesões Torácicas Ameaçadoras à Vida (Exame Primário) e Trauma Cervical / Uretral",
+            "descricao": "Diagnóstico eminentemente clínico na sala de emergência — não aguardar radiografia para intervir",
+            "colunas": [
+              "Lesão / Situação",
+              "Achados Clínicos Clássicos",
+              "Conduta Imediata no PS"
+            ],
+            "dados": [
+              [
+                "Pneumotórax Hipertensivo",
+                "MV abolido unilateral, hipertimpanismo, turgência jugular, desvio traqueal, choque obstrutivo",
+                "Toracocentese de alívio imediata (5º EIC linha axilar anterior/média no adulto) seguida de drenagem em selo de água (28-32 Fr)"
+              ],
+              [
+                "Pneumotórax Aberto",
+                "Ferida soprante na parede torácica (> 2/3 do diâmetro da traqueia)",
+                "Curativo de 3 pontas imediato + drenagem torácica em selo de água em local distinto da ferida"
+              ],
+              [
+                "Hemotórax Maciço",
+                "MV abolido, macicez à percussão + choque; drenagem imediata >= 1.500 mL de sangue ou >= 200 mL/h por 2 a 4h",
+                "Drenagem torácica calibrosa (28-32 Fr) + protocolo de transfusão maciça + Toracotomia de urgência"
+              ],
+              [
+                "Tamponamento Cardíaco",
+                "Tríade de Beck (hipofonese de bulhas, turgência jugular, hipotensão) + FAST positivo no saco pericárdico",
+                "Toracotomia de emergência (ou pericardiocentese subxifóidea guiada como ponte se sem cirurgião imediato)"
+              ],
+              [
+                "Trauma Cervical Penetrante (Platisma violado)",
+                "Zona I (clavícula-cricoide), Zona II (cricoide-ângulo da mandíbula), Zona III (acima do ângulo). Sinais maiores (hard): hematoma pulsátil/expansivo, sopro/frêmito, choque, estridor, ferida soprante, déficit neurológico",
+                "Sinais maiores (hard) ou instável -> Exploração cirúrgica imediata (intubação precoce se hematoma expansivo). Sinais menores (soft) estável -> AngioTC de pescoço"
+              ],
+              [
+                "Suspeita de Lesão Uretral (Contraindicação à SVD)",
+                "Sangue no meato uretral, hematoma perineal (em asa de borboleta) ou escrotal, retenção urinária, fratura pélvica instável",
+                "NÃO passar sonda vesical de demora! Realizar uretrocistografia retrógrada antes ou cistostomia suprapúbica"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["PAS sem TCE (Hipotensão Permissiva)", "80 – 90 mmHg até hemostasia cirúrgica"],
-          ["PAS com TCE Grave (GCS ≤ 8)", "≥ 100–110 mmHg (PAM ≥ 80 mmHg)"],
-          ["Shock Index (FC / PAS)", "Normal: 0,5–0,7 | Alerta: > 0,9 | PTM: ≥ 1,4"],
-          ["Hemoglobina e Plaquetas", "Hb 7–9 g/dL | Plaquetas > 50.000/mm³ (> 100.000 se TCE)"],
-          ["Fibrinogênio e Cálcio Iônico", "Fibrinogênio ≥ 150–200 mg/dL | Ca²⁺ ≥ 1,1–1,2 mmol/L"],
-          ["Temperatura, pH e Lactato", "Temperatura > 36 °C | pH > 7,20 | Clearance de lactato ≥ 10–20%"]
+          [
+            "PAS sem TCE (Hipotensão Permissiva)",
+            "80 – 90 mmHg até hemostasia cirúrgica"
+          ],
+          [
+            "PAS com TCE Grave (GCS ≤ 8)",
+            "≥ 100–110 mmHg (PAM ≥ 80 mmHg)"
+          ],
+          [
+            "Shock Index (FC / PAS)",
+            "Normal: 0,5–0,7 | Alerta: > 0,9 | PTM: ≥ 1,4"
+          ],
+          [
+            "Hemoglobina e Plaquetas",
+            "Hb 7–9 g/dL | Plaquetas > 50.000/mm³ (> 100.000 se TCE)"
+          ],
+          [
+            "Fibrinogênio e Cálcio Iônico",
+            "Fibrinogênio ≥ 150–200 mg/dL | Ca²⁺ ≥ 1,1–1,2 mmol/L"
+          ],
+          [
+            "Temperatura, pH e Lactato",
+            "Temperatura > 36 °C | pH > 7,20 | Clearance de lactato ≥ 10–20%"
+          ]
         ]
       }
     ]
@@ -3542,7 +4090,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos — Controle Pressórico, Neuroproteção e Reversão",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Nimodipino",
@@ -3595,13 +4149,37 @@
           {
             "nome": "Escore ICH (Hemorragia Intraparenquimatosa)",
             "descricao": "Preditor de mortalidade em 30 dias na HIP espontânea (volume calculado na TC por A × B × C / 2)",
-            "colunas": ["Componente", "Critério", "Pontos"],
+            "colunas": [
+              "Componente",
+              "Critério",
+              "Pontos"
+            ],
             "dados": [
-              ["Escala de Coma de Glasgow", "3–4 (2 pts) | 5–12 (1 pt) | 13–15 (0 pt)", "0 a 2"],
-              ["Volume do Hematoma (ABC/2)", "≥ 30 mL (1 pt) | < 30 mL (0 pt)", "0 ou 1"],
-              ["Inundação Ventricular (Hemoventrículo)", "Presente (1 pt) | Ausente (0 pt)", "0 ou 1"],
-              ["Origem Infratentorial (Cerebelo/Tronco)", "Sim (1 pt) | Não (0 pt)", "0 ou 1"],
-              ["Idade", "≥ 80 anos (1 pt) | < 80 anos (0 pt)", "0 ou 1"]
+              [
+                "Escala de Coma de Glasgow",
+                "3–4 (2 pts) | 5–12 (1 pt) | 13–15 (0 pt)",
+                "0 a 2"
+              ],
+              [
+                "Volume do Hematoma (ABC/2)",
+                "≥ 30 mL (1 pt) | < 30 mL (0 pt)",
+                "0 ou 1"
+              ],
+              [
+                "Inundação Ventricular (Hemoventrículo)",
+                "Presente (1 pt) | Ausente (0 pt)",
+                "0 ou 1"
+              ],
+              [
+                "Origem Infratentorial (Cerebelo/Tronco)",
+                "Sim (1 pt) | Não (0 pt)",
+                "0 ou 1"
+              ],
+              [
+                "Idade",
+                "≥ 80 anos (1 pt) | < 80 anos (0 pt)",
+                "0 ou 1"
+              ]
             ],
             "calculadora_escore": {
               "tipo": "contagem",
@@ -3681,22 +4259,61 @@
           {
             "nome": "Escalas de Hunt-Hess e Fisher Modificada (HSA)",
             "descricao": "Classificação clínica e tomográfica de gravidade e risco de vasoespasmo na HSA",
-            "colunas": ["Grau", "Escala Clínica de Hunt-Hess", "Escala Tomográfica de Fisher Modificada"],
+            "colunas": [
+              "Grau",
+              "Escala Clínica de Hunt-Hess",
+              "Escala Tomográfica de Fisher Modificada"
+            ],
             "dados": [
-              ["Grau 1", "Cefaleia leve ou rigidez de nuca discreta (assintomático)", "Sem sangue cisternal (0% vasoespasmo sintomático ou c/ HIV: 24–27%)"],
-              ["Grau 2", "Cefaleia moderada a intensa, rigidez de nuca, sem déficit focal (exceto paralisia de nervo craniano)", "HSA fina (< 1 mm) com hemoventrículo nos dois ventrículos laterais (risco 33%)"],
-              ["Grau 3", "Sonolência, confusão mental ou déficit focal leve", "HSA espessa (≥ 1 mm) sem hemoventrículo bilateral (risco 33%)"],
-              ["Grau 4", "Torpor, hemiparesia moderada a grave", "HSA espessa (≥ 1 mm) COM hemoventrículo bilateral (maior risco de vasoespasmo: 40%)"],
-              ["Grau 5", "Coma profundo, postura de descerebração", "—"]
+              [
+                "Grau 1",
+                "Cefaleia leve ou rigidez de nuca discreta (assintomático)",
+                "Sem sangue cisternal (0% vasoespasmo sintomático ou c/ HIV: 24–27%)"
+              ],
+              [
+                "Grau 2",
+                "Cefaleia moderada a intensa, rigidez de nuca, sem déficit focal (exceto paralisia de nervo craniano)",
+                "HSA fina (< 1 mm) com hemoventrículo nos dois ventrículos laterais (risco 33%)"
+              ],
+              [
+                "Grau 3",
+                "Sonolência, confusão mental ou déficit focal leve",
+                "HSA espessa (≥ 1 mm) sem hemoventrículo bilateral (risco 33%)"
+              ],
+              [
+                "Grau 4",
+                "Torpor, hemiparesia moderada a grave",
+                "HSA espessa (≥ 1 mm) COM hemoventrículo bilateral (maior risco de vasoespasmo: 40%)"
+              ],
+              [
+                "Grau 5",
+                "Coma profundo, postura de descerebração",
+                "—"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["PAS na HIP espontânea (< 6h)", "130 – 140 mmHg (evitar PAS < 120–130 mmHg)"],
-          ["PAS na HSA pré-tratamento do aneurisma", "< 160 mmHg (PAM < 110 mmHg)"],
-          ["RNI em HIP associada a Varfarina", "< 1,4 (reverter imediatamente com CCP + Vitamina K)"],
-          ["Prevenção de Vasoespasmo na HSA", "Nimodipino 60 mg VO/SNE de 4/4h por 21 dias + Euvolemia"],
-          ["Glicemia e Temperatura", "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"]
+          [
+            "PAS na HIP espontânea (< 6h)",
+            "130 – 140 mmHg (evitar PAS < 120–130 mmHg)"
+          ],
+          [
+            "PAS na HSA pré-tratamento do aneurisma",
+            "< 160 mmHg (PAM < 110 mmHg)"
+          ],
+          [
+            "RNI em HIP associada a Varfarina",
+            "< 1,4 (reverter imediatamente com CCP + Vitamina K)"
+          ],
+          [
+            "Prevenção de Vasoespasmo na HSA",
+            "Nimodipino 60 mg VO/SNE de 4/4h por 21 dias + Euvolemia"
+          ],
+          [
+            "Glicemia e Temperatura",
+            "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"
+          ]
         ]
       }
     ]
@@ -3728,7 +4345,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos — Meningite Bacteriana e Encefalite Viral",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Ceftriaxona",
@@ -3788,22 +4411,76 @@
           {
             "nome": "Diagnóstico Diferencial do Líquor (Punção Lombar)",
             "descricao": "Valores de referência no adulto: celularidade ≤ 4 células/mm³, glicorraquia > 2/3 da glicemia (> 45 mg/dL), proteínas ≤ 40 mg/dL, lactato < 35 mg/dL",
-            "colunas": ["Parâmetro no LCR", "Meningite Bacteriana", "Meningite Viral", "Meningite Tuberculosa", "Meningite Fúngica"],
+            "colunas": [
+              "Parâmetro no LCR",
+              "Meningite Bacteriana",
+              "Meningite Viral",
+              "Meningite Tuberculosa",
+              "Meningite Fúngica"
+            ],
             "dados": [
-              ["Pressão de Abertura", "Elevada (> 20–25 cmH2O)", "Normal ou levemente ↑", "Elevada", "Elevada a muito elevada (Criptococo)"],
-              ["Celularidade (/mm³)", "1.000 a 10.000 (> 100)", "10 a 500 (< 1.000)", "50 a 500", "20 a 500"],
-              ["Predomínio Celular", "Neutrófilos (PMN > 80%)", "Linfomononuclear (PMN possível nas primeiras 24–48h)", "Linfomononuclear", "Linfomononuclear"],
-              ["Glicorraquia", "Baixa (< 40 mg/dL; razão LCR/soro < 0,4)", "Normal (> 45 mg/dL)", "Baixa (< 45 mg/dL)", "Baixa a normal"],
-              ["Proteínas (mg/dL)", "Muito elevada (100–500)", "Normal a levemente ↑ (< 100)", "Elevada (100–500)", "Elevada"],
-              ["Exames Específicos", "Gram (60–90%), Cultura, Látex/PCR multiplex, Lactato > 35 mg/dL", "PCR para HSV-1/2, VZV, Enterovírus", "BAAR, GeneXpert MTB/RIF, ADA elevada, Cultura", "Tinta da China, Antígeno Criptocócico (CrAg)"]
+              [
+                "Pressão de Abertura",
+                "Elevada (> 20–25 cmH2O)",
+                "Normal ou levemente ↑",
+                "Elevada",
+                "Elevada a muito elevada (Criptococo)"
+              ],
+              [
+                "Celularidade (/mm³)",
+                "1.000 a 10.000 (> 100)",
+                "10 a 500 (< 1.000)",
+                "50 a 500",
+                "20 a 500"
+              ],
+              [
+                "Predomínio Celular",
+                "Neutrófilos (PMN > 80%)",
+                "Linfomononuclear (PMN possível nas primeiras 24–48h)",
+                "Linfomononuclear",
+                "Linfomononuclear"
+              ],
+              [
+                "Glicorraquia",
+                "Baixa (< 40 mg/dL; razão LCR/soro < 0,4)",
+                "Normal (> 45 mg/dL)",
+                "Baixa (< 45 mg/dL)",
+                "Baixa a normal"
+              ],
+              [
+                "Proteínas (mg/dL)",
+                "Muito elevada (100–500)",
+                "Normal a levemente ↑ (< 100)",
+                "Elevada (100–500)",
+                "Elevada"
+              ],
+              [
+                "Exames Específicos",
+                "Gram (60–90%), Cultura, Látex/PCR multiplex, Lactato > 35 mg/dL",
+                "PCR para HSV-1/2, VZV, Enterovírus",
+                "BAAR, GeneXpert MTB/RIF, ADA elevada, Cultura",
+                "Tinta da China, Antígeno Criptocócico (CrAg)"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["Tempo Porta-Antibiótico", "≤ 60 minutos (nunca atrasar por TC de crânio ou punção lombar)"],
-          ["Dexametasona 10 mg IV", "15–20 min antes ou concomitante à 1ª dose do antibiótico"],
-          ["Precaução de Gotículas", "Primeiras 24 horas de antibioticoterapia eficaz (Meningococo / Haemophilus)"],
-          ["Vancocinemia (Vale)", "15 – 20 mcg/mL"]
+          [
+            "Tempo Porta-Antibiótico",
+            "≤ 60 minutos (nunca atrasar por TC de crânio ou punção lombar)"
+          ],
+          [
+            "Dexametasona 10 mg IV",
+            "15–20 min antes ou concomitante à 1ª dose do antibiótico"
+          ],
+          [
+            "Precaução de Gotículas",
+            "Primeiras 24 horas de antibioticoterapia eficaz (Meningococo / Haemophilus)"
+          ],
+          [
+            "Vancocinemia (Vale)",
+            "15 – 20 mcg/mL"
+          ]
         ]
       }
     ]
@@ -3833,7 +4510,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos — Terapia Hiperosmolar, Hemostasia e Profilaxia no TCE",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Salina Hipertônica (NaCl 3%)",
@@ -3879,11 +4562,27 @@
           {
             "nome": "Escala de Coma de Glasgow (GCS) e Estratificação do TCE",
             "descricao": "Classificação de gravidade: TCE Leve (13–15 pts) | TCE Moderado (9–12 pts) | TCE Grave (3–8 pts → indicação de IOT)",
-            "colunas": ["Parâmetro", "Resposta Avaliada", "Pontuação"],
+            "colunas": [
+              "Parâmetro",
+              "Resposta Avaliada",
+              "Pontuação"
+            ],
             "dados": [
-              ["Abertura Ocular (O)", "Espontânea (4) | Ao estímulo verbal (3) | À pressão/dor (2) | Ausente (1)", "1 a 4"],
-              ["Resposta Verbal (V)", "Orientada (5) | Confusa (4) | Palavras inapropriadas (3) | Sons incompreensíveis (2) | Ausente (1)", "1 a 5"],
-              ["Resposta Motora (M)", "Obedece a comandos (6) | Localiza estímulo (5) | Flexão normal/retirada (4) | Flexão anormal/decorticação (3) | Extensão/descerebração (2) | Ausente (1)", "1 a 6"]
+              [
+                "Abertura Ocular (O)",
+                "Espontânea (4) | Ao estímulo verbal (3) | À pressão/dor (2) | Ausente (1)",
+                "1 a 4"
+              ],
+              [
+                "Resposta Verbal (V)",
+                "Orientada (5) | Confusa (4) | Palavras inapropriadas (3) | Sons incompreensíveis (2) | Ausente (1)",
+                "1 a 5"
+              ],
+              [
+                "Resposta Motora (M)",
+                "Obedece a comandos (6) | Localiza estímulo (5) | Flexão normal/retirada (4) | Flexão anormal/decorticação (3) | Extensão/descerebração (2) | Ausente (1)",
+                "1 a 6"
+              ]
             ],
             "calculadora_escore": {
               "tipo": "contagem",
@@ -4025,21 +4724,56 @@
           {
             "nome": "Hematoma Epidural vs. Hematoma Subdural Agudo e Indicações Cirúrgicas",
             "descricao": "Diferenciação anatomoclínica e critérios neurocirúrgicos de evacuação",
-            "colunas": ["Característica", "Hematoma Epidural (Extradural)", "Hematoma Subdural Agudo"],
+            "colunas": [
+              "Característica",
+              "Hematoma Epidural (Extradural)",
+              "Hematoma Subdural Agudo"
+            ],
             "dados": [
-              ["Vaso Sangrante", "Artéria meníngea média (associado a fratura temporal/parietal)", "Veias-ponte cortico-durais (aceleração/desaceleração; idosos, etilistas, anticoagulados)"],
-              ["Formato na TC de Crânio", "Lente biconvexa (não cruza suturas cranianas)", "Formato em crescente / foice (cruza suturas cranianas)"],
-              ["Apresentação Clínica", "Pode apresentar intervalo lúcido seguido de deterioração rápida e anisocoria ipsilateral", "Rebaixamento neurológico desde o trauma ou piora progressiva"],
-              ["Indicação Cirúrgica", "Volume > 30 mL (independente do GCS) OU espessura > 15 mm OU desvio de linha média > 5 mm OU coma/déficit focal", "Espessura > 10 mm OU desvio de linha média > 5 mm (independente do GCS) OU queda de ≥ 2 pts no GCS / anisocoria / PIC > 20 mmHg"]
+              [
+                "Vaso Sangrante",
+                "Artéria meníngea média (associado a fratura temporal/parietal)",
+                "Veias-ponte cortico-durais (aceleração/desaceleração; idosos, etilistas, anticoagulados)"
+              ],
+              [
+                "Formato na TC de Crânio",
+                "Lente biconvexa (não cruza suturas cranianas)",
+                "Formato em crescente / foice (cruza suturas cranianas)"
+              ],
+              [
+                "Apresentação Clínica",
+                "Pode apresentar intervalo lúcido seguido de deterioração rápida e anisocoria ipsilateral",
+                "Rebaixamento neurológico desde o trauma ou piora progressiva"
+              ],
+              [
+                "Indicação Cirúrgica",
+                "Volume > 30 mL (independente do GCS) OU espessura > 15 mm OU desvio de linha média > 5 mm OU coma/déficit focal",
+                "Espessura > 10 mm OU desvio de linha média > 5 mm (independente do GCS) OU queda de ≥ 2 pts no GCS / anisocoria / PIC > 20 mmHg"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["PAS Alvo no TCE", "≥ 100 mmHg (50–69 anos) | ≥ 110 mmHg (15–49 ou > 70 anos)"],
-          ["SpO2 e PaCO2", "SpO2 ≥ 94–98% | PaCO2 35–45 mmHg (normocapnia)"],
-          ["PIC e PPC (se monitorizado)", "PIC < 22 mmHg | PPC 60–70 mmHg"],
-          ["Sódio Sérico e Plaquetas", "Na⁺ 140–150 mEq/L (145–155 se HIC) | Plaquetas > 100.000/mm³"],
-          ["Glicemia e Temperatura", "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"]
+          [
+            "PAS Alvo no TCE",
+            "≥ 100 mmHg (50–69 anos) | ≥ 110 mmHg (15–49 ou > 70 anos)"
+          ],
+          [
+            "SpO2 e PaCO2",
+            "SpO2 ≥ 94–98% | PaCO2 35–45 mmHg (normocapnia)"
+          ],
+          [
+            "PIC e PPC (se monitorizado)",
+            "PIC < 22 mmHg | PPC 60–70 mmHg"
+          ],
+          [
+            "Sódio Sérico e Plaquetas",
+            "Na⁺ 140–150 mEq/L (145–155 se HIC) | Plaquetas > 100.000/mm³"
+          ],
+          [
+            "Glicemia e Temperatura",
+            "Glicemia 140–180 mg/dL | Normotermia (< 37,5 °C)"
+          ]
         ]
       }
     ]
@@ -4069,7 +4803,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Fármacos e Soluções — Grande Queimado",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Ringer Lactato",
@@ -4115,36 +4855,699 @@
           {
             "nome": "Regra dos Nove de Wallace (Estimativa da %SCQ — 2º e 3º Graus)",
             "descricao": "Para queimaduras esparsas, a superfície palmar do paciente (incluindo os dedos) equivale a ~1% da SCQ",
-            "colunas": ["Segmento Corporal", "Adulto (% SCQ)", "Criança / Lactente (% SCQ)"],
+            "colunas": [
+              "Segmento Corporal",
+              "Adulto (% SCQ)",
+              "Criança / Lactente (% SCQ)"
+            ],
             "dados": [
-              ["Cabeça e Pescoço", "9% (4,5% anterior + 4,5% posterior)", "18% (9% anterior + 9% posterior)"],
-              ["Tronco Anterior (Tórax + Abdome)", "18%", "18%"],
-              ["Tronco Posterior (Dorso + Nádegas)", "18%", "18%"],
-              ["Membro Superior Direito (todo)", "9% (4,5% anterior + 4,5% posterior)", "9%"],
-              ["Membro Superior Esquerdo (todo)", "9% (4,5% anterior + 4,5% posterior)", "9%"],
-              ["Membro Inferior Direito (todo)", "18% (9% anterior + 9% posterior)", "13,5% a 14%"],
-              ["Membro Inferior Esquerdo (todo)", "18% (9% anterior + 9% posterior)", "13,5% a 14%"],
-              ["Períneo / Genitália", "1%", "1%"]
+              [
+                "Cabeça e Pescoço",
+                "9% (4,5% anterior + 4,5% posterior)",
+                "18% (9% anterior + 9% posterior)"
+              ],
+              [
+                "Tronco Anterior (Tórax + Abdome)",
+                "18%",
+                "18%"
+              ],
+              [
+                "Tronco Posterior (Dorso + Nádegas)",
+                "18%",
+                "18%"
+              ],
+              [
+                "Membro Superior Direito (todo)",
+                "9% (4,5% anterior + 4,5% posterior)",
+                "9%"
+              ],
+              [
+                "Membro Superior Esquerdo (todo)",
+                "9% (4,5% anterior + 4,5% posterior)",
+                "9%"
+              ],
+              [
+                "Membro Inferior Direito (todo)",
+                "18% (9% anterior + 9% posterior)",
+                "13,5% a 14%"
+              ],
+              [
+                "Membro Inferior Esquerdo (todo)",
+                "18% (9% anterior + 9% posterior)",
+                "13,5% a 14%"
+              ],
+              [
+                "Períneo / Genitália",
+                "1%",
+                "1%"
+              ]
             ]
           },
           {
             "nome": "Critérios de Transferência para Centro de Tratamento de Queimados (ABA / MS)",
             "descricao": "Estabilizar via aérea e hemodinâmica antes do transporte",
-            "colunas": ["Critério", "Indicação"],
+            "colunas": [
+              "Critério",
+              "Indicação"
+            ],
             "dados": [
-              ["Extensão e Profundidade", "Queimadura de 2º grau > 10–20% SCQ ou qualquer queimadura de 3º grau (> 5–10% SCQ)"],
-              ["Áreas Nobres / Funcionais", "Face, pescoço, mãos, pés, genitália, períneo ou grandes articulações"],
-              ["Etiologia Especial", "Queimaduras elétricas (incluindo raios), químicas ou circunferenciais de tórax/membros"],
-              ["Via Aérea e Comorbidades", "Lesão inalatória associada, politrauma concomitante, extremos de idade ou comorbidades graves"]
+              [
+                "Extensão e Profundidade",
+                "Queimadura de 2º grau > 10–20% SCQ ou qualquer queimadura de 3º grau (> 5–10% SCQ)"
+              ],
+              [
+                "Áreas Nobres / Funcionais",
+                "Face, pescoço, mãos, pés, genitália, períneo ou grandes articulações"
+              ],
+              [
+                "Etiologia Especial",
+                "Queimaduras elétricas (incluindo raios), químicas ou circunferenciais de tórax/membros"
+              ],
+              [
+                "Via Aérea e Comorbidades",
+                "Lesão inalatória associada, politrauma concomitante, extremos de idade ou comorbidades graves"
+              ]
             ]
           }
         ],
         "alvos": [
-          ["Diurese Adulto (Queimadura Térmica)", "0,5 mL/kg/h (30 – 50 mL/h)"],
-          ["Diurese Criança (< 30 kg)", "1,0 mL/kg/h"],
-          ["Diurese Queimadura Elétrica / Rabdomiólise", "1,0 – 1,5 mL/kg/h (75 – 100 mL/h)"],
-          ["Carboxi-hemoglobina (COHb)", "< 5% (manter O2 a 100% até resolução da intoxicação por CO)"],
-          ["Temperatura Corporal", "Normotermia (> 36,5 °C — evitar hipotermia)"]
+          [
+            "Diurese Adulto (Queimadura Térmica)",
+            "0,5 mL/kg/h (30 – 50 mL/h)"
+          ],
+          [
+            "Diurese Criança (< 30 kg)",
+            "1,0 mL/kg/h"
+          ],
+          [
+            "Diurese Queimadura Elétrica / Rabdomiólise",
+            "1,0 – 1,5 mL/kg/h (75 – 100 mL/h)"
+          ],
+          [
+            "Carboxi-hemoglobina (COHb)",
+            "< 5% (manter O2 a 100% até resolução da intoxicação por CO)"
+          ],
+          [
+            "Temperatura Corporal",
+            "Normotermia (> 36,5 °C — evitar hipotermia)"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "emergencias-obstetricas-eclampsia-hellp",
+    "titulo": "Emergências Obstétricas: Pré-Eclâmpsia Grave, Eclâmpsia e HELLP",
+    "cid": "O15.0",
+    "cor": "#dc2626",
+    "icon": "female-outline",
+    "categoria": "Ginecologia e Obstetrícia",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 115 (Emergências Obstétricas)",
+      "Guia de Bolso Plantão 2026"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Imediata — Pré-Eclâmpsia Grave, Eclâmpsia e Hemorragias Obstétricas",
+        "itens": [
+          "**Critérios de Pré-Eclâmpsia Grave (após 20 semanas ou puerpério):** **PA ≥ 160×110 mmHg** (confirmada em 15 min) ou PA ≥ 140×90 mmHg associada a **sinais de iminência de eclâmpsia** (cefaleia frontal/occipital refratária, escotomas/diplopia/amaurose, epigastralgia ou dor em hipocôndrio direito em barra [sinal de Chaussier], hiperreflexia com clônus), **edema agudo de pulmão**, **creatinina ≥ 1,1 mg/dL** (ou oligúria < 500 mL/24h) ou **Síndrome HELLP** (Hemólise [BT ≥ 1,2 mg/dL, esquizócitos, **DHL ≥ 600 UI/L**], **TGO/AST ≥ 70 UI/L** e **Plaquetas < 100.000/mm³**)",
+          "**Suporte inicial na Eclâmpsia (convulsão tônico-clônica na gestante/puérpera):** posicionar em **decúbito lateral esquerdo** (descompressão aorto-cava e prevenção de broncoaspiração), proteger a língua/via aérea, ofertar **O2 suplementar a 8–10 L/min** para manter SpO2 > 95%, garantir 2 acessos venosos calibrosos e coletar rotina de DHEG (hemograma com plaquetas, esfregaço periférico, DHL, bilirrubinas, TGO/TGP, creatinina, ácido úrico, coagulograma, relação proteína/creatinina urinária)",
+          "**Prevenção e tratamento das convulsões — Sulfato de Magnésio (MgSO4 50% — 1 ampola = 10 mL = 5 g) IMEDIATO:** droga de escolha absoluta tanto na iminência de eclâmpsia quanto na eclâmpsia instalada (superior a benzodiazepínicos e fenitoína). Manter por **24 horas após o parto ou após a última crise convulsiva**",
+          "**Esquema de Zuspan (IV exclusivo — preferencial quando há bomba de infusão):** **Ataque de 4 g IV** (diluir **8 mL de MgSO4 50% [4 g] + 92 mL de SF 0,9% ou SG 5%** e correr em **15 a 20 min** [BIC 300 mL/h]) → **Manutenção de 1 a 2 g/h IV contínuo em BIC** (diluir **1 ampola de 10 mL de MgSO4 50% [5 g] + 490 mL de SF 0,9%** [= 10 mg/mL] e correr a **100 mL/h [1 g/h]** a **200 mL/h [2 g/h]**)",
+          "**Esquema de Pritchard (IV + IM — transporte ou ausência de bomba de infusão):** **Ataque de 4 g IV lento** (8 mL de MgSO4 50% + 12 mL de água destilada = 20 mL em 15–20 min) **+ 10 g IM profundo** (aplicar **10 mL de MgSO4 50% [5 g] em cada glúteo** profundo, associado a 1 mL de lidocaína 2% sem vasoconstritor) → **Manutenção de 5 g (10 mL de MgSO4 50%) IM profundo de 4/4 horas** alternando os glúteos",
+          "**Recorrência da crise convulsiva na vigência de MgSO4:** administrar novo bolus de **2 g IV de MgSO4** (4 mL de MgSO4 50% diluídos em SF 0,9% em 10–15 min) e elevar a manutenção para 2 g/h",
+          "**Vigilância obrigatória de intoxicação por MgSO4 (avaliar de 1/1h):** manter a infusão somente se **1) Reflexo patelar presente**, **2) Frequência respiratória ≥ 12–16 irpm** e **3) Diurese > 25–30 mL/h** (> 100 mL em 4h). Na insuficiência renal (Cr ≥ 1,2 ou oligúria), aplicar o ataque normal (4 g) e reduzir a manutenção pela metade (0,5 g/h) dosando magnesemia. **Se abolição do reflexo patelar (Mg > 8–10 mEq/L):** suspender infusão de MgSO4. **Se depressão/parada respiratória ou cardiotoxicidade:** suspender MgSO4, ventilar e administrar imediatamente o antídoto **Gluconato de Cálcio 10% — 1 g (10 mL = 1 ampola) IV lento em 2 a 4 minutos**",
+          "**Controle da Crise Hipertensiva na Gestação (iniciar se PAS ≥ 160 mmHg ou PAD ≥ 110 mmHg):** meta de reduzir a PA em 15–25% mantendo **PAS entre 130–150 mmHg e PAD entre 80–100 mmHg** (evitar queda brusca pelo risco de hipofluxo uteroplacentário e sofrimento fetal): **1ª linha oral:** **Nifedipino 10 mg VO** (deglutido, nunca sublingual — repetir 10 mg a cada 30 min se necessário, máx. 30 mg). **1ª linha IV:** **Hidralazina 5 mg IV em bolus lento** (diluir 1 ampola de 20 mg/1 mL + 3 mL de AD ou 19 mL de AD → administrar 5 mg IV; repetir 5 a 10 mg IV a cada 20 min até máx. 20–30 mg). **Refratária:** **Nitroprussiato de sódio 0,25 a 4 mcg/kg/min IV** por curto período (< 4 horas antes do parto)",
+          "**Hemorragias da 1ª Metade — Gravidez Ectópica Rota:** tríade de atraso menstrual + dor abdominal/pélvica súbita + sangramento vaginal com **β-hCG > 1.500–2.000 mUI/mL e útero vazio ao US transvaginal** + líquido livre peritoneal (FAST positivo / sinal de Lafon / sinal de Proust). Se instabilidade hemodinâmica ou abdome agudo → **2 acessos calibrosos, transfusão e laparotomia/laparoscopia imediata**. Se ectópica íntegra, estável, massa anexial < 3,5 cm, sem BCF e β-hCG < 5.000 mUI/mL → **Metotrexato 50 mg/m² IM dose única** (repetir β-hCG nos dias 4 e 7)",
+          "**Hemorragias da 2ª Metade — DPP vs. Placenta Prévia:** **Descolamento Prematuro de Placenta (DPP):** dor abdominal súbita e intensa, **hipertonia uterina (útero lenhoso / tetania)**, sangramento escuro (ou oculto em 20%), sofrimento fetal precoce e risco de CIVD — associada à hipertensão/trauma; realizar amniotomia e **parto imediato (cesariana de emergência se feto vivo)**. **Placenta Prévia:** sangramento vaginal **vermelho-vivo, rutilante, indolor, imotivado e recorrente**, tônus uterino normal e vitalidade fetal preservada — **NÃO realizar toque vaginal** antes de localizar a placenta ao US!"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Fármacos na Pré-Eclâmpsia Grave, Eclâmpsia e Emergências Obstétricas",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
+        "dados": [
+          {
+            "nome": "Sulfato de Magnésio 50% (Esquema Zuspan — IV)",
+            "apresentacao": "Ampola 50% — 5 g / 10 mL (500 mg/mL) [ou 10% — 1 g / 10 mL]",
+            "diluicao": "Ataque: 8 mL de MgSO4 50% (4 g) + 92 mL SF 0,9% (vol. final 100 mL). Manutenção: 10 mL de MgSO4 50% (5 g) + 490 mL SF 0,9% (10 mg/mL)",
+            "dose": "Ataque: 4 g IV em 15-20 min (BIC 300 mL/h). Manutenção: 1 a 2 g/h IV em BIC (100 a 200 mL/h da solução de 10 mg/mL) por 24h",
+            "sus": "rename"
+          },
+          {
+            "nome": "Sulfato de Magnésio 50% (Esquema Pritchard — IV + IM)",
+            "apresentacao": "Ampola 50% — 5 g / 10 mL (500 mg/mL)",
+            "diluicao": "Ataque IV: 8 mL de MgSO4 50% (4 g) + 12 mL AD (vol. final 20 mL). Ataque/Manutenção IM: ampola pura 50% (10 mL = 5 g) + 1 mL Lidocaína 2% s/v",
+            "dose": "Ataque: 4 g IV lento (15-20 min) + 10 g IM profundo (5 g = 10 mL em cada glúteo). Manutenção: 5 g (10 mL) IM profundo de 4/4h",
+            "sus": "rename"
+          },
+          {
+            "nome": "Gluconato de Cálcio 10% (Antídoto da intoxicação por MgSO4)",
+            "apresentacao": "Ampola 10% — 1 g / 10 mL (100 mg/mL)",
+            "diluicao": "Puro ou diluído em 10 mL de SF 0,9% (ter sempre 1 ampola aspirada à cabeceira)",
+            "dose": "1 g (10 mL) IV lento em 2 a 4 minutos na depressão respiratória ou abolição reflexa grave por hipermagnesemia",
+            "sus": "rename"
+          },
+          {
+            "nome": "Hidralazina injetável",
+            "apresentacao": "Ampola 20 mg / 1 mL",
+            "diluicao": "1 ampola (20 mg = 1 mL) + 19 mL de Água Destilada ou SF 0,9% (concentração: 1 mg/mL)",
+            "dose": "5 mg (5 mL) IV lento a cada 20 min se PA >= 160x110 mmHg (doses subsequentes de 5 a 10 mg; dose máxima cumulativa: 20 a 30 mg)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Nifedipino (ação rápida VO)",
+            "apresentacao": "Comprimido/cápsula 10 mg",
+            "diluicao": "Via oral (deglutir — NUNCA administrar sublingual)",
+            "dose": "10 mg VO a cada 30 minutos se PA >= 160x110 mmHg (dose máxima: 30 mg na crise aguda)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Betametasona (Maturação pulmonar fetal — 24 a 34 semanas)",
+            "apresentacao": "Ampola 4 mg/mL (3 mL = 12 mg — fosfato + acetato)",
+            "diluicao": "Intramuscular profunda sem diluir",
+            "dose": "12 mg IM a cada 24 horas por 2 doses (total 24 mg) em gestantes entre 24 e 34 semanas",
+            "sus": "rename"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Diagnóstico Diferencial e Escore de Malinas (Parto Iminente no Transporte)",
+        "escores": [
+          {
+            "nome": "Diagnóstico Diferencial: Descolamento Prematuro de Placenta (DPP) vs. Placenta Prévia (PP)",
+            "descricao": "Principais causas de sangramento vaginal na segunda metade da gestação (> 20 semanas)",
+            "colunas": [
+              "Característica Clínica",
+              "DPP (Descolamento Prematuro)",
+              "Placenta Prévia (PP)"
+            ],
+            "dados": [
+              [
+                "Início do quadro",
+                "Súbito, tempestuoso, frequentemente após pico hipertensivo ou trauma",
+                "Insidioso, imotivado, frequentemente durante o sono"
+              ],
+              [
+                "Dor abdominal",
+                "Intensa, contínua, lancinante",
+                "Ausente (sangramento indolor)"
+              ],
+              [
+                "Tônus uterino",
+                "Hipertonia uterina / Taquissistolia / Útero lenhoso (tetania)",
+                "Tônus uterino normal (útero fibroelástico)"
+              ],
+              [
+                "Aspecto do sangramento",
+                "Escuro, com coágulos (oculto/retroplacentário em até 20% dos casos)",
+                "Vermelho-vivo, rutilante, líquido, repetitivo em surtos"
+              ],
+              [
+                "Estado hemodinâmico materno",
+                "Choque frequentemente desproporcional ao sangramento exteriorizado; risco de CIVD",
+                "Proporcional ao volume de perda sanguínea visível"
+              ],
+              [
+                "Vitalidade fetal",
+                "Sofrimento fetal agudo precoce ou óbito fetal",
+                "Habitualmente preservada"
+              ],
+              [
+                "Toque vaginal",
+                "Permitido (amniotomia reduz pressão intrauterina e passagem de tromboplastina)",
+                "PROIBIDO até ultrassonografia descartar placenta prévia!"
+              ]
+            ]
+          },
+          {
+            "nome": "Escore de Malinas — Avaliação de Parto Iminente e Risco de Transporte",
+            "descricao": "Define se há tempo seguro para transferir a parturiente à maternidade ou se o parto deve ser assistido no local",
+            "colunas": [
+              "Parâmetro",
+              "0 pontos",
+              "1 ponto",
+              "2 pontos"
+            ],
+            "dados": [
+              [
+                "Paridade (nº de partos anteriores)",
+                "Nulípara (0)",
+                "1 ou 2 partos",
+                ">= 3 partos"
+              ],
+              [
+                "Duração do trabalho de parto",
+                "< 3 horas",
+                "3 a 5 horas",
+                "> 6 horas"
+              ],
+              [
+                "Duração das contrações uterinas",
+                "< 1 minuto",
+                "1 minuto",
+                "> 1 minuto"
+              ],
+              [
+                "Intervalo entre as contrações",
+                "> 5 minutos",
+                "3 a 5 minutos",
+                "< 3 minutos (2 ou mais em 5 min)"
+              ],
+              [
+                "Perda de líquido amniótico (Bolsa rota)",
+                "Não (bolsa íntegra)",
+                "Recente (< 1 hora)",
+                "> 1 hora"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "mal_p_0",
+                  "grupo": "Paridade",
+                  "label": "Paridade: Nulípara / 0 partos prévios (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_p_1",
+                  "grupo": "Paridade",
+                  "label": "Paridade: 1 ou 2 partos prévios (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_p_2",
+                  "grupo": "Paridade",
+                  "label": "Paridade: >= 3 partos prévios (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_tp_0",
+                  "grupo": "Duração do Trabalho de Parto",
+                  "label": "Duração do TP: < 3 horas (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_tp_1",
+                  "grupo": "Duração do Trabalho de Parto",
+                  "label": "Duração do TP: 3 a 5 horas (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_tp_2",
+                  "grupo": "Duração do Trabalho de Parto",
+                  "label": "Duração do TP: > 6 horas (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_dc_0",
+                  "grupo": "Duração das Contrações",
+                  "label": "Duração da contração: < 1 minuto (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_dc_1",
+                  "grupo": "Duração das Contrações",
+                  "label": "Duração da contração: ~ 1 minuto (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_dc_2",
+                  "grupo": "Duração das Contrações",
+                  "label": "Duração da contração: > 1 minuto (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_ic_0",
+                  "grupo": "Intervalo entre Contrações",
+                  "label": "Intervalo entre contrações: > 5 minutos (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_ic_1",
+                  "grupo": "Intervalo entre Contrações",
+                  "label": "Intervalo entre contrações: 3 a 5 minutos (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_ic_2",
+                  "grupo": "Intervalo entre Contrações",
+                  "label": "Intervalo entre contrações: < 3 minutos (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_br_0",
+                  "grupo": "Bolsa Amniótica (Ruptura)",
+                  "label": "Bolsa rota: Não / bolsa íntegra (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_br_1",
+                  "grupo": "Bolsa Amniótica (Ruptura)",
+                  "label": "Bolsa rota: Recente / < 1 hora (1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mal_br_2",
+                  "grupo": "Bolsa Amniótica (Ruptura)",
+                  "label": "Bolsa rota: Há mais de 1 hora (2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore de Malinas",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 5,
+                    "label": "<= 5 pts: Transporte seguro para a maternidade de referência (monitorar dinâmica uterina e BCF)",
+                    "cor": "#059669"
+                  },
+                  {
+                    "min": 6,
+                    "max": 6,
+                    "label": "6 pts (Limítrofe): Parto iminente se houver desejo de puxo — avaliar distância e realizar toque vaginal antes de transportar",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 7,
+                    "max": 10,
+                    "label": ">= 7 pts (Parto Iminente!): Risco altíssimo de parto em trânsito — NÃO transportar; preparar material de assistência ao parto e reanimação neonatal no local",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "alvos": [
+          [
+            "Meta pressórica na Pré-Eclâmpsia Grave",
+            "PAS 130–150 mmHg e PAD 80–100 mmHg (evitar queda > 25%)"
+          ],
+          [
+            "Vigilância horária do Sulfato de Magnésio",
+            "Reflexo patelar presente + FR >= 12-16 irpm + Diurese > 25-30 mL/h"
+          ],
+          [
+            "Nível sérico terapêutico de Magnésio",
+            "4 a 7 mEq/L (abolição patelar: > 8-10 mEq/L; parada respiratória: > 12 mEq/L)"
+          ],
+          [
+            "Duração da manutenção do MgSO4",
+            "24 horas após o parto ou 24 horas após a última convulsão"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neutropenia-febril",
+    "titulo": "Neutropenia Febril e Emergências Oncológicas",
+    "cid": "D70",
+    "cor": "#059669",
+    "icon": "medkit-outline",
+    "categoria": "Infeccioso",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 96 (Neutropenia Febril)",
+      "Sanford Guide to Antimicrobial Therapy 2022",
+      "Guia de Bolso Plantão 2026"
+    ],
+    "secoes": [
+      {
+        "tipo": "conduta",
+        "titulo": "Conduta Imediata — Neutropenia Febril (Meta Porta-Antibiótico < 1 Hora)",
+        "itens": [
+          "**Definição diagnóstica (IDSA/ASCO):** **Febre** (temperatura oral única **≥ 38,3 °C** ou **≥ 38,0 °C sustentada por > 1 hora** [equivalente a temperatura axilar > 37,8 °C]) **+ Neutropenia** (contagem absoluta de neutrófilos [segmentados + bastões] **< 500/mm³** ou < 1.000/mm³ com previsão de queda para < 500/mm³ nas próximas 48h; **neutropenia profunda: ≤ 100/mm³**)",
+          "**Abordagem na 1ª hora (Emergência Infectológica):** coletar **2 pares de hemoculturas** imediatamente (1 par de sangue periférico + 1 par de cada lúmen de cateter venoso central de longa permanência, se presente), hemograma completo, função renal, eletrólitos, transaminases, bilirrubinas, PCR, lactato, urocultura e radiografia/TC de tórax se sintomas respiratórios. **NÃO aguardar o resultado do hemograma ou das culturas para iniciar o antibiótico** se houver alta suspeita (quimioterapia nos últimos 14–21 dias + febre)",
+          "**Exame físico dirigido às portas de entrada ocultas:** inspecionar rigorosamente cavidade oral e orofaringe (mucosite), sítio de inserção e túnel de cateter central (Port-a-cath / Hickman), pele/períneo e região perianal (**PROIBIDO realizar toque retal** ou administrar supositórios/enemas pelo risco de translocação bacteriana grave)",
+          "**Antibioticoterapia Empírica Inicial para ALTO RISCO (MASCC < 21, CISNE ≥ 3, neutropenia prevista > 7 dias, leucemia aguda/TCTH, instabilidade hemodinâmica, mucosite grau 3–4 ou foco bacteriano visceral):** iniciar **monoterapia bactericida antipseudomonas IV em até 60 minutos**: **Cefepime 2 g IV de 8/8h** (1ª escolha) ou **Piperacilina-Tazobactam 4,5 g IV de 6/6h (ou 8/8h em infusão estendida)** ou **Meropenem 1 g IV de 8/8h** (preferir Meropenem se colonização/infecção prévia por ESBL ou choque séptico)",
+          "**Indicações estritas para associar Vancomicina (15–20 mg/kg IV de 12/12h; ataque de 25–30 mg/kg se choque):** **NÃO** associar de rotina! Adicionar cobertura para Gram-positivos/MRSA **apenas se**: **1)** Instabilidade hemodinâmica ou choque séptico; **2)** Suspeita clínica de infecção relacionada a cateter venoso central (calafrios na infusão, hiperemia do túnel); **3)** Infecção de pele e partes moles / celulite; **4)** Pneumonia grave documentada; **5)** Mucosite grave (especialmente após citarabina em altas doses) ou profilaxia prévia com quinolona; **6)** Colonização conhecida por MRSA/VRE ou hemocultura positiva para cocos Gram-positivos (suspender em 48–72h se culturas negativas para MRSA)",
+          "**Outras adições específicas conforme suspeita clínica:** se diarreia/tiflite (enterocolite neutropênica) ou foco intra-abdominal/perianal em paciente usando Cefepime → associar **Metronidazol 500 mg IV de 8/8h** (e avaliar **Vancomicina 125 mg VO de 6/6h** se suspeita de *Clostridioides difficile*). Se lesões vesiculares/ulceradas de mucosa sugerindo HSV/VZV → associar **Aciclovir 10 mg/kg IV de 8/8h**. Se febre persistente após **4 a 7 dias** de ATB adequado em neutropenia prolongada → investigar infecção fúngica invasiva (TC de tórax/seios da face + galactomanana) e associar antifúngico empírico (**Anfotericina B lipossomal 3 mg/kg/dia IV** ou **Caspofungina 70 mg IV ataque → 50 mg/dia** / **Micafungina 100 mg/dia**)",
+          "**Tratamento para BAIXO RISCO (MASCC ≥ 21 e CISNE 0–2 em tumores sólidos, hemodinamicamente estável, sem foco grave, tolerando via oral e com suporte familiar/transporte em < 1h):** **Ciprofloxacino 500 a 750 mg VO de 12/12h + Amoxicilina-Clavulanato 875/125 mg VO de 12/12h** (ou 500/125 mg VO de 8/8h) após observação inicial no PS",
+          "**Emergências Oncológicas Associadas — Síndrome de Lise Tumoral (SLT) e Compressão Medular:** na **SLT** (hipercalemia K+ ≥ 6,0 mEq/L, hiperfosfatemia PO4 ≥ 4,5 mg/dL, hiperuricemia Ác. Úrico ≥ 8,0 mg/dL, hipocalcemia sintomática e LRA): **hiper-hidratação vigorosa com SF 0,9% 200 a 300 mL/h** (meta de diurese ≥ 2 mL/kg/h), **Alopurinol 100–300 mg VO 8/8h** (ou **Rasburicase 0,2 mg/kg IV em 30 min** se ácido úrico > 8–10 mg/dL ou LRA instalada), controle de hipercalemia e evitar reposição de cálcio se assintomático (risco de precipitação de fosfato de cálcio). Na **Compressão Medular Aguda** (dor vertebral + déficit motor/sensitivo ou retenção urinária): **Dexametasona 10 mg IV em bolus imediato seguido de 4 mg IV de 6/6h** + RM de coluna total urgente + avaliação de neurocirurgia/radioterapia"
+        ]
+      },
+      {
+        "tipo": "tabela_farmacos",
+        "titulo": "Antimicrobianos e Fármacos na Neutropenia Febril e Emergências Oncológicas",
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
+        "dados": [
+          {
+            "nome": "Cefepime (1ª linha Alto Risco)",
+            "apresentacao": "Frasco-ampola 1 g ou 2 g",
+            "diluicao": "2 g em 100 mL de SF 0,9% ou SG 5%",
+            "dose": "2 g IV de 8/8 horas (correr em 30 min ou infusão estendida em 3h)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Piperacilina + Tazobactam (1ª linha Alto Risco)",
+            "apresentacao": "Frasco-ampola 4 g + 0,5 g (4,5 g)",
+            "diluicao": "4,5 g em 100 mL de SF 0,9% ou SG 5%",
+            "dose": "4,5 g IV de 6/6 horas (correr em 30 min ou infusão estendida em 3-4h)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Meropenem (Choque séptico ou risco de ESBL)",
+            "apresentacao": "Frasco-ampola 500 mg ou 1 g",
+            "diluicao": "1 g em 100 mL de SF 0,9%",
+            "dose": "1 g IV de 8/8 horas (2 g IV de 8/8h se suspeita de meningite/SNC)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Vancomicina (Associar apenas se critério formal)",
+            "apresentacao": "Frasco-ampola 500 mg",
+            "diluicao": "500 mg em 100 mL SF 0,9% ou 1 g em 200 mL SF 0,9% (máx 5 mg/mL)",
+            "dose": "Ataque de 25-30 mg/kg IV (se choque) seguido de 15-20 mg/kg IV de 12/12h (correr em >= 60 min)",
+            "sus": "rename"
+          },
+          {
+            "nome": "Anfotericina B Lipossomal / Caspofungina (Febre > 4-7d)",
+            "apresentacao": "Anfo Lipossomal 50 mg | Caspofungina 50 mg e 70 mg",
+            "diluicao": "Anfo Lipossomal exclusivamente em SG 5% | Caspofungina exclusivamente em SF 0,9%",
+            "dose": "Anfo B Lipossomal: 3 mg/kg IV 1x/dia | Caspofungina: ataque 70 mg IV -> manutenção 50 mg IV 1x/dia",
+            "sus": "rename"
+          },
+          {
+            "nome": "Ciprofloxacino + Amoxicilina-Clavulanato (Baixo Risco VO)",
+            "apresentacao": "Cipro 500 mg cp | Amoxi-Clav 875/125 mg cp",
+            "diluicao": "Via oral",
+            "dose": "Ciprofloxacino 500 a 750 mg VO 12/12h + Amoxicilina-Clavulanato 875/125 mg VO 12/12h",
+            "sus": "rename"
+          },
+          {
+            "nome": "Filgrastim (G-CSF — se alto risco de complicação)",
+            "apresentacao": "Seringa/frasco 300 mcg / 1 mL",
+            "diluicao": "Subcutâneo puro (ou IV em SG 5%)",
+            "dose": "5 mcg/kg/dia SC (habitualmente 300 mcg/dia) até neutrófilos > 500-1.000/mm³",
+            "sus": "ceaf"
+          }
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Estratificação de Risco na Neutropenia Febril (Escores MASCC e CISNE)",
+        "escores": [
+          {
+            "nome": "Escore MASCC (Multinational Association for Supportive Care in Cancer)",
+            "descricao": "Pontuação >= 21 pontos identifica pacientes de baixo risco de complicações graves (valor preditivo positivo de 91%)",
+            "colunas": [
+              "Critério Clínico",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "Carga da doença (sintomas na apresentação): Assintomático ou sintomas leves",
+                "+5"
+              ],
+              [
+                "Carga da doença (sintomas na apresentação): Sintomas moderados",
+                "+3"
+              ],
+              [
+                "Carga da doença: Sintomas graves ou moribundo",
+                "0"
+              ],
+              [
+                "Ausência de hipotensão arterial (PAS >= 90 mmHg)",
+                "+5"
+              ],
+              [
+                "Ausência de DPOC (doença pulmonar obstrutiva crônica)",
+                "+4"
+              ],
+              [
+                "Tumor sólido OU neoplasia hematológica SEM infecção fúngica prévia",
+                "+4"
+              ],
+              [
+                "Ausência de desidratação com necessidade de reposição parenteral",
+                "+3"
+              ],
+              [
+                "Origem da febre: Paciente ambulatorial (fora do hospital no início da febre)",
+                "+3"
+              ],
+              [
+                "Idade < 60 anos",
+                "+2"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "mascc_s_5",
+                  "grupo": "1. Sintomas na Apresentação (Carga da Doença)",
+                  "label": "Assintomático ou sintomas leves (+5 pts)",
+                  "pontos": 5,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mascc_s_3",
+                  "grupo": "1. Sintomas na Apresentação (Carga da Doença)",
+                  "label": "Sintomas moderados (+3 pts)",
+                  "pontos": 3,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mascc_s_0",
+                  "grupo": "1. Sintomas na Apresentação (Carga da Doença)",
+                  "label": "Sintomas graves / toxemiado (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "mascc_pa",
+                  "label": "Ausência de hipotensão arterial — PAS >= 90 mmHg (+5 pts)",
+                  "pontos": 5,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "mascc_dpoc",
+                  "label": "Ausência de DPOC (+4 pts)",
+                  "pontos": 4,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "mascc_fungo",
+                  "label": "Tumor sólido OU doença hematológica SEM infecção fúngica prévia (+4 pts)",
+                  "pontos": 4,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "mascc_hidr",
+                  "label": "Ausência de desidratação que exija hidratação IV (+3 pts)",
+                  "pontos": 3,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "mascc_amb",
+                  "label": "Início da febre em ambiente ambulatorial / domiciliar (+3 pts)",
+                  "pontos": 3,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "mascc_id",
+                  "label": "Idade < 60 anos (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore MASCC",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 20,
+                    "label": "< 21 pts (ALTO RISCO): Internação hospitalar obrigatória + Antibioticoterapia antipseudomonas IV imediata (< 1h)",
+                    "cor": "#dc2626"
+                  },
+                  {
+                    "min": 21,
+                    "max": 26,
+                    "label": ">= 21 pts (BAIXO RISCO): Considerar terapia oral (Ciprofloxacino + Amoxicilina-Clavulanato) após observação no PS se tumor sólido estável, CISNE < 3 e suporte domiciliar garantido",
+                    "cor": "#059669"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "nome": "Critérios de Cairo-Bishop — Síndrome de Lise Tumoral Laboratorial e Clínica",
+            "descricao": "SLT Laboratorial = 2 ou mais alterações metabólicas entre 3 dias antes e 7 dias após início da terapia citotóxica",
+            "colunas": [
+              "Parâmetro",
+              "Critério Laboratorial (Cairo-Bishop)",
+              "Conduta Específica"
+            ],
+            "dados": [
+              [
+                "Ácido Úrico",
+                ">= 8,0 mg/dL (ou aumento de 25% do basal)",
+                "Hidratação SF 0,9% 200-300 mL/h + Alopurinol (prevenção) ou Rasburicase 0,2 mg/kg IV (tratamento)"
+              ],
+              [
+                "Potássio (K+)",
+                ">= 6,0 mEq/L (ou aumento de 25% do basal)",
+                "Gluconato de cálcio 10% (se alteração ECG) + Solução polarizante + Furosemida / Ciclossilicato / Hemodiálise"
+              ],
+              [
+                "Fósforo (PO4)",
+                ">= 4,5 mg/dL no adulto (ou aumento de 25% do basal)",
+                "Expansão volêmica + quelantes orais (Sevelamer / Hidróxido de alumínio) + restringir aporte de fósforo"
+              ],
+              [
+                "Cálcio corrigido / iônico",
+                "<= 7,0 mg/dL (ou queda de 25% do basal)",
+                "Tratar com Gluconato de Cálcio 10% SOMENTE se hipocalcemia sintomática (tetania, convulsão, arritmia)"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Tempo Porta-Antibiótico na Neutropenia Febril",
+            "< 60 minutos (coletar 2 pares de hemoculturas antes, sem atrasar a 1ª dose)"
+          ],
+          [
+            "Suspensão do antibiótico empírico",
+            "Afebril por >= 48h + recuperação de neutrófilos > 500/mm³ em ascensão + culturas negativas"
+          ],
+          [
+            "Meta de diurese na Síndrome de Lise Tumoral",
+            ">= 2 mL/kg/h (> 100–150 mL/h) com SF 0,9% (NÃO alcalinizar a urina com bicarbonato)"
+          ]
         ]
       }
     ]

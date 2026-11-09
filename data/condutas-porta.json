@@ -434,6 +434,146 @@
           "Retorno: reavaliação clínica em até 7 dias com neurologista; TC de controle em 24-48 h se trombólise",
           "Critérios de alta: estabilização do quadro neurológico, PA controlada, glicemia estável, sem sinais de complicações (hemorragia, edema), deglutição preservada, orientado para continuidade do tratamento ambulatorial"
         ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Ataque Isquêmico Transitório (AIT) — Escore ABCD² e Dupla Antiagregação",
+        "escores": [
+          {
+            "nome": "Escore ABCD² — Risco de AVC Isquêmico após AIT (em 2, 7 e 90 dias)",
+            "descricao": "Indica risco precoce de AVC após déficit neurológico transitório revertido e define indicação de dupla antiagregação (DAPT por 21 dias)",
+            "colunas": [
+              "Variável",
+              "Critério",
+              "Pontos"
+            ],
+            "dados": [
+              [
+                "A — Age (Idade)",
+                "Idade >= 60 anos",
+                "+1"
+              ],
+              [
+                "B — Blood Pressure (PA na admissão)",
+                "PAS >= 140 mmHg OU PAD >= 90 mmHg",
+                "+1"
+              ],
+              [
+                "C — Clinical features (Clínica)",
+                "Fraqueza muscular unilateral (hemiparesia) = +2 | Alteração isolada da fala sem fraqueza = +1",
+                "0 a +2"
+              ],
+              [
+                "D — Duration (Duração dos sintomas)",
+                ">= 60 minutos = +2 | 10 a 59 minutos = +1 | < 10 minutos = 0",
+                "0 a +2"
+              ],
+              [
+                "D — Diabetes mellitus",
+                "Diagnóstico prévio de Diabetes mellitus",
+                "+1"
+              ]
+            ],
+            "calculadora_escore": {
+              "tipo": "selecao",
+              "inputs": [
+                {
+                  "id": "abcd_age",
+                  "label": "Idade >= 60 anos (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "abcd_bp",
+                  "label": "PA na admissão >= 140x90 mmHg (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                },
+                {
+                  "id": "abcd_c_0",
+                  "grupo": "Manifestação Clínica (C)",
+                  "label": "Clínica: Outros sintomas sem paresia nem alteração de fala (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_c_1",
+                  "grupo": "Manifestação Clínica (C)",
+                  "label": "Clínica: Alteração da fala isolada sem fraqueza motora (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_c_2",
+                  "grupo": "Manifestação Clínica (C)",
+                  "label": "Clínica: Fraqueza muscular unilateral / hemiparesia (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_d_0",
+                  "grupo": "Duração do Déficit (D)",
+                  "label": "Duração: < 10 minutos (0 pts)",
+                  "pontos": 0,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_d_1",
+                  "grupo": "Duração do Déficit (D)",
+                  "label": "Duração: 10 a 59 minutos (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_d_2",
+                  "grupo": "Duração do Déficit (D)",
+                  "label": "Duração: >= 60 minutos (+2 pts)",
+                  "pontos": 2,
+                  "tipo": "radio"
+                },
+                {
+                  "id": "abcd_dm",
+                  "label": "Diabetes mellitus presente (+1 pt)",
+                  "pontos": 1,
+                  "tipo": "checkbox"
+                }
+              ],
+              "resultado": {
+                "titulo": "Escore ABCD² (AIT)",
+                "interpretacoes": [
+                  {
+                    "min": 0,
+                    "max": 3,
+                    "label": "0-3 pts (Baixo Risco — AVC em 2d: 1,0%): Investigação etiológica rápida (TC, ECG, Eco, Doppler de carótidas) + AAS 100-300 mg/dia + Estatina de alta potência",
+                    "cor": "#059669"
+                  },
+                  {
+                    "min": 4,
+                    "max": 5,
+                    "label": "4-5 pts (Moderado/Alto Risco — AVC em 2d: 4,1%): Internar para investigação em 24-48h + Dupla Antiagregação (DAPT — estudos CHANCE/POINT): AAS 300 mg ataque (depois 100 mg/d) + Clopidogrel 300 mg ataque (depois 75 mg/d) por 21 dias!",
+                    "cor": "#d97706"
+                  },
+                  {
+                    "min": 6,
+                    "max": 7,
+                    "label": "6-7 pts (Altíssimo Risco — AVC em 2d: 8,1%): Internação hospitalar imediata + DAPT (AAS + Clopidogrel por 21 dias, após TC descartar sangramento) + AngioTC de vasos cervicais/intracranianos urgente",
+                    "cor": "#dc2626"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "alvos": [
+          [
+            "Indicação de DAPT por 21 dias (AAS + Clopidogrel)",
+            "AIT de alto risco (ABCD² >= 4) ou AVC isquêmico minor (NIHSS <= 3) não cardioembólico e sem trombólise"
+          ],
+          [
+            "Investigação obrigatória no AIT",
+            "TC de crânio (ou RM com difusão) + ECG (rastrear FA) + Doppler/AngioTC de carótidas + Ecocardiograma"
+          ]
+        ]
       }
     ],
     "fontes": [
@@ -921,7 +1061,9 @@
     "cor": "#0891b2",
     "icon": "water-outline",
     "categoria": "Metabólico/Endócrino",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 90 (Hipoglicemia)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 90 (Hipoglicemia)"
+    ],
     "secoes": [
       {
         "tipo": "receituario",
@@ -951,7 +1093,9 @@
     "cor": "#0891b2",
     "icon": "water-outline",
     "categoria": "Metabólico/Endócrino",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 80 (Lesão Renal Aguda)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 80 (Lesão Renal Aguda)"
+    ],
     "secoes": [
       {
         "tipo": "escores",
@@ -960,11 +1104,23 @@
           {
             "nome": "KDIGO",
             "descricao": "Diagnóstico de LRA — presença de 1 dos 3 critérios",
-            "colunas": ["Critério", "Definição"],
+            "colunas": [
+              "Critério",
+              "Definição"
+            ],
             "dados": [
-              ["**Aumento da creatinina**", "≥ 0,3 mg/dL em 48 h"],
-              ["**Creatinina relativa**", "≥ 1,5x o valor basal (conhecido ou presumido na última semana)"],
-              ["**Débito urinário**", "< 0,5 mL/kg/h por 6 h"]
+              [
+                "**Aumento da creatinina**",
+                "≥ 0,3 mg/dL em 48 h"
+              ],
+              [
+                "**Creatinina relativa**",
+                "≥ 1,5x o valor basal (conhecido ou presumido na última semana)"
+              ],
+              [
+                "**Débito urinário**",
+                "< 0,5 mL/kg/h por 6 h"
+              ]
             ]
           }
         ]
@@ -984,7 +1140,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Medicações",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Furosemida",
@@ -1013,7 +1175,9 @@
     "cor": "#0891b2",
     "icon": "water-outline",
     "categoria": "Metabólico/Endócrino",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 82 (Distúrbios Ácido-Básicos)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 82 (Distúrbios Ácido-Básicos)"
+    ],
     "secoes": [
       {
         "tipo": "escores",
@@ -1022,24 +1186,57 @@
           {
             "nome": "Tabela de Compensação",
             "descricao": "Confirmar se a compensação está adequada ao distúrbio primário",
-            "colunas": ["Distúrbio", "Compensação esperada"],
+            "colunas": [
+              "Distúrbio",
+              "Compensação esperada"
+            ],
             "dados": [
-              ["**Acidose metabólica**", "PaCO2 = 1,5 × HCO3 + 8 ± 2 (fórmula de Winter)"],
-              ["**Alcalose metabólica**", "PaCO2 = 0,7 × HCO3 + 20"],
-              ["**Acidose respiratória aguda**", "HCO3 = 24 + 1"],
-              ["**Acidose respiratória crônica**", "HCO3 = 24 + 4"],
-              ["**Alcalose respiratória aguda**", "HCO3 = 24 − 2"],
-              ["**Alcalose respiratória crônica**", "HCO3 = 24 − 5"]
+              [
+                "**Acidose metabólica**",
+                "PaCO2 = 1,5 × HCO3 + 8 ± 2 (fórmula de Winter)"
+              ],
+              [
+                "**Alcalose metabólica**",
+                "PaCO2 = 0,7 × HCO3 + 20"
+              ],
+              [
+                "**Acidose respiratória aguda**",
+                "HCO3 = 24 + 1"
+              ],
+              [
+                "**Acidose respiratória crônica**",
+                "HCO3 = 24 + 4"
+              ],
+              [
+                "**Alcalose respiratória aguda**",
+                "HCO3 = 24 − 2"
+              ],
+              [
+                "**Alcalose respiratória crônica**",
+                "HCO3 = 24 − 5"
+              ]
             ]
           },
           {
             "nome": "Ânion-Gap",
             "descricao": "AG = Na − (Cl + HCO3). Valor normal 10 ± 2 mEq/L. Corrigir pela albumina: +2,5 mEq/L por 1 g/dL abaixo de 4,5",
-            "colunas": ["Parâmetro", "Valor"],
+            "colunas": [
+              "Parâmetro",
+              "Valor"
+            ],
             "dados": [
-              ["**Ânion-gap > 12**", "Acidose metabólica com ânion-gap elevado (láctica, cetoacidose, uremia, tóxicos)"],
-              ["**Gap osmolar**", "Osmolaridade medida − calculada; normal < 10 — sugere etanol, metanol, etilenoglicol"],
-              ["**Delta AG / delta HCO3**", "> 2 = alcalose metabólica associada; < 1 = acidose não-ânion-gap associada; 1-2 = acidose com ânion-gap pura"]
+              [
+                "**Ânion-gap > 12**",
+                "Acidose metabólica com ânion-gap elevado (láctica, cetoacidose, uremia, tóxicos)"
+              ],
+              [
+                "**Gap osmolar**",
+                "Osmolaridade medida − calculada; normal < 10 — sugere etanol, metanol, etilenoglicol"
+              ],
+              [
+                "**Delta AG / delta HCO3**",
+                "> 2 = alcalose metabólica associada; < 1 = acidose não-ânion-gap associada; 1-2 = acidose com ânion-gap pura"
+              ]
             ]
           }
         ]
@@ -1076,7 +1273,9 @@
     "cor": "#d97706",
     "icon": "nutritional-outline",
     "categoria": "Gastrointestinal",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 77 (Pancreatite)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 77 (Pancreatite)"
+    ],
     "secoes": [
       {
         "tipo": "escores",
@@ -1085,25 +1284,61 @@
           {
             "nome": "BISAP",
             "descricao": "Mortalidade: 0 critério ~0,1%; ≥ 3 critérios > 3,5%; 5 critérios ~10%",
-            "colunas": ["Critério", "Pontos"],
+            "colunas": [
+              "Critério",
+              "Pontos"
+            ],
             "dados": [
-              ["**Ureia > 30 mg/dL**", "1"],
-              ["**Confusão mental ou rebaixamento da consciência**", "1"],
-              ["**SIRS (≥ 2 critérios)**", "1"],
-              ["**Idade > 60 anos**", "1"],
-              ["**Derrame pleural**", "1"]
+              [
+                "**Ureia > 30 mg/dL**",
+                "1"
+              ],
+              [
+                "**Confusão mental ou rebaixamento da consciência**",
+                "1"
+              ],
+              [
+                "**SIRS (≥ 2 critérios)**",
+                "1"
+              ],
+              [
+                "**Idade > 60 anos**",
+                "1"
+              ],
+              [
+                "**Derrame pleural**",
+                "1"
+              ]
             ]
           },
           {
             "nome": "Ranson",
             "descricao": "Pontuar na admissão e às 48 h. < 3 pontos: mortalidade < 1%; 3-4: ~15%; > 6: ~100%",
-            "colunas": ["Critério", "Valor"],
+            "colunas": [
+              "Critério",
+              "Valor"
+            ],
             "dados": [
-              ["**Idade > 55 anos**", "1"],
-              ["**Leucocitose > 16.000/mm³**", "1"],
-              ["**Glicose > 200 mg/dL**", "1"],
-              ["**LDH (DHL) > 350 UI/L**", "1"],
-              ["**TGO (AST) > 250 UI/dL**", "1"]
+              [
+                "**Idade > 55 anos**",
+                "1"
+              ],
+              [
+                "**Leucocitose > 16.000/mm³**",
+                "1"
+              ],
+              [
+                "**Glicose > 200 mg/dL**",
+                "1"
+              ],
+              [
+                "**LDH (DHL) > 350 UI/L**",
+                "1"
+              ],
+              [
+                "**TGO (AST) > 250 UI/dL**",
+                "1"
+              ]
             ]
           }
         ]
@@ -1136,7 +1371,9 @@
     "cor": "#be123c",
     "icon": "skull-outline",
     "categoria": "Toxicologia",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 102 (Intoxicações)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 102 (Intoxicações)"
+    ],
     "secoes": [
       {
         "tipo": "conduta",
@@ -1159,19 +1396,55 @@
           {
             "nome": "Tabela de Antídotos",
             "descricao": "Associação toxina-antídoto. Doses e indicações específicas no capítulo correspondente",
-            "colunas": ["Toxina", "Antídoto"],
+            "colunas": [
+              "Toxina",
+              "Antídoto"
+            ],
             "dados": [
-              ["Opioides", "**Naloxona**"],
-              ["Benzodiazepínicos", "**Flumazenil** (uso seletivo)"],
-              ["Paracetamol", "**N-acetilcisteína (NAC)**"],
-              ["Metanol / etilenoglicol", "**Fomepizol** ou **etanol**"],
-              ["Sulfonilureias", "**Octreotide** + glicose"],
-              ["Betabloqueadores", "**Glucagon**"],
-              ["BCC / hipercalemia", "**Cálcio** (gluconato ou cloreto)"],
-              ["Cianeto", "**Hidroxicobalamina** / **tiosulfato**"],
-              ["Organofosforados / carbamatos", "**Atropina** + **pralidoxima**"],
-              ["Anticolinérgicos", "**Fisostigmina** (uso seletivo)"],
-              ["Salicilatos", "**Alcalinização urinária** (bicarbonato)"]
+              [
+                "Opioides",
+                "**Naloxona**"
+              ],
+              [
+                "Benzodiazepínicos",
+                "**Flumazenil** (uso seletivo)"
+              ],
+              [
+                "Paracetamol",
+                "**N-acetilcisteína (NAC)**"
+              ],
+              [
+                "Metanol / etilenoglicol",
+                "**Fomepizol** ou **etanol**"
+              ],
+              [
+                "Sulfonilureias",
+                "**Octreotide** + glicose"
+              ],
+              [
+                "Betabloqueadores",
+                "**Glucagon**"
+              ],
+              [
+                "BCC / hipercalemia",
+                "**Cálcio** (gluconato ou cloreto)"
+              ],
+              [
+                "Cianeto",
+                "**Hidroxicobalamina** / **tiosulfato**"
+              ],
+              [
+                "Organofosforados / carbamatos",
+                "**Atropina** + **pralidoxima**"
+              ],
+              [
+                "Anticolinérgicos",
+                "**Fisostigmina** (uso seletivo)"
+              ],
+              [
+                "Salicilatos",
+                "**Alcalinização urinária** (bicarbonato)"
+              ]
             ]
           }
         ]
@@ -1195,7 +1468,9 @@
     "cor": "#be123c",
     "icon": "skull-outline",
     "categoria": "Toxicologia",
-    "fontes": ["Medicina de Emergência 19ed — Cap. 104 (Intoxicações Medicamentosas)"],
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 104 (Intoxicações Medicamentosas)"
+    ],
     "secoes": [
       {
         "tipo": "conduta",
@@ -1218,7 +1493,13 @@
       {
         "tipo": "tabela_farmacos",
         "titulo": "Antídotos e Medicações de Suporte",
-        "colunas": ["Medicamento", "Apresentação", "Diluição", "Dose", "SUS"],
+        "colunas": [
+          "Medicamento",
+          "Apresentação",
+          "Diluição",
+          "Dose",
+          "SUS"
+        ],
         "dados": [
           {
             "nome": "Carvão ativado",
@@ -1618,16 +1899,43 @@
           {
             "nome": "Escore de Alvarado — Probabilidade de Apendicite Aguda (MANTRELS)",
             "descricao": "Estratifica o risco clínico de apendicite aguda na dor em fossa ilíaca direita (total: 0 a 10 pontos)",
-            "colunas": ["Critério Clínico / Laboratorial", "Pontos"],
+            "colunas": [
+              "Critério Clínico / Laboratorial",
+              "Pontos"
+            ],
             "dados": [
-              ["Migração da dor (periumbilical → fossa ilíaca direita)", "1"],
-              ["Anorexia ou cetonúria", "1"],
-              ["Náuseas ou vômitos", "1"],
-              ["Defesa / dor à palpação na fossa ilíaca direita (FID)", "2"],
-              ["Descompressão brusca dolorosa (Sinal de Blumberg +)", "1"],
-              ["Elevação da temperatura (≥ 37,3 °C)", "1"],
-              ["Leucocitose (> 10.000/mm³)", "2"],
-              ["Desvio à esquerda (> 75% de neutrófilos ou bastonetes)", "1"]
+              [
+                "Migração da dor (periumbilical → fossa ilíaca direita)",
+                "1"
+              ],
+              [
+                "Anorexia ou cetonúria",
+                "1"
+              ],
+              [
+                "Náuseas ou vômitos",
+                "1"
+              ],
+              [
+                "Defesa / dor à palpação na fossa ilíaca direita (FID)",
+                "2"
+              ],
+              [
+                "Descompressão brusca dolorosa (Sinal de Blumberg +)",
+                "1"
+              ],
+              [
+                "Elevação da temperatura (≥ 37,3 °C)",
+                "1"
+              ],
+              [
+                "Leucocitose (> 10.000/mm³)",
+                "2"
+              ],
+              [
+                "Desvio à esquerda (> 75% de neutrófilos ou bastonetes)",
+                "1"
+              ]
             ],
             "calculadora_escore": {
               "tipo": "contagem",
@@ -1709,12 +2017,89 @@
           {
             "nome": "Resumo de Condutas — Síndromes de Abdome Agudo Inflamatório",
             "descricao": "Cobertura antimicrobiana obrigatória para Gram-negativos entéricos e anaeróbios (*Bacteroides fragilis*)",
-            "colunas": ["Condição", "Diagnóstico Clínico e de Imagem", "Conduta e Antibioticoterapia Empírica"],
+            "colunas": [
+              "Condição",
+              "Diagnóstico Clínico e de Imagem",
+              "Conduta e Antibioticoterapia Empírica"
+            ],
             "dados": [
-              ["Apendicite Aguda", "Dor periumbilical → FID, Blumberg/Rovsing/Psoas +. TC com contraste ou USG (apêndice > 6 mm não compressível)", "Jejum + Hidratação + Apendicectomia. ATB: Ceftriaxona 2 g IV 24/24h + Metronidazol 500 mg IV 8/8h (ou Cefoxitina 2 g IV 6/6h)"],
-              ["Colecistite Aguda Calculosa (Tokyo)", "Dor em HCD > 6h, Sinal de Murphy +, febre/leucocitose + USG (cálculo impactado, parede ≥ 4 mm, líquido pericolecístico)", "Jejum + Analgesia + Colecistectomia videolaparoscópica precoce (< 72h). ATB: Ceftriaxona 2 g IV/dia + Metronidazol 500 mg IV 8/8h (ou Pip-Tazo 4,5 g IV 6/6h se grave/Grau III)"],
-              ["Colangite Aguda (Charcot / Reynolds)", "Tríade de Charcot (Febre + Icterícia + Dor em HCD) ± Pêntade de Reynolds (+ Hipotensão + Confusão mental)", "Emergência: Ressuscitação volêmica + Pip-Tazo 4,5 g IV 6/6h (ou Meropenem 1 g IV 8/8h) + Descompressão biliar urgente por CPRE"],
-              ["Diverticulite Aguda (Hinchey)", "Dor em FIE, febre, alteração do hábito intestinal. Padrão-ouro: TC de abdome e pelve com contraste IV", "Não complicada (Hinchey 0/Ia): Ciprofloxacino 500 mg VO 12/12h + Metronidazol 500 mg VO 8/8h (ou Amoxicilina-Clavulanato 875/125 mg VO 12/12h) por 7 dias. Complicada (abscesso ≥ 4 cm / peritonite): internação + ATB IV + drenagem/cirurgia"]
+              [
+                "Apendicite Aguda",
+                "Dor periumbilical → FID, Blumberg/Rovsing/Psoas +. TC com contraste ou USG (apêndice > 6 mm não compressível)",
+                "Jejum + Hidratação + Apendicectomia. ATB: Ceftriaxona 2 g IV 24/24h + Metronidazol 500 mg IV 8/8h (ou Cefoxitina 2 g IV 6/6h)"
+              ],
+              [
+                "Colecistite Aguda Calculosa (Tokyo)",
+                "Dor em HCD > 6h, Sinal de Murphy +, febre/leucocitose + USG (cálculo impactado, parede ≥ 4 mm, líquido pericolecístico)",
+                "Jejum + Analgesia + Colecistectomia videolaparoscópica precoce (< 72h). ATB: Ceftriaxona 2 g IV/dia + Metronidazol 500 mg IV 8/8h (ou Pip-Tazo 4,5 g IV 6/6h se grave/Grau III)"
+              ],
+              [
+                "Colangite Aguda (Charcot / Reynolds)",
+                "Tríade de Charcot (Febre + Icterícia + Dor em HCD) ± Pêntade de Reynolds (+ Hipotensão + Confusão mental)",
+                "Emergência: Ressuscitação volêmica + Pip-Tazo 4,5 g IV 6/6h (ou Meropenem 1 g IV 8/8h) + Descompressão biliar urgente por CPRE"
+              ],
+              [
+                "Diverticulite Aguda (Hinchey)",
+                "Dor em FIE, febre, alteração do hábito intestinal. Padrão-ouro: TC de abdome e pelve com contraste IV",
+                "Não complicada (Hinchey 0/Ia): Ciprofloxacino 500 mg VO 12/12h + Metronidazol 500 mg VO 8/8h (ou Amoxicilina-Clavulanato 875/125 mg VO 12/12h) por 7 dias. Complicada (abscesso ≥ 4 cm / peritonite): internação + ATB IV + drenagem/cirurgia"
+              ]
+            ]
+          },
+          {
+            "nome": "Critérios de Tokyo (TG18) — Colecistite Aguda e Colangite Aguda",
+            "descricao": "Tríade de Charcot (febre + icterícia + dor em HCD) e Pêntade de Reynolds (+ hipotensão e confusão mental)",
+            "colunas": [
+              "Patologia",
+              "Critérios Diagnósticos (A + B + C)",
+              "Conduta por Gravidade"
+            ],
+            "dados": [
+              [
+                "Colecistite Aguda",
+                "A (Sinal de Murphy positivo) + B (Febre, leucocitose ou PCR elevada) + C (USG: parede > 4 mm, cálculo impactado no infundíbulo, líquido pericolecístico, Murphy US+)",
+                "Grau I (leve): Colecistectomia videolaparoscópica precoce (< 72h) + Ceftriaxona + Metronidazol. Grau III (disfunção orgânica): Colecistostomia percutânea urgente + ATB IV"
+              ],
+              [
+                "Colangite Aguda",
+                "A (Inflamação sistêmica: febre/leucocitose) + B (Colestase: BT >= 2 mg/dL ou FA/GGT/TGO/TGP > 1,5x) + C (Imagem com dilatação biliar ou fator obstrutivo)",
+                "ATB IV imediato (Ceftriaxona + Metronidazol ou Piperacilina-Tazobactam) + Descompressão biliar endoscópica (CPRE — urgente em < 24h na colangite grave/Reynolds)"
+              ]
+            ]
+          },
+          {
+            "nome": "Classificação de Hinchey (Diverticulite Aguda Complicada) e Abdome Agudo Obstrutivo / Hérnias",
+            "descricao": "Padrão-ouro diagnóstico: TC de abdome e pelve com contraste IV",
+            "colunas": [
+              "Classificação / Condição",
+              "Achado Clínico / Tomográfico",
+              "Conduta no Pronto-Socorro"
+            ],
+            "dados": [
+              [
+                "Hinchey Ia / Ib (Diverticulite)",
+                "Ia: Fleimão pericólico | Ib: Abscesso pericólico ou mesentérico pequeno (< 4 cm)",
+                "Dieta zero/líquida + ATB (Ciprofloxacino + Metronidazol ou Ceftriaxona + Metronidazol). Se sem sinais de alarme e imunocompetente, Ia pode ser ambulatorial"
+              ],
+              [
+                "Hinchey II (Diverticulite)",
+                "Abscesso pélvico, intra-abdominal distante ou retroperitoneal (>= 4 cm)",
+                "Internação + ATB IV amplo espectro + Drenagem percutânea guiada por TC/US"
+              ],
+              [
+                "Hinchey III / IV (Diverticulite)",
+                "III: Peritonite purulenta generalizada | IV: Peritonite fecal (perfuração livre)",
+                "Emergência cirúrgica imediata (Laparotomia / Hartmann ou lavagem + ressecção) + ATB IV"
+              ],
+              [
+                "Obstrução Intestinal Alta (Delgado) vs. Baixa (Cólon)",
+                "Alta: vômitos precoces biliosos, dor em cólica periumbilical, paradas tardias, empilhamento de moedas (aderências/bridas 60%, hérnias). Baixa: distensão acentuada, parada precoce de fezes/flatos, vômitos tardios fecaloides (neoplasia 60%, volvo)",
+                "Jejum zero + Sonda Nasogástrica (SNG) aberta em sifonagem + Hidratação vigorosa + correção de K+/Mg2+. Se peritonite, pneumoperitônio, sofrimento de alça ou obstrução em alça fechada -> Cirurgia imediata. Volvo de sigmoide sem isquemia -> Descompressão por retossigmoidoscopia"
+              ],
+              [
+                "Hérnia Encarcerada vs. Estrangulada",
+                "Encarcerada: irredutível, dolorosa, < 6h, sem sinais flogísticos ou isquêmicos. Estrangulada: dor isquêmica intensa, hiperemia/cianose da pele local, febre, leucocitose, acidose, > 6h",
+                "Encarcerada < 4-6h sem sinais de isquemia: analgesia/sedação + Trendelenburg + tentativa única de redução manual suave (Taxia). Estrangulada ou falha na redução: PROIBIDO reduzir! Cirurgia de emergência imediata"
+              ]
             ]
           }
         ]
@@ -1793,22 +2178,72 @@
           {
             "nome": "Acidentes Ofídicos (Serpentes) — Diagnóstico Sindrômico e Soroterapia IV",
             "descricao": "O número de ampolas é igual para adultos e crianças (calculado para neutralizar a quantidade de veneno inoculado). Infundir IV em 10 a 30 min sob monitorização",
-            "colunas": ["Acidente / Gênero", "Ações do Veneno e Quadro Clínico", "Leve", "Moderado", "Grave"],
+            "colunas": [
+              "Acidente / Gênero",
+              "Ações do Veneno e Quadro Clínico",
+              "Leve",
+              "Moderado",
+              "Grave"
+            ],
             "dados": [
-              ["Botrópico — Jararaca (Bothrops — 80% dos casos)", "Proteolítica, Coagulante e Hemorrágica: dor, edema progressivo (1, 2 ou ≥ 3 segmentos), equimose, bolhas, sangramentos e alargamento de TP/TTPa", "3 ampolas SAB (edema ≤ 1 segmento, sem sangramento)", "6 ampolas SAB (edema 2 segmentos, sem choque/hemorragia grave)", "12 ampolas SAB (edema ≥ 3 segmentos, bolhas/necrose, hemorragia grave, choque ou anúria)"],
-              ["Crotálico — Cascavel (Crotalus — ~10% dos casos)", "Neurotóxica, Miotóxica (rabdomiólise) e Coagulante: pouca reação local + fácies miastênica (ptose palpebral, diplopia), mialgia e urina escura (mioglobinúria / LRA)", "5 ampolas SAC (fácies miastênica ausente/tardia, sem mialgia ou colúria)", "10 ampolas SAC (fácies miastênica discreta/evidente, mialgia leve)", "20 ampolas SAC (fácies miastênica evidente/ptose completa, mialgia intensa, urina cor de coca-cola, oligúria)"],
-              ["Laquético — Surucucu (Lachesis — Amazônia / Mata Atlântica)", "Proteolítica, Coagulante, Hemorrágica + Vagomimética (síndrome colinérgica: bradicardia, hipotensão, cólicas, diarreia e vômitos)", "—", "10 ampolas SABL", "20 ampolas SABL (todo acidente com manifestação vagal/sistêmica é grave)"],
-              ["Elapídico — Coral-verdadeira (Micrurus)", "Neurotóxica pura (pré e pós-sináptica): discreta parestesia local + fácies miastênica precoce, disfagia e risco de insuficiência respiratória aguda", "—", "—", "10 ampolas SAE em todo caso com empeçonhamento (associar Atropina + Neostigmina se insuficiência respiratória e SAE indisponível)"]
+              [
+                "Botrópico — Jararaca (Bothrops — 80% dos casos)",
+                "Proteolítica, Coagulante e Hemorrágica: dor, edema progressivo (1, 2 ou ≥ 3 segmentos), equimose, bolhas, sangramentos e alargamento de TP/TTPa",
+                "3 ampolas SAB (edema ≤ 1 segmento, sem sangramento)",
+                "6 ampolas SAB (edema 2 segmentos, sem choque/hemorragia grave)",
+                "12 ampolas SAB (edema ≥ 3 segmentos, bolhas/necrose, hemorragia grave, choque ou anúria)"
+              ],
+              [
+                "Crotálico — Cascavel (Crotalus — ~10% dos casos)",
+                "Neurotóxica, Miotóxica (rabdomiólise) e Coagulante: pouca reação local + fácies miastênica (ptose palpebral, diplopia), mialgia e urina escura (mioglobinúria / LRA)",
+                "5 ampolas SAC (fácies miastênica ausente/tardia, sem mialgia ou colúria)",
+                "10 ampolas SAC (fácies miastênica discreta/evidente, mialgia leve)",
+                "20 ampolas SAC (fácies miastênica evidente/ptose completa, mialgia intensa, urina cor de coca-cola, oligúria)"
+              ],
+              [
+                "Laquético — Surucucu (Lachesis — Amazônia / Mata Atlântica)",
+                "Proteolítica, Coagulante, Hemorrágica + Vagomimética (síndrome colinérgica: bradicardia, hipotensão, cólicas, diarreia e vômitos)",
+                "—",
+                "10 ampolas SABL",
+                "20 ampolas SABL (todo acidente com manifestação vagal/sistêmica é grave)"
+              ],
+              [
+                "Elapídico — Coral-verdadeira (Micrurus)",
+                "Neurotóxica pura (pré e pós-sináptica): discreta parestesia local + fácies miastênica precoce, disfagia e risco de insuficiência respiratória aguda",
+                "—",
+                "—",
+                "10 ampolas SAE em todo caso com empeçonhamento (associar Atropina + Neostigmina se insuficiência respiratória e SAE indisponível)"
+              ]
             ]
           },
           {
             "nome": "Escorpionismo (Tityus serrulatus) e Araneísmo (Phoneutria, Loxosceles e Latrodectus)",
             "descricao": "Estratificação de gravidade e indicação de soro antiescorpiônico (SAEEs) ou antiaracnídico (SAA / SALox)",
-            "colunas": ["Agente", "Quadro Leve (Manejo Local)", "Quadro Moderado", "Quadro Grave"],
+            "colunas": [
+              "Agente",
+              "Quadro Leve (Manejo Local)",
+              "Quadro Moderado",
+              "Quadro Grave"
+            ],
             "dados": [
-              ["Escorpião (Tityus serrulatus)", "Dor local intensa imediata e parestesia (95% dos adultos) → Observação 4–6h + infiltração de Lidocaína 2% sem vasoconstritor (sem soro)", "Dor local + manifestações sistêmicas discretas (sudorese, náuseas, vômitos ocasionais, taquicardia, agitação) → 3 ampolas SAEEs (ou SAA)", "Vômitos profusos/incoercíveis, sudorese profusa, sialorreia, priapismo, bradicardia, IC aguda / Edema Agudo de Pulmão / Choque → 6 ampolas SAEEs + UTI (Dobutamina se choque cardiogênico)"],
-              ["Aranha-armadeira (Phoneutria)", "Dor local imediata irradiada e edema discreto → Infiltração de Lidocaína 2% + compressa morna + analgesia (sem soro)", "Dor intensa + sudorese, vômitos, taquicardia, hipertensão/agitação → 2 a 4 ampolas SAA (especialmente em crianças)", "Sudorese profusa, vômitos incoercíveis, priapismo, bradicardia, choque ou edema pulmonar → 5 a 10 ampolas SAA"],
-              ["Aranha-marrom (Loxosceles)", "Picada pouco dolorosa; lesão incaracterística sem comprometimento sistêmico → Observação e reavaliação", "Lesão cutânea característica (placa marmórea isquêmica/equimótica/necrótica > 3 cm nas primeiras 36–48h) sem hemólise → 5 ampolas SALox/SAA + Prednisona 40–80 mg/dia por 5 dias", "Forma Cutâneo-Visceral (Hemolítica): lesão necrótica + febre, anemia hemolítica intravascular aguda, icterícia, hemoglobinúria e LRA → 10 ampolas SALox/SAA + Prednisona + hidratação"]
+              [
+                "Escorpião (Tityus serrulatus)",
+                "Dor local intensa imediata e parestesia (95% dos adultos) → Observação 4–6h + infiltração de Lidocaína 2% sem vasoconstritor (sem soro)",
+                "Dor local + manifestações sistêmicas discretas (sudorese, náuseas, vômitos ocasionais, taquicardia, agitação) → 3 ampolas SAEEs (ou SAA)",
+                "Vômitos profusos/incoercíveis, sudorese profusa, sialorreia, priapismo, bradicardia, IC aguda / Edema Agudo de Pulmão / Choque → 6 ampolas SAEEs + UTI (Dobutamina se choque cardiogênico)"
+              ],
+              [
+                "Aranha-armadeira (Phoneutria)",
+                "Dor local imediata irradiada e edema discreto → Infiltração de Lidocaína 2% + compressa morna + analgesia (sem soro)",
+                "Dor intensa + sudorese, vômitos, taquicardia, hipertensão/agitação → 2 a 4 ampolas SAA (especialmente em crianças)",
+                "Sudorese profusa, vômitos incoercíveis, priapismo, bradicardia, choque ou edema pulmonar → 5 a 10 ampolas SAA"
+              ],
+              [
+                "Aranha-marrom (Loxosceles)",
+                "Picada pouco dolorosa; lesão incaracterística sem comprometimento sistêmico → Observação e reavaliação",
+                "Lesão cutânea característica (placa marmórea isquêmica/equimótica/necrótica > 3 cm nas primeiras 36–48h) sem hemólise → 5 ampolas SALox/SAA + Prednisona 40–80 mg/dia por 5 dias",
+                "Forma Cutâneo-Visceral (Hemolítica): lesão necrótica + febre, anemia hemolítica intravascular aguda, icterícia, hemoglobinúria e LRA → 10 ampolas SALox/SAA + Prednisona + hidratação"
+              ]
             ]
           }
         ]
@@ -1828,6 +2263,516 @@
           "**Manejo de Reação Anafilática ao Soro Heterólogo:** interromper temporariamente a infusão do soro, administrar **Adrenalina 0,3 a 0,5 mg IM no vasto lateral** (0,01 mg/kg em crianças), expansão com SF 0,9% e O2; após estabilização hemodinâmica, retomar a infusão do soro em velocidade mais lenta",
           "**Sinais de alarme e critérios de internação:** todos os acidentes ofídicos com empeçonhamento (observação mínima de 24–72 h), todas as **crianças < 7–10 anos picadas por escorpião** (observação rigorosa por no mínimo 6–12 h pelo risco de choque cardiogênico/EAP), síndrome compartimental no membro picado, sangramento sistêmico, ptose palpebral ou colúria",
           "**Critérios de alta:** nos acidentes escorpiônicos/aracnídicos leves em adultos, alta após **4 a 6 horas** de observação assintomático e com dor controlada; nos acidentes ofídicos, alta após **48 a 72 horas** com coagulograma normalizado, função renal preservada, CK em queda e ausência de necrose/abscesso local"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "urgencias-ginecologicas-ist-pep",
+    "titulo": "Urgências Ginecológicas: DIP, ISTs e Violência Sexual (PEP)",
+    "cid": "N73.9",
+    "cor": "#be123c",
+    "icon": "female-outline",
+    "categoria": "Ginecologia e Obstetrícia",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 114 (Emergências Ginecológicas)",
+      "PCDT IST e PEP Ministério da Saúde 2022",
+      "Guia de Bolso Plantão 2026"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — DIP Ambulatorial, Violência Sexual (Profilaxias) e Sangramento Uterino",
+        "itens": [
+          "**1. Doença Inflamatória Pélvica (DIP) Leve/Moderada (Tratamento Ambulatorial):** **Ceftriaxona 500 mg IM em dose única** (aplicar no PS) **+ Doxiciclina 100 mg VO de 12/12 horas por 14 dias + Metronidazol 500 mg (2 cp de 250 mg) VO de 12/12 horas por 14 dias**",
+          "**2. Violência Sexual — Contracepção de Emergência (ideal até 72h, limite até 5 dias):** **Levonorgestrel 1,5 mg VO em dose única** (1 comprimido de 1,5 mg ou 2 comprimidos de 0,75 mg juntos)",
+          "**3. Violência Sexual — Profilaxia de ISTs Não Virais (Adultos > 45 kg):** **Penicilina G Benzatina 2,4 milhões UI IM em dose única** (1,2 milhão UI em cada glúteo — sífilis) **+ Ceftriaxona 500 mg IM em dose única** (gonorreia) **+ Azitromicina 1 g (2 cp de 500 mg) VO em dose única** (clamídia e cancro mole) **+ Metronidazol 2 g (4 cp de 500 mg) VO em dose única** (tricomoníase — pode ser postergado se náusea com antirretrovirais; evitar no 1º trimestre)",
+          "**4. Violência Sexual / Acidente Ocupacional — PEP para HIV (iniciar o mais rápido possível, limite máximo de 72 horas):** **Tenofovir 300 mg + Lamivudina 300 mg (1 cp coformulado TDF/3TC) VO 1x/dia + Dolutegravir (DTG) 50 mg (1 cp) VO 1x/dia por 28 dias ininterruptos**",
+          "**5. Violência Sexual — Imunoprofilaxia de Hepatite B (se não vacinada ou esquema incompleto):** **Vacina Hepatite B (0, 1 e 6 meses)** no deltoide **+ Imunoglobulina Humana Anti-Hepatite B (IGHAHB) 0,06 mL/kg IM em dose única** (em grupo muscular diferente da vacina, idealmente em 48h, limite até 14 dias)",
+          "**6. Sangramento Uterino Anormal (SUA) Agudo sem Instabilidade:** **Ácido Tranexâmico 500 a 1.000 mg (2 a 4 cp de 250 mg) VO de 8/8h (ou de 6/6h, máx. 3,9 g/dia) por 4 a 5 dias** + **Ácido Mefenâmico 500 mg VO de 8/8h** (ou **Naproxeno 500 mg VO de 12/12h**) por 5 dias"
+        ],
+        "orientacoes": [
+          "**Critérios diagnósticos de DIP (3 maiores + 1 menor OU 1 elaborado):** Maiores: dor hipogástrica, dor à palpação anexial e dor à mobilização do colo uterino. Menores: febre > 37,5 °C, conteúdo vaginal/cervical purulento, massa pélvica, leucocitose, PCR/VHS elevados ou comprovação laboratorial de gonococo/clamídia",
+          "**Critérios de Internação Hospitalar na DIP (iniciar Ceftriaxona 1 g IV 24/24h + Metronidazol 400-500 mg IV 12/12h + Doxiciclina 100 mg VO 12/12h):** suspeita de **abscesso tubo-ovariano**, gestação, peritonite/sepse, intolerância à via oral (vômitos incoercíveis), dúvida diagnóstica com apendicite aguda ou **ausência de melhora clínica após 72 horas** de antibiótico oral",
+          "**Tratar obrigatoriamente o(s) parceiro(s) sexual(is) dos últimos 60 dias na DIP:** **Ceftriaxona 500 mg IM dose única + Azitromicina 1 g VO dose única**, mesmo se assintomáticos, e orientar abstinência sexual até conclusão do tratamento",
+          "**Violência Sexual — Aspectos Legais e Acolhimento:** o atendimento médico, as profilaxias e a contracepção de emergência são **direito imediato da vítima e NÃO dependem de Boletim de Ocorrência (BO)** nem de laudo do IML. Coletar testes rápidos na chegada (HIV, Sífilis, Hepatite B e C, β-hCG) e notificar compulsoriamente no SINAN em até 24h",
+          "**Efeito dissulfiram (antabuse):** orientar abstinência total de bebidas alcoólicas durante o uso de Metronidazol/Secnidazol/Tinidazol e até 24–48 horas após a última dose"
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Guia Rápido de Vulvovaginites, Cervicites e Úlceras Genitais (PCDT IST MS)",
+        "escores": [
+          {
+            "nome": "Diagnóstico e Tratamento das Vulvovaginites e Cervicites",
+            "descricao": "Abordagem sindrômica e etiológica do corrimento vaginal e endocervical no pronto-socorro",
+            "colunas": [
+              "Etiologia",
+              "Quadro Clínico e pH / Exame",
+              "Tratamento de 1ª Escolha (PCDT MS)",
+              "Parceiros"
+            ],
+            "dados": [
+              [
+                "Vaginose Bacteriana (Gardnerella vaginalis / anaeróbios)",
+                "Corrimento branco-acinzentado homogêneo, odor fétido (peixe podre), sem inflamação vulvar. Amsel (>= 3): pH > 4,5, Whiff/KOH +, clue cells",
+                "Metronidazol 500 mg VO 12/12h por 7 dias (ou Metronidazol gel vaginal 100 mg/g 1 aplicador à noite por 5 noites)",
+                "Não tratar parceiro de rotina"
+              ],
+              [
+                "Candidíase Vulvovaginal (Candida albicans)",
+                "Prurido vulvar intenso, ardor, dispareunia, hiperemia/edema vulvar, corrimento branco grumoso (nata de leite), sem odor. pH < 4,5; pseudo-hifas",
+                "Miconazol creme 2% vaginal por 7 noites OU Fluconazol 150 mg VO em dose única (na gestação: usar apenas via tópica vaginal!)",
+                "Tratar parceiro apenas se balanopostite sintomática"
+              ],
+              [
+                "Tricomoníase (Trichomonas vaginalis)",
+                "Corrimento amarelo-esverdeado, bolhoso/espumoso, fétido, prurido/disúria e colo em framboesa (colpite macular). pH > 4,5; protozoário móvel",
+                "Metronidazol 500 mg VO 12/12h por 7 dias OU Metronidazol 2 g VO em dose única (ou Tinidazol/Secnidazol 2 g VO dose única)",
+                "CONVOCO E TRATO parceiro sempre (Metronidazol 2 g VO dose única)"
+              ],
+              [
+                "Cervicite / Uretrite (N. gonorrhoeae e C. trachomatis)",
+                "Mucopurulência endocervical, sangramento ao toque do swab, disúria/corrimento uretral",
+                "Ceftriaxona 500 mg IM dose única + Azitromicina 1 g VO dose única (ou Doxiciclina 100 mg VO 12/12h por 7 dias)",
+                "Tratar todos os parceiros sexuais"
+              ]
+            ]
+          },
+          {
+            "nome": "Diagnóstico Diferencial e Tratamento das Úlceras Genitais (ISTs)",
+            "descricao": "Toda úlcera genital exige testagem rápida para Sífilis, HIV, Hepatite B e C no pronto-socorro",
+            "colunas": [
+              "Doença (Agente)",
+              "Características da Lesão e Adenopatia",
+              "Tratamento de 1ª Escolha (PCDT MS)"
+            ],
+            "dados": [
+              [
+                "Sífilis Primária — Cancro Duro (Treponema pallidum)",
+                "Úlcera ÚNICA, INDOLOR, fundo limpo e brilhante, bordas endurecidas, que desaparece espontaneamente. Adenopatia bilateral indolor (não fistuliza)",
+                "Penicilina G Benzatina 2,4 milhões UI IM em dose única (1,2 milhão UI em cada glúteo). Alternativa (não gestante): Doxiciclina 100 mg VO 12/12h por 15 dias"
+              ],
+              [
+                "Herpes Genital (HSV-2 e HSV-1)",
+                "Vesículas agrupadas sobre base eritematosa que rompem formando múltiplas úlceras rasas, MUITO DOLOROSAS, fundo limpo, precedidas de ardor/prurido",
+                "1º episódio: Aciclovir 400 mg VO 8/8h por 7 a 10 dias (ou Valaciclovir 1 g VO 12/12h por 7-10d). Recorrência: Aciclovir 400 mg VO 8/8h por 5 dias"
+              ],
+              [
+                "Cancro Mole / Cancroide (Haemophilus ducreyi)",
+                "Úlceras MÚLTIPLAS (auto-inoculação), MUITO DOLOROSAS, fundo sujo/necrótico e purulento, bordas irregulares/solapadas, odor fétido. Bubão inguinal unilateral que fistuliza por 1 orifício",
+                "Azitromicina 1 g (2 cp de 500 mg) VO em dose única OU Ceftriaxona 250-500 mg IM em dose única"
+              ],
+              [
+                "Linfogranuloma Venéreo — LGV (Chlamydia trachomatis L1-L3)",
+                "Pápula/úlcera inicial fugaz e indolor -> evolui com adenopatia inguinal inflamatória dolorosa que fistuliza em múltiplos orifícios (bico de regador)",
+                "Doxiciclina 100 mg VO de 12/12h por 21 dias (Gestante: Azitromicina 1 g VO 1x/semana por 3 semanas)"
+              ],
+              [
+                "Donovanose (Klebsiella granulomatis)",
+                "Úlcera crônica, indolor, vegetante, vermelho-viva e sangrante (aspecto bovino), crescimento centrífugo, SEM adenopatia inguinal (corpúsculos de Donovan)",
+                "Azitromicina 1 g VO 1x/semana por pelo menos 3 semanas (ou Doxiciclina 100 mg VO 12/12h por >= 21 dias até cicatrização total)"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Janela máxima para iniciar PEP ao HIV",
+            "Até 72 horas após a exposição (quanto mais precoce, maior a eficácia — manter por 28 dias)"
+          ],
+          [
+            "Janela máxima para Contracepção de Emergência",
+            "Ideal até 72 horas (permitido até 5 dias / 120 horas com Levonorgestrel 1,5 mg)"
+          ],
+          [
+            "Reavaliação obrigatória da DIP ambulatorial",
+            "Em 48 a 72 horas — se febre ou dor persistente, internar para antibioticoterapia IV e US transvaginal"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "monoartrite-aguda-gota-artrite-septica",
+    "titulo": "Monoartrite Aguda: Crise de Gota vs. Artrite Séptica",
+    "cid": "M10.9",
+    "cor": "#d97706",
+    "icon": "fitness-outline",
+    "categoria": "Trauma e Ortopedia",
+    "fontes": [
+      "Medicina de Emergência 19ed — Cap. 101 (Monoartrite Aguda)",
+      "Consulta Rápida HC-FMUSP 19ed",
+      "Guia de Bolso Plantão 2026"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Crise Aguda de Gota e Conduta na Artrite Séptica",
+        "itens": [
+          "**1. Crise Aguda de Gota — 1ª Opção (AINE em dose plena, se função renal normal e sem úlcera/IC):** **Naproxeno 500 mg VO de 12/12 horas por 5 a 7 dias** (ou **Indometacina 50 mg VO de 8/8 horas** por 5 a 7 dias, ou **Celecoxibe 200 mg VO de 12/12h**) associado a proteção gástrica e compressa de gelo local",
+          "**2. Crise Aguda de Gota — 2ª Opção (Colchicina — ideal nas primeiras 24–36h do início da crise):** **Colchicina 0,5 mg** — tomar **2 comprimidos (1,0 mg) VO no início da crise, seguidos de 1 comprimido (0,5 mg) VO após 1 hora** no 1º dia (dose máxima no 1º dia: 1,5 mg — esquema de baixa dose evita diarreia tóxica). A partir do 2º dia: manter **0,5 mg VO de 12/12h (ou 1x/dia)** até resolução da crise",
+          "**3. Crise Aguda de Gota — 3ª Opção (Corticosteroide — escolha preferencial em idosos, DRC, anticoagulados ou contraindicação a AINE/Colchicina):** **Prednisona 30 a 40 mg VO 1x/dia pela manhã por 5 a 7 dias** (ou **Dexametasona 4 a 8 mg IV/IM** na urgência / infiltração intra-articular com Triancinolona 20–40 mg após descartar infecção)",
+          "**4. Regra de Ouro do Alopurinol na Crise de Gota:** **NUNCA iniciar Alopurinol durante a crise aguda** (a redução brusca da uricemia mobiliza cristais e piora/prolonga a crise — aguardar 2 a 4 semanas após a resolução para iniciar Alopurinol 100 mg/dia junto com profilaxia com Colchicina 0,5 mg/dia). Se o paciente **já faz uso crônico de Alopurinol**, **NÃO suspender** a medicação durante a crise!",
+          "**5. Artrite Séptica Não Gonocócica (Emergência Ortopédica — Internação Obrigatória):** coletar líquido sinovial por artrocentese + 2 pares de hemoculturas, acionar Ortopedia para **drenagem/lavagem articular cirúrgica ou artroscópica imediata** e iniciar **Oxacilina 2 g IV de 4/4h + Ceftriaxona 1 a 2 g IV de 12/12h ou 24/24h** (substituir Oxacilina por **Vancomicina 15–20 mg/kg IV de 12/12h** se prótese articular, internação recente, hemodiálise ou risco de MRSA)",
+          "**6. Artrite Gonocócica Disseminada (jovem sexualmente ativo com tríade de tenossinovite + dermatite pustulosa/vesicular + poliartralgia migratória ou monoartrite purulenta):** **Ceftriaxona 1 g IV ou IM a cada 24 horas por 7 a 14 dias + Azitromicina 1 g VO em dose única** (para cobrir coinfecção por *Chlamydia*)"
+        ],
+        "orientacoes": [
+          "**Mandamento da Monoartrite Aguda no PS:** toda monoartrite aguda (especialmente em joelho, quadril, tornozelo ou punho) com febre ou em paciente sem histórico típico de podagra exige **artrocentese diagnóstica imediata** antes de iniciar antibiótico ou corticoide. **A presença de cristais de urato ou ácido úrico sérico elevado NÃO exclui artrite séptica concomitante!**",
+          "**Sinais de alarme para retorno imediato / internação:** febre alta, calafrios, bloqueio articular completo (incapacidade absoluta de fletir/estender passivamente a articulação ou apoiar o membro), prótese articular na articulação acometida, imunossupressão ou ausência de resposta em 48 horas",
+          "**Orientações dietéticas após a crise de gota:** hidratação abundante (> 2 L/dia), suspender cerveja/destilados, refrigerantes adoçados com frutose e excesso de carnes vermelhas/miúdos/frutos do mar"
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Análise do Líquido Sinovial (Artrocentese) e Antibioticoterapia Guiada pelo Gram",
+        "escores": [
+          {
+            "nome": "Interpretação do Líquido Sinovial na Monoartrite Aguda",
+            "descricao": "Solicitar sempre: Citometria global e diferencial, Gram, Cultura aeróbia/anaeróbia e Pesquisa de cristais sob luz polarizada",
+            "colunas": [
+              "Parâmetro",
+              "Normal",
+              "Não Inflamatório (Artrose / Trauma)",
+              "Inflamatório (Gota / Pseudogota / AR)",
+              "Séptico (Artrite Séptica Bacteriana)"
+            ],
+            "dados": [
+              [
+                "Aspecto e Cor",
+                "Transparente, incolor/amarelo-claro",
+                "Transparente, amarelo-citrino",
+                "Translúcido a turvo, amarelo",
+                "Opaco, francamente purulento (amarelo-esverdeado)"
+              ],
+              [
+                "Viscosidade",
+                "Alta",
+                "Alta",
+                "Baixa (reduzida)",
+                "Muito baixa"
+              ],
+              [
+                "Leucócitos (/mm³)",
+                "< 200/mm³",
+                "200 a 2.000/mm³",
+                "2.000 a 50.000/mm³",
+                "> 50.000/mm³ (frequentemente > 100.000/mm³; na gonocócica pode ser 30.000-70.000)"
+              ],
+              [
+                "Polimorfonucleares (% PMN)",
+                "< 25%",
+                "< 25 a 50%",
+                "> 50%",
+                "> 75 a 90%"
+              ],
+              [
+                "Pesquisa de Cristais (Luz Polarizada)",
+                "Negativa",
+                "Negativa",
+                "Gota: urato monossódico (agulha, birrefringência NEGATIVA forte) | Pseudogota: pirofosfato de cálcio (romboide, birrefringência POSITIVA fraca)",
+                "Negativa (atenção: pode coexistir cristal + bactéria!)"
+              ],
+              [
+                "Gram e Cultura",
+                "Negativos",
+                "Negativos",
+                "Negativos",
+                "Gram positivo em 50-75% (S. aureus) e Cultura positiva em > 80%"
+              ]
+            ]
+          },
+          {
+            "nome": "Antibioticoterapia Empírica na Artrite Séptica conforme Bacterioscopia (Gram)",
+            "descricao": "Duração total de 4 a 6 semanas na artrite bacteriana não gonocócica (mínimo de 2 semanas IV)",
+            "colunas": [
+              "Resultado do Gram / Perfil Clínico",
+              "Agente Mais Provável",
+              "Esquema Empírico de 1ª Escolha",
+              "Alternativa / Alergia / MRSA"
+            ],
+            "dados": [
+              [
+                "Cocos Gram-positivos em cachos",
+                "Staphylococcus aureus (40-60% do total)",
+                "Oxacilina 2 g IV de 4/4h",
+                "Vancomicina 15-20 mg/kg IV 12/12h (ou Daptomicina / Linezolida)"
+              ],
+              [
+                "Cocos Gram-positivos em cadeias",
+                "Streptococcus spp.",
+                "Ceftriaxona 2 g IV 24/24h (ou Penicilina Cristalina 4 MUI IV 4/4h)",
+                "Vancomicina 15-20 mg/kg IV 12/12h ou Clindamicina 600 mg IV 6/6h"
+              ],
+              [
+                "Diplococos Gram-negativos intracelulares",
+                "Neisseria gonorrhoeae",
+                "Ceftriaxona 1 g IV/IM 24/24h (7-14d) + Azitromicina 1 g VO dose única",
+                "Ciprofloxacino 400 mg IV 12/12h (se sensibilidade comprovada)"
+              ],
+              [
+                "Bacilos Gram-negativos (idoso, DM, cirrótico, ITU, UDI)",
+                "Enterobactérias ou Pseudomonas aeruginosa",
+                "Cefepime 2 g IV 8/8h (ou Ceftriaxona 2 g IV 24/24h se sem risco para Pseudomonas)",
+                "Meropenem 1 g IV 8/8h ou Ciprofloxacino 400 mg IV 12/12h"
+              ],
+              [
+                "Gram negativo/indisponível ou Prótese Articular",
+                "Polimicrobiano / S. aureus / S. epidermidis / Gram-negativos",
+                "Vancomicina 15-20 mg/kg IV 12/12h + Ceftriaxona 2 g IV 24/24h (ou Cefepime 2 g IV 8/8h se nosocomial)",
+                "Acionar Ortopedia imediatamente para debridamento cirúrgico"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Corte de leucócitos sinoviais suspeito de Artrite Séptica",
+            "> 50.000 leucócitos/mm³ com > 75–90% de polimorfonucleares (PMN)"
+          ],
+          [
+            "Uricemia durante a crise aguda de gota",
+            "Pode estar NORMAL em até 30% das crises agudas (não usar ácido úrico sérico para excluir gota no PS!)"
+          ],
+          [
+            "Meta de ácido úrico no tratamento crônico (pós-crise)",
+            "< 6,0 mg/dL (< 5,0 mg/dL na gota tofácea crônica)"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "profilaxias-tetano-raiva-antibioticos-renal",
+    "titulo": "Guia de Antimicrobianos (Ajuste Renal) e Profilaxias (Tétano e Raiva)",
+    "cid": "Z29.8",
+    "cor": "#059669",
+    "icon": "shield-checkmark-outline",
+    "categoria": "Infeccioso",
+    "fontes": [
+      "Medicina de Emergência 19ed — Consulta Rápida HC-FMUSP",
+      "Sanford Guide to Antimicrobial Therapy 2022",
+      "Guia de Bolso Plantão 2026"
+    ],
+    "secoes": [
+      {
+        "tipo": "receituario",
+        "titulo": "Receituário — Mordedura Animal (Cão/Gato/Humano), Tétano e Raiva",
+        "itens": [
+          "**1. Cuidados Locais em Ferimentos e Mordeduras:** lavagem exaustiva e imediata com água corrente e sabão ou degermante por 10–15 minutos + irrigação sob pressão com SF 0,9% e debridamento de tecidos desvitalizados. **Regra de sutura em mordeduras:** em regra, **NÃO suturar** ferimentos por mordedura (especialmente mãos/pés, puntiformes por gato ou > 8–12h); realizar apenas pontos de aproximação frouxos se ferimento extenso em **face** com < 6–8 horas de evolução após infiltração do soro antirrábico (quando indicado)",
+          "**2. Antibioticoterapia Profilática/Terapêutica em Mordedura de Cão, Gato ou Humana (*Pasteurella multocida*, *Capnocytophaga*, *S. aureus*, *Eikenella corrodens* e anaeróbios):** **Amoxicilina + Clavulanato 875/125 mg VO de 12/12 horas** (ou **500/125 mg VO de 8/8 horas**) por **5 a 7 dias** (profilaxia) ou **7 a 14 dias** (infecção instalada)",
+          "**3. Alternativa para Alérgicos a Penicilina em Mordeduras:** **Doxiciclina 100 mg VO de 12/12h + Metronidazol 500 mg VO de 8/8h** (ou **Ciprofloxacino 500 mg VO 12/12h + Clindamicina 300–600 mg VO 8/8h**) por 7 a 10 dias",
+          "**4. Vacina Antitetânica (dT — Dupla Adulto):** **0,5 mL IM no deltoide** conforme tabela de histórico vacinal e tipo de ferimento abaixo",
+          "**5. Soro Antitetânico (SAT) ou Imunoglobulina Humana Antitetânica (IGHAT):** quando indicado na tabela, administrar **IGHAT 250 UI IM em dose única** (preferencial pelo menor risco de anafilaxia) ou **SAT 5.000 UI IM** em grupo muscular diferente da vacina dT",
+          "**6. Profilaxia da Raiva Humana (Vacina + Soro/Imunoglobulina):** quando indicada na tabela, prescrever **Vacina Antirrábica (cultivo celular) 4 doses IM no deltoide nos dias D0, D3, D7 e D14** (nunca aplicar no glúteo!). Nos acidentes graves sem cão/gato observável ou por animal silvestre/morcego: associar **Soro Antirrábico (SAR) 40 UI/kg** ou **Imunoglobulina Antirrábica Humana (IGHAR) 20 UI/kg**, infiltrando o maior volume possível dentro e ao redor das bordas da ferida"
+        ],
+        "orientacoes": [
+          "**Qualquer acidente com MORCEGO (mordedura, arranhadura, lambedura ou despertar em quarto com morcego adentrando):** é **SEMPRE classificado como Acidente GRAVE**, exigindo **Lavagem + Vacina Antirrábica (D0, D3, D7, D14) + Soro Antirrábico (SAR 40 UI/kg) ou IGHAR (20 UI/kg)** independentemente da extensão da lesão!",
+          "**Observação de cão ou gato domiciliar sadio:** se o cão ou gato for conhecido, domiciliado, sem sinais suspeitos de raiva no momento da agressão e puder ser observado por **10 dias**, acompanhar o animal; se permanecer vivo e saudável após os 10 dias, encerrar o caso. Se o animal adoecer, morrer ou desaparecer durante os 10 dias → iniciar/completar imediatamente o esquema de vacina ± soro",
+          "**Contatos com roedores urbanos/domésticos (rato de esgoto, camundongo, hamster, cobaia, coelho):** **NÃO** transmitem raiva e **NÃO** têm indicação de profilaxia antirrábica (avaliar apenas profilaxia de tétano e leptospirose)"
+        ]
+      },
+      {
+        "tipo": "escores",
+        "titulo": "Tabelas de Profilaxia (Tétano e Raiva) e Ajuste Renal de Antimicrobianos no PS",
+        "escores": [
+          {
+            "nome": "Profilaxia do Tétano Acidental conforme Tipo de Ferimento e Histórico Vacinal (MS)",
+            "descricao": "Outros ferimentos (Alto Risco): sujos, profundos, puntiformes, mordeduras, queimaduras, fraturas expostas, corpos estranhos ou tecido necrótico",
+            "colunas": [
+              "Histórico de Vacinação contra Tétano (dT)",
+              "Ferimento Limpo / Superficial: Vacina (dT)",
+              "Ferimento Limpo / Superficial: SAT / IGHAT",
+              "Ferimento de Alto Risco (Sujo/Profundo/Mordedura): Vacina (dT)",
+              "Ferimento de Alto Risco: SAT (5.000 UI) ou IGHAT (250 UI)"
+            ],
+            "dados": [
+              [
+                "Incerto ou menos de 3 doses prévias",
+                "SIM (completar 3 doses)",
+                "NÃO",
+                "SIM (completar 3 doses)",
+                "SIM (aplicar em músculo distinto da vacina)"
+              ],
+              [
+                ">= 3 doses, última dose há MENOS de 5 anos",
+                "NÃO",
+                "NÃO",
+                "NÃO",
+                "NÃO"
+              ],
+              [
+                ">= 3 doses, última dose entre 5 e 10 anos",
+                "NÃO",
+                "NÃO",
+                "SIM (1 dose de reforço)",
+                "NÃO (apenas se imunossuprimido, desnutrido grave ou idoso muito debilitado)"
+              ],
+              [
+                ">= 3 doses, última dose há MAIS de 10 anos",
+                "SIM (1 dose de reforço)",
+                "NÃO",
+                "SIM (1 dose de reforço)",
+                "NÃO (avaliar se atraso > 24h em idoso/imunossuprimido)"
+              ]
+            ]
+          },
+          {
+            "nome": "Profilaxia da Raiva Humana pós-Exposição (Ministério da Saúde)",
+            "descricao": "Acidente GRAVE: ferimentos em cabeça, face, pescoço, mãos, polpas digitais, planta dos pés; ferimentos profundos, múltiplos ou dilacerantes em qualquer local; lambedura de mucosas; ou qualquer acidente por morcego/silvestre",
+            "colunas": [
+              "Tipo de Acidente",
+              "Cão ou Gato SEM suspeita de raiva e OBSERVÁVEL por 10 dias",
+              "Cão ou Gato clinicamente suspeito no momento da agressão",
+              "Cão ou Gato raivoso, desaparecido ou morto / Animais domésticos de interesse econômico",
+              "Animais Silvestres (macaco, raposa, gambá) ou MORCEGOS"
+            ],
+            "dados": [
+              [
+                "Contato Indireto (apenas toque em pelagem íntegra)",
+                "Lavar com água e sabão — NÃO tratar",
+                "Lavar com água e sabão — NÃO tratar",
+                "Lavar com água e sabão — NÃO tratar",
+                "Morcego adentrando quarto / dúvida de lesão -> Tratar como GRAVE (Vacina + Soro)"
+              ],
+              [
+                "Acidente LEVE (ferimento superficial e único em tronco ou membros, exceto mãos/pés, e lambedura de pele lesada)",
+                "Observar o animal por 10 dias. Se permanecer sadio -> alta. Se morrer/desaparecer/adoecer -> 4 doses de Vacina (D0, D3, D7, D14)",
+                "Iniciar Vacina no D0 e D3 + observar o animal por 10 dias. Se descartada raiva após 10d -> suspender; se morrer/desaparecer -> completar D7 e D14",
+                "Iniciar imediatamente 4 doses de Vacina Antirrábica (D0, D3, D7 e D14)",
+                "Iniciar 4 doses de Vacina (D0, D3, D7, D14) + Soro (SAR 40 UI/kg ou IGHAR 20 UI/kg)"
+              ],
+              [
+                "Acidente GRAVE (cabeça/face/pescoço, mãos/pés, profundo/múltiplo/dilacerante ou lambedura de mucosa)",
+                "Observar o animal por 10 dias (em regiões de raiva controlada, pode-se observar sem iniciar; se alto risco epidemiológico, iniciar D0 e D3). Se o animal adoecer/morrer/desaparecer -> Vacina (D0, D3, D7, D14) + Soro!",
+                "Iniciar imediatamente Vacina (D0, D3) + Soro (SAR/IGHAR) e observar o animal por 10 dias. Se sadio no 10º dia -> suspender",
+                "Iniciar imediatamente 4 doses de Vacina (D0, D3, D7, D14) + Soro (SAR 40 UI/kg ou IGHAR 20 UI/kg infiltrado na ferida)",
+                "Iniciar imediatamente 4 doses de Vacina (D0, D3, D7, D14) + Soro (SAR 40 UI/kg ou IGHAR 20 UI/kg)"
+              ]
+            ]
+          },
+          {
+            "nome": "Ajuste de Dose dos Principais Antimicrobianos pela Função Renal (ClCr) e Espectro",
+            "descricao": "A PRIMEIRA DOSE (dose de ataque) na sepse/emergência é SEMPRE administrada em dose plena, ajustando-se a partir da 2ª dose pelo Clearance de Creatinina",
+            "colunas": [
+              "Antimicrobiano (Espectro Principal)",
+              "ClCr > 50 mL/min (Dose Plena)",
+              "ClCr 10 a 50 mL/min (Ajuste Moderado)",
+              "ClCr < 10 mL/min ou Hemodiálise (Pós-HD)"
+            ],
+            "dados": [
+              [
+                "Amoxicilina-Clavulanato (Gram+, MSSA, Gram- comunitários, anaeróbios)",
+                "875/125 mg VO 12/12h ou 500/125 mg 8/8h (IV: 1 g 8/8h)",
+                "500/125 mg VO ou IV de 12/12h",
+                "500/125 mg VO ou IV de 24/24h (administrar dose após HD)"
+              ],
+              [
+                "Ampicilina-Sulbactam (Gram+, anaeróbios, Acinetobacter)",
+                "1,5 a 3 g IV de 6/6h",
+                "1,5 a 3 g IV de 12/12h",
+                "1,5 a 3 g IV de 24/24h"
+              ],
+              [
+                "Azitromicina / Claritromicina (Atípicos, cocos Gram+)",
+                "Azitro 500 mg 24/24h | Claritro 500 mg 12/12h",
+                "Azitro: sem ajuste | Claritro: 250-500 mg 12/12h-24/24h (ClCr < 30: reduzir 50%)",
+                "Azitro: sem ajuste | Claritro: 250 mg 24/24h"
+              ],
+              [
+                "Cefepime (4ª ger: Gram+, Gram-, Pseudomonas)",
+                "1 a 2 g IV de 8/8h (ou 12/12h)",
+                "ClCr 30-50: 1-2 g 12/12h | ClCr 10-29: 1 g 12/12h ou 2 g 24/24h",
+                "500 mg a 1 g IV de 24/24h (atentar ao alto risco de neurotoxicidade/status não convulsivo na LRA!)"
+              ],
+              [
+                "Ceftriaxona (3ª ger: Pneumococo, Meningococo, Gram- comunitários)",
+                "1 a 2 g IV de 24/24h (Meningite: 2 g 12/12h)",
+                "NÃO requer ajuste renal (eliminação biliar/renal dupla)",
+                "NÃO requer ajuste renal (máximo de 2 g/dia se insuficiência renal + hepática combinadas)"
+              ],
+              [
+                "Ciprofloxacino (Gram- entéricos e Pseudomonas)",
+                "400 mg IV 12/12h (ou 8/8h) | 500 mg VO 12/12h",
+                "ClCr 30-50: sem ajuste | ClCr 10-29: 200-400 mg IV 18-24h ou 250-500 mg VO 12/12h-24/24h",
+                "400 mg IV ou 500 mg VO de 24/24h (pós-HD)"
+              ],
+              [
+                "Clindamicina (Cocos Gram+, MRSA comunitário e Anaeróbios)",
+                "600 mg IV ou VO de 6/6h ou 8/8h",
+                "NÃO requer ajuste renal (metabolismo hepático)",
+                "NÃO requer ajuste renal"
+              ],
+              [
+                "Levofloxacino (Quinolona respiratória: Pneumococo, atípicos, Gram-)",
+                "500 a 750 mg IV ou VO de 24/24h",
+                "ClCr 20-49: 750 mg de 48/48h (ou ataque 500 mg -> 250 mg 24/24h)",
+                "Ataque 500-750 mg -> depois 250-500 mg de 48/48h"
+              ],
+              [
+                "Linezolida (Gram+ resistentes: MRSA e VRE)",
+                "600 mg IV ou VO de 12/12h",
+                "NÃO requer ajuste renal",
+                "NÃO requer ajuste renal (administrar pós-HD)"
+              ],
+              [
+                "Meropenem (Carbapenêmico: ESBL, Pseudomonas, Gram+, Anaeróbios)",
+                "1 g IV de 8/8h (Meningite: 2 g 8/8h)",
+                "ClCr 26-50: 1 g 12/12h | ClCr 10-25: 500 mg 12/12h",
+                "500 mg IV de 24/24h (administrar pós-HD)"
+              ],
+              [
+                "Metronidazol (Anaeróbios estritos, C. difficile, protozoários)",
+                "500 mg IV ou VO de 8/8h",
+                "Sem ajuste (metabolismo hepático)",
+                "ClCr < 10: reduzir para 500 mg de 12/12h"
+              ],
+              [
+                "Oxacilina (Estafilococos sensíveis — MSSA)",
+                "2 g IV de 4/4h (12 g/dia)",
+                "NÃO requer ajuste renal",
+                "NÃO requer ajuste renal"
+              ],
+              [
+                "Piperacilina-Tazobactam (Gram+, Gram-, Pseudomonas, Anaeróbios)",
+                "4,5 g IV de 6/6h (ou 8/8h em infusão estendida)",
+                "ClCr 20-40: 2,25 g IV de 6/6h (ou 3,375 g 6/6h se nosocomial)",
+                "2,25 g IV de 8/8h ou 12/12h"
+              ],
+              [
+                "Polimixina B (BGN multirresistentes / KPC / Acinetobacter)",
+                "Ataque 25.000 UI/kg -> 12.500 a 15.000 UI/kg IV de 12/12h (em SG 5%)",
+                "NÃO requer ajuste renal pela função renal (depuração não renal)!",
+                "NÃO reduzir dose na LRA (ao contrário da Colistina, a Polimixina B não é ajustada pelo ClCr)"
+              ],
+              [
+                "Sulfametoxazol-Trimetoprima — Bactrim (MRSA, Stenotrophomonas, Pneumocystis)",
+                "ITU: 800/160 mg 12/12h | Infecção grave/PCP: 15-20 mg/kg/dia de TMP (dividido 6/6h ou 8/8h)",
+                "ClCr 15-30: reduzir a dose em 50%",
+                "ClCr < 15: evitar uso ou administrar 50% da dose a cada 24h com monitorização de K+"
+              ],
+              [
+                "Vancomicina (Cocos Gram-positivos resistentes / MRSA)",
+                "Ataque 25-30 mg/kg -> 15-20 mg/kg IV de 12/12h",
+                "ClCr 20-49: 15 mg/kg de 24/24h (guiar por vancocinemia no vale: meta 15-20 mcg/mL)",
+                "Ataque 15-25 mg/kg -> redosar conforme vancocinemia sérica (ou 7,5-10 mg/kg após cada sessão de HD)"
+              ]
+            ]
+          }
+        ],
+        "alvos": [
+          [
+            "Antimicrobianos que NÃO exigem ajuste na Insuficiência Renal",
+            "Ceftriaxona, Azitromicina, Clindamicina, Oxacilina, Linezolida, Moxifloxacino, Doxiciclina, Tigeciclina e Polimixina B"
+          ],
+          [
+            "1ª Dose de Antibiótico no Choque Séptico com LRA",
+            "SEMPRE dose plena / dose de ataque (o volume de distribuição está aumentado na sepse; ajustar apenas a partir da 2ª dose)"
+          ],
+          [
+            "Meta de Vancocinemia (concentração sérica no vale)",
+            "15 a 20 mcg/mL para infecções graves (bacteremia, endocardite, meningite, pneumonia e osteomielite por MRSA)"
+          ]
         ]
       }
     ]

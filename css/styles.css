@@ -1803,3 +1803,282 @@ input:focus-visible {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* =============================================
+   UI & UX ENHANCEMENTS (PLANTÃO / MOBILE-FIRST)
+   ============================================= */
+
+/* --- Tab Item Count Badge --- */
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.section-tab.active .tab-count {
+  background: rgba(220, 38, 38, 0.14);
+  color: var(--brand);
+}
+
+[data-theme="dark"] .section-tab.active .tab-count {
+  background: rgba(252, 165, 165, 0.16);
+  color: var(--brand-light);
+}
+
+/* --- Collapsible Sidebar Categories --- */
+.nav-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-category:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.nav-category-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-category-count {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+.nav-category-chevron {
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-category.collapsed .nav-category-chevron {
+  transform: rotate(-90deg);
+}
+
+/* --- Condition Header & Quick-Jump Bar --- */
+.condition-header {
+  margin-bottom: 24px;
+}
+
+.condition-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-jump-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 8px;
+  scrollbar-width: thin;
+}
+
+.section-jump-bar[hidden] {
+  display: none !important;
+}
+
+.jump-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  min-height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.jump-pill:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: var(--bg-tertiary);
+}
+
+.jump-pill ion-icon {
+  font-size: 0.95rem;
+  color: var(--brand);
+}
+
+/* --- Section Header Row (Title + Action Button) --- */
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.btn-copy-receita {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.btn-copy-receita.copied,
+.step-copy-btn.copied {
+  color: var(--success) !important;
+  border-color: var(--success) !important;
+  background: var(--success-bg) !important;
+}
+
+/* --- Copyable Prescription Steps --- */
+.conduta-step--copyable {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.conduta-step-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.step-copy-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  background: var(--bg-tertiary);
+}
+
+/* --- Score Table Horizontal Wrapper --- */
+.score-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -4px;
+  padding: 0 4px;
+}
+
+/* --- Score Calculator Group Subheaders --- */
+.escore-calc-group-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--info);
+  margin: 10px 0 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.escore-calc-group-title:first-child {
+  margin-top: 0;
+}
+
+.escore-reset-btn {
+  border: 1px solid var(--border);
+}
+
+/* --- Vasoactive Calculator Weight Presets & Clickable Rows --- */
+.calc-input-row--peso {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.calc-peso-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.calc-weight-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.calc-preset-btn {
+  flex: 1;
+  min-width: 52px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.calc-preset-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.calc-preset-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.calc-table-row--clickable {
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.calc-table-row--clickable:hover {
+  background: var(--accent-light);
+}
+
+@media print {
+  .section-jump-bar,
+  .btn-copy-receita,
+  .step-copy-btn {
+    display: none !important;
+  }
+}
