@@ -12,18 +12,20 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Opção 1 (Padrão):** 16 mg (4 ampolas = 16 mL) + SG 5% **234 mL** → **64 mcg/mL**",
-          "**Opção 2 (Volume):** 8 mg (2 ampolas = 8 mL) + SG 5% **242 mL** → **32 mcg/mL**",
-          "**Opção 3 (Seringa):** 4 mg (1 ampola = 4 mL) + SF 0,9% **46 mL** (seringa) → **80 mcg/mL** (usar microbomba)"
+          "**Opção 1 (Padrão — 64 mcg/mL):** 16 mg (4 ampolas = 16 mL) + SG 5% **234 mL** (volume final 250 mL) → **64 mcg/mL**",
+          "**Opção 2 (Diluída — 32 mcg/mL):** 8 mg (2 ampolas = 8 mL) + SG 5% **242 mL** (volume final 250 mL) → **32 mcg/mL**",
+          "**Opção 3 (Concentrada — 128 mcg/mL):** 32 mg (8 ampolas = 32 mL) + SG 5% **218 mL** (volume final 250 mL) → **128 mcg/mL**",
+          "**Opção 4 (Seringa 50 mL — 80 mcg/mL):** 4 mg (1 ampola = 4 mL) + SG 5% **46 mL** (volume final 50 mL) → **80 mcg/mL**"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**250 mL (16 mg):** 1 mL/h = **64 mcg/h** (ou 1,07 mcg/kg/h para 60 kg)",
-          "**250 mL (8 mg):** 1 mL/h = **32 mcg/h** (ou 0,53 mcg/kg/h para 60 kg)",
-          "**Seringa 50 mL (4 mg):** 1 mL/h = **80 mcg/h** (usar microbomba — ⚠️ atenção à concentração)"
+          "**64 mcg/mL (16 mL + 234 mL = 250 mL):** 1 mL/h = **64 mcg/h** (≈ 1,07 mcg/min)",
+          "**32 mcg/mL (8 mL + 242 mL = 250 mL):** 1 mL/h = **32 mcg/h** (≈ 0,53 mcg/min)",
+          "**128 mcg/mL (32 mL + 218 mL = 250 mL):** 1 mL/h = **128 mcg/h** (≈ 2,13 mcg/min — restrição hídrica / choque refratário)",
+          "**80 mcg/mL (4 mL + 46 mL = 50 mL):** 1 mL/h = **80 mcg/h** (bomba de seringa)"
         ]
       },
       {
@@ -55,7 +57,7 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "16 mg (4 amps) + SG5% 250 mL",
+          "rotulo": "16 mg (16 mL) + SG5% 234 mL",
           "volume_ml": 250,
           "concentracao": 64,
           "doses": [
@@ -72,7 +74,7 @@
           ]
         },
         {
-          "rotulo": "8 mg (2 amps) + SG5% 250 mL",
+          "rotulo": "8 mg (8 mL) + SG5% 242 mL",
           "volume_ml": 250,
           "concentracao": 32,
           "doses": [
@@ -89,7 +91,24 @@
           ]
         },
         {
-          "rotulo": "4 mg (1 amp) + SF0.9% 50 mL",
+          "rotulo": "32 mg (32 mL) + SG5% 218 mL",
+          "volume_ml": 250,
+          "concentracao": 128,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 0.05,
+              "dose_max": 0.1
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 0.3,
+              "dose_max": 0.5
+            }
+          ]
+        },
+        {
+          "rotulo": "4 mg (4 mL) + SG5% 46 mL",
           "volume_ml": 50,
           "concentracao": 80,
           "doses": [
@@ -126,9 +145,9 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 50 mg (1 frasco = 2 mL) + SG 5% **248 mL** → **200 mcg/mL** (proteger da luz)",
-          "**Alternativa:** 50 mg + SG 5% **498 mL** → **100 mcg/mL** (volume final 500 mL)",
-          "**⚠️ Proteger da luz:** envolver a bolsa/siringa com alumínio ou papel escuro (degradação fotossensível)"
+          "**Padrão:** 50 mg (1 frasco = 2 mL) + SG 5% **248 mL** (volume final 250 mL) → **200 mcg/mL** (proteger da luz)",
+          "**Alternativa:** 50 mg (1 frasco = 2 mL) + SG 5% **498 mL** (volume final 500 mL) → **100 mcg/mL**",
+          "**⚠️ Proteger da luz:** envolver a bolsa e o equipo com capa fotoprotetora (degradação fotossensível)"
         ]
       },
       {
@@ -171,7 +190,7 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "50 mg + SG5% 250 mL",
+          "rotulo": "50 mg (2 mL) + SG5% 248 mL",
           "volume_ml": 250,
           "concentracao": 200,
           "doses": [
@@ -188,7 +207,7 @@
           ]
         },
         {
-          "rotulo": "50 mg + SG5% 500 mL",
+          "rotulo": "50 mg (2 mL) + SG5% 498 mL",
           "volume_ml": 500,
           "concentracao": 100,
           "doses": [
@@ -214,7 +233,7 @@
   {
     "id": "fentanil",
     "titulo": "Fentanil",
-    "apresentacao": "Ampola 50 mcg/mL (2 mL = 100 mcg)",
+    "apresentacao": "Ampola 50 mcg/mL (2 mL = 100 mcg ou 10 mL = 500 mcg)",
     "sinonimos": "Fentanila, Fentanest, Citrato de fentanila",
     "cor": "#d97706",
     "icon": "bed-outline",
@@ -224,19 +243,18 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
-          "**Padrão:** 10 mcg/kg (ex: 500 mcg para 50 kg) + SF 0,9% ou SG 5% **até 50 mL** → concentração em mcg/mL = peso ÷ 5",
-          "**Exemplo prático (paciente 70 kg):** 700 mcg (7 ampolas = 14 mL) + SF 0,9% **36 mL** → **14 mcg/mL**",
-          "**Para bolus (curto prazo):** pode usar ampola pura (50 mcg/mL) — diluir em SF 0,9% para volume adequado"
+          "**Opção 1 (Diluída 10 mcg/mL — 200 mL):** 2.000 mcg (4 ampolas de 10 mL = **40 mL**) + SF 0,9% ou SG 5% **160 mL** (volume final 200 mL) → **10 mcg/mL**",
+          "**Opção 2 (Seringa 50 mL — 10 mcg/mL):** 500 mcg (1 ampola de 10 mL = **10 mL**) + SF 0,9% ou SG 5% **40 mL** (volume final 50 mL) → **10 mcg/mL**",
+          "**Opção 3 (Pura em BIC — 50 mcg/mL):** 2.000 mcg (4 ampolas de 10 mL = **40 mL puro**, sem diluir) → **50 mcg/mL** (ideal em restrição hídrica)"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**Fórmula:** Concentração (mcg/mL) = (dose em mcg) ÷ 50 mL",
-          "**Exemplo 50 kg:** 500 mcg ÷ 50 mL = **10 mcg/mL** → 1 mL/h = 10 mcg/h (0,2 mcg/kg/h)",
-          "**Exemplo 70 kg:** 700 mcg ÷ 50 mL = **14 mcg/mL** → 1 mL/h = 14 mcg/h (0,2 mcg/kg/h)",
-          "Variação de 1 mL/h = equivalente a 0,2 mcg/kg/h"
+          "**10 mcg/mL (40 mL + 160 mL = 200 mL ou 10 mL + 40 mL = 50 mL):** 1 mL/h = **10 mcg/h** (50 mcg/h = **5 mL/h** | 100 mcg/h = **10 mL/h**)",
+          "**50 mcg/mL (Puro — 40 mL):** 1 mL/h = **50 mcg/h** (50 mcg/h = **1 mL/h** | 100 mcg/h = **2 mL/h** | 200 mcg/h = **4 mL/h**)",
+          "**Exemplo 700 mcg (14 mL) + SF 36 mL (50 mL):** **14 mcg/mL** → 1 mL/h = 14 mcg/h (0,2 mcg/kg/h para 70 kg)"
         ]
       },
       {
@@ -271,8 +289,8 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "500 mcg + SF 50 mL",
-          "volume_ml": 50,
+          "rotulo": "2.000 mcg (40 mL) + SF 160 mL (ou 500 mcg [10 mL] + SF 40 mL)",
+          "volume_ml": 200,
           "concentracao": 10,
           "doses": [
             {
@@ -288,7 +306,24 @@
           ]
         },
         {
-          "rotulo": "700 mcg + SF 50 mL",
+          "rotulo": "2.000 mcg Puro (4 amp de 10 mL = 40 mL sem diluir)",
+          "volume_ml": 40,
+          "concentracao": 50,
+          "doses": [
+            {
+              "rotulo": "Infusão contínua",
+              "dose_min": 25,
+              "dose_max": 100
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 200,
+              "dose_max": 300
+            }
+          ]
+        },
+        {
+          "rotulo": "700 mcg (14 mL) + SF 36 mL",
           "volume_ml": 50,
           "concentracao": 14,
           "doses": [
@@ -314,7 +349,7 @@
   {
     "id": "midazolam",
     "titulo": "Midazolam",
-    "apresentacao": "Ampola 5 mg/mL (2 mL = 10 mg) ou 1 mg/mL (1 mL)",
+    "apresentacao": "Ampola 5 mg/mL (3 mL = 15 mg ou 10 mL = 50 mg) ou 1 mg/mL (5 mL = 5 mg)",
     "sinonimos": "Dormonid, Versed",
     "cor": "#d97706",
     "icon": "moon-outline",
@@ -324,19 +359,18 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão (Infusão Contínua)",
         "itens": [
-          "**Padrão:** 50 mg (5 ampolas de 10 mg = 10 mL) + SF 0,9% ou SG 5% **40 mL** → **50 mL** → **1 mg/mL**",
-          "**Alternativa (menor concentração):** 30 mg + SG 5% **q.s.p. 50 mL** → **0,6 mg/mL**",
-          "**Para bolus:** ampola pura 1 mg/mL — dose de 0,02-0,05 mg/kg IV"
+          "**Opção 1 (Padrão UTI — 1 mg/mL em 150 mL):** 150 mg (3 ampolas de 50 mg/10 mL = **30 mL**) + SF 0,9% ou SG 5% **120 mL** (volume final 150 mL) → **1 mg/mL**",
+          "**Opção 2 (Seringa 50 mL — 1 mg/mL):** 50 mg (1 ampola de 50 mg/10 mL = **10 mL**) + SF 0,9% ou SG 5% **40 mL** (volume final 50 mL) → **1 mg/mL**",
+          "**Opção 3 (Alternativa 0,6 mg/mL):** 30 mg (2 ampolas de 15 mg/3 mL = **6 mL**) + SF 0,9% ou SG 5% **44 mL** (volume final 50 mL) → **0,6 mg/mL**"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**50 mL com 50 mg:** 1 mL/h = **1 mg/h** (≈ 0,015 mg/kg/h para 70 kg)",
-          "**50 mL com 30 mg:** 1 mL/h = **0,6 mg/h**",
-          "Variação de 0,5 mL/h ≈ equivalente a 0,01 mg/kg/h",
-          "**Fórmula:** mg/mL = (nº ampolas × 10 mg) ÷ 50 mL"
+          "**1 mg/mL (150 mL com 150 mg ou 50 mL com 50 mg):** 1 mL/h = **1 mg/h** (≈ 0,015 mg/kg/h para 70 kg)",
+          "**0,6 mg/mL (50 mL com 30 mg):** 1 mL/h = **0,6 mg/h**",
+          "Variação de 1 mL/h (na solução 1 mg/mL) = 1 mg/h"
         ]
       },
       {
@@ -371,8 +405,8 @@
       "concentracao_unidade": "mg/mL",
       "diluicoes": [
         {
-          "rotulo": "50 mg + SF 50 mL",
-          "volume_ml": 50,
+          "rotulo": "150 mg (30 mL) + SF 120 mL (ou 50 mg [10 mL] + SF 40 mL)",
+          "volume_ml": 150,
           "concentracao": 1.0,
           "doses": [
             {
@@ -388,7 +422,7 @@
           ]
         },
         {
-          "rotulo": "30 mg + SG5% 50 mL",
+          "rotulo": "30 mg (6 mL) + SG5% 44 mL",
           "volume_ml": 50,
           "concentracao": 0.6,
           "doses": [
@@ -514,8 +548,8 @@
   {
     "id": "dopamina",
     "titulo": "Dopamina",
-    "apresentacao": "40 mg/mL (10 mL), 80 mg/mL (10 mL), 160 mg/mL (10 mL)",
-    "sinonimos": "Intropin, Revimine",
+    "apresentacao": "Ampola 50 mg / 10 mL (5 mg/mL)",
+    "sinonimos": "Revivan, Intropin, Cloridrato de dopamina",
     "cor": "#dc2626",
     "icon": "pulse-outline",
     "tipo": "vasoativa",
@@ -524,18 +558,18 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Opção 1 (Padrão):** 200 mg + SG 5% **245 mL** → **800 mcg/mL**",
-          "**Opção 2 (Alta concentração):** 400 mg + SG 5% **240 mL** → **1.600 mcg/mL**",
-          "Dose depende da apresentação e diluição utilizada — verificar sempre a concentração final"
+          "**Opção 1 (Padrão 1.000 mcg/mL):** 250 mg (5 ampolas = **50 mL**) + SG 5% ou SF 0,9% **200 mL** (volume final 250 mL) → **1.000 mcg/mL (1 mg/mL)**",
+          "**Opção 2 (Diluída 800 mcg/mL):** 200 mg (4 ampolas = **40 mL**) + SG 5% ou SF 0,9% **210 mL** (volume final 250 mL) → **800 mcg/mL**",
+          "**Opção 3 (Concentrada 1.600 mcg/mL):** 400 mg (8 ampolas = **80 mL**) + SG 5% ou SF 0,9% **170 mL** (volume final 250 mL) → **1.600 mcg/mL**"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**800 mcg/mL (250 mL):** 1 mL/h = **13,3 mcg/min** (≈ 0,22 mcg/kg/min para 60 kg)",
-          "**1.600 mcg/mL (250 mL):** 1 mL/h = **26,7 mcg/min** (≈ 0,44 mcg/kg/min para 60 kg)",
-          "Fórmula prática: mcg/min = (mL/h × concentração em mcg/mL) ÷ tempo total (min)"
+          "**1.000 mcg/mL (50 mL + 200 mL = 250 mL):** 1 mL/h = **16,7 mcg/min** (≈ 0,24 mcg/kg/min para 70 kg)",
+          "**800 mcg/mL (40 mL + 210 mL = 250 mL):** 1 mL/h = **13,3 mcg/min** (≈ 0,19 mcg/kg/min para 70 kg)",
+          "**1.600 mcg/mL (80 mL + 170 mL = 250 mL):** 1 mL/h = **26,7 mcg/min** (≈ 0,38 mcg/kg/min para 70 kg)"
         ]
       },
       {
@@ -569,7 +603,29 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "200 mg + SG5% 250 mL",
+          "rotulo": "250 mg (50 mL) + SG5% 200 mL",
+          "volume_ml": 250,
+          "concentracao": 1000,
+          "doses": [
+            {
+              "rotulo": "Dopa (renal)",
+              "dose_min": 2.0,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Beta (inotrópica)",
+              "dose_min": 5.0,
+              "dose_max": 10.0
+            },
+            {
+              "rotulo": "Alfa (vasopressora)",
+              "dose_min": 10.0,
+              "dose_max": 20.0
+            }
+          ]
+        },
+        {
+          "rotulo": "200 mg (40 mL) + SG5% 210 mL",
           "volume_ml": 250,
           "concentracao": 800,
           "doses": [
@@ -591,7 +647,7 @@
           ]
         },
         {
-          "rotulo": "400 mg + SG5% 250 mL",
+          "rotulo": "400 mg (80 mL) + SG5% 170 mL",
           "volume_ml": 250,
           "concentracao": 1600,
           "doses": [
@@ -677,9 +733,9 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "1 mg + SF 250 mL",
+          "rotulo": "6 mg (6 mL) + SF 244 mL",
           "volume_ml": 250,
-          "concentracao": 4,
+          "concentracao": 24,
           "doses": [
             {
               "rotulo": "Choque",
@@ -694,9 +750,9 @@
           ]
         },
         {
-          "rotulo": "6 mg + SF 250 mL",
+          "rotulo": "1 mg (1 mL) + SF 249 mL",
           "volume_ml": 250,
-          "concentracao": 24,
+          "concentracao": 4,
           "doses": [
             {
               "rotulo": "Choque",
@@ -721,8 +777,8 @@
   {
     "id": "dobutamina",
     "titulo": "Dobutamina",
-    "apresentacao": "250 mg/5 mL (50 mg/mL)",
-    "sinonimos": "Dobutrex, Inotrex",
+    "apresentacao": "Ampola 250 mg / 20 mL (12,5 mg/mL)",
+    "sinonimos": "Dobutrex, Inotrex, Cloridrato de dobutamina",
     "cor": "#2563eb",
     "icon": "heart-outline",
     "tipo": "vasoativa",
@@ -731,18 +787,18 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 250 mg (1 frasco) + SG 5% **245 mL** → **1.000 mcg/mL**",
-          "**Alternativa (volume reduzido):** 250 mg + SG 5% **95 mL** → **2.500 mcg/mL** (usar microbomba)",
-          "Diluir imediatamente antes do uso — solução instável em pH alcalino"
+          "**Opção 1 (Padrão — 1.000 mcg/mL):** 250 mg (1 ampola = **20 mL**) + SG 5% ou SF 0,9% **230 mL** (volume final 250 mL) → **1.000 mcg/mL (1 mg/mL)**",
+          "**Opção 2 (Concentrada 2x — 2.000 mcg/mL):** 500 mg (2 ampolas = **40 mL**) + SG 5% ou SF 0,9% **210 mL** (volume final 250 mL) → **2.000 mcg/mL (2 mg/mL)**",
+          "**Opção 3 (Volume reduzido — 2.500 mcg/mL):** 250 mg (1 ampola = **20 mL**) + SG 5% ou SF 0,9% **80 mL** (volume final 100 mL) → **2.500 mcg/mL (2,5 mg/mL)**"
         ]
       },
       {
         "tipo": "concentracao",
         "titulo": "Concentração Final",
         "itens": [
-          "**1.000 mcg/mL (250 mL):** 1 mL/h = **16,7 mcg/min** (≈ 0,28 mcg/kg/min para 60 kg)",
-          "**2.500 mcg/mL (100 mL):** 1 mL/h = **41,7 mcg/min** (≈ 0,69 mcg/kg/min para 60 kg)",
-          "Fórmula prática: mcg/min = (mL/h × concentração em mcg/mL) ÷ tempo total (min)"
+          "**1.000 mcg/mL (20 mL + 230 mL = 250 mL):** 1 mL/h = **16,7 mcg/min** (≈ 0,24 mcg/kg/min para 70 kg)",
+          "**2.000 mcg/mL (40 mL + 210 mL = 250 mL):** 1 mL/h = **33,3 mcg/min** (≈ 0,48 mcg/kg/min para 70 kg)",
+          "**2.500 mcg/mL (20 mL + 80 mL = 100 mL):** 1 mL/h = **41,7 mcg/min** (≈ 0,60 mcg/kg/min para 70 kg)"
         ]
       },
       {
@@ -776,7 +832,7 @@
       "concentracao_unidade": "mcg/mL",
       "diluicoes": [
         {
-          "rotulo": "250 mg + SG5% 250 mL",
+          "rotulo": "250 mg (20 mL) + SG5% 230 mL",
           "volume_ml": 250,
           "concentracao": 1000,
           "doses": [
@@ -793,7 +849,24 @@
           ]
         },
         {
-          "rotulo": "250 mg + SG5% 100 mL",
+          "rotulo": "500 mg (40 mL) + SG5% 210 mL",
+          "volume_ml": 250,
+          "concentracao": 2000,
+          "doses": [
+            {
+              "rotulo": "Dose inicial",
+              "dose_min": 2.0,
+              "dose_max": 5.0
+            },
+            {
+              "rotulo": "Dose máxima",
+              "dose_min": 15.0,
+              "dose_max": 20.0
+            }
+          ]
+        },
+        {
+          "rotulo": "250 mg (20 mL) + SG5% 80 mL",
           "volume_ml": 100,
           "concentracao": 2500,
           "doses": [
@@ -830,8 +903,8 @@
         "tipo": "diluicao",
         "titulo": "Diluição Padrão",
         "itens": [
-          "**Padrão:** 20 UI (1 ampola) + SF 0,9% **100 mL** → **0,2 UI/mL**",
-          "**Alternativa:** 40 UI + SF 0,9% **100 mL** → **0,4 UI/mL**",
+          "**Padrão (0,2 UI/mL):** 20 UI (1 ampola = **1 mL**) + SF 0,9% ou SG 5% **99 mL** (volume final 100 mL) → **0,2 UI/mL**",
+          "**Alternativa (0,4 UI/mL):** 40 UI (2 ampolas = **2 mL**) + SF 0,9% ou SG 5% **98 mL** (volume final 100 mL) → **0,4 UI/mL**",
           "Sempre diluir — nunca administrar bolus IV"
         ]
       },
@@ -875,7 +948,7 @@
       "dose_fixa": true,
       "diluicoes": [
         {
-          "rotulo": "20 UI + SF 100 mL",
+          "rotulo": "20 UI (1 mL) + SF 99 mL",
           "volume_ml": 100,
           "concentracao": 0.2,
           "doses": [
@@ -887,7 +960,7 @@
           ]
         },
         {
-          "rotulo": "40 UI + SF 100 mL",
+          "rotulo": "40 UI (2 mL) + SF 98 mL",
           "volume_ml": 100,
           "concentracao": 0.4,
           "doses": [

@@ -31,21 +31,21 @@
           {
             "nome": "Noradrenalina",
             "apresentacao": "4 mg/4 mL (1 mg/mL)",
-            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "diluicao": "16 mg (16 mL) + 234 mL SG 5% (64 mcg/mL) ou 8 mg (8 mL) + 242 mL SG 5% (32 mcg/mL)",
             "dose": "0,1-0,5 mcg/kg/min → titular até PAM ≥65",
             "sus": "basico"
           },
           {
             "nome": "Vasopressina",
-            "apresentacao": "20 UI/100 mL (0,2 UI/mL)",
-            "diluicao": "Frasco 20 UI em 100 mL SF",
+            "apresentacao": "Ampola 20 UI / 1 mL",
+            "diluicao": "20 UI (1 mL) + 99 mL SF 0,9% ou SG 5% (0,2 UI/mL)",
             "dose": "0,03 UI/min (dose fixa)",
             "sus": "basico"
           },
           {
             "nome": "Dobutamina",
-            "apresentacao": "250 mg/5 mL",
-            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "apresentacao": "Ampola 250 mg/20 mL (12,5 mg/mL)",
+            "diluicao": "250 mg (20 mL) + 230 mL SG 5% ou SF 0,9% (1.000 mcg/mL)",
             "dose": "2-20 mcg/kg/min — titular por inotrópico",
             "sus": "basico"
           },
@@ -216,22 +216,22 @@
         "dados": [
           {
             "nome": "Dobutamina",
-            "apresentacao": "250 mg/5 mL",
-            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "apresentacao": "Ampola 250 mg/20 mL (12,5 mg/mL)",
+            "diluicao": "250 mg (20 mL) + 230 mL SG 5% ou SF 0,9% (1.000 mcg/mL)",
             "dose": "2-20 mcg/kg/min — titular por inotrópico",
             "sus": "basico"
           },
           {
             "nome": "Noradrenalina",
             "apresentacao": "4 mg/4 mL",
-            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "diluicao": "16 mg (16 mL) + 234 mL SG 5% (64 mcg/mL) ou 8 mg (8 mL) + 242 mL SG 5% (32 mcg/mL)",
             "dose": "0,2-1,0 mcg/kg/min — PAM ≥65",
             "sus": "basico"
           },
           {
             "nome": "Milrinona",
             "apresentacao": "10 mg/10 mL (1 mg/mL)",
-            "diluicao": "10 mg em 100 mL SF (100 mcg/mL)",
+            "diluicao": "20 mg (20 mL) + 80 mL SG 5%/SF (200 mcg/mL) ou 10 mg (10 mL) + 90 mL (100 mcg/mL)",
             "dose": "Carga 25-75 mcg/kg 10-20min → 0,375-0,75 mcg/kg/min",
             "sus": "ceaf"
           },
@@ -245,7 +245,7 @@
           {
             "nome": "Nitroglicerina",
             "apresentacao": "5 mg/mL (ampola)",
-            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "diluicao": "50 mg (10 mL) + 240 mL SG 5% ou SF 0,9% (200 mcg/mL)",
             "dose": "10-200 mcg/min — titular por congestão",
             "sus": "basico"
           },
@@ -814,14 +814,14 @@
           {
             "nome": "Nitroprussiato de Sódio",
             "apresentacao": "50 mg/2 mL",
-            "diluicao": "50 mg em 250 mL SG5% (200 mcg/mL)",
+            "diluicao": "50 mg (2 mL) + 248 mL SG 5% (200 mcg/mL) — proteger da luz",
             "dose": "0,25-10 mcg/kg/min — titular c/ PA invasiva (1ª linha urgência)",
             "sus": "ceaf"
           },
           {
             "nome": "Nitroglicerina",
             "apresentacao": "5 mg/mL (10 mL)",
-            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "diluicao": "50 mg (10 mL) + 240 mL SG 5% ou SF 0,9% (200 mcg/mL)",
             "dose": "5-200 mcg/min — 1ª linha se congestão/IC",
             "sus": "basico"
           },
@@ -856,14 +856,14 @@
           {
             "nome": "Sulfato de Magnésio",
             "apresentacao": "50% (500 mg/mL) 10 mL",
-            "diluicao": "Diluir em 100 mL SF (5 mg/mL)",
-            "dose": "6 g IV (solução 10%) em 15-20 min → 2 g/h contínuo (eclâmpsia/pré-eclâmpsia grave)",
+            "diluicao": "Ataque: 4 a 6 g (8 a 12 mL) + 100 mL SF 0,9% | Manutenção: 10 g (20 mL) + 480 mL SF (20 mg/mL)",
+            "dose": "4 a 6 g IV em 15-20 min → 1 a 2 g/h (50-100 mL/h) contínuo (eclâmpsia/pré-eclâmpsia grave)",
             "sus": "rename"
           },
           {
             "nome": "Esmolol",
-            "apresentacao": "10 mg/mL (10 mL)",
-            "diluicao": "2,5 g em 250 mL SG5% (10.000 mcg/mL)",
+            "apresentacao": "10 mg/mL (10 mL) ou 250 mg/mL (10 mL = 2,5 g)",
+            "diluicao": "2.500 mg (10 mL) + 240 mL SF 0,9% ou SG 5% (10 mg/mL)",
             "dose": "Bolus 500 mcg/kg 1min → 50-200 mcg/kg/min (dissecção)",
             "sus": "ceaf"
           },
@@ -1051,7 +1051,7 @@
           {
             "nome": "Nitroglicerina",
             "apresentacao": "5 mg/mL (10 mL)",
-            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "diluicao": "50 mg (10 mL) + 240 mL SG 5% ou SF 0,9% (200 mcg/mL)",
             "dose": "5-10 mcg/min IV → titular até alívio da dor (máx 200 mcg/min)",
             "sus": "basico"
           },
@@ -1452,7 +1452,7 @@
           {
             "nome": "Nitroglicerina",
             "apresentacao": "5 mg/mL (ampola)",
-            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "diluicao": "50 mg (10 mL) + 240 mL SG 5% ou SF 0,9% (200 mcg/mL)",
             "dose": "SL: 1-3 dose(s) a cada 5min. IV: 10-200 mcg/min. CONTRA se PA < 90, VD, uso de PDE5 (sildenafila/udenafila < 24h, tadalafila < 48h)",
             "sus": "basico"
           },
@@ -1683,14 +1683,14 @@
           {
             "nome": "Noradrenalina",
             "apresentacao": "4 mg/4 mL (1 mg/mL)",
-            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "diluicao": "16 mg (16 mL) + 234 mL SG 5% (64 mcg/mL) ou 8 mg (8 mL) + 242 mL SG 5% (32 mcg/mL)",
             "dose": "0,2-1,0 mcg/kg/min → titular por PA (1ª linha vasopressor no TEP). Melhora PA + inotrópico VD",
             "sus": "basico"
           },
           {
             "nome": "Dobutamina",
-            "apresentacao": "250 mg/5 mL",
-            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "apresentacao": "Ampola 250 mg/20 mL (12,5 mg/mL)",
+            "diluicao": "250 mg (20 mL) + 230 mL SG 5% ou SF 0,9% (1.000 mcg/mL)",
             "dose": "2-20 mcg/kg/min — inotrópico se IC reduzida/índice cardíaco baixo. Associar a NA se hipotenso",
             "sus": "basico"
           },
@@ -2342,42 +2342,42 @@
           {
             "nome": "Nitroglicerina",
             "apresentacao": "5 mg/mL (ampola 10 mL)",
-            "diluicao": "5 mg em 250 mL SG5% (20 mcg/mL)",
+            "diluicao": "50 mg (10 mL) + 240 mL SG 5% ou SF 0,9% (200 mcg/mL)",
             "dose": "5-200 mcg/min — titular por congestão/dor. SCAPE: bolus 2 mg pode ser seguro",
             "sus": "basico"
           },
           {
             "nome": "Nitroprussiato de Sódio",
             "apresentacao": "50 mg/2 mL",
-            "diluicao": "50 mg em 250 mL SG5% (200 mcg/mL)",
+            "diluicao": "50 mg (2 mL) + 248 mL SG 5% (200 mcg/mL) — proteger da luz",
             "dose": "0,3-10 mcg/kg/min — HAS sem isquemia. NÃO se PAS < 110. Titular c/ PA invasiva",
             "sus": "ceaf"
           },
           {
             "nome": "Dobutamina",
-            "apresentacao": "250 mg/5 mL",
-            "diluicao": "250 mg em 250 mL SG5% (1000 mcg/mL)",
+            "apresentacao": "Ampola 250 mg/20 mL (12,5 mg/mL)",
+            "diluicao": "250 mg (20 mL) + 230 mL SG 5% ou SF 0,9% (1.000 mcg/mL)",
             "dose": "2-20 mcg/kg/min — FEVE < 40%, baixo débito. Titular por inotrópico",
             "sus": "basico"
           },
           {
             "nome": "Milrinona",
             "apresentacao": "10 mg/10 mL (1 mg/mL)",
-            "diluicao": "10 mg em 100 mL SF (100 mcg/mL)",
+            "diluicao": "20 mg (20 mL) + 80 mL SG 5%/SF (200 mcg/mL) ou 10 mg (10 mL) + 90 mL (100 mcg/mL)",
             "dose": "Carga 25-75 mcg/kg 10min → 0,375-0,75 mcg/kg/min. EVITAR em IC isquêmica",
             "sus": "ceaf"
           },
           {
             "nome": "Levosimendan",
-            "apresentacao": "12,5 mg/5 mL",
-            "diluicao": "12,5 mg em 250 mL SG5% (50 mcg/mL)",
+            "apresentacao": "12,5 mg/5 mL (2,5 mg/mL)",
+            "diluicao": "12,5 mg (5 mL) + 245 mL SG 5% (50 mcg/mL) ou + 495 mL SG 5% (25 mcg/mL)",
             "dose": "Carga 12 mcg/kg em 10 min (opcional) → 0,1 mcg/kg/min (0,05-0,2). Sem taquicardia",
             "sus": "ceaf"
           },
           {
             "nome": "Noradrenalina",
             "apresentacao": "4 mg/4 mL (1 mg/mL)",
-            "diluicao": "8 mg em 250 mL SG5% (32 mcg/mL)",
+            "diluicao": "16 mg (16 mL) + 234 mL SG 5% (64 mcg/mL) ou 8 mg (8 mL) + 242 mL SG 5% (32 mcg/mL)",
             "dose": "0,2-1,0 mcg/kg/min — apenas se PAS < 75 mmHg",
             "sus": "basico"
           },
@@ -2658,9 +2658,9 @@
         "dados": [
           {
             "nome": "Amiodarona",
-            "apresentacao": "150mg/3mL",
-            "diluicao": "150mg + SG5% 100mL",
-            "dose": "150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h",
+            "apresentacao": "150 mg/3 mL (50 mg/mL)",
+            "diluicao": "Ataque: 150 mg (3 mL) + SG 5% 100 mL | Manutenção: 900 mg (18 mL) + SG 5% 232 mL (3,6 mg/mL)",
+            "dose": "150mg EV em 10min → 1mg/min (16,7 mL/h) 6h → 0,5mg/min (8,3 mL/h) 18h",
             "sus": "basico"
           },
           {
@@ -2686,9 +2686,9 @@
           },
           {
             "nome": "Adenosina",
-            "apresentacao": "6mg/mL",
-            "diluicao": "6mg diluído em 10-20mL SF",
-            "dose": "6mg EV bolus rápido → 12mg se falhar (máx 2 repetições). Usar torneira de 3 vias ou seringa única",
+            "apresentacao": "Ampola 6 mg / 2 mL (3 mg/mL)",
+            "diluicao": "Pura em bolus IV rápido (1-2s) seguido de flush rápido de 20 mL SF 0,9% (torneira de 3 vias)",
+            "dose": "6 mg EV bolus rápido → 12 mg se falhar após 1-2 min (pode repetir 12 mg mais 1x). Elevar o membro após o flush",
             "sus": "basico"
           }
         ]
@@ -2824,7 +2824,7 @@
           "**Massagem carotídea:** compressão unilateral por 5-20s (nunca bilateral). Auscultar sopro antes",
           "",
           "**Tratamento farmacológico — TSV estável:**",
-          "**Adenosina:** 6mg EV bolus rápido → 12mg se falhar. Método seringa única (diluir em 10-20mL SF). Efeitos transitórios em <30s",
+          "**Adenosina:** 6 mg EV bolus rápido (puro, em 1-2s) seguido imediatamente de flush rápido de 20 mL SF 0,9% (torneira de 3 vias) → 12 mg se falhar após 1-2 min. Efeitos transitórios em < 30s",
           "**Sem resposta?** Diltiazem 0,25mg/kg EV 2min (repetir 0,35mg/kg) ou Verapamil 2,5-5mg EV 3min",
           "**CUIDADO:** BCC e betabloqueadores CONTRAINDICADOS em IC FE < 40%",
           "",
@@ -2869,23 +2869,23 @@
         "dados": [
           {
             "nome": "Metoprolol",
-            "apresentacao": "5mg/mL",
+            "apresentacao": "Ampola 5 mg / 5 mL (1 mg/mL)",
             "diluicao": "Pode usar direto",
             "dose": "5mg EV em 5min, repetir até 15mg. Cuidado: IC FE<40%, broncoespasmo",
             "sus": "basico"
           },
           {
             "nome": "Diltiazem",
-            "apresentacao": "50mg",
-            "diluicao": "50mg + SG5% 100mL (0,5mg/mL)",
+            "apresentacao": "Frasco-ampola 25 mg ou 50 mg",
+            "diluicao": "50 mg + SG 5% ou SF 0,9% 100 mL (0,5 mg/mL)",
             "dose": "0,25mg/kg EV em 2min → 0,35mg/kg se necessário → manutenção 5-15mg/h",
             "sus": "rename"
           },
           {
             "nome": "Amiodarona",
-            "apresentacao": "150mg/3mL",
-            "diluicao": "150mg + SG5% 100mL",
-            "dose": "150mg EV em 10min → 1mg/min 6h → 0,5mg/min 18h. Máx 1,2g/24h",
+            "apresentacao": "150 mg/3 mL (50 mg/mL)",
+            "diluicao": "Ataque: 150 mg (3 mL) + SG 5% 100 mL | Manutenção: 900 mg (18 mL) + SG 5% 232 mL (3,6 mg/mL)",
+            "dose": "150mg EV em 10min → 1mg/min (16,7 mL/h) 6h → 0,5mg/min (8,3 mL/h) 18h. Máx 2,2 g/24h",
             "sus": "basico"
           },
           {
